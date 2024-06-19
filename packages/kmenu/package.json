@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "framer-motion": "^11.0.3",
+    "ui": "workspace:*",
     "react-scrollbar-size": "^5.0.0"
   }
 }

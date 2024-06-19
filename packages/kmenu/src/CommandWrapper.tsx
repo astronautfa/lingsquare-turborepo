@@ -6,6 +6,12 @@ import { CommandWrapperProps } from './types'
 import useClickOutside from './hooks/useClickOutside'
 import useAnimation from './hooks/useAnimation'
 
+import {
+  BreadCrumb,
+  BreadCrumbItem,
+  BreadCrumbSeparator,
+} from "ui/src/components/ui/breadcrumbs"
+
 export const CommandWrapper: FC<
   CommandWrapperProps & { children: ReactNode }
 > = ({ children, defaultValue }) => {
@@ -57,17 +63,16 @@ export const CommandWrapper: FC<
                 scale: firefox || prefersReducedMotion ? 1 : 0.95,
               }}
             >
-              <div className='crumbs'>
+              <BreadCrumb variant={'ghost'} className="gap-1 bg-background rounded-lg p-2">
                 {crumbs?.map((crumb, index) => (
-                  <button
-                    onClick={() => setOpen(index + 1)}
-                    className='breadcrumb'
-                    key={index}
-                  >
-                    {crumb}
-                  </button>
+                  <span className="flex align-center justify-start">
+                    <BreadCrumbItem onClick={() => setOpen(index + 1)} key={index} index={index}>
+                      {crumb}
+                    </BreadCrumbItem>
+                    <BreadCrumbSeparator />
+                  </span>
                 ))}
-              </div>
+              </BreadCrumb>
               <input
                 placeholder={placeholder || 'What do you need?'}
                 defaultValue={defaultValue}
