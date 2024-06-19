@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "@ui/styles/globals.css"
 import "@ui/styles/cmdk.css"
 
-
 import { cookies } from "next/headers";
 
 import { SidebarLayout } from '@/components/sidebar-layout'
@@ -15,9 +14,11 @@ import { cn } from "@ui/lib/utils"
 import { absoluteUrl } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 
-import CommandMenu from "../components/command-menu";
+import dynamic from "next/dynamic";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const CommandMenu = dynamic(() => import('../components/command-menu'))
 
 export const metadata: Metadata = {
   title: {

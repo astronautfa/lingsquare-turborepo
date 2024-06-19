@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-redeclare
 import React, { FC, useRef, useEffect, useState, useContext } from 'react'
 import useInView from './hooks/useInView'
 import { useShortcut } from './hooks/useShortcut'

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-redeclare
 import React, { FC } from 'react'
 import { motion } from 'framer-motion'
 

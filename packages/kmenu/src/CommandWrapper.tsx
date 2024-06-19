@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-redeclare
 import React, { FC, ReactNode, useContext, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MenuContext } from './MenuProvider'

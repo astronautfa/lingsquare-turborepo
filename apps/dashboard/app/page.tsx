@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function Example() {
   return (
     <div>
-      something
+      Explore Page
     </div>
   )
 }

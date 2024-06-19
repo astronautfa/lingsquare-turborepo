@@ -12,7 +12,6 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import {
   FiCommand,
-  FiHome,
   FiLink,
   FiMoon,
   FiPlus,
@@ -26,6 +25,7 @@ import { TbFishHook, TbMoonStars, TbPaint, TbPower } from "react-icons/tb";
 import { Item, items, slugify } from "./sidebar-kmenu";
 import { ClockIcon, AcademicCapIcon, MagnifyingGlassIcon, PlusIcon, BookOpenIcon } from "@heroicons/react/20/solid";
 import { ScrollArea } from "@ui/components/scroll-area"
+import { useCallback, useMemo } from "react";
 
 export default () => {
   const router = useRouter();
@@ -33,7 +33,7 @@ export default () => {
   const { setTheme } = useTheme();
   const { setOpen } = useKmenu();
 
-  const docsToCommands = (item: Item): Command[] => [
+  const docsToCommands = useCallback((item: Item): Command[] => [
     {
       category: item.category,
       commands: item.pages.map((page) => ({
@@ -49,25 +49,24 @@ export default () => {
         ...(page.href && { href: page.href, newTab: true }),
       })),
     },
-  ];
+  ], []);
 
-  const generateDocCommands = (): InnerCommand[] =>
-    items.flatMap((item) =>
-      item.pages.map((page) => ({
-        icon: page.icon,
-        text: page.name,
-        ...(!page.href && {
-          perform: () =>
-            router.push(
-              `/docs/${slugify(item.category)}/${slugify(page.name)}`,
-            ),
-          closeOnComplete: true,
-        }),
-        ...(page.href && { href: page.href, newTab: true }),
-      })),
-    );
+  const generateDocCommands = useCallback((): InnerCommand[] => items.flatMap((item) =>
+    item.pages.map((page) => ({
+      icon: page.icon,
+      text: page.name,
+      ...(!page.href && {
+        perform: () =>
+          router.push(
+            `/docs/${slugify(item.category)}/${slugify(page.name)}`,
+          ),
+        closeOnComplete: true,
+      }),
+      ...(page.href && { href: page.href, newTab: true }),
+    })),
+  ), []);
 
-  const main: Command[] = [
+  const main: Command[] = useMemo(() => [
     {
       category: "Navigation",
       commands: [
@@ -144,9 +143,9 @@ export default () => {
         },
       ],
     },
-  ];
+  ], []);
 
-  const docs: Command[] = [
+  const docs: Command[] = useMemo(() => [
     {
       category: "Documentation",
       commands: [
@@ -183,9 +182,9 @@ export default () => {
       ],
       subCommands: generateDocCommands(),
     },
-  ];
+  ], []);
 
-  const theme: Command[] = [
+  const theme: Command[] = useMemo(() => [
     {
       category: "Set Theme",
       commands: [
@@ -206,8 +205,7 @@ export default () => {
         },
       ],
     },
-  ];
-
+  ], []);
 
   const [mainCommands] = useCommands(main);
   const [docsCommands] = useCommands(docs);
@@ -220,7 +218,7 @@ export default () => {
   const [other] = useCommands(docsToCommands(items[5]!));
 
   return (
-    <CommandWrapper>
+    <CommandWrapper >
       <ScrollArea className="h-[300px]">
         <CommandMenu commands={mainCommands} index={1} crumbs={["Home"]} />
         <CommandMenu
@@ -265,6 +263,6 @@ export default () => {
           crumbs={["Home", "Docs", "Other"]}
         />
       </ScrollArea>
-    </CommandWrapper>
+    </ CommandWrapper >
   );
 };
