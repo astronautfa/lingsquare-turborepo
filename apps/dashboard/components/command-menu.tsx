@@ -22,12 +22,10 @@ import {
   FiZap,
 } from "react-icons/fi";
 import { HiOutlineDesktopComputer } from "react-icons/hi";
-import { LuLink2 } from "react-icons/lu";
-import { SiReact } from "react-icons/si";
 import { TbFishHook, TbMoonStars, TbPaint, TbPower } from "react-icons/tb";
 import { Item, items, slugify } from "./sidebar-kmenu";
-import { CgNpm } from "react-icons/cg";
 import { ClockIcon, AcademicCapIcon, MagnifyingGlassIcon, PlusIcon, BookOpenIcon } from "@heroicons/react/20/solid";
+import { ScrollArea } from "@ui/components/scroll-area"
 
 export default () => {
   const router = useRouter();
@@ -223,48 +221,50 @@ export default () => {
 
   return (
     <CommandWrapper>
-      <CommandMenu commands={mainCommands} index={1} crumbs={["Home"]} />
-      <CommandMenu
-        commands={docsCommands}
-        index={2}
-        crumbs={["Home", "Docs"]}
-        placeholder="Search for anything..."
-      />
-      <CommandMenu
-        commands={themeCommands}
-        index={3}
-        crumbs={["Home", "Theme"]}
-      />
-      <CommandMenu
-        commands={startGuide}
-        index={4}
-        crumbs={["Home", "Docs", "Start Guide"]}
-      />
-      <CommandMenu
-        commands={commands}
-        index={5}
-        crumbs={["Home", "Docs", "Commands"]}
-      />
-      <CommandMenu
-        commands={customization}
-        index={6}
-        crumbs={["Home", "Docs", "Customization"]}
-      />
-      <CommandMenu
-        commands={hooks}
-        index={7}
-        crumbs={["Home", "Docs", "Hooks"]}
-      />
-      <CommandMenu
-        commands={features}
-        index={8}
-        crumbs={["Home", "Docs", "Features"]}
-      />
-      <CommandMenu
-        commands={other}
-        index={9}
-        crumbs={["Home", "Docs", "Other"]}
-      />
+      <ScrollArea className="h-[300px]">
+        <CommandMenu commands={mainCommands} index={1} crumbs={["Home"]} />
+        <CommandMenu
+          commands={docsCommands}
+          index={2}
+          crumbs={["Home", "Docs"]}
+          placeholder="Search for anything..."
+        />
+        <CommandMenu
+          commands={themeCommands}
+          index={3}
+          crumbs={["Home", "Theme"]}
+        />
+        <CommandMenu
+          commands={startGuide}
+          index={4}
+          crumbs={["Home", "Docs", "Start Guide"]}
+        />
+        <CommandMenu
+          commands={commands}
+          index={5}
+          crumbs={["Home", "Docs", "Commands"]}
+        />
+        <CommandMenu
+          commands={customization}
+          index={6}
+          crumbs={["Home", "Docs", "Customization"]}
+        />
+        <CommandMenu
+          commands={hooks}
+          index={7}
+          crumbs={["Home", "Docs", "Hooks"]}
+        />
+        <CommandMenu
+          commands={features}
+          index={8}
+          crumbs={["Home", "Docs", "Features"]}
+        />
+        <CommandMenu
+          commands={other}
+          index={9}
+          crumbs={["Home", "Docs", "Other"]}
+        />
+      </ScrollArea>
     </CommandWrapper>
   );
 };

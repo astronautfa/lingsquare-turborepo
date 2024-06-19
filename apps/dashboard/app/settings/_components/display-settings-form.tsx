@@ -16,9 +16,17 @@ import {
   FormLabel,
   FormMessage,
 } from "@ui/components/form"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@ui/components/select"
 import { RadioGroup, RadioGroupItem } from "@ui/components/radio-group"
 import { toast } from "sonner";
 import { useTheme } from "next-themes"
+import { useState } from "react"
 
 const DisplaySettingsFormSchema = z.object({
   theme: z.enum(["light", "dark"], {
@@ -40,6 +48,8 @@ const defaultValues: Partial<DisplaySettingsFormValues> = {
 export function DisplaySettingsForm() {
 
   const { setTheme, theme } = useTheme();
+
+  const [openSelect, setOpenSelect] = useState<boolean>(false)
 
   const form = useForm<DisplaySettingsFormValues>({
     resolver: zodResolver(DisplaySettingsFormSchema),
@@ -71,22 +81,18 @@ export function DisplaySettingsForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Font</FormLabel>
-              <div className="relative w-max">
+              <Select onValueChange={field.onChange} defaultValue={field.value} onOpenChange={setOpenSelect}>
                 <FormControl>
-                  <select
-                    className={cn(
-                      buttonVariants({ variant: "outline" }),
-                      "w-[200px] appearance-none font-normal"
-                    )}
-                    {...field}
-                  >
-                    <option value="inter">Inter</option>
-                    <option value="manrope">Manrope</option>
-                    <option value="system">System</option>
-                  </select>
+                  <SelectTrigger open={openSelect} >
+                    <SelectValue placeholder="Select font" />
+                  </SelectTrigger>
                 </FormControl>
-                <ChevronDown className="absolute right-3 top-2.5 h-4 w-4 opacity-50" />
-              </div>
+                <SelectContent>
+                  <SelectItem value="inter">Inter</SelectItem>
+                  <SelectItem value="manrope">Manrope</SelectItem>
+                  <SelectItem value="system">System</SelectItem>
+                </SelectContent>
+              </Select>
               <FormDescription>
                 Set the font you want to use in the dashboard.
               </FormDescription>

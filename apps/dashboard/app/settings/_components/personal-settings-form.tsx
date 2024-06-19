@@ -27,6 +27,7 @@ import {
 } from "@ui/components/select"
 import { Textarea } from "@ui/components/textarea"
 import { toast } from "sonner"
+import { useState } from "react"
 
 const personalSettingsFormSchema = z.object({
   username: z
@@ -75,6 +76,8 @@ export function PersonalSettingsForm() {
     control: form.control,
   })
 
+  const [openSelect, setOpenSelect] = useState<boolean>(false)
+
   function onSubmit(data: PersonalSettingsFormValues) {
     toast(
       <div className="flex flex-col">
@@ -112,9 +115,9 @@ export function PersonalSettingsForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <Select onValueChange={field.onChange} defaultValue={field.value} onOpenChange={setOpenSelect}>
                 <FormControl>
-                  <SelectTrigger>
+                  <SelectTrigger open={openSelect} >
                     <SelectValue placeholder="Select a verified email to display" />
                   </SelectTrigger>
                 </FormControl>

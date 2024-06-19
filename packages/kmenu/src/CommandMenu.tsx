@@ -135,7 +135,6 @@ const Wrapper: FC<MenuProps & { children: ReactNode }> = (props) => {
       className='command_wrapper'
       role='listbox'
       style={{
-        overflowY: 'hidden',
         height:
           results!.index >= 5
             ? results?.initialHeight
@@ -143,7 +142,7 @@ const Wrapper: FC<MenuProps & { children: ReactNode }> = (props) => {
               ? 'auto'
               : results!.index > 0 ?
                 results!.commands.length * (dimensions?.sectionHeight || 31) +
-                results!.index * (dimensions?.commandHeight || 54) : 150,
+                results!.index * (dimensions?.commandHeight || 54) + 40 : 150,
       }}
     >
       <motion.div>
