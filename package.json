@@ -1,13 +1,14 @@
 {
-  "name": "turborepo-tailwind-shadcn-ui",
-  "version": "0.2.2",
+  "name": "lingsquare",
+  "version": "2.0",
   "private": true,
   "license": "MIT",
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "ui:add": "pnpm --filter ui ui:add"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -15,7 +16,7 @@
     "prettier": "^3.3.1",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.15.6",
+  "packageManager": "pnpm@9.0.6",
   "engines": {
     "node": ">=18"
   }

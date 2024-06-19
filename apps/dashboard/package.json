@@ -1,5 +1,5 @@
 {
-  "name": "docs",
+  "name": "dashboard",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,11 +9,21 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.4",
+    "@hookform/resolvers": "^3.6.0",
     "eslint": "^9.4.0",
+    "framer-motion": "^11.2.11",
+    "lucide-react": "^0.390.0",
     "next": "^14.2.3",
+    "next-themes": "^0.3.0",
+    "overlayscrollbars-react": "^0.5.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "ui": "workspace:*"
+    "react-hook-form": "^7.52.0",
+    "sonner": "^1.5.0",
+    "ui": "workspace:*",
+    "valtio": "^1.13.2",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.2.3",
