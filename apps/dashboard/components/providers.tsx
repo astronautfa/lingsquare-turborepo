@@ -11,7 +11,7 @@ const dimensions: Dimensions = {
     sectionHeight: 30,
     commandHeight: 50,
     commands: 6,
-  };
+};
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
     return (

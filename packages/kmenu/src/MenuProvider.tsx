@@ -9,8 +9,8 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import useScrollbarSize from 'react-scrollbar-size'
-import useBodyScrollable from './hooks/useBodyScrollable'
+// import useScrollbarSize from 'react-scrollbar-size'
+// import useBodyScrollable from './hooks/useBodyScrollable'
 import {
   Action,
   ActionType,
@@ -32,7 +32,7 @@ const initialState = { selected: 0 }
  */
 export const MenuProvider: FC<MenuProviderProps & { children: ReactNode }> = ({
   children,
-  dimensions,
+  dimensions
 }) => {
   const input = useRef<HTMLInputElement>(null)
 
@@ -44,8 +44,8 @@ export const MenuProvider: FC<MenuProviderProps & { children: ReactNode }> = ({
   const [crumbs, setCrumbs] = useState<Array<string>>([])
   const [animate, setAnimate] = useState(false)
 
-  const scrollable = useBodyScrollable()
-  const { width } = useScrollbarSize()
+  // const scrollable = useBodyScrollable()
+  // const { width } = useScrollbarSize()
 
   const reducer: Reducer<State, Action> = (state, action) => {
     switch (action.type) {
@@ -128,13 +128,13 @@ export const MenuProvider: FC<MenuProviderProps & { children: ReactNode }> = ({
     dispatch({ type: ActionType.RESET, custom: 0 })
     setQuery('')
 
-    if (open && scrollable) {
-      document.body.style.overflow = 'hidden'
-      document.body.style.paddingRight = `${width}px`
-    } else {
-      document.body.style.overflow = 'unset'
-      document.body.style.paddingRight = '0px'
-    }
+    // if (open && scrollable) {
+    //   document.body.style.overflow = 'hidden'
+    //   document.body.style.paddingRight = `${width}px`
+    // } else {
+    //   document.body.style.overflow = 'unset'
+    //   document.body.style.paddingRight = '0px'
+    // }
   }, [open, setOpen])
 
   return (
