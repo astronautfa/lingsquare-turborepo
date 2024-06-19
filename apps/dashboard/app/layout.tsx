@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@ui/styles/globals.css"
+import "@ui/styles/cmdk.css"
+
 
 import { cookies } from "next/headers";
 
@@ -12,6 +14,8 @@ import { ThemeConfig } from "@/types/config";
 import { cn } from "@ui/lib/utils"
 import { absoluteUrl } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
+
+import CommandMenu from "../components/command-menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -77,6 +81,7 @@ export default function RootLayout({
             : ({ "--radius": `${radius}rem` } as React.CSSProperties)
         }>
         <Providers>
+          <CommandMenu />
           <SidebarLayout>
             {children}
           </SidebarLayout>
