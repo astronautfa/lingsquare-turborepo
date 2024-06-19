@@ -26,8 +26,8 @@ import { LuLink2 } from "react-icons/lu";
 import { SiReact } from "react-icons/si";
 import { TbFishHook, TbMoonStars, TbPaint, TbPower } from "react-icons/tb";
 import { Item, items, slugify } from "./sidebar-kmenu";
-import { BsDiscord, BsGithub, BsTwitterX } from "react-icons/bs";
 import { CgNpm } from "react-icons/cg";
+import { ClockIcon, AcademicCapIcon, MagnifyingGlassIcon, PlusIcon, BookOpenIcon } from "@heroicons/react/20/solid";
 
 export default () => {
   const router = useRouter();
@@ -74,9 +74,37 @@ export default () => {
       category: "Navigation",
       commands: [
         {
-          icon: <FiHome />,
-          text: "Home",
+          icon: <BookOpenIcon />,
+          text: "Library",
+          perform: () => router.push("/library"),
+          closeOnComplete: true,
+          keywords: ["back"],
+        },
+        {
+          icon: <PlusIcon />,
+          text: "Import",
+          perform: () => router.push("/import"),
+          closeOnComplete: true,
+          keywords: ['text', 'podcast', 'youtube'],
+        },
+        {
+          icon: <MagnifyingGlassIcon />,
+          text: "Explore",
           perform: () => router.push("/"),
+          closeOnComplete: true,
+          keywords: ["back"],
+        },
+        {
+          icon: <AcademicCapIcon />,
+          text: "Study",
+          perform: () => router.push("/study"),
+          closeOnComplete: true,
+          keywords: ["back"],
+        },
+        {
+          icon: <ClockIcon />,
+          text: "History",
+          perform: () => router.push("/history"),
           closeOnComplete: true,
           keywords: ["back"],
         },
@@ -97,12 +125,6 @@ export default () => {
             "cmdk",
           ],
         },
-        {
-          icon: <SiReact />,
-          text: "Examples",
-          href: "https://github.com/harshhhdev/kmenu",
-          newTab: true,
-        },
       ],
       subCommands: generateDocCommands(),
     },
@@ -121,17 +143,6 @@ export default () => {
           perform: () =>
             navigator.clipboard.writeText(`https://kmenu.hxrsh.in/docs`),
           closeOnComplete: true,
-        },
-      ],
-    },
-    {
-      category: "Other",
-      commands: [
-        {
-          icon: <LuLink2 />,
-          text: "Links...",
-          keywords: ["github", "code", "npm", "x", "twitter"],
-          perform: () => setOpen(10),
         },
       ],
     },
@@ -199,37 +210,6 @@ export default () => {
     },
   ];
 
-  const links: Command[] = [
-    {
-      category: "Set Theme",
-      commands: [
-        {
-          icon: <BsDiscord />,
-          text: "Join Discord",
-          href: "https://discord.gg/RYjKFDayuy",
-          newTab: true,
-        },
-        {
-          icon: <BsGithub />,
-          text: "GitHub",
-          href: "https://github.com/harshhhdev/kmenu",
-          newTab: true,
-        },
-        {
-          icon: <BsTwitterX />,
-          text: "Twitter",
-          href: "https://x.com/harshhhdev",
-          newTab: true,
-        },
-        {
-          icon: <CgNpm />,
-          text: "NPM",
-          href: "https://www.npmjs.com/package/kmenu",
-          newTab: true,
-        },
-      ],
-    },
-  ];
 
   const [mainCommands] = useCommands(main);
   const [docsCommands] = useCommands(docs);
@@ -240,7 +220,6 @@ export default () => {
   const [hooks] = useCommands(docsToCommands(items[3]!));
   const [features] = useCommands(docsToCommands(items[4]!));
   const [other] = useCommands(docsToCommands(items[5]!));
-  const [linkCommands] = useCommands(links);
 
   return (
     <CommandWrapper>
@@ -285,11 +264,6 @@ export default () => {
         commands={other}
         index={9}
         crumbs={["Home", "Docs", "Other"]}
-      />
-      <CommandMenu
-        commands={linkCommands}
-        index={10}
-        crumbs={["Home", "Links"]}
       />
     </CommandWrapper>
   );

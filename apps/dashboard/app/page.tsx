@@ -50,3 +50,4 @@ export default function Example() {
 // TODO : check the infintestune login modals
 
 // TODO : explore zustand vs valtio
+// TODO : add paths to command menu
