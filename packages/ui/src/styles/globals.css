@@ -4,100 +4,146 @@
 
 @layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.75rem;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --app-bg: var(--gray1);
+    --cmdk-shadow: 0 16px 70px rgb(0 0 0 / 20%);
 
-    --radius: 0.5rem;
+    --lowContrast: #ffffff;
+    --highContrast: #000000;
+
+    --gray1: hsl(0, 0%, 99%);
+    --gray2: hsl(0, 0%, 97.3%);
+    --gray3: hsl(0, 0%, 95.1%);
+    --gray4: hsl(0, 0%, 93%);
+    --gray5: hsl(0, 0%, 90.9%);
+    --gray6: hsl(0, 0%, 88.7%);
+    --gray7: hsl(0, 0%, 85.8%);
+    --gray8: hsl(0, 0%, 78%);
+    --gray9: hsl(0, 0%, 56.1%);
+    --gray10: hsl(0, 0%, 52.3%);
+    --gray11: hsl(0, 0%, 43.5%);
+    --gray12: hsl(0, 0%, 9%);
+
+    --grayA1: hsla(0, 0%, 0%, 0.012);
+    --grayA2: hsla(0, 0%, 0%, 0.027);
+    --grayA3: hsla(0, 0%, 0%, 0.047);
+    --grayA4: hsla(0, 0%, 0%, 0.071);
+    --grayA5: hsla(0, 0%, 0%, 0.09);
+    --grayA6: hsla(0, 0%, 0%, 0.114);
+    --grayA7: hsla(0, 0%, 0%, 0.141);
+    --grayA8: hsla(0, 0%, 0%, 0.22);
+    --grayA9: hsla(0, 0%, 0%, 0.439);
+    --grayA10: hsla(0, 0%, 0%, 0.478);
+    --grayA11: hsla(0, 0%, 0%, 0.565);
+    --grayA12: hsla(0, 0%, 0%, 0.91);
+
+    --blue1: hsl(206, 100%, 99.2%);
+    --blue2: hsl(210, 100%, 98%);
+    --blue3: hsl(209, 100%, 96.5%);
+    --blue4: hsl(210, 98.8%, 94%);
+    --blue5: hsl(209, 95%, 90.1%);
+    --blue6: hsl(209, 81.2%, 84.5%);
+    --blue7: hsl(208, 77.5%, 76.9%);
+    --blue8: hsl(206, 81.9%, 65.3%);
+    --blue9: hsl(206, 100%, 50%);
+    --blue10: hsl(208, 100%, 47.3%);
+    --blue11: hsl(211, 100%, 43.2%);
+    --blue12: hsl(211, 100%, 15%);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --app-bg: var(--gray1);
+
+    --lowContrast: #000000;
+    --highContrast: #ffffff;
+
+    --gray1: hsl(0, 0%, 8.5%);
+    --gray2: hsl(0, 0%, 11%);
+    --gray3: hsl(0, 0%, 13.6%);
+    --gray4: hsl(0, 0%, 15.8%);
+    --gray5: hsl(0, 0%, 17.9%);
+    --gray6: hsl(0, 0%, 20.5%);
+    --gray7: hsl(0, 0%, 24.3%);
+    --gray8: hsl(0, 0%, 31.2%);
+    --gray9: hsl(0, 0%, 43.9%);
+    --gray10: hsl(0, 0%, 49.4%);
+    --gray11: hsl(0, 0%, 62.8%);
+    --gray12: hsl(0, 0%, 93%);
+
+    --grayA1: hsla(0, 0%, 100%, 0);
+    --grayA2: hsla(0, 0%, 100%, 0.026);
+    --grayA3: hsla(0, 0%, 100%, 0.056);
+    --grayA4: hsla(0, 0%, 100%, 0.077);
+    --grayA5: hsla(0, 0%, 100%, 0.103);
+    --grayA6: hsla(0, 0%, 100%, 0.129);
+    --grayA7: hsla(0, 0%, 100%, 0.172);
+    --grayA8: hsla(0, 0%, 100%, 0.249);
+    --grayA9: hsla(0, 0%, 100%, 0.386);
+    --grayA10: hsla(0, 0%, 100%, 0.446);
+    --grayA11: hsla(0, 0%, 100%, 0.592);
+    --grayA12: hsla(0, 0%, 100%, 0.923);
+
+    --blue1: hsl(212, 35%, 9.2%);
+    --blue2: hsl(216, 50%, 11.8%);
+    --blue3: hsl(214, 59.4%, 15.3%);
+    --blue4: hsl(214, 65.8%, 17.9%);
+    --blue5: hsl(213, 71.2%, 20.2%);
+    --blue6: hsl(212, 77.4%, 23.1%);
+    --blue7: hsl(211, 85.1%, 27.4%);
+    --blue8: hsl(211, 89.7%, 34.1%);
+    --blue9: hsl(206, 100%, 50%);
+    --blue10: hsl(209, 100%, 60.6%);
+    --blue11: hsl(210, 100%, 66.1%);
+    --blue12: hsl(206, 98%, 95.8%);
   }
 }
 
 @layer base {
   * {
     @apply border-border;
-    padding: 0;
-    margin: 0;
   }
-
-  html,
   body {
-    max-width: 100vw;
-    overflow-x: hidden;
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
   }
-
-  body {
-    @apply text-foreground;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
-  }
-}
-
-.gradient {
-  background-image: conic-gradient(
-    rgb(157, 23, 77),
-    rgb(107, 33, 168),
-    rgb(55, 48, 163)
-  );
 }
