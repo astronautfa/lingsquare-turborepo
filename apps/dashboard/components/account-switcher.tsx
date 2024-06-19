@@ -38,14 +38,14 @@ export function AccountSwitcher({
         className={cn(
           "flex items-center gap-2 [&>span]:line-clamp-1 [&>span]:flex [&>span]:w-full [&>span]:items-center [&>span]:gap-1 [&>span]:truncate [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0 mb-2",
           isCollapsed &&
-          "flex h-10 w-[42px] shrink-0 items-center justify-center p-0 [&>span]:w-auto [&>svg]:hidden"
+          "lg:flex lg:h-10 lg:w-[42px] lg:shrink-0 lg:items-center lg:justify-center lg:p-0 lg:[&>span]:w-auto lg:[&>svg]:hidden"
         )}
         aria-label="Select account"
         open={openSelect}
       >
         <SelectValue placeholder="Select an account">
           {accounts.find((account) => account.email === selectedAccount)?.icon}
-          <span className={cn("ml-2", isCollapsed && "hidden")}>
+          <span className={cn("ml-2", isCollapsed && "lg:hidden")}>
             {
               accounts.find((account) => account.email === selectedAccount)
                 ?.label

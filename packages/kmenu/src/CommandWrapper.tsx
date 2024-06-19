@@ -65,11 +65,11 @@ export const CommandWrapper: FC<
             >
               <BreadCrumb variant={'ghost'} className="gap-1 bg-background rounded-lg p-2">
                 {crumbs?.map((crumb, index) => (
-                  <span className="flex align-center justify-start">
+                  <span className="flex items-center justify-start">
                     <BreadCrumbItem onClick={() => setOpen(index + 1)} key={index} index={index}>
                       {crumb}
                     </BreadCrumbItem>
-                    <BreadCrumbSeparator />
+                    {crumbs.length > 0 && index !== crumbs.length - 1 && <BreadCrumbSeparator />}
                   </span>
                 ))}
               </BreadCrumb>

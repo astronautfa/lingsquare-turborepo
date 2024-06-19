@@ -236,7 +236,7 @@ export const BreadCrumbItem = forwardRef<
             className={cn(
                 buttonVariants(Variants),
                 className,
-                isSelected ? "bg-muted focus-visible:ring-0 ring-0" : ""
+                isSelected ? "bg-muted focus-visible:ring-0 ring-0 cursor-pointer" : ""
             )}
             onClick={() => setActiveIndex(index)}
             {...props}
@@ -260,7 +260,7 @@ export const BreadCrumbSeparator = forwardRef<
             dir={dir}
             data-orientation={orientation}
             className={cn(
-                "flex items-center justify-start size-4 data-[orientation='horizontal']:rotate-0 rtl:data-[orientation='horizontal']:rotate-180 data-[orientation='vertical']:rotate-90 "
+                "flex items-center pb-0.5 justify-start size-4 data-[orientation='horizontal']:rotate-0 rtl:data-[orientation='horizontal']:rotate-180 data-[orientation='vertical']:rotate-90 "
             )}
         >
             {children ? (
