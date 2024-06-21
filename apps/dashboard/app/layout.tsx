@@ -5,7 +5,6 @@ import "@ui/styles/cmdk.css"
 
 import { cookies } from "next/headers";
 
-import { SidebarLayout } from '@/components/sidebar-layout'
 import Providers from "@/components/providers";
 
 import { Toaster } from "@ui/components/sonner"
@@ -83,9 +82,7 @@ export default function RootLayout({
         }>
         <Providers>
           <CommandMenu />
-          <SidebarLayout>
-            {children}
-          </SidebarLayout>
+          {children}
           <Toaster />
         </Providers>
       </body>

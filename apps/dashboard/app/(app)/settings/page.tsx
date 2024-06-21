@@ -3,7 +3,7 @@ import { PersonalSettingsForm } from './_components/personal-settings-form'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: "Personal Settings",
+    title: "Personal",
     description: "LingSquare personal settings",
 }
 

@@ -63,10 +63,10 @@ export const CommandWrapper: FC<
                 scale: firefox || prefersReducedMotion ? 1 : 0.95,
               }}
             >
-              <BreadCrumb variant={'ghost'} className="gap-1 bg-background rounded-lg p-2">
+              <BreadCrumb variant={'ghost'} size={'sm'} className="gap-1 bg-background rounded-lg p-2">
                 {crumbs?.map((crumb, index) => (
                   <span className="flex items-center justify-start">
-                    <BreadCrumbItem onClick={() => setOpen(index + 1)} key={index} index={index}>
+                    <BreadCrumbItem onClick={() => setOpen(index + 1)} key={index} index={index} className='cursor-pointer'>
                       {crumb}
                     </BreadCrumbItem>
                     {crumbs.length > 0 && index !== crumbs.length - 1 && <BreadCrumbSeparator />}

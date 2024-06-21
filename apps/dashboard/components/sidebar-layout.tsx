@@ -12,7 +12,7 @@ import {
 } from "@ui/components/sheet"
 import LingsquareSidebar from './lingsquare-sidebar'
 import LingsquareNavbar from './lingsquare-navbar'
-import { Button } from '@ui/components/button'
+import { Button, buttonVariants } from '@ui/components/button'
 import { ArrowRightCircle, Search } from 'lucide-react'
 import { cn } from '@ui/lib/utils'
 import { DropdownMenuShortcut } from '@ui/components/dropdown-menu'
@@ -21,6 +21,7 @@ import { BellAlertIcon } from '@heroicons/react/20/solid'
 import { UserNav } from './user-nav';
 import { useTheme } from 'next-themes';
 import { setDisplayCommand } from '@/state/command';
+import Link from 'next/link';
 
 function OpenMenuIcon() {
   return (
@@ -112,6 +113,15 @@ export function SidebarLayout({
                 <BellAlertIcon className='w-[18px] h-[18px] opacity-70' />
               </Button>
             </div>
+            <Link
+              href="/login"
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                "hidden shadow-sm lg:flex"
+              )}
+            >
+              Sign In
+            </Link>
             <UserNav collapsed={true} />
           </div>
           <div className="grow p-6 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">

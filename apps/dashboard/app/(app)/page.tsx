@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Explore | LingSquare",
+  title: "Explore",
   description: "LingSquare explore page",
 }
 
