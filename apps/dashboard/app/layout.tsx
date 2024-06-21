@@ -15,6 +15,8 @@ import { siteConfig } from "@/config/site";
 
 import dynamic from "next/dynamic";
 
+import { TailwindIndicator } from "@ui/components/tailwind-indicator"
+
 const inter = Inter({ subsets: ["latin"] });
 
 const CommandMenu = dynamic(() => import('../components/command-menu'))
@@ -82,6 +84,7 @@ export default function RootLayout({
         }>
         <Providers>
           <CommandMenu />
+          <TailwindIndicator />
           {children}
           <Toaster />
         </Providers>
