@@ -36,7 +36,7 @@ export default function LoginForm() {
     const next = urlParams.get("next");
 
     return (
-        <div className="w-full sm:w-[26rem] bg-background shadow sm:p-5 border dark:border-zinc-800 rounded-md">
+        <div className="w-full sm:w-[26rem] bg-background sm:p-5 dark:border-zinc-800 rounded-md">
             <div className="p-1 space-y-5">
                 <div className="text-center space-y-3 py-3">
                     <h1 className="">Login to <span className="font-bold text-blue-900">LingSquare</span></h1>

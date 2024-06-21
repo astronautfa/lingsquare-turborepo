@@ -106,4 +106,6 @@ export function SidebarHeading({ className, ...props }: React.ComponentPropsWith
 // TODO : check the infintestune login modals
 
 // TODO : explore zustand vs valtio
-// TODO :
+// TODO : Forgot password should be added
+
+// TODO : Intercepting routes should be fixed

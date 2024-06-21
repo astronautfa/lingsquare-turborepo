@@ -27,24 +27,7 @@ import { cn } from "@ui/lib/utils";
 import { verifyOtp } from "@/actions/auth";
 import { toast } from "sonner";
 import { usePathname, useRouter } from "next/navigation";
-
-const FormSchema = z
-	.object({
-		email: z.string().email({ message: "Invalid Email Address" }),
-		password: z.string().min(6, { message: "Password is too short" }),
-		"confirm-pass": z.string().min(6, { message: "Password is too short" }),
-	})
-	.refine(
-		(data) => {
-			if (data["confirm-pass"] !== data.password) {
-				console.log("running");
-				return false;
-			} else {
-				return true;
-			}
-		},
-		{ message: "Password does't match", path: ["confirm-pass"] }
-	);
+import { RegisterSchema } from "@/lib/validations";
 
 export default function SignUp({ redirectTo }: { redirectTo: string }) {
 	const queryString =
@@ -61,8 +44,8 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 	const [isSendAgain, startSendAgain] = useTransition();
 	const pathname = usePathname();
 	const router = useRouter();
-	const form = useForm<z.infer<typeof FormSchema>>({
-		resolver: zodResolver(FormSchema),
+	const form = useForm<z.infer<typeof RegisterSchema>>({
+		resolver: zodResolver(RegisterSchema),
 		defaultValues: {
 			email: "",
 			password: "",
@@ -90,7 +73,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 		return json;
 	};
 
-	const sendVerifyEmail = async (data: z.infer<typeof FormSchema>) => {
+	const sendVerifyEmail = async (data: z.infer<typeof RegisterSchema>) => {
 		const json = await postEmail({
 			email: data.email,
 			password: data.password,
@@ -116,7 +99,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 		" border-red-500": verifyStatus === "failed",
 	});
 
-	function onSubmit(data: z.infer<typeof FormSchema>) {
+	function onSubmit(data: z.infer<typeof RegisterSchema>) {
 		if (!isPending) {
 			startTransition(async () => {
 				await sendVerifyEmail(data);

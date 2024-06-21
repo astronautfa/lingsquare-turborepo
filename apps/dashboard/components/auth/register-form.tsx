@@ -3,7 +3,6 @@
 import React from "react";
 import SignUp from "./signup-form";
 import SocialAuth from "./social-form";
-import { useSearchParams } from "next/navigation";
 import { SeparatorWithText } from "@ui/components/separator";
 
 export default function RegisterForm() {
@@ -16,8 +15,8 @@ export default function RegisterForm() {
 	const verify = urlParams.get("verify");
 
 	return (
-		<div className="w-full sm:w-[26rem] shadow sm:p-5 bg-background border dark:border-zinc-800 rounded-md">
-			<div className="p-5 space-y-5">
+		<div className="w-full sm:w-[26rem] sm:p-5 bg-background dark:border-zinc-800 rounded-md">
+			<div className="p-1 space-y-5">
 				<div className="text-center space-y-3">
 					<h1 className="font-bold">Create Account</h1>
 					<p className="text-sm">

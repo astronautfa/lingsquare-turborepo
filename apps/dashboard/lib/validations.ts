@@ -32,16 +32,23 @@ export const LoginSchema = z.object({
   password: passwordSchema,
 });
 
-export const signUpSchema = z
+export const RegisterSchema = z
   .object({
-    email: emailSchema,
-    password: passwordSchema,
-    confirmPassword: passwordSchema,
+    email: z.string().email({ message: "Invalid Email Address" }),
+    password: z.string().min(6, { message: "Password is too short" }),
+    "confirm-pass": z.string().min(6, { message: "Password is too short" }),
   })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords do not match",
-    path: ["confirmPassword"],
-  });
+  .refine(
+    (data) => {
+      if (data["confirm-pass"] !== data.password) {
+        console.log("running");
+        return false;
+      } else {
+        return true;
+      }
+    },
+    { message: "Password does't match", path: ["confirm-pass"] }
+  );
 
 export const resetPasswordSchema = z.object({
   email: emailSchema,

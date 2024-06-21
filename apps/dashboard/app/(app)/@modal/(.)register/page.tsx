@@ -1,12 +1,12 @@
 import React from "react";
 
-import LoginForm from "@/components/auth/login-form";
+import RegisterForm from "@/components/auth/register-form";
 import { AuthModal } from "@/components/auth/auth-modal";
 
-export default function LoginModal() {
+export default function RegisterModal() {
   return (
     <AuthModal >
-      <LoginForm />
+      <RegisterForm />
     </AuthModal>
   );
 }

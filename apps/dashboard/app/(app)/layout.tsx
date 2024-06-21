@@ -1,5 +1,7 @@
-import { SidebarLayout } from '@/components/sidebar-layout';
 import React from 'react'
+import ModalOrNot from '@/components/@modal/ModalOrNot';
+import ModalProvider from '@/components/@modal/ModalProvider';
+import { SidebarLayout } from '@/components/sidebar-layout';
 
 const AppLayout = ({
     children,
@@ -10,7 +12,9 @@ const AppLayout = ({
 }>) => {
     return (
         <SidebarLayout>
-            {modal}
+            <ModalProvider>
+                <ModalOrNot>{modal}</ModalOrNot>
+            </ModalProvider>
             {children}
         </SidebarLayout>
     )
