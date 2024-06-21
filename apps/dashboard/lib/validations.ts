@@ -17,7 +17,7 @@ export const emailSchema = z
 export const passwordSchema = z
   .string()
   .min(1, "Password is Required")
-  .regex(/^(?!\s*$).+/, "Password must not contain Whitespaces.")
+  .regex(/^(?!\s*$).+/, "Password must not contain whitespaces.")
   .regex(/^(?=.*[A-Z])/, "Password must contain at least one uppercase letter.")
   .regex(/^(?=.*[a-z])/, "Password must contain at least one lowercase letter.")
   .regex(/^(?=.*\d)/, "Password must contain at least one number.")
@@ -35,8 +35,8 @@ export const LoginSchema = z.object({
 export const RegisterSchema = z
   .object({
     email: z.string().email({ message: "Invalid Email Address" }),
-    password: z.string().min(6, { message: "Password is too short" }),
-    "confirm-pass": z.string().min(6, { message: "Password is too short" }),
+    password: passwordSchema,
+    "confirm-pass": passwordSchema,
   })
   .refine(
     (data) => {

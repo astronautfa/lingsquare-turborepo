@@ -15,12 +15,18 @@ import { Button, buttonVariants } from "@ui/components/button";
 import {
 	Form,
 	FormControl,
+	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
 	FormMessage,
 } from "@ui/components/form";
 import { Input } from "@ui/components/input";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@ui/components/tooltip";
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { cn } from "@ui/lib/utils";
@@ -28,6 +34,7 @@ import { verifyOtp } from "@/actions/auth";
 import { toast } from "sonner";
 import { usePathname, useRouter } from "next/navigation";
 import { RegisterSchema } from "@/lib/validations";
+import { InfoIcon } from "lucide-react";
 
 export default function SignUp({ redirectTo }: { redirectTo: string }) {
 	const queryString =
@@ -143,8 +150,14 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 						name="password"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className="text-sm font-semibold">
+								<FormLabel className="text-sm font-semibold flex items-center gap-2">
 									Password
+									<Tooltip>
+										<TooltipTrigger asChild>
+											<InfoIcon className="h-4 w-4 text-muted-foreground hover:text-inherit transition-colors duration-200" />
+										</TooltipTrigger>
+										<TooltipContent side="top" className="w-64 text-wrap"><p>Password must be at least 8 characters long & contain lowercase, uppercase, numbers and special characters</p></TooltipContent>
+									</Tooltip>
 								</FormLabel>
 								<FormControl>
 									<div className=" relative">
@@ -172,6 +185,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 										</div>
 									</div>
 								</FormControl>
+
 								<FormMessage className="text-red-500" />
 							</FormItem>
 						)}
