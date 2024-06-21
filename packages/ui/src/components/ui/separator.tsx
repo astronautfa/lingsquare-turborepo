@@ -26,6 +26,17 @@ const Separator = React.forwardRef<
     />
   )
 )
+
+const SeparatorWithText = ({ text }: { text: string }) => {
+  return (
+    <div className="flex items-center gap-5">
+      <div className="flex-1 h-[0.5px] w-full bg-border"></div>
+      <div className="text-sm">{text}</div>
+      <div className="flex-1 h-[0.5px] w-full bg-border"></div>
+    </div>
+  )
+}
+
 Separator.displayName = SeparatorPrimitive.Root.displayName
 
-export { Separator }
+export { Separator, SeparatorWithText }

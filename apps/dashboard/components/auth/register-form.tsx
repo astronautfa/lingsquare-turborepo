@@ -1,62 +1,33 @@
-import Link from "next/link"
+"use client";
 
-import { Button } from "@ui/components/button"
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@ui/components/card"
-import { Input } from "@ui/components/input"
-import { Label } from "@ui/components/label"
-import { Separator } from "@ui/components/separator"
-import { BsGoogle } from "react-icons/bs"
+import React from "react";
+import SignUp from "./signup-form";
+import SocialAuth from "./social-form";
+import { useSearchParams } from "next/navigation";
+import { SeparatorWithText } from "@ui/components/separator";
 
-export function RegisterForm() {
-    return (
-        <Card className="mx-auto max-w-sm lg:w-[400px] border-none">
-            <CardHeader>
-                <CardTitle className="text-xl">Register</CardTitle>
-                <CardDescription>
-                    Enter your information to create an account
-                </CardDescription>
-            </CardHeader>
-            <CardContent>
-                <div className="grid gap-4">
-                    <div className="grid gap-2">
-                        <Label htmlFor="username">Username</Label>
-                        <Input id="username" placeholder="Max" required />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            placeholder="m@example.com"
-                            required
-                        />
-                    </div>
-                    <div className="grid gap-2">
-                        <Label htmlFor="password">Password</Label>
-                        <Input id="password" type="password" />
-                    </div>
-                    <Button type="submit" className="w-full">
-                        Create an account
-                    </Button>
-                    <Separator />
-                    <Button variant="outline" className="w-full">
-                        <BsGoogle className="mr-2" />
-                        Register with Google
-                    </Button>
-                </div>
-                <div className="mt-4 text-center text-sm">
-                    Already have an account?{" "}
-                    <Link href="/login">
-                        Login
-                    </Link>
-                </div>
-            </CardContent>
-        </Card>
-    )
+export default function RegisterForm() {
+	const queryString =
+		typeof window !== "undefined" ? window?.location.search : "";
+	const urlParams = new URLSearchParams(queryString);
+
+	// Get the value of the 'next' parameter
+	const next = urlParams.get("next");
+	const verify = urlParams.get("verify");
+
+	return (
+		<div className="w-full sm:w-[26rem] shadow sm:p-5 bg-background border dark:border-zinc-800 rounded-md">
+			<div className="p-5 space-y-5">
+				<div className="text-center space-y-3">
+					<h1 className="font-bold">Create Account</h1>
+					<p className="text-sm">
+						Welcome! Please fill in the details to get started.
+					</p>
+				</div>
+				<SocialAuth redirectTo={next || "/"} />
+				<SeparatorWithText text="or" />
+			</div>
+			<SignUp redirectTo={next || "/"} />
+		</div>
+	);
 }
