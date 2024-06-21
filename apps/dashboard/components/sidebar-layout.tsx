@@ -116,7 +116,7 @@ export function SidebarLayout({
             <Link
               href="/login"
               className={cn(
-                buttonVariants({ variant: "ghost" }),
+                buttonVariants({ variant: "outline" }),
                 "hidden shadow-sm lg:flex"
               )}
             >

@@ -3,7 +3,7 @@ import React from 'react'
 
 const LoginPage = () => {
     return (
-        <div className='border rounded-xl'>
+        <div className='sm:border rounded-xl sm:shadow-sm'>
             <LoginForm />
         </div>
     )
