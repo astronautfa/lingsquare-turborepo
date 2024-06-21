@@ -22,6 +22,7 @@ import { UserNav } from './user-nav';
 import { useTheme } from 'next-themes';
 import { setDisplayCommand } from '@/state/command';
 import Link from 'next/link';
+import { createClient } from '@lingsquare/supabase/client/client';
 
 function OpenMenuIcon() {
   return (
@@ -46,7 +47,18 @@ export function SidebarLayout({
 }: React.PropsWithChildren<{}>) {
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const [collapsed, setCollapsed] = useState<boolean>(false)
+  const [authenticated, setAuthenticated] = useState<boolean>(false)
   const { theme } = useTheme();
+
+  const supabase = createClient();
+
+  supabase.auth.getSession().then(
+    () => {
+      setAuthenticated(true)
+    }
+  ).catch(() => {
+    setAuthenticated(false)
+  })
 
 
   const [initBodyOverlayScrollbars] = useOverlayScrollbars({
@@ -108,21 +120,21 @@ export function SidebarLayout({
               />
               <DropdownMenuShortcut className='mt-0.5 absolute right-4 top-3 '>⌘K</DropdownMenuShortcut>
             </div>
-            <div>
+            {authenticated ? <div className='flex'>
               <Button variant={'ghost'} size={'icon'}>
                 <BellAlertIcon className='w-[18px] h-[18px] opacity-70' />
               </Button>
-            </div>
-            <Link
-              href="/login"
-              className={cn(
-                buttonVariants({ variant: "outline" }),
-                "hidden shadow-sm lg:flex"
-              )}
-            >
-              Sign In
-            </Link>
-            <UserNav collapsed={true} />
+              <UserNav collapsed={true} />
+            </div> :
+              <Link
+                href="/login"
+                className={cn(
+                  buttonVariants({ variant: "outline" }),
+                  "hidden shadow-sm lg:flex"
+                )}
+              >
+                Sign In
+              </Link>}
           </div>
           <div className="grow p-6 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
             <div className="mx-auto max-w-6xl">{children}</div>

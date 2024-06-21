@@ -145,7 +145,7 @@ export function SignInForm({ redirectTo }: { redirectTo: string }) {
                     >
                         <AiOutlineLoading3Quarters
                             className={cn(
-                                "pr-1",
+                                "mr-2",
                                 !isPending ? "hidden" : "block animate-spin"
                             )}
                         />

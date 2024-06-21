@@ -21,6 +21,7 @@ import Link from "next/link"
 export function UserNav({ collapsed }: {
     collapsed: Boolean
 }) {
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -44,7 +45,7 @@ export function UserNav({ collapsed }: {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.05 }}
-                                    exit={{ opacity: 0 }} className="min-w-0 flex items-start flex-col">
+                                    exit={{ opacity: 0 }} className="min-w-0 flex items-start flex-col select-none">
                                     <span className="block truncate text-sm/5 font-medium text-zinc-950 dark:text-white">alireza</span>
                                     <span className="block truncate text-xs/5 font-normal text-zinc-500 dark:text-zinc-400">
                                         alireza@lingsquare.com
@@ -96,7 +97,7 @@ export function UserNav({ collapsed }: {
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => { console.log('log out ') }}>
                     Log out
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                 </DropdownMenuItem>
@@ -104,3 +105,5 @@ export function UserNav({ collapsed }: {
         </DropdownMenu>
     )
 }
+
+// TODO : log user out 
