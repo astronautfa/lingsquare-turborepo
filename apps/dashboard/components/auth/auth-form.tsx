@@ -1,13 +1,25 @@
 'use client'
 
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import LoginForm from './login-form'
 import RegisterForm from './register-form'
 import { Button } from "@ui/components/button";
 import { useToggle } from '@/hooks/use-toggle';
+import { usePathname } from 'next/navigation';
 
 const AuthForm = () => {
-    const [isLoginDisplay, toggleAuthDisplay] = useToggle()
+    const path = usePathname()
+
+    const [isLoginDisplay, toggleAuthDisplay, setLoginDisplay] = useToggle()
+
+    useLayoutEffect(() => {
+        if (path === '/login') {
+            setLoginDisplay(true)
+        } else {
+            setLoginDisplay(false)
+        }
+    }, [, path])
+
     return (
         <div>
             {isLoginDisplay
@@ -16,7 +28,7 @@ const AuthForm = () => {
                     <LoginForm />
                     <div className="mt-4 text-center text-sm flex gap-2  justify-center items-center">
                         <h4>
-                            Don&apos;t have an account?{" "}
+                            Don&apos;t have an account?
                         </h4>
                         <Button variant={'ghost'} onClick={toggleAuthDisplay}>
                             Register
