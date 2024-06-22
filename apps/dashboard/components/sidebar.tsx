@@ -78,7 +78,6 @@ export function SidebarHeading({ className, ...props }: React.ComponentPropsWith
 
 // TODO : add breadcrumb
 
-// TODO : add language flag icons
 // TODO : add known language
 
 // TODO : fix background colors not consistent
@@ -88,24 +87,20 @@ export function SidebarHeading({ className, ...props }: React.ComponentPropsWith
 // TODO : open sidebar and close tooltip
 
 // TODO : fullscreen application button
-
-// TODO : convert into turborepo
-
 // TODO : fix mode animation
 
 // TODO : explore cmdk with generative ui
 // TODO : add the player
 
-// TODO : convert to turborepo
 // TODO : sort out login
 
 // TODO : interface language
 // TODO : language settings
 
 // TODO : check how to dub.co modals are managed
-// TODO : check the infintestune login modals
 
 // TODO : explore zustand vs valtio
 // TODO : Forgot password should be added
 
 // TODO : Intercepting routes should be fixed
+// TODO : 

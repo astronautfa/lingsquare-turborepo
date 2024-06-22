@@ -15,7 +15,6 @@ import { Button, buttonVariants } from "@ui/components/button";
 import {
 	Form,
 	FormControl,
-	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
@@ -28,7 +27,6 @@ import {
 	TooltipTrigger,
 } from "@ui/components/tooltip";
 import { useState, useTransition } from "react";
-import Link from "next/link";
 import { cn } from "@ui/lib/utils";
 import { verifyOtp } from "@/actions/auth";
 import { toast } from "sonner";

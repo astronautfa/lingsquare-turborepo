@@ -1,5 +1,3 @@
-'use client'
-
 import AuthForm from "@/components/auth/auth-form"
 import React from 'react'
 

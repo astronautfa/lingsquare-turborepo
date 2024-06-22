@@ -21,12 +21,12 @@ const AuthForm = () => {
     }, [, path])
 
     return (
-        <div>
+        <>
             {isLoginDisplay
                 ?
                 <div>
                     <LoginForm />
-                    <div className="mt-4 text-center text-sm flex gap-2  justify-center items-center">
+                    <div className="mt-6 text-center text-sm flex gap-2 justify-center items-center">
                         <h4>
                             Don&apos;t have an account?
                         </h4>
@@ -38,7 +38,7 @@ const AuthForm = () => {
                 :
                 <div>
                     <RegisterForm />
-                    <div className="text-center text-sm flex gap-2 justify-center items-center">
+                    <div className="mt-6 text-center text-sm flex gap-2 justify-center items-center">
                         <h4>
                             Already have account?
                         </h4>
@@ -48,7 +48,7 @@ const AuthForm = () => {
                     </div>
                 </div>
             }
-        </div>
+        </>
     )
 }
 

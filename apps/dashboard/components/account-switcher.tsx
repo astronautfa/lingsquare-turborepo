@@ -16,7 +16,12 @@ import { PlusIcon } from "@heroicons/react/20/solid"
 
 interface AccountSwitcherProps {
   isCollapsed: boolean
-  accounts: {
+  learningLanguages: {
+    label: string
+    email: string
+    icon: React.ReactNode
+  }[]
+  speakingLanguages: {
     label: string
     email: string
     icon: React.ReactNode
@@ -25,10 +30,11 @@ interface AccountSwitcherProps {
 
 export function AccountSwitcher({
   isCollapsed,
-  accounts,
+  learningLanguages,
+  speakingLanguages
 }: AccountSwitcherProps) {
   const [selectedAccount, setSelectedAccount] = React.useState<string | undefined>(
-    accounts[0] ? accounts[0].email : undefined
+    learningLanguages[0] ? learningLanguages[0].label : undefined
   )
   const [openSelect, setOpenSelect] = React.useState<boolean>(false);
 
@@ -44,26 +50,34 @@ export function AccountSwitcher({
         open={openSelect}
       >
         <SelectValue placeholder="Select an account">
-          {accounts.find((account) => account.email === selectedAccount)?.icon}
+          {learningLanguages.find((learningLanguage) => learningLanguage.label === selectedAccount)?.icon}
           <span className={cn("ml-2", isCollapsed && "lg:hidden")}>
             {
-              accounts.find((account) => account.email === selectedAccount)
+              learningLanguages.find((learningLanguage) => learningLanguage.label === selectedAccount)
                 ?.label
             }
           </span>
         </SelectValue>
       </SelectTrigger>
       <SelectContent>
-        {accounts.map((account) => (
-          <SelectItem key={account.email} value={account.email}>
+        {learningLanguages.map((learningLanguage) => (
+          <SelectItem key={learningLanguage.label} value={learningLanguage.label}>
             <div className="flex items-center gap-3 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0 [&_svg]:text-foreground">
-              {account.icon}
-              {account.email}
+              {learningLanguage.icon}
+              {learningLanguage.label}
             </div>
           </SelectItem>
         ))}
         <Separator className="my-1" />
-        <Button variant={'nav'} size={'sm'} className="w-full flex justify-items-start pl-2.5">
+        {speakingLanguages.map((speakingLanguage) => (
+          <Button key={speakingLanguage.label} variant={'nav'} size={'sm'} className="font-normal w-full flex justify-items-start gap-3 pl-2">
+            {speakingLanguage && speakingLanguage.icon}
+            <span>
+              {speakingLanguage && speakingLanguage.label}
+            </span>
+          </Button>))}
+        <Separator className="my-1" />
+        <Button variant={'nav'} size={'sm'} className="w-full flex justify-items-start pl-2.5 font-normal">
           <PlusIcon width={18} height={18} className="mr-2.5" />
           <span>
             Add a new language

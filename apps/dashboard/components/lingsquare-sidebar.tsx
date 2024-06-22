@@ -26,7 +26,7 @@ import German from "../public/German.svg";
 import Spanish from "../public/Spanish.svg";
 import Image from 'next/image';
 
-const accounts = [
+const learningLanguages = [
   {
     label: "Learning French",
     email: "Learning French",
@@ -68,12 +68,41 @@ const accounts = [
   },
 ]
 
+const speakingLanguages = [
+  {
+    label: "Native in Spanish",
+    email: "Native in Spanish",
+    icon: (
+      <Image
+        priority
+        src={Spanish}
+        alt="Spanish"
+        height={20}
+        width={20}
+      />
+    ),
+  },
+  {
+    label: "Fluent in German",
+    email: "Fluent in German",
+    icon: (
+      <Image
+        priority
+        src={German}
+        alt="German"
+        height={20}
+        width={20}
+      />
+    ),
+  },
+]
+
 
 const LingsquareSidebar = ({ collapsed }: { collapsed: boolean }) => {
   return (
     <Sidebar>
       <SidebarHeader>
-        <AccountSwitcher isCollapsed={collapsed} accounts={accounts} />
+        <AccountSwitcher isCollapsed={collapsed} learningLanguages={learningLanguages} speakingLanguages={speakingLanguages} />
         <SidebarSection className="max-lg:hidden">
           <SidebarItem collapsed={collapsed} href="/library" label={'Library'}>
             <BookOpenIcon />
