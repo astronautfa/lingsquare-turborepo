@@ -26,7 +26,7 @@ const AuthForm = () => {
                 ?
                 <div>
                     <LoginForm />
-                    <div className="mt-6 text-center text-sm flex gap-2 justify-center items-center">
+                    <div className="mt-5 text-center text-sm flex gap-2 justify-center items-center">
                         <h4>
                             Don&apos;t have an account?
                         </h4>
@@ -38,7 +38,7 @@ const AuthForm = () => {
                 :
                 <div>
                     <RegisterForm />
-                    <div className="mt-6 text-center text-sm flex gap-2 justify-center items-center">
+                    <div className="text-center text-sm flex gap-2 justify-center items-center">
                         <h4>
                             Already have account?
                         </h4>

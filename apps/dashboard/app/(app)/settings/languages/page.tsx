@@ -1,6 +1,6 @@
 import React from 'react'
-// import { NotificationsForm } from '../_components/notifications-form'
 import { Metadata } from 'next'
+import { LanguageSettingsForm } from '../_components/languages-settings-form'
 
 export const metadata: Metadata = {
     title: "Languages",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const LanguagesSettingPage = () => {
     return (
         <>
-            <div>Languages Settings Page</div>
+            <LanguageSettingsForm />
         </>
     )
 }

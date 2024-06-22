@@ -113,7 +113,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 	}
 
 	return (
-		<div className=" whitespace-nowrap p-5 space-x-5 overflow-hidden  items-center align-top  ">
+		<div className="whitespace-nowrap p-1 space-x-5 overflow-hidden items-center align-top">
 			<Form {...form}>
 				<form
 					onSubmit={form.handleSubmit(onSubmit)}
