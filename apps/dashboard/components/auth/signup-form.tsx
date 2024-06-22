@@ -242,17 +242,6 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 							Continue
 						</Button>
 					</div>
-					<div className="text-center text-sm">
-						<h1>
-							Already have account?{" "}
-							<Link
-								href={'/login'}
-								className={buttonVariants({ variant: 'ghost' })}
-							>
-								Login
-							</Link>
-						</h1>
-					</div>
 				</form>
 			</Form>
 			{/* verify email */}

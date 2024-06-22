@@ -1,6 +1,8 @@
 "use server";
 
 import { createClient } from "@lingsquare/supabase/client/server";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export const verifyOtp = async (data: {
   email: string;
@@ -16,3 +18,12 @@ export const verifyOtp = async (data: {
   });
   return JSON.stringify(res);
 };
+
+export async function logout() {
+  const supabase = createClient();
+
+  await supabase.auth.signOut();
+
+  revalidatePath("/", "layout");
+  return redirect('/');
+}

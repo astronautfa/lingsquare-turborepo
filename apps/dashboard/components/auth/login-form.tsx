@@ -36,8 +36,8 @@ export default function LoginForm() {
     const next = urlParams.get("next");
 
     return (
-        <div className="w-full sm:w-[26rem] bg-background sm:p-5 dark:border-zinc-800 rounded-md">
-            <div className="p-1 space-y-5">
+        <div className="w-full sm:w-[26rem] bg-background dark:border-zinc-800 rounded-md">
+            <div className="space-y-5">
                 <div className="text-center space-y-3 py-3">
                     <h1 className="">Login to <span className="font-bold text-blue-900">LingSquare</span></h1>
                     <p className="text-sm">
@@ -153,12 +153,7 @@ export function SignInForm({ redirectTo }: { redirectTo: string }) {
                     </Button>
                 </div>
             </form>
-            <div className="mt-4 text-center text-sm">
-                Don&apos;t have an account?{" "}
-                <Link href="/register" className={buttonVariants({ variant: 'ghost' })}>
-                    Register
-                </Link>
-            </div>
+
         </Form>
     );
 }

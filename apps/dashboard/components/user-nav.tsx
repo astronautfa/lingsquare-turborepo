@@ -1,3 +1,4 @@
+import { logout } from "@/actions/auth"
 import {
     Avatar,
     AvatarFallback,
@@ -97,7 +98,7 @@ export function UserNav({ collapsed }: {
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => { console.log('log out ') }}>
+                <DropdownMenuItem onClick={() => logout()}>
                     Log out
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                 </DropdownMenuItem>
