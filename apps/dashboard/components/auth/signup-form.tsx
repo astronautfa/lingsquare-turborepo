@@ -28,13 +28,13 @@ import {
 } from "@ui/components/tooltip";
 import { useState, useTransition } from "react";
 import { cn } from "@ui/lib/utils";
-import { verifyOtp } from "@/actions/auth";
+import { registerWithEmailAndPassword, verifyOtp } from "@/actions/auth";
 import { toast } from "sonner";
 import { usePathname, useRouter } from "next/navigation";
 import { RegisterSchema } from "@/lib/validations";
 import { InfoIcon } from "lucide-react";
 
-export default function SignUp({ redirectTo }: { redirectTo: string }) {
+export default function SignUp({ redirectTo, setLoginDisplay }: { redirectTo: string, setLoginDisplay?: (value: boolean) => void }) {
 	const queryString =
 		typeof window !== "undefined" ? window.location.search : "";
 	const urlParams = new URLSearchParams(queryString);
@@ -87,7 +87,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 			router.replace(
 				(pathname || "/") +
 				"?verify=true&email=" +
-				form.getValues("nativeLanguage")
+				form.getValues("email")
 			);
 			setIsConfirmed(true);
 		} else {
@@ -107,7 +107,22 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 	function onSubmit(data: z.infer<typeof RegisterSchema>) {
 		if (!isPending) {
 			startTransition(async () => {
-				await sendVerifyEmail(data);
+				// await sendVerifyEmail(data);
+				const result = await registerWithEmailAndPassword({
+					data,
+					emailRedirectTo: `${location.origin}/auth/callback`,
+				});
+				const { error } = JSON.parse(result);
+				if (error?.message) {
+					toast.error(error.message);
+					console.log('Error message', error.message);
+					form.reset({ password: '', "confirm-pass": '' });
+					return;
+				}
+
+				toast.success('registered successfully');
+
+				setLoginDisplay && setLoginDisplay(true)
 			});
 		}
 	}
@@ -126,7 +141,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 				>
 					<FormField
 						control={form.control}
-						name="nativeLanguage"
+						name="email"
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel className=" font-semibold  test-sm">
@@ -258,7 +273,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 						<span className="font-bold">
 							{verify === "true"
 								? existEmail
-								: form.getValues("nativeLanguage")}
+								: form.getValues("email")}
 						</span>
 					</p>
 
@@ -270,7 +285,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 							if (value.length === 6) {
 								document.getElementById("input-otp")?.blur();
 								const res = await verifyOtp({
-									email: form.getValues("nativeLanguage"),
+									email: form.getValues("email"),
 									otp: value,
 									type: "email",
 								});
@@ -308,7 +323,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 									startSendAgain(async () => {
 										if (!form.getValues("password")) {
 											const json = await postEmail({
-												email: form.getValues("nativeLanguage"),
+												email: form.getValues("email"),
 												password:
 													form.getValues("password"),
 											});
@@ -327,7 +342,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 												pathname || "/register"
 											);
 											form.setValue(
-												"nativeLanguage",
+												"email",
 												existEmail || ""
 											);
 											form.setValue("password", "");

@@ -21,7 +21,9 @@ import { BellAlertIcon } from '@heroicons/react/20/solid'
 import { UserNav } from './user-nav';
 import { useTheme } from 'next-themes';
 import { setDisplayCommand } from '@/state/command';
+import HeaderIcons from './header-icons';
 import Link from 'next/link';
+import getUserSession from '@/lib/get-user-session';
 
 function OpenMenuIcon() {
   return (
@@ -94,10 +96,8 @@ export function SidebarLayout({
         </header>
 
         {/* Content */}
-
         <main className={cn("flex flex-1 flex-col pb-2 lg:min-w-0 lg:pr-2 transition-all duration-300 ease-in-out", !collapsed ? 'lg:pl-64 ' : 'lg:pl-[66px]')}>
           <div className='lg:h-14 lg:flex items-center hidden gap-1 mr-1'>
-            {/* <p className='text-sm text-muted-foreground mt-2 ml-1'>Something</p> */}
             <div className="relative ml-auto flex-1 md:grow-0" onClick={() => setDisplayCommand(true)}>
               <Search className="absolute left-2.5 top-3 h-4 w-4 text-muted-foreground" />
               <Input
@@ -107,28 +107,11 @@ export function SidebarLayout({
               />
               <DropdownMenuShortcut className='mt-0.5 absolute right-4 top-3 '>⌘K</DropdownMenuShortcut>
             </div>
-            <div className='flex gap-2'>
-              <Button variant={'ghost'} size={'icon'}>
-                <BellAlertIcon className='w-[18px] h-[18px] opacity-70' />
-              </Button>
-              <UserNav collapsed={true} />
-              <Link
-                href="/login"
-                className={cn(
-                  buttonVariants({ variant: "outline" }),
-                  "hidden shadow-sm lg:flex"
-                )}
-              >
-                Sign In
-              </Link>
-            </div>
+            <HeaderIcons />
           </div>
           <div className="grow p-6 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
             <div className="mx-auto max-w-6xl">{children}</div>
           </div>
-          {/* <div className='h-12 w-full flex items-center pt-2 px-1 text-sm'>
-          something
-          </div> */}
         </main >
       </div >
     </OverlayScrollbarsComponent>

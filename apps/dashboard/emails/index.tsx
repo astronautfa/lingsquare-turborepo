@@ -17,6 +17,8 @@ interface AuthVerifyEmailProp {
 	verificationCode?: string;
 }
 
+// TODO : make more emails and style them in the way you want
+
 export default function AuthVerifyEmail({
 	verificationCode = "596853",
 }: AuthVerifyEmailProp) {

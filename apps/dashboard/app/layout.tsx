@@ -88,7 +88,7 @@ export default function RootLayout({
           <CommandMenu />
           <TailwindIndicator />
           {children}
-          <Toaster />
+          <Toaster closeButton/>
         </Providers>
       </body>
     </html>

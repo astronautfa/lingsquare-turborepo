@@ -86,8 +86,6 @@ export function LanguageSettingsForm() {
         control: form.control,
     })
 
-    const [openSelect, setOpenSelect] = useState<boolean>(false)
-
     function onSubmit(data: languageSettingsFormValues) {
         console.log('submitted')
         toast(
@@ -276,7 +274,10 @@ export function LanguageSettingsForm() {
                             {/* TODO : add tooltip to remove language button */}
                             {index !== 0 &&
                                 <Button size='icon' variant='outline'>
-                                    <TrashIcon className="w-4 h-4 text-destructive" onClick={() => removeStudyingLanguage(index)} />
+                                    <TrashIcon className="w-4 h-4 text-destructive" onClick={() => {
+                                        console.log(index)
+                                        removeStudyingLanguage(index)
+                                    }} />
                                 </Button>}
                         </div>
                     ))}

@@ -6,6 +6,8 @@ import {
     TooltipProvider,
 } from "@ui/components/tooltip"
 import { MenuProvider, Dimensions } from "kmenu";
+import { SessionContextProvider } from '@supabase/auth-helpers-react'
+import { createClient } from '@lingsquare/supabase/client/client'
 
 const dimensions: Dimensions = {
     sectionHeight: 30,
@@ -14,14 +16,19 @@ const dimensions: Dimensions = {
 };
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
+    const supabase = createClient()
     return (
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <MenuProvider dimensions={dimensions}>
-                <TooltipProvider delayDuration={200}>
-                    {children}
-                </TooltipProvider>
-            </MenuProvider>
-        </ThemeProvider>
+        <SessionContextProvider
+            supabaseClient={supabase}
+        >
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                <MenuProvider dimensions={dimensions}>
+                    <TooltipProvider delayDuration={200}>
+                        {children}
+                    </TooltipProvider>
+                </MenuProvider>
+            </ThemeProvider>
+        </SessionContextProvider>
     )
 }
 

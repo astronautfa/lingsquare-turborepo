@@ -5,7 +5,7 @@ import SignUp from "./signup-form";
 import SocialAuth from "./social-form";
 import { SeparatorWithText } from "@ui/components/separator";
 
-export default function RegisterForm() {
+export default function RegisterForm({ setLoginDisplay }: { setLoginDisplay?: (value: boolean) => void }) {
 	const queryString =
 		typeof window !== "undefined" ? window?.location.search : "";
 	const urlParams = new URLSearchParams(queryString);
@@ -26,7 +26,7 @@ export default function RegisterForm() {
 				<SocialAuth redirectTo={next || "/"} />
 				<SeparatorWithText text="or" />
 			</div>
-			<SignUp redirectTo={next || "/"} />
+			<SignUp redirectTo={next || "/"} setLoginDisplay={setLoginDisplay} />
 		</div>
 	);
 }

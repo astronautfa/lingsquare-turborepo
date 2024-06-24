@@ -26,6 +26,8 @@ import Link from "next/link";
 import { LoginSchema } from "@/lib/validations";
 import SocialAuth from "./social-form";
 import { SeparatorWithText } from "@ui/components/separator";
+import { loginWithEmailAndPassword } from "@/actions/auth";
+import { revalidatePath } from "next/cache";
 
 export default function LoginForm() {
     const queryString =
@@ -66,18 +68,32 @@ export function SignInForm({ redirectTo }: { redirectTo: string }) {
     });
 
     function onSubmit(data: z.infer<typeof LoginSchema>) {
-        const supabase = createClient();
+        // const supabase = createClient();
         if (!isPending) {
+            // startTransition(async () => {
+            //     const { error } = await supabase.auth.signInWithPassword({
+            //         email: data.email,
+            //         password: data.password,
+            //     });
+            //     if (error) {
+            //         toast.error(error.message);
+            //     } else {
+            //         router.push(redirectTo);
+            //     }
+            // });
             startTransition(async () => {
-                const { error } = await supabase.auth.signInWithPassword({
-                    email: data.email,
-                    password: data.password,
-                });
-                if (error) {
+                const result = await loginWithEmailAndPassword(data);
+
+                const { error } = JSON.parse(result);
+                if (error?.message) {
                     toast.error(error.message);
-                } else {
-                    router.push(redirectTo);
+                    console.log('Error message', error.message);
+                    form.reset({ password: '' });
+                    return;
                 }
+
+                toast.success('successfully logged in');
+                router.push('/')
             });
         }
     }
@@ -87,7 +103,7 @@ export function SignInForm({ redirectTo }: { redirectTo: string }) {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
                 <FormField
                     control={form.control}
-                    name="nativeLanguage"
+                    name="email"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel className="text-sm">

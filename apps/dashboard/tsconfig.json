@@ -20,7 +20,9 @@
     "next.config.js",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "middleware.js",
+    "lib/get-user-session.js"
   ],
   "exclude": ["node_modules"]
 }

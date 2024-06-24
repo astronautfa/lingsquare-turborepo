@@ -8,7 +8,9 @@ export const metadata: Metadata = {
 }
 const DisplaySettingsPage = () => {
     return (
-        <DisplaySettingsForm />
+        <>
+            <DisplaySettingsForm />
+        </>
     )
 }
 

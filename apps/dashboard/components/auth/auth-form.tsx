@@ -37,7 +37,7 @@ const AuthForm = () => {
                 </div>
                 :
                 <div>
-                    <RegisterForm />
+                    <RegisterForm setLoginDisplay={setLoginDisplay} />
                     <div className="text-center text-sm flex gap-2 justify-center items-center">
                         <h4>
                             Already have account?
