@@ -104,12 +104,13 @@ export function LanguageSettingsForm() {
     // TODO : add moving around accounts
     // TODO : display the flag in the input field
     // TODO : specify your level in your learning language
+    // TODO : fix the form submission on removing language!
 
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <div className="flex flex-col gap-3">
-                    <FormLabel className="mb-1">Native Language</FormLabel>
+                    <FormLabel className="mb-1">Native Language{nativeLanguages.length > 1 && 's'}</FormLabel>
                     {nativeLanguages.map((nativeLanguage, index) => (
                         <div className="flex gap-2 w-full" key={nativeLanguage.id}>
                             <FormField
@@ -203,7 +204,7 @@ export function LanguageSettingsForm() {
                 </div>
                 <Separator />
                 <div className="flex flex-col gap-3">
-                    <FormLabel className="mb-1">Studying Language</FormLabel>
+                    <FormLabel className="mb-1">Studying Language{studyingLanguages.length > 1 && 's'}</FormLabel>
                     {studyingLanguages.map((studyingLanguage, index) => (
                         <div className="flex gap-2 w-full" key={studyingLanguage.id}>
                             <FormField
