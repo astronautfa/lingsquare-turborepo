@@ -42,28 +42,21 @@ import {
 import { toast } from "sonner"
 import { useState } from "react"
 import { languages } from "@/consts/languages"
-import { Check, ChevronsUpDown } from "lucide-react"
+import { Check, ChevronsUpDown, DeleteIcon, PlusIcon } from "lucide-react"
+import { TrashIcon } from "@heroicons/react/20/solid"
+import { Separator } from "@ui/components/separator"
 
 const languageSettingsFormSchema = z.object({
-    username: z
-        .string()
-        .min(2, {
-            message: "Username must be at least 2 characters.",
+    studyingLanguages: z.array(
+        z.object({
+            value: z.string({ message: "Please select your native language" }),
         })
-        .max(30, {
-            message: "Username must not be longer than 30 characters.",
-        }),
-    email: z
-        .string({
-            required_error: "Please select an email to display.",
-        }),
-    urls: z
-        .array(
-            z.object({
-                value: z.string().url({ message: "Please enter a valid URL." }),
-            })
-        )
-        .optional(),
+    ),
+    nativeLanguages: z.array(
+        z.object({
+            value: z.string({ message: "Please select your native language" }),
+        })
+    ),
 })
 
 // TODO : sort out the language form with levels and also being able to add and remove fields
@@ -72,10 +65,8 @@ type languageSettingsFormValues = z.infer<typeof languageSettingsFormSchema>
 
 // This can come from your database or API.
 const defaultValues: Partial<languageSettingsFormValues> = {
-    urls: [
-        { value: "https://alireza.com" },
-        { value: "http://twitter.com/alireza" },
-    ],
+    nativeLanguages: [{ value: '' }],
+    studyingLanguages: [{ value: '' }],
 }
 
 export function LanguageSettingsForm() {
@@ -85,14 +76,20 @@ export function LanguageSettingsForm() {
         mode: "onChange",
     })
 
-    const { fields, append } = useFieldArray({
-        name: "urls",
+    const { fields: nativeLanguages, append: appendNativeLanguage, remove: removeNativeLanguage } = useFieldArray({
+        name: "nativeLanguages",
+        control: form.control,
+    })
+
+    const { fields: studyingLanguages, append: appendStudyingLanguage, remove: removeStudyingLanguage } = useFieldArray({
+        name: "studyingLanguages",
         control: form.control,
     })
 
     const [openSelect, setOpenSelect] = useState<boolean>(false)
 
     function onSubmit(data: languageSettingsFormValues) {
+        console.log('submitted')
         toast(
             <div className="flex flex-col">
                 <p>You submitted the following values:</p>
@@ -103,136 +100,199 @@ export function LanguageSettingsForm() {
         )
     }
 
+    // TODO : add other language input field
+    // TODO : add moving around accounts
+    // TODO : display the flag in the input field
+    // TODO : specify your level in your learning language
+
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem className="flex flex-col gap-1">
-                            <FormLabel>Native Language</FormLabel>
-                            <Popover>
-                                <PopoverTrigger asChild>
-                                    <FormControl>
-                                        <Button
-                                            variant="outline"
-                                            role="combobox"
-                                            className={cn(
-                                                "w-full justify-between",
-                                                !field.value && "text-muted-foreground"
-                                            )}
-                                        >
-                                            {field.value
-                                                ? languages.find(
-                                                    (language) => language.code === field.value
-                                                )?.name
-                                                : "Select language"}
-                                            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                        </Button>
-                                    </FormControl>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-[300px] p-0">
-                                    <Command>
-                                        <CommandInput placeholder="Search language..." />
-                                        <CommandEmpty>No language found.</CommandEmpty>
-                                        <CommandList>
-                                            <CommandGroup>
-                                                {languages.map((language) => (
-                                                    <CommandItem
-                                                        value={language.name + " " + language.code}
-                                                        key={language.code}
-                                                        onSelect={() => {
-                                                            form.setValue("email", language.code)
-                                                        }}
+                <div className="flex flex-col gap-3">
+                    <FormLabel className="mb-1">Native Language</FormLabel>
+                    {nativeLanguages.map((nativeLanguage, index) => (
+                        <div className="flex gap-2 w-full" key={nativeLanguage.id}>
+                            <FormField
+                                control={form.control}
+                                name={`nativeLanguages.${index}.value`}
+                                render={({ field }) => (
+                                    <FormItem className="flex flex-col gap-1 w-full">
+                                        <Popover>
+                                            <PopoverTrigger asChild>
+                                                <FormControl>
+                                                    <Button
+                                                        variant="outline"
+                                                        role="combobox"
+                                                        className={cn(
+                                                            "w-full justify-between",
+                                                            !field.value && "text-muted-foreground"
+                                                        )}
                                                     >
-                                                        <Check
-                                                            className={cn(
-                                                                "mr-2 h-4 w-4",
-                                                                language.code === field.value
-                                                                    ? "opacity-100"
-                                                                    : "opacity-0"
-                                                            )}
-                                                        />
-                                                        <div className="flex gap-2">
-                                                            <p>
-                                                                {language.flag}
-                                                            </p>
-                                                            <p>
-                                                                {language.name}
-                                                            </p>
-                                                        </div>
-                                                    </CommandItem>
-                                                ))}
-                                            </CommandGroup>
-                                        </CommandList>
-                                    </Command>
-                                </PopoverContent>
-                            </Popover>
-                            <FormDescription>
-                                This is your mother tongue meaning your first language, or all of the languages you grew up in if you grew up bilingual or multilingual.
-                            </FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Email</FormLabel>
-                            <Select onValueChange={field.onChange} defaultValue={field.value} onOpenChange={setOpenSelect}>
-                                <FormControl>
-                                    <SelectTrigger open={openSelect} >
-                                        <SelectValue placeholder="Select a verified email to display" />
-                                    </SelectTrigger>
-                                </FormControl>
-                                <SelectContent>
-                                    <SelectItem value="m@example.com">m@example.com</SelectItem>
-                                    <SelectItem value="m@google.com">m@google.com</SelectItem>
-                                    <SelectItem value="m@support.com">m@support.com</SelectItem>
-                                </SelectContent>
-                            </Select>
-                            <FormDescription>
-                                You can manage verified email addresses in your{" "}
-                                <Link href="/examples/forms">email settings</Link>.
-                            </FormDescription>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <div>
-                    {fields.map((field, index) => (
-                        <FormField
-                            control={form.control}
-                            key={field.id}
-                            name={`urls.${index}.value`}
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel className={cn(index !== 0 && "sr-only")}>
-                                        URLs
-                                    </FormLabel>
-                                    <FormDescription className={cn(index !== 0 && "sr-only")}>
-                                        Add links to your website, blog, or social media profiles.
-                                    </FormDescription>
-                                    <FormControl>
-                                        <Input {...field} />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                                                        {field.value
+                                                            ? languages.find(
+                                                                (language) => language.code === field.value
+                                                            )?.name
+                                                            : "Select language"}
+                                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                                    </Button>
+                                                </FormControl>
+                                            </PopoverTrigger>
+                                            <PopoverContent className="w-[300px] p-0">
+                                                <Command>
+                                                    <CommandInput placeholder="Search language..." />
+                                                    <CommandEmpty>No language found.</CommandEmpty>
+                                                    <CommandList>
+                                                        <CommandGroup>
+                                                            {languages.map((language) => (
+                                                                <CommandItem
+                                                                    value={language.name + " " + language.code}
+                                                                    key={language.code}
+                                                                    onSelect={() => {
+                                                                        form.setValue(`nativeLanguages.${index}.value`, language.code)
+                                                                    }}
+                                                                >
+                                                                    <Check
+                                                                        className={cn(
+                                                                            "mr-2 h-4 w-4",
+                                                                            language.code === field.value
+                                                                                ? "opacity-100"
+                                                                                : "opacity-0"
+                                                                        )}
+                                                                    />
+                                                                    <div className="flex gap-2">
+                                                                        <p>
+                                                                            {language.flag}
+                                                                        </p>
+                                                                        <p>
+                                                                            {language.name}
+                                                                        </p>
+                                                                    </div>
+                                                                </CommandItem>
+                                                            ))}
+                                                        </CommandGroup>
+                                                    </CommandList>
+                                                </Command>
+                                            </PopoverContent>
+                                        </Popover>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            {/* TODO : add tooltip to remove language button */}
+                            {index !== 0 && <Button size='icon' variant='outline'>
+                                <TrashIcon className="w-4 h-4 text-destructive" onClick={() => removeNativeLanguage(index)} />
+                            </Button>}
+                        </div>
                     ))}
-                    <Button
-                        type="button"
-                        variant="outline"
-                        size="sm"
-                        className="mt-2"
-                        onClick={() => append({ value: "" })}
-                    >
-                        Add Language
-                    </Button>
+                    <div className="w-full flex justify-end">
+                        <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => {
+                                appendNativeLanguage({ value: "" })
+                            }}
+                        >
+                            <PlusIcon className='w-4 h-4 mr-1' />
+                            Native Language
+                        </Button>
+                    </div>
+                    <FormDescription>
+                        This is your mother tongue meaning your first language, or all of the languages you grew up in if you grew up bilingual or multilingual.
+                    </FormDescription>
+                </div>
+                <Separator />
+                <div className="flex flex-col gap-3">
+                    <FormLabel className="mb-1">Studying Language</FormLabel>
+                    {studyingLanguages.map((studyingLanguage, index) => (
+                        <div className="flex gap-2 w-full" key={studyingLanguage.id}>
+                            <FormField
+                                control={form.control}
+                                name={`studyingLanguages.${index}.value`}
+                                render={({ field }) => (
+                                    <FormItem className="flex flex-col gap-1 w-full">
+                                        <Popover>
+                                            <PopoverTrigger asChild>
+                                                <FormControl>
+                                                    <Button
+                                                        variant="outline"
+                                                        role="combobox"
+                                                        className={cn(
+                                                            "w-full justify-between",
+                                                            !field.value && "text-muted-foreground"
+                                                        )}
+                                                    >
+                                                        {field.value
+                                                            ? languages.find(
+                                                                (language) => language.code === field.value
+                                                            )?.name
+                                                            : "Select language"}
+                                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                                    </Button>
+                                                </FormControl>
+                                            </PopoverTrigger>
+                                            <PopoverContent className="w-[300px] p-0">
+                                                <Command>
+                                                    <CommandInput placeholder="Search language..." />
+                                                    <CommandEmpty>No language found.</CommandEmpty>
+                                                    <CommandList>
+                                                        <CommandGroup>
+                                                            {languages.map((language) => (
+                                                                <CommandItem
+                                                                    value={language.name + " " + language.code}
+                                                                    key={language.code}
+                                                                    onSelect={() => {
+                                                                        form.setValue(`studyingLanguages.${index}.value`, language.code)
+                                                                    }}
+                                                                >
+                                                                    <Check
+                                                                        className={cn(
+                                                                            "mr-2 h-4 w-4",
+                                                                            language.code === field.value
+                                                                                ? "opacity-100"
+                                                                                : "opacity-0"
+                                                                        )}
+                                                                    />
+                                                                    <div className="flex gap-2">
+                                                                        <p>
+                                                                            {language.flag}
+                                                                        </p>
+                                                                        <p>
+                                                                            {language.name}
+                                                                        </p>
+                                                                    </div>
+                                                                </CommandItem>
+                                                            ))}
+                                                        </CommandGroup>
+                                                    </CommandList>
+                                                </Command>
+                                            </PopoverContent>
+                                        </Popover>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            {/* TODO : add tooltip to remove language button */}
+                            {index !== 0 &&
+                                <Button size='icon' variant='outline'>
+                                    <TrashIcon className="w-4 h-4 text-destructive" onClick={() => removeStudyingLanguage(index)} />
+                                </Button>}
+                        </div>
+                    ))}
+                    <div className="w-full flex justify-end">
+                        <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={() => appendStudyingLanguage({ value: "" })}
+                        >
+                            <PlusIcon className='w-4 h-4 mr-1' />
+                            Studying Language
+                        </Button>
+                    </div>
+                    <FormDescription>
+                        This is the language you are attempting to acquire. You could add more languages if you are a pro member.
+                    </FormDescription>
                 </div>
                 <div className="flex justify-end w-full">
                     <Button type="submit">Update Languages</Button>

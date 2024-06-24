@@ -111,7 +111,7 @@ export function PersonalSettingsForm() {
         />
         <FormField
           control={form.control}
-          name="email"
+          name="nativeLanguage"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>

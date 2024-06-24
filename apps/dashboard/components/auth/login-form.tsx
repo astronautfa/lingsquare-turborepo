@@ -87,7 +87,7 @@ export function SignInForm({ redirectTo }: { redirectTo: string }) {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
                 <FormField
                     control={form.control}
-                    name="email"
+                    name="nativeLanguage"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel className="text-sm">

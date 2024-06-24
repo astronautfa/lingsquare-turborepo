@@ -87,7 +87,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 			router.replace(
 				(pathname || "/") +
 				"?verify=true&email=" +
-				form.getValues("email")
+				form.getValues("nativeLanguage")
 			);
 			setIsConfirmed(true);
 		} else {
@@ -126,7 +126,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 				>
 					<FormField
 						control={form.control}
-						name="email"
+						name="nativeLanguage"
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel className=" font-semibold  test-sm">
@@ -258,7 +258,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 						<span className="font-bold">
 							{verify === "true"
 								? existEmail
-								: form.getValues("email")}
+								: form.getValues("nativeLanguage")}
 						</span>
 					</p>
 
@@ -270,7 +270,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 							if (value.length === 6) {
 								document.getElementById("input-otp")?.blur();
 								const res = await verifyOtp({
-									email: form.getValues("email"),
+									email: form.getValues("nativeLanguage"),
 									otp: value,
 									type: "email",
 								});
@@ -308,7 +308,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 									startSendAgain(async () => {
 										if (!form.getValues("password")) {
 											const json = await postEmail({
-												email: form.getValues("email"),
+												email: form.getValues("nativeLanguage"),
 												password:
 													form.getValues("password"),
 											});
@@ -327,7 +327,7 @@ export default function SignUp({ redirectTo }: { redirectTo: string }) {
 												pathname || "/register"
 											);
 											form.setValue(
-												"email",
+												"nativeLanguage",
 												existEmail || ""
 											);
 											form.setValue("password", "");
