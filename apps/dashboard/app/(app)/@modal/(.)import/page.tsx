@@ -9,9 +9,7 @@ import EmptyState from '@/components/empty-state-copy';
 const ImportModal = () => {
     return (
         <RouteInterceptedModal >
-            <div>
-                <EmptyState />
-            </div>
+            <EmptyState />
         </RouteInterceptedModal>
     )
 }
