@@ -9,7 +9,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@ui/components/ui/*": ["../../packages/ui/src/components/ui/*"],
+      "@ui/components/*": ["../../packages/ui/src/components/ui/*"],
       "@ui/lib/*": ["../../packages/ui/src/lib/*"],
       "@ui/styles/*": ["../../packages/ui/src/styles/*"],
       "@lingsquare/supabase/*": ["../../packages/supabase/src/*"]
