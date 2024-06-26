@@ -12,17 +12,17 @@
   },
   "dependencies": {
     "@date-fns/utc": "^1.2.0",
-    "@supabase/ssr": "^0.3.0",
+    "@supabase/ssr": "^0.4.0",
     "date-fns": "^3.6.0",
-    "next": "^14.2.3",
+    "next": "^14.2.4",
     "react": "^18.3.1",
     "server-only": "^0.0.1",
-    "supabase": "^1.176.10"
+    "supabase": "^1.178.2"
   },
   "devDependencies": {
-    "@supabase/supabase-js": "^2.43.5",
+    "@supabase/supabase-js": "^2.44.0",
     "@types/react": "^18.3.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.2"
   },
   "exports": {
     "./server": "./src/client/server.ts",
