@@ -8,7 +8,12 @@ export const metadata: Metadata = {
 export default function Example() {
   return (
     <div>
-      Explore Page
+      <div className="space-y-0.5">
+        <h2 className="text-2xl font-bold tracking-tight">Explore</h2>
+        <p className="text-muted-foreground">
+          Find the content you enjoy
+        </p>
+      </div>
     </div>
   )
 }

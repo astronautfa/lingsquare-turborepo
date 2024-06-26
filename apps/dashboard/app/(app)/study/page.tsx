@@ -8,7 +8,14 @@ export const metadata: Metadata = {
 
 const StudyPage = () => {
     return (
-        <div>Study Page</div>
+        <div>
+            <div className="space-y-0.5">
+                <h2 className="text-2xl font-bold tracking-tight">Study</h2>
+                <p className="text-muted-foreground">
+                    Review your flashcards
+                </p>
+            </div>
+        </div>
     )
 }
 

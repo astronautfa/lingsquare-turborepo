@@ -31,18 +31,18 @@ export default function EmptyState() {
   return (
     <div className="w-full">
       <div className="space-y-0.5">
-        <h2 className="text-2xl font-bold tracking-tight">Import</h2>
-        <p className="text-muted-foreground">
+        <h2 className="text-xl font-bold tracking-tight">Import</h2>
+        <p className="text-muted-foreground text-md">
           Import your own content and start learning.
         </p>
       </div>
       <ul
         role="list"
-        className="mt-6 divide-y  border-b border-t "
+        className="mt-6 divide-y"
       >
         {items.map((item, itemIdx) => (
           <li key={itemIdx}>
-            <div className="group relative flex items-start space-x-3 py-4 backdrop-blur-md ">
+            <div className="group relative flex items-start space-x-3 py-4">
               <div className="flex-shrink-0">
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-muted transition-colors duration-400">
                   <item.icon

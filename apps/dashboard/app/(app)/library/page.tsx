@@ -8,7 +8,14 @@ export const metadata: Metadata = {
 
 const LibraryPage = () => {
     return (
-        <div>Library Page</div>
+        <div>
+            <div className="space-y-0.5">
+                <h2 className="text-2xl font-bold tracking-tight">Library</h2>
+                <p className="text-muted-foreground">
+                    All your library in one place
+                </p>
+            </div>
+        </div>
     )
 }
 
