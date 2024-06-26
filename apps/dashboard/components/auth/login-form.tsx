@@ -38,10 +38,10 @@ export default function LoginForm() {
     const next = urlParams.get("next");
 
     return (
-        <div className="w-full sm:w-[26rem] bg-background dark:border-zinc-800 rounded-md">
+        <div className="w-full sm:w-[26rem] bg-background dark:lg:bg-zinc-900 dark:border-zinc-800 rounded-md">
             <div className="space-y-5">
                 <div className="text-center space-y-3 py-3">
-                    <h1 className="">Login to <span className="font-bold text-blue-900">LingSquare</span></h1>
+                    <h1 className="">Login to <span className="font-bold text-blue-900 dark:text-blue-600">LingSquare</span></h1>
                     <p className="text-sm">
                         Welcome back! Please sign in to continue
                     </p>

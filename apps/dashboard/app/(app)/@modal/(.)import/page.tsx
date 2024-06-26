@@ -4,6 +4,7 @@ import EmptyState from '@/components/empty-state-copy';
 
 
 // TODO : explore how that flashcard app is doing the step component
+// TODO : the x on the dialogue should match the sonner way
 
 const ImportModal = () => {
     return (

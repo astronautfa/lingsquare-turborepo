@@ -7,7 +7,7 @@ import { buttonVariants } from "@ui/components/button";
 
 export default function LoginModal() {
     return (
-        <RouteInterceptedModal >
+        <RouteInterceptedModal className="dark:lg:bg-zinc-900" >
             <div>
                 <LoginForm />
                 <div className="mt-4 text-center text-sm">

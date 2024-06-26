@@ -3,6 +3,8 @@ import { BsYoutube, BsBookHalf } from "react-icons/bs";
 import ExpandingArrow from "@ui/components/expanding-arrow"
 import Link from "next/link";
 
+// TODO : rename and clean this code !
+
 const items = [
   {
     name: "Youtube Lesson",

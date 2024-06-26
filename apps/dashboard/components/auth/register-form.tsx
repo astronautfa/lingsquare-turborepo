@@ -15,7 +15,7 @@ export default function RegisterForm({ setLoginDisplay }: { setLoginDisplay?: (v
 	const verify = urlParams.get("verify");
 
 	return (
-		<div className="w-full sm:w-[26rem] bg-background dark:border-zinc-800 rounded-md">
+		<div className="w-full sm:w-[26rem] bg-background dark:border-zinc-800 dark:lg:bg-zinc-900 rounded-md">
 			<div className="p-1 space-y-5">
 				<div className="text-center space-y-3">
 					<h1 className="font-bold">Create Account</h1>

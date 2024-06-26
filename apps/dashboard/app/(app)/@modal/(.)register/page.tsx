@@ -7,7 +7,7 @@ import { buttonVariants } from "@ui/components/button";
 
 export default function RegisterModal() {
     return (
-        <RouteInterceptedModal >
+        <RouteInterceptedModal className="dark:lg:bg-zinc-900">
             <div>
                 <RegisterForm />
                 <div className="text-center text-sm">
