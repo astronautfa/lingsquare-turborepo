@@ -1,13 +1,13 @@
 import React from "react";
 
-import { AuthModal } from "@/components/modal/auth-modal";
+import { RouteInterceptedModal } from "@/components/modal/route-modal";
 import RegisterForm from "@/components/auth/register-form";
 import Link from "next/link";
 import { buttonVariants } from "@ui/components/button";
 
 export default function RegisterModal() {
     return (
-        <AuthModal >
+        <RouteInterceptedModal >
             <div>
                 <RegisterForm />
                 <div className="text-center text-sm">
@@ -22,6 +22,6 @@ export default function RegisterModal() {
                     </h1>
                 </div>
             </div>
-        </AuthModal>
+        </RouteInterceptedModal>
     );
 }

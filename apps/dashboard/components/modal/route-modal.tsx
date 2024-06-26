@@ -9,7 +9,7 @@ import {
 import { useModalContext } from "@/components/modal/modal-provider";
 
 
-export function AuthModal({ children }: { children: React.ReactNode }) {
+export function RouteInterceptedModal({ children }: { children: React.ReactNode }) {
     const router = useRouter();
 
     const { lastPathnameBeforeModal } = useModalContext()

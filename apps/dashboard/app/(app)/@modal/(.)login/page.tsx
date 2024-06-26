@@ -1,13 +1,13 @@
 import React from "react";
 
 import LoginForm from "@/components/auth/login-form";
-import { AuthModal } from "@/components/modal/auth-modal";
+import { RouteInterceptedModal } from "@/components/modal/route-modal";
 import Link from "next/link";
 import { buttonVariants } from "@ui/components/button";
 
 export default function LoginModal() {
     return (
-        <AuthModal >
+        <RouteInterceptedModal >
             <div>
                 <LoginForm />
                 <div className="mt-4 text-center text-sm">
@@ -17,6 +17,6 @@ export default function LoginModal() {
                     </Link>
                 </div>
             </div>
-        </AuthModal>
+        </RouteInterceptedModal>
     );
 }

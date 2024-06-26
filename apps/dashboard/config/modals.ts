@@ -9,6 +9,7 @@ export const modalStaticPathnames: string[] = [
   "/login",
   "/register",
   "/forgot-password",
+  "/import",
 ];
 
 /**

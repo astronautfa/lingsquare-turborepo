@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import React from 'react'
+import EmptyState from '@/components/empty-state';
 
 export const metadata: Metadata = {
     title: "Import",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 const ImportPage = () => {
     return (
-        <div>Import Page</div>
+        <div><EmptyState /></div>
     )
 }
 
