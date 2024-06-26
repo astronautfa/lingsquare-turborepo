@@ -10,10 +10,17 @@ import {
   Sheet,
   SheetContent,
 } from "@ui/components/sheet"
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@ui/components/tooltip"
+
 import LingsquareSidebar from './lingsquare-sidebar'
 import LingsquareNavbar from './lingsquare-navbar'
 import { Button, buttonVariants } from '@ui/components/button'
-import { ArrowRightCircle, Search } from 'lucide-react'
+import { ArrowRightCircle, FullscreenIcon, Search } from 'lucide-react'
 import { cn } from '@ui/lib/utils'
 import { DropdownMenuShortcut } from '@ui/components/dropdown-menu'
 import { Input } from '@ui/components/input'
@@ -24,6 +31,8 @@ import { setDisplayCommand } from '@/state/command';
 import HeaderIcons from './header-icons';
 import Link from 'next/link';
 import getUserSession from '@/lib/get-user-session';
+import { RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
+import { LuArrowRight } from 'react-icons/lu';
 
 function OpenMenuIcon() {
   return (
@@ -48,6 +57,7 @@ export function SidebarLayout({
 }: React.PropsWithChildren<{}>) {
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const [collapsed, setCollapsed] = useState<boolean>(false)
+  const [fullscreen, setFullscreen] = useState<boolean>(false)
   const { theme } = useTheme();
 
   const [initBodyOverlayScrollbars] = useOverlayScrollbars({
@@ -69,15 +79,39 @@ export function SidebarLayout({
     >
       <div className="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950 md:pr-1">
         {/* Sidebar on desktop */}
-        <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-300 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]')}>
+        <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-200 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4')}>
+          <Tooltip>
+            <TooltipTrigger className='absolute top-24 -right-3 '>
+              <Button className={cn('transition-all duration-75 border',
+                !collapsed && 'rotate-180',
+                fullscreen ? 'opacity-0' : 'opacity-100'
+              )} variant={'collapse'} size={'collapse'} onClick={() => { setCollapsed((prev) => !prev) }} >
+                <LuArrowRight height={22} width={22} />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side='right'>
+              <p>{collapsed ? 'Expand Sidebar' : "Collapse Sidebar"}</p>
+            </TooltipContent>
+          </Tooltip>
+          <Tooltip>
+            <TooltipTrigger className={cn('absolute transition-transform duration-100', fullscreen ? '-right-[10px] bottom-11' : '-right-3 bottom-12')}>
+              <Button className={'scale-110 border flex'} variant={'collapse'} size={'collapse'} onClick={() => { setFullscreen((prev) => !prev) }} >
+                {fullscreen ?
+                  <RxExitFullScreen height={26} width={26} />
+                  :
+                  <RxEnterFullScreen height={26} width={26} />
+                }
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side='right'>
+              <p>{fullscreen ? 'Exit Fullscreen' : "Enter Fullscreen"}</p>
+            </TooltipContent>
+          </Tooltip>
 
-          <Button className={cn('absolute top-24 -right-3 transition-all duration-75',
-            !collapsed && 'rotate-180'
-          )} variant={'collapse'} size={'collapse'} onClick={() => { setCollapsed((prev) => !prev) }} >
-            <ArrowRightCircle height={22} width={22} />
-          </Button>
 
-          <LingsquareSidebar collapsed={collapsed} />
+          <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-200 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'hidden')}>
+            <LingsquareSidebar collapsed={collapsed} />
+          </div>
         </div>
 
         {/* Sidebar on mobile */}
@@ -96,8 +130,8 @@ export function SidebarLayout({
         </header>
 
         {/* Content */}
-        <main className={cn("flex flex-1 flex-col pb-2 lg:min-w-0 lg:pr-2 transition-all duration-300 ease-in-out", !collapsed ? 'lg:pl-64 ' : 'lg:pl-[66px]')}>
-          <div className='lg:h-14 lg:flex items-center hidden gap-1 mr-1'>
+        <main className={cn("flex flex-1 flex-col pb-2 lg:min-w-0 lg:pr-2 transition-all duration-200 ease-in-out", !collapsed ? 'lg:pl-64 ' : 'lg:pl-[66px]', fullscreen && 'lg:pl-2')}>
+          <div className={cn('lg:h-14 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-2 opacity-0 hidden')}>
             <div className="relative ml-auto flex-1 md:grow-0" onClick={() => setDisplayCommand(true)}>
               <Search className="absolute left-2.5 top-3 h-4 w-4 text-muted-foreground" />
               <Input
