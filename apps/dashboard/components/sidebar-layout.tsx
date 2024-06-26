@@ -31,8 +31,9 @@ import { setDisplayCommand } from '@/state/command';
 import HeaderIcons from './header-icons';
 import Link from 'next/link';
 import getUserSession from '@/lib/get-user-session';
-import { RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
+import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { LuArrowRight } from 'react-icons/lu';
+import { useIsMounted } from '@/hooks/use-is-mounted';
 
 function OpenMenuIcon() {
   return (
@@ -73,29 +74,31 @@ export function SidebarLayout({
     initBodyOverlayScrollbars(document.body);
   }, [theme, initBodyOverlayScrollbars])
 
+  const isMounted = useIsMounted();
+
   return (
     <OverlayScrollbarsComponent
       defer
     >
       <div className="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950 md:pr-1">
         {/* Sidebar on desktop */}
-        <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-200 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4')}>
-          <Tooltip>
-            <TooltipTrigger className='absolute top-24 -right-3 '>
-              <Button className={cn('transition-all duration-75 border',
-                !collapsed && 'rotate-180',
-                fullscreen ? 'opacity-0' : 'opacity-100'
-              )} variant={'collapse'} size={'collapse'} onClick={() => { setCollapsed((prev) => !prev) }} >
-                <LuArrowRight height={22} width={22} />
+        <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-200 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4', !isMounted() && 'w-64')}>
+          <Tooltip >
+            <TooltipTrigger asChild className={cn('absolute top-24 -right-3 transition-all duration-75 border hover:scale-110',
+              !collapsed && 'rotate-180',
+              fullscreen ? 'opacity-0' : 'opacity-100'
+            )} >
+              <Button variant={'collapse'} size={'collapse'} onClick={() => { setCollapsed((prev) => !prev) }} >
+                <RxCaretRight height={26} width={26} />
               </Button>
             </TooltipTrigger>
             <TooltipContent side='right'>
-              <p>{collapsed ? 'Expand Sidebar' : "Collapse Sidebar"}</p>
+              <p>{isMounted() ? collapsed ? 'Expand Sidebar' : "Collapse Sidebar" : "Toggle Sidebar"}</p>
             </TooltipContent>
           </Tooltip>
           <Tooltip>
-            <TooltipTrigger className={cn('absolute transition-transform duration-100', fullscreen ? '-right-[10px] bottom-11' : '-right-3 bottom-12')}>
-              <Button className={'scale-110 border flex'} variant={'collapse'} size={'collapse'} onClick={() => { setFullscreen((prev) => !prev) }} >
+            <TooltipTrigger asChild className={cn('absolute transition-transform duration-100', fullscreen ? '-right-[10px] bottom-11' : '-right-3 bottom-12', !isMounted() && '-right-3 bottom-11')}>
+              <Button className={'hover:scale-110 transition-all border flex'} variant={'collapse'} size={'collapse'} onClick={() => { setFullscreen((prev) => !prev) }} >
                 {fullscreen ?
                   <RxExitFullScreen height={26} width={26} />
                   :
@@ -108,8 +111,7 @@ export function SidebarLayout({
             </TooltipContent>
           </Tooltip>
 
-
-          <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-200 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'hidden')}>
+          <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-200 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'hidden', !isMounted() && 'w-64')}>
             <LingsquareSidebar collapsed={collapsed} />
           </div>
         </div>
@@ -148,7 +150,7 @@ export function SidebarLayout({
           </div>
         </main >
       </div >
-    </OverlayScrollbarsComponent>
+    </OverlayScrollbarsComponent >
   )
 }
 
