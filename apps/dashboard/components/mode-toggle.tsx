@@ -24,7 +24,7 @@ export function ModeToggle({ collapsed }: { collapsed: boolean }) {
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
-          className={cn(buttonVariants({ variant: "nav" }), 'pl-2.5 bg-transparent text-primary h-10 mt-0.5 transition-all duration-250', collapsed && 'rounded-full')}
+          className={cn(buttonVariants({ variant: "nav" }), 'pl-2.5 bg-transparent text-primary h-9 transition-all duration-250', collapsed && 'rounded-full')}
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
           <div className='w-5 relative mb-5'>

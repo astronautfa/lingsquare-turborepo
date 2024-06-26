@@ -32,7 +32,7 @@ const buttonVariants = cva(
           "relative after:absolute after:bg-primary after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-left after:scale-x-100 hover:after:origin-bottom-right hover:after:scale-x-0 after:transition-transform after:ease-in-out after:duration-300",
         linkHover2:
           "relative after:absolute after:bg-primary after:bottom-2 after:h-[1px] after:w-2/3 after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300",
-        nav: "hover:bg-accent hover:text-accent-foreground justify-start flex",
+        nav: "hover:bg-primary/10 hover:text-accent-foreground justify-start flex",
         collapse: "hover:text-accent-foreground rounded-full bg-white dark:bg-black text-slate-800/70 dark:text-slate-400/70",
       },
       size: {

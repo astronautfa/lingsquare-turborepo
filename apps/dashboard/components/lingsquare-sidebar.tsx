@@ -25,6 +25,7 @@ import English from "../public/English.svg";
 import German from "../public/German.svg";
 import Spanish from "../public/Spanish.svg";
 import Image from 'next/image';
+import { BackwardIcon } from '@heroicons/react/20/solid';
 
 const learningLanguages = [
   {
@@ -104,6 +105,9 @@ const LingsquareSidebar = ({ collapsed }: { collapsed: boolean }) => {
       <SidebarHeader>
         <AccountSwitcher isCollapsed={collapsed} learningLanguages={learningLanguages} speakingLanguages={speakingLanguages} />
         <SidebarSection className="max-lg:hidden">
+          {/* <SidebarItem collapsed={collapsed} href="/import" label={'Back'}>
+            <BackwardIcon />
+          </SidebarItem> */}
           <SidebarItem collapsed={collapsed} href="/library" label={'Library'}>
             <BookOpenIcon />
           </SidebarItem>
