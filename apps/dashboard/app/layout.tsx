@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NextTopLoader from 'nextjs-toploader';
 import { Inter } from "next/font/google";
 import "@ui/styles/globals.css"
 import "@ui/styles/cmdk.css"
@@ -84,11 +85,12 @@ export default function RootLayout({
             {}
             : ({ "--radius": `${radius}rem` } as React.CSSProperties)
         }>
+        <NextTopLoader color="#71717A" />
         <Providers>
           <CommandMenu />
           <TailwindIndicator />
           {children}
-          <Toaster closeButton/>
+          <Toaster closeButton />
         </Providers>
       </body>
     </html>
