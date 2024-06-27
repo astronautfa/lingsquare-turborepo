@@ -1,5 +1,6 @@
 import React from 'react'
 import { Metadata } from 'next'
+import { Separator } from '@ui/components/separator'
 
 export const metadata: Metadata = {
     title: "Study",
@@ -15,6 +16,7 @@ const StudyPage = () => {
                     Review your flashcards
                 </p>
             </div>
+            <Separator className="my-6" />
         </div>
     )
 }

@@ -1,3 +1,4 @@
+import { Separator } from '@ui/components/separator'
 import { Metadata } from 'next'
 import React from 'react'
 
@@ -15,6 +16,7 @@ const HistoryPage = () => {
                     Previously visited lessons
                 </p>
             </div>
+            <Separator className="my-6" />
         </div>
     )
 }

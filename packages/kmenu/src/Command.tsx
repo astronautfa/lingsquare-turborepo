@@ -16,6 +16,10 @@ export default (({ onMouseEnter, isSelected, command }) => {
     if (isSelected) onClick()
   }
 
+  // TODO : add states to command menu to be able to open and close from higher component
+  // TODO : fix the color schema
+  // TODO : fix the overlay background color
+
   const onClick = () => {
     if (command.checkbox) setChecked((checked) => !checked)
     run(command)

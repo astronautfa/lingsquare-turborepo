@@ -1,3 +1,4 @@
+import { Separator } from '@ui/components/separator'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function Example() {
           Find the content you enjoy
         </p>
       </div>
+      <Separator className="my-6" />
     </div>
   )
 }

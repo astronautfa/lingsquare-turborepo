@@ -41,6 +41,7 @@ const DisplaySettingsFormSchema = z.object({
 type DisplaySettingsFormValues = z.infer<typeof DisplaySettingsFormSchema>
 
 // This can come from your database or API.
+// TODO : This should be loaded from the user preference
 const defaultValues: Partial<DisplaySettingsFormValues> = {
   theme: "light",
 }
