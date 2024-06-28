@@ -40,10 +40,10 @@ export default function LoginForm() {
     return (
         <div className="w-full sm:w-[26rem] bg-background dark:lg:bg-zinc-900 dark:border-zinc-800 rounded-md">
             <div className="space-y-5">
-                <div className="text-center space-y-3 py-3">
-                    <h1 className="">Login to <span className="font-bold text-blue-900 dark:text-blue-600">LingSquare</span></h1>
-                    <p className="text-sm">
-                        Welcome back! Please sign in to continue
+                <div className="text-center space-y-1 py-3">
+                    <h2 className="text-xl font-bold tracking-tight">Login</h2>
+                    <p className="text-muted-foreground">
+                        Welcome back!
                     </p>
                 </div>
                 <SocialAuth redirectTo={next || "/"} />

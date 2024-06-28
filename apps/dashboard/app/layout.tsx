@@ -85,7 +85,7 @@ export default function RootLayout({
             {}
             : ({ "--radius": `${radius}rem` } as React.CSSProperties)
         }>
-        <NextTopLoader color="#71717A" />
+        <NextTopLoader color="#71717A" showSpinner={false} />
         <Providers>
           <CommandMenu />
           <TailwindIndicator />

@@ -5,6 +5,8 @@ import { RouteInterceptedModal } from "@/components/modal/route-modal";
 import Link from "next/link";
 import { buttonVariants } from "@ui/components/button";
 
+// TODO : turn the header into the style of other headers
+
 export default function LoginModal() {
     return (
         <RouteInterceptedModal className="dark:lg:bg-zinc-900" >

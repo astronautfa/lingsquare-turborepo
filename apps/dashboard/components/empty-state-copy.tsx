@@ -9,7 +9,7 @@ const items = [
   {
     name: "Youtube Lesson",
     description: "Import your favourite Youtube videos ",
-    href: "/import/new-youtube",
+    href: "/import-youtube",
     icon: BsYoutube,
   },
   {

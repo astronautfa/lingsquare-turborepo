@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import {
     Dialog,
     DialogContent,
+    DialogTitle
 } from "@ui/components/dialog";
 import { useModalContext } from "@/components/modal/modal-provider";
 import { cn } from "@ui/lib/utils";
