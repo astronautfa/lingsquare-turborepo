@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useFormState } from "react-dom";
 import { Input } from "@ui/components/input";
-import { Button } from "@ui/components/button";
+import { Button, buttonVariants } from "@ui/components/button";
 import {
   Card,
   CardContent,
@@ -78,6 +78,12 @@ export function Login({ className }: { className?: string }) {
             <Link href="/">Cancel</Link>
           </Button>
         </form>
+        <div className="mt-4 text-center text-sm">
+          Don&apos;t have an account?{" "}
+          <Link href="/signup" className={buttonVariants({ variant: 'ghost' })}>
+            Sign Up
+          </Link>
+        </div>
       </CardContent>
     </Card>
   );

@@ -3,7 +3,7 @@
 import { useFormState } from "react-dom";
 import Link from "next/link";
 import { PasswordInput } from "@ui/molecules/password-input";
-import { Button } from "@ui/components/button";
+import { Button, buttonVariants } from "@ui/components/button";
 import {
   Card,
   CardContent,
@@ -71,19 +71,23 @@ export function Signup({ className }: { className?: string }) {
               {state?.formError}
             </p>
           ) : null}
-          {/* <div>
-            <Button variant={'ghost'} asChild>
-              <Link href={"/login"}>
-                Already signed up? Login instead.
-              </Link>
-            </Button>
-          </div> */}
 
           <SubmitButton className="w-full">Sign Up</SubmitButton>
           <Button variant="outline" className="w-full" asChild>
             <Link href="/">Cancel</Link>
           </Button>
         </form>
+        <div className="text-center text-sm mt-4">
+          <h1>
+            Already have account?{" "}
+            <Link
+              href={'/login'}
+              className={buttonVariants({ variant: 'ghost' })}
+            >
+              Login
+            </Link>
+          </h1>
+        </div>
       </CardContent>
     </Card>
   );

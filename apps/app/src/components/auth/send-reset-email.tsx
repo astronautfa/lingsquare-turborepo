@@ -6,14 +6,22 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Input } from "@ui/components/input";
-import { Button } from "@ui/components/button";
+import { Button, buttonVariants } from "@ui/components/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@ui/components/card";
 import { Label } from "@ui/components/label";
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { sendPasswordResetLink } from "@/lib/auth/actions";
 // import { ExclamationTriangleIcon } from "@/components/icons";
 import { Paths } from "@/consts/paths";
+import { cn } from "@ui/lib/utils";
 
-export function SendResetEmail() {
+export function SendResetEmail({ className }: { className?: string }) {
   const [state, formAction] = useFormState(sendPasswordResetLink, null);
   const router = useRouter();
 
@@ -30,30 +38,37 @@ export function SendResetEmail() {
   }, [state?.error, state?.success]);
 
   return (
-    <form className="space-y-4" action={formAction}>
-      <div className="space-y-2">
-        <Label>Your Email</Label>
-        <Input
-          required
-          placeholder="email@example.com"
-          autoComplete="email"
-          name="email"
-          type="email"
-        />
-      </div>
-
-      <div className="flex flex-wrap justify-between">
-        <Link href={Paths.Signup}>
-          <Button variant={"link"} size={"sm"} className="p-0">
-            Not signed up? Sign up now
-          </Button>
-        </Link>
-      </div>
-
-      <SubmitButton className="w-full">Reset Password</SubmitButton>
-      <Button variant="outline" className="w-full" asChild>
-        <Link href="/">Cancel</Link>
-      </Button>
-    </form>
+    <Card className={cn("w-full max-w-md", className)}>
+      <CardHeader className="text-center">
+        <CardTitle>Reset Password</CardTitle>
+        <CardDescription>Enter your email to reset your password</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form className="space-y-4" action={formAction}>
+          <div className="space-y-2">
+            <Label>Your Email</Label>
+            <Input
+              required
+              placeholder="email@example.com"
+              autoComplete="email"
+              name="email"
+              type="email"
+            />
+          </div>
+          <div className="space-y-2 mt-10">
+            <SubmitButton className="w-full">Reset Password</SubmitButton>
+            <Button variant="outline" className="w-full" asChild>
+              <Link href="/">Cancel</Link>
+            </Button>
+          </div>
+        </form>
+        <div className="mt-4 text-center text-sm">
+          Not signed up yet?{" "}
+          <Link href="/signup" className={buttonVariants({ variant: 'ghost' })}>
+            Sign Up
+          </Link>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
