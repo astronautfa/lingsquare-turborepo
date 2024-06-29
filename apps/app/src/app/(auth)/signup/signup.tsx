@@ -12,7 +12,6 @@ import {
   CardTitle,
 } from "@ui/components/card";
 import { Input } from "@ui/components/input";
-import { APP_TITLE } from "@/consts/site";
 import { Label } from "@ui/components/label";
 import { signup } from "@/lib/auth/actions";
 import { SubmitButton } from "@ui/molecules/submit-button";
@@ -23,8 +22,8 @@ export function Signup() {
   return (
     <Card className="w-full max-w-md">
       <CardHeader className="text-center">
-        <CardTitle>{APP_TITLE} Sign Up</CardTitle>
-        <CardDescription>Sign up to start using the app</CardDescription>
+        <CardTitle>Sign Up</CardTitle>
+        <CardDescription>Sign up to enjoy the full experience</CardDescription>
       </CardHeader>
       <CardContent>
 
@@ -72,11 +71,11 @@ export function Signup() {
             </p>
           ) : null}
           <div>
-            <Link href={"/login"}>
-              <span className="p-0 text-xs font-medium">
+            <Button variant={'ghost'} asChild>
+              <Link href={"/login"}>
                 Already signed up? Login instead.
-              </span>
-            </Link>
+              </Link>
+            </Button>
           </div>
 
           <SubmitButton className="w-full">Sign Up</SubmitButton>

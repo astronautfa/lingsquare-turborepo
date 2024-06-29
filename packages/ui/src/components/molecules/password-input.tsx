@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-// import { EyeOpenIcon, EyeCloseIcon } from "@/components/icons";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { Button } from "../ui/button";
 import { Input, type InputProps } from "../ui/input";
 
@@ -27,11 +27,11 @@ const PasswordInputComponent = React.forwardRef<HTMLInputElement, InputProps>(
           onClick={() => setShowPassword((prev) => !prev)}
           disabled={props.value === "" || props.disabled}
         >
-          {/* {showPassword ? (
-            <EyeCloseIcon className="h-4 w-4" aria-hidden="true" />
+          {showPassword ? (
+            <FaRegEye className=" transition-all" />
           ) : (
-            <EyeOpenIcon className="h-4 w-4" aria-hidden="true" />
-          )} */}
+            <FaRegEyeSlash className=" transition-all" />
+          )}
           <span className="sr-only">
             {showPassword ? "Hide password" : "Show password"}
           </span>

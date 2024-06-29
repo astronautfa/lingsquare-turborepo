@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import NextTopLoader from 'nextjs-toploader';
 import { Inter } from "next/font/google";
+
 import "@ui/styles/globals.css"
 import "@ui/styles/cmdk.css"
 
@@ -17,6 +18,7 @@ import { siteConfig } from "@/consts/site";
 import dynamic from "next/dynamic";
 
 import { TailwindIndicator } from "@ui/components/tailwind-indicator"
+import { TRPCReactProvider } from "@/trpc/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -85,13 +87,15 @@ export default function RootLayout({
             {}
             : ({ "--radius": `${radius}rem` } as React.CSSProperties)
         }>
-        <NextTopLoader color="#71717A" showSpinner={false} />
-        <Providers>
-          <CommandMenu />
-          <TailwindIndicator />
-          {children}
-          <Toaster closeButton />
-        </Providers>
+        <TRPCReactProvider>
+          <NextTopLoader color="#71717A" showSpinner={false} />
+          <Providers>
+            <CommandMenu />
+            <TailwindIndicator />
+            {children}
+            <Toaster closeButton />
+          </Providers>
+        </TRPCReactProvider>
       </body>
     </html>
   );

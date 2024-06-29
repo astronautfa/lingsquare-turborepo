@@ -12,7 +12,6 @@ import {
   CardTitle,
 } from "@ui/components/card";
 import { PasswordInput } from "@ui/molecules/password-input";
-import { APP_TITLE } from "@/consts/site";
 import { login } from "@/lib/auth/actions";
 import { Label } from "@ui/components/label";
 import { SubmitButton } from "@ui/molecules/submit-button"
@@ -23,17 +22,12 @@ export function Login() {
   return (
     <Card className="w-full max-w-md">
       <CardHeader className="text-center">
-        <CardTitle>{APP_TITLE} Log In</CardTitle>
+        <CardTitle>Log In</CardTitle>
         <CardDescription>
           Log in to your account to access your dashboard
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="my-2 flex items-center">
-          <div className="flex-grow border-t border-muted" />
-          <div className="mx-2 text-muted-foreground">or</div>
-          <div className="flex-grow border-t border-muted" />
-        </div>
         <form action={formAction} className="grid gap-4">
           <div className="space-y-2">
             <Label>Email</Label>
@@ -57,10 +51,10 @@ export function Login() {
           </div>
 
           <div className="flex flex-wrap justify-between">
-            <Button variant={"link"} size={"sm"} className="p-0" asChild>
+            <Button variant={"ghost"} size={"sm"} asChild>
               <Link href={"/signup"}>Not signed up? Sign up now.</Link>
             </Button>
-            <Button variant={"link"} size={"sm"} className="p-0" asChild>
+            <Button variant={"ghost"} size={"sm"} asChild>
               <Link href={"/reset-password"}>Forgot password?</Link>
             </Button>
           </div>

@@ -22,7 +22,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "middleware.js",
-    "lib/get-user-session.js"
+    "lib/get-user-session.js",
+    "tailwind.config.js"
   ],
   "exclude": ["node_modules"]
 }
