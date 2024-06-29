@@ -1,8 +1,8 @@
 "use client";
 
-import { useFormState } from "react-dom";
 import Link from "next/link";
-import { PasswordInput } from "@ui/molecules/password-input";
+import { useFormState } from "react-dom";
+import { Input } from "@ui/components/input";
 import { Button } from "@ui/components/button";
 import {
   Card,
@@ -11,23 +11,25 @@ import {
   CardHeader,
   CardTitle,
 } from "@ui/components/card";
-import { Input } from "@ui/components/input";
+import { PasswordInput } from "@ui/molecules/password-input";
+import { login } from "@/lib/auth/actions";
 import { Label } from "@ui/components/label";
-import { signup } from "@/lib/auth/actions";
-import { SubmitButton } from "@ui/molecules/submit-button";
+import { SubmitButton } from "@ui/molecules/submit-button"
+import { cn } from "@ui/lib/utils";
 
-export function Signup() {
-  const [state, formAction] = useFormState(signup, null);
+export function Login({ className }: { className?: string }) {
+  const [state, formAction] = useFormState(login, null);
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className={cn("w-full max-w-md", className)}>
       <CardHeader className="text-center">
-        <CardTitle>Sign Up</CardTitle>
-        <CardDescription>Sign up to enjoy the full experience</CardDescription>
+        <CardTitle>Log In</CardTitle>
+        <CardDescription>
+          Log in to your account to access your dashboard
+        </CardDescription>
       </CardHeader>
       <CardContent>
-
-        <form action={formAction} className="space-y-4">
+        <form action={formAction} className="grid gap-4">
           <div className="space-y-2">
             <Label>Email</Label>
             <Input
@@ -38,6 +40,7 @@ export function Signup() {
               type="email"
             />
           </div>
+
           <div className="space-y-2">
             <Label>Password</Label>
             <PasswordInput
@@ -47,14 +50,14 @@ export function Signup() {
               placeholder="********"
             />
           </div>
-          <div className="space-y-2">
-            <Label>Confirm Password</Label>
-            <PasswordInput
-              name="confirm-pass"
-              required
-              autoComplete="current-password"
-              placeholder="********"
-            />
+
+          <div className="flex flex-wrap justify-end">
+            {/* <Button variant={"ghost"} size={"sm"} asChild>
+              <Link href={"/signup"}>Not signed up? Sign up now.</Link>
+            </Button> */}
+            <Button variant={"ghost"} size={"sm"} asChild>
+              <Link href={"/reset-password"}>Forgot password?</Link>
+            </Button>
           </div>
 
           {state?.fieldError ? (
@@ -70,15 +73,7 @@ export function Signup() {
               {state?.formError}
             </p>
           ) : null}
-          <div>
-            <Button variant={'ghost'} asChild>
-              <Link href={"/login"}>
-                Already signed up? Login instead.
-              </Link>
-            </Button>
-          </div>
-
-          <SubmitButton className="w-full">Sign Up</SubmitButton>
+          <SubmitButton className="w-full">Log In</SubmitButton>
           <Button variant="outline" className="w-full" asChild>
             <Link href="/">Cancel</Link>
           </Button>

@@ -1,16 +1,16 @@
 import React from 'react'
 import { SidebarLayout } from '@/components/sidebar-layout';
-
-import ModalOrNot from '@/components/modal/modal-or-not'
-import ModalProvider from '@/components/modal/modal-provider';
+import ModalProvider from "@/components/modal/modal-provider";
+import ModalOrNot from '@/components/modal/modal-or-not';
 
 const AppLayout = ({
     children,
     modal
 }: Readonly<{
     children: React.ReactNode;
-    modal: React.ReactNode
+    modal: React.ReactNode;
 }>) => {
+    console.log(modal)
     return (
         <SidebarLayout>
             <ModalProvider>

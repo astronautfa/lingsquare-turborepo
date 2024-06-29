@@ -13,7 +13,9 @@ const dimensions: Dimensions = {
     commands: 6,
 };
 
-const Providers = ({ children }: { children: React.ReactNode }) => {
+const Providers = ({ children, modal }: { children: React.ReactNode, modal?: React.ReactNode }) => {
+
+    // console.log(modal)
     return (
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <MenuProvider dimensions={dimensions}>

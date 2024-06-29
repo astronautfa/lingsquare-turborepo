@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@ui/components/card";
-import { SendResetEmail } from "./send-reset-email";
+import { SendResetEmail } from "@/components/auth/send-reset-email";
 import { validateRequest } from "@/lib/auth/validate-request";
 import { Paths } from "@/consts/paths";
 

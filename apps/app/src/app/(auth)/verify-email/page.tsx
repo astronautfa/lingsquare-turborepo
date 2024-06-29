@@ -7,7 +7,7 @@ import {
 } from "@ui/components/card";
 import { redirect } from "next/navigation";
 import { validateRequest } from "@/lib/auth/validate-request";
-import { VerifyCode } from "./verify-code";
+import { VerifyCode } from "@/components/auth/verify-code";
 import { Paths } from "@/consts/paths";
 
 export const metadata = {

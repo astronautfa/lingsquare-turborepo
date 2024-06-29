@@ -63,10 +63,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  modal
 }: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
 }>) {
 
   const themeConfig = cookies().get("theme-config");
@@ -89,7 +87,7 @@ export default function RootLayout({
         }>
         <TRPCReactProvider>
           <NextTopLoader color="#71717A" showSpinner={false} />
-          <Providers>
+          <Providers >
             <CommandMenu />
             <TailwindIndicator />
             {children}
@@ -97,6 +95,6 @@ export default function RootLayout({
           </Providers>
         </TRPCReactProvider>
       </body>
-    </html>
+    </html >
   );
 }

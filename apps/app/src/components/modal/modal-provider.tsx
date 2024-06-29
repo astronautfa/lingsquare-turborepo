@@ -27,6 +27,7 @@ export default function ModalProvider({
 
     useEffect(() => {
         if (modalStaticPathnames.includes(pathname)) {
+            console.log(modalStaticPathnames)
             setIsModalActive(true)
         } else {
             setIsModalActive(false)

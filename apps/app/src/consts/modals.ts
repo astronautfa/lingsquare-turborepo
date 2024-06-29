@@ -7,7 +7,7 @@
  */
 export const modalStaticPathnames: string[] = [
   "/login",
-  "/register",
+  "/signup",
   "/forgot-password",
   "/import",
   "/import-youtube",
