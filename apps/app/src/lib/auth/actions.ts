@@ -92,20 +92,21 @@ export async function signup(
   formData: FormData,
 ): Promise<ActionResponse<z.infer<typeof registerSchema>>> {
   const obj = Object.fromEntries(formData.entries());
-
   const parsed = registerSchema.safeParse(obj);
-  console.log(parsed)
   if (!parsed.success) {
     const err = parsed.error.flatten();
     return {
       fieldError: {
         email: err.fieldErrors.email?.[0],
         password: err.fieldErrors.password?.[0],
+        "confirm-pass": err.fieldErrors["confirm-pass"]?.[0],
       },
     };
   }
 
   const { email, password } = parsed.data;
+
+  console.log(email, password);
 
   const existingUser = await db.query.users.findFirst({
     where: (table, { eq }) => eq(table.email, email),

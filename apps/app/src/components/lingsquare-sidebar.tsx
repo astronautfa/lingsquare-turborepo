@@ -20,10 +20,10 @@ import {
 import { SidebarItem } from './sidebar-item';
 import { ModeToggle } from './mode-toggle';
 
-import French from "../public/French.svg";
-import English from "../public/English.svg";
-import German from "../public/German.svg";
-import Spanish from "../public/Spanish.svg";
+import French from "../../public/French.svg";
+import English from "../../public/English.svg";
+import German from "../../public/German.svg";
+import Spanish from "../../public/Spanish.svg";
 import Image from 'next/image';
 import { BackwardIcon } from '@heroicons/react/20/solid';
 

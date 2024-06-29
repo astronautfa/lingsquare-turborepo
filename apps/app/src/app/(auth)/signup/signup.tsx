@@ -28,12 +28,6 @@ export function Signup() {
       </CardHeader>
       <CardContent>
 
-        <div className="my-2 flex items-center">
-          <div className="flex-grow border-t border-muted" />
-          <div className="mx-2 text-muted-foreground">or</div>
-          <div className="flex-grow border-t border-muted" />
-        </div>
-
         <form action={formAction} className="space-y-4">
           <div className="space-y-2">
             <Label>Email</Label>
@@ -49,6 +43,15 @@ export function Signup() {
             <Label>Password</Label>
             <PasswordInput
               name="password"
+              required
+              autoComplete="current-password"
+              placeholder="********"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label>Confirm Password</Label>
+            <PasswordInput
+              name="confirm-pass"
               required
               autoComplete="current-password"
               placeholder="********"
@@ -70,13 +73,13 @@ export function Signup() {
           ) : null}
           <div>
             <Link href={"/login"}>
-              <span className="p-0 text-xs font-medium hover:underline underline-offset-4">
+              <span className="p-0 text-xs font-medium">
                 Already signed up? Login instead.
               </span>
             </Link>
           </div>
 
-          <SubmitButton className="w-full"> Sign Up</SubmitButton>
+          <SubmitButton className="w-full">Sign Up</SubmitButton>
           <Button variant="outline" className="w-full" asChild>
             <Link href="/">Cancel</Link>
           </Button>

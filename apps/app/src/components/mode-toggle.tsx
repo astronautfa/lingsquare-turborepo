@@ -14,7 +14,7 @@ import {
 
 import { cn } from "@ui/lib/utils";
 import HidableSidebarLabel from "./hidable-sidebar-label";
-import { useIsMounted } from "@/hooks/use-is-mounted";
+import { useIsMounted } from "@/components/hooks/use-is-mounted";
 
 export function ModeToggle({ collapsed }: { collapsed: boolean }) {
   const { setTheme, theme } = useTheme();
