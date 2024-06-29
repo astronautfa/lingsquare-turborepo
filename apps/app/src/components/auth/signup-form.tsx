@@ -31,7 +31,7 @@ import { cn } from "@ui/lib/utils";
 import { registerWithEmailAndPassword, verifyOtp } from "@/actions/auth";
 import { toast } from "sonner";
 import { usePathname, useRouter } from "next/navigation";
-import { RegisterSchema } from "@/lib/validations";
+import { RegisterSchema } from "@/lib/validators/auth";
 import { InfoIcon } from "lucide-react";
 
 export default function SignUp({ redirectTo, setLoginDisplay }: { redirectTo: string, setLoginDisplay?: (value: boolean) => void }) {
