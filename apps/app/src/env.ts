@@ -1,12 +1,21 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
+const stringBoolean = z.coerce
+  .string()
+  .transform((val) => {
+    return val === "true";
+  })
+  .default("false");
+
 export const env = createEnv({
   /**
    * Specify your server-side environment variables schema here. This way you can ensure the app
    * isn't built with invalid env vars.
    */
   server: {
+    DB_MIGRATING: stringBoolean,
+    DB_SEEDING: stringBoolean,
     DATABASE_URL: z.string().url(),
     SMTP_HOST: z.string().trim().min(1),
     SMTP_PORT: z.number().int().min(1),
@@ -32,6 +41,8 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
+    DB_MIGRATING: process.env.DB_MIGRATING,
+    DB_SEEDING: process.env.DB_SEEDING,
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     SMTP_HOST: process.env.SMTP_HOST,

@@ -1,6 +1,9 @@
 // Example model schema from the Drizzle docs
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
+// TODO : convert this into a directory
+// https://github.com/w3cj/bytedash/
+
 import { sql } from "drizzle-orm";
 import {
   index,
