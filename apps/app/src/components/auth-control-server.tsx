@@ -1,3 +1,5 @@
+// TODO : fix this for lucia auth
+
 import { createClient } from "@lingsquare/supabase/client/server";
 
 export async function SignedIn({ children }: React.PropsWithChildren) {

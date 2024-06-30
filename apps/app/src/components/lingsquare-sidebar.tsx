@@ -6,7 +6,7 @@ import {
   SidebarHeader,
   SidebarSection,
   SidebarSpacer,
-} from '@/components/sidebar'
+} from '@ui/molecules/sidebar'
 import { AccountSwitcher } from './account-switcher';
 import {
   Cog6ToothIcon,

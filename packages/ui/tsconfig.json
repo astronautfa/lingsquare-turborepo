@@ -8,6 +8,6 @@
       "@ui/components/ui/*": ["./src/components/ui/*"]
     }
   },
-  "include": ["."],
+  "include": [".", "../../apps/app/src/components/sidebar-item.tsx"],
   "exclude": ["node_modules", "dist"]
 }

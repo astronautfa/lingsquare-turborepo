@@ -13,7 +13,7 @@ import {
 } from "@ui/components/tooltip";
 
 import { cn } from "@ui/lib/utils";
-import HidableSidebarLabel from "./hidable-sidebar-label";
+import HidableSidebarLabel from "ui/src/components/molecules/hidable-sidebar-label";
 import { useIsMounted } from "@/components/hooks/use-is-mounted";
 
 export function ModeToggle({ collapsed }: { collapsed: boolean }) {

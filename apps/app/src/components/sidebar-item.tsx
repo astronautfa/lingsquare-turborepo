@@ -11,7 +11,7 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@ui/components/tooltip"
-import HidableSidebarLabel from './hidable-sidebar-label'
+import HidableSidebarLabel from '@ui/molecules/hidable-sidebar-label'
 
 import { cn } from '@ui/lib/utils'
 
