@@ -1,4 +1,4 @@
-import type { Theme } from "@/config/themes";
+import type { Theme } from "@/consts/themes";
 
 export type ThemeConfig = {
   theme: Theme["name"] | "default";

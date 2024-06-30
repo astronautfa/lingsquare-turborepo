@@ -17,11 +17,13 @@ import {
 } from "@ui/components/dropdown-menu"
 
 import { AnimatePresence, motion } from "framer-motion"
+import { User } from "lucia"
 import Link from "next/link"
 
-export function UserNav({ collapsed }: {
+export const UserNav = ({ collapsed, user }: {
     collapsed: Boolean
-}) {
+    user?: User
+}) => {
 
     return (
         <DropdownMenu>
@@ -49,7 +51,7 @@ export function UserNav({ collapsed }: {
                                     exit={{ opacity: 0 }} className="min-w-0 flex items-start flex-col select-none">
                                     <span className="block truncate text-sm/5 font-medium text-zinc-950 dark:text-white">alireza</span>
                                     <span className="block truncate text-xs/5 font-normal text-zinc-500 dark:text-zinc-400">
-                                        alireza@lingsquare.com
+                                        {user && user.email}
                                     </span>
                                 </motion.span>
                             </AnimatePresence>
@@ -64,7 +66,7 @@ export function UserNav({ collapsed }: {
                             <div className="flex flex-col space-y-1">
                                 <p className="text-sm font-medium leading-none">alireza</p>
                                 <p className="text-xs leading-none text-muted-foreground">
-                                    alireza@example.com
+                                    {user && user.email}
                                 </p>
                             </div>
                         </DropdownMenuLabel>

@@ -28,7 +28,7 @@ const HeaderIcons = ({ user }: { user: User | null }) => {
                 <Button variant={'ghost'} size={'icon'}>
                     <BellAlertIcon className='w-[18px] h-[18px] opacity-70' />
                 </Button>
-                <UserNav collapsed={true} />
+                <UserNav collapsed={true} user={user} />
             </div>
         )
     }

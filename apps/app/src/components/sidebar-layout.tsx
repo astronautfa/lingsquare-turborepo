@@ -7,11 +7,6 @@ import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbarsComponent, useOverlayScrollbars } from "overlayscrollbars-react";
 
 import {
-  Sheet,
-  SheetContent,
-} from "@ui/components/sheet"
-
-import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
@@ -29,22 +24,13 @@ import HeaderIcons from './header-icons';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@/components/hooks/use-is-mounted';
 import { User } from 'lucia';
+import MobileSidebar from "@ui/molecules/mobile-sidebar"
 
 function OpenMenuIcon() {
   return (
     <svg data-slot="icon" viewBox="0 0 20 20" aria-hidden="true">
       <path d="M2 6.75C2 6.33579 2.33579 6 2.75 6H17.25C17.6642 6 18 6.33579 18 6.75C18 7.16421 17.6642 7.5 17.25 7.5H2.75C2.33579 7.5 2 7.16421 2 6.75ZM2 13.25C2 12.8358 2.33579 12.5 2.75 12.5H17.25C17.6642 12.5 18 12.8358 18 13.25C18 13.6642 17.6642 14 17.25 14H2.75C2.33579 14 2 13.6642 2 13.25Z" />
     </svg>
-  )
-}
-
-function MobileSidebar({ open, close, children }: React.PropsWithChildren<{ open: boolean; close: () => void }>) {
-  return (
-    <Sheet open={open} onOpenChange={close}>
-      <SheetContent side='sidebar'>
-        {children}
-      </SheetContent>
-    </Sheet>
   )
 }
 

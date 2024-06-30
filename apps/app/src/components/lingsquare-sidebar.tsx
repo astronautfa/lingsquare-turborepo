@@ -100,6 +100,7 @@ const speakingLanguages = [
 
 
 const LingsquareSidebar = ({ collapsed }: { collapsed: boolean }) => {
+
   return (
     <Sidebar>
       <SidebarHeader>

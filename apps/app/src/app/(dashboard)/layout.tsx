@@ -14,7 +14,6 @@ const AppLayout = async ({
     modal: React.ReactNode;
 }>) => {
     const { user } = await validateRequest();
-    console.log(modal)
     return (
         <SidebarLayout user={user}>
             <ModalProvider>
