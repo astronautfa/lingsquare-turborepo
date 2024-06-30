@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useFieldArray, useForm } from "react-hook-form"
 import { z } from "zod"
@@ -31,18 +30,17 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@ui/components/popover"
-import { Input } from "@ui/components/input"
+
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@ui/components/select"
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@ui/components/tooltip"
+
+import { Input } from "@ui/components/input"
 import { toast } from "sonner"
-import { useState } from "react"
 import { languages } from "@/consts/languages"
-import { Check, ChevronsUpDown, DeleteIcon, PlusIcon } from "lucide-react"
+import { Check, ChevronsUpDown, PlusIcon } from "lucide-react"
 import { TrashIcon } from "@heroicons/react/20/solid"
 import { Separator } from "@ui/components/separator"
 
@@ -178,9 +176,17 @@ export function LanguageSettingsForm() {
                                 )}
                             />
                             {/* TODO : add tooltip to remove language button */}
-                            {index !== 0 && <Button size='icon' variant='outline'>
-                                <TrashIcon className="w-4 h-4 text-destructive" onClick={() => removeNativeLanguage(index)} />
-                            </Button>}
+                            {index !== 0 &&
+                                <Tooltip>
+                                    <TooltipTrigger>
+                                        <Button size='icon' variant='outline' onClick={() => removeNativeLanguage(index)} >
+                                            <TrashIcon className="w-4 h-4 text-destructive" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Remove</p>
+                                    </TooltipContent>
+                                </Tooltip>}
                         </div>
                     ))}
                     <div className="w-full flex justify-end">
@@ -273,12 +279,20 @@ export function LanguageSettingsForm() {
                             />
                             {/* TODO : add tooltip to remove language button */}
                             {index !== 0 &&
-                                <Button size='icon' variant='outline'>
-                                    <TrashIcon className="w-4 h-4 text-destructive" onClick={() => {
-                                        console.log(index)
-                                        removeStudyingLanguage(index)
-                                    }} />
-                                </Button>}
+                                <Tooltip>
+                                    <TooltipTrigger>
+                                        <Button size='icon' variant='outline' onClick={() => {
+                                            console.log(index)
+                                            removeStudyingLanguage(index)
+                                        }} >
+                                            <TrashIcon className="w-4 h-4 text-destructive" />
+                                        </Button>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <p>Remove</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            }
                         </div>
                     ))}
                     <div className="w-full flex justify-end">

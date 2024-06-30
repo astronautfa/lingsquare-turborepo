@@ -18,7 +18,7 @@ import { SubmitButton } from "@ui/molecules/submit-button"
 import { cn } from "@ui/lib/utils";
 import { Paths } from "@/consts/paths";
 
-export function Login({ className }: { className?: string }) {
+export function Login({ className, modal }: { className?: string, modal?: boolean }) {
   const [state, formAction] = useFormState(login, null);
 
   return (
@@ -48,7 +48,7 @@ export function Login({ className }: { className?: string }) {
               name="password"
               required
               autoComplete="current-password"
-              placeholder="********"
+              placeholder="Enter your password"
             />
           </div>
 
@@ -71,10 +71,12 @@ export function Login({ className }: { className?: string }) {
               {state?.formError}
             </p>
           ) : null}
-          <SubmitButton className="w-full">Log In</SubmitButton>
-          <Button variant="outline" className="w-full" asChild>
-            <Link href="/">Cancel</Link>
-          </Button>
+          <div className="space-y-2">
+            <SubmitButton className="w-full">Log In</SubmitButton>
+            {!modal && <Button variant="outline" className="w-full" asChild>
+              <Link href="/">Cancel</Link>
+            </Button>}
+          </div>
         </form>
         <div className="mt-4 text-center text-sm">
           Don&apos;t have an account?{" "}

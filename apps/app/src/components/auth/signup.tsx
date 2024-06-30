@@ -18,7 +18,7 @@ import { SubmitButton } from "@ui/molecules/submit-button";
 import { cn } from "@ui/lib/utils";
 import { Paths } from "@/consts/paths";
 
-export function Signup({ className }: { className?: string }) {
+export function Signup({ className, modal }: { className?: string, modal?: boolean }) {
   const [state, formAction] = useFormState(signup, null);
 
   return (
@@ -46,7 +46,7 @@ export function Signup({ className }: { className?: string }) {
               name="password"
               required
               autoComplete="current-password"
-              placeholder="********"
+              placeholder="Enter your password"
             />
           </div>
           <div className="space-y-2">
@@ -54,8 +54,8 @@ export function Signup({ className }: { className?: string }) {
             <PasswordInput
               name="confirm-pass"
               required
-              autoComplete="current-password"
-              placeholder="********"
+              autoComplete="confirm-password"
+              placeholder="Repeat your password"
             />
           </div>
 
@@ -73,10 +73,13 @@ export function Signup({ className }: { className?: string }) {
             </p>
           ) : null}
 
-          <SubmitButton className="w-full">Sign Up</SubmitButton>
-          <Button variant="outline" className="w-full" asChild>
-            <Link href="/">Cancel</Link>
-          </Button>
+          <div className="space-y-2">
+            <SubmitButton className="w-full">Sign Up</SubmitButton>
+            {!modal && <Button variant="outline" className="w-full" asChild>
+              <Link href="/">Cancel</Link>
+            </Button>}
+          </div>
+
         </form>
         <div className="text-center text-sm mt-4">
           <h1>
@@ -90,6 +93,6 @@ export function Signup({ className }: { className?: string }) {
           </h1>
         </div>
       </CardContent>
-    </Card>
+    </Card >
   );
 }

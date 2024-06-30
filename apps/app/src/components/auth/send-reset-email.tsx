@@ -21,7 +21,7 @@ import { sendPasswordResetLink } from "@/lib/auth/actions";
 import { Paths } from "@/consts/paths";
 import { cn } from "@ui/lib/utils";
 
-export function SendResetEmail({ className }: { className?: string }) {
+export function SendResetEmail({ className, modal }: { className?: string, modal?: boolean }) {
   const [state, formAction] = useFormState(sendPasswordResetLink, null);
   const router = useRouter();
 
@@ -57,9 +57,9 @@ export function SendResetEmail({ className }: { className?: string }) {
           </div>
           <div className="space-y-2 mt-10">
             <SubmitButton className="w-full">Reset Password</SubmitButton>
-            <Button variant="outline" className="w-full" asChild>
+            {!modal && <Button variant="outline" className="w-full" asChild>
               <Link href="/">Cancel</Link>
-            </Button>
+            </Button>}
           </div>
         </form>
         <div className="mt-4 text-center text-sm">

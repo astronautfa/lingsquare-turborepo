@@ -7,6 +7,8 @@ import { Input, type InputProps } from "../ui/input";
 
 import { cn } from "@ui/lib/utils";
 
+// TODO : move the show password to the parent element
+
 const PasswordInputComponent = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, ...props }, ref) => {
     const [showPassword, setShowPassword] = React.useState(false);

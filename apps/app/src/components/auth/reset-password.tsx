@@ -43,7 +43,7 @@ export function ResetPassword({ token, className }: { token: string, className?:
               name="password"
               required
               autoComplete="new-password"
-              placeholder="********"
+              placeholder="Enter your password"
             />
           </div>
           <SubmitButton className="w-full">Reset Password</SubmitButton>
