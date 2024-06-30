@@ -4,16 +4,15 @@ import Link from 'next/link'
 import React from 'react'
 import { UserNav } from './user-nav'
 import { BellAlertIcon } from '@heroicons/react/20/solid'
-import { useSession } from '@supabase/auth-helpers-react'
+import { Paths } from '@/consts/paths'
+import { User } from 'lucia'
 
-const HeaderIcons = () => {
-    const session = useSession()
-
-    if (!session) {
+const HeaderIcons = ({ user }: { user: User | null }) => {
+    if (!user) {
         return (
             <div>
                 <Link
-                    href="/login"
+                    href={Paths.Login}
                     className={cn(
                         buttonVariants({ variant: "outline" }),
                         "hidden shadow-sm lg:flex"

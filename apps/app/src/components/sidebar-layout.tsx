@@ -28,6 +28,7 @@ import { useTheme } from 'next-themes';
 import HeaderIcons from './header-icons';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@/components/hooks/use-is-mounted';
+import { User } from 'lucia';
 
 function OpenMenuIcon() {
   return (
@@ -48,11 +49,14 @@ function MobileSidebar({ open, close, children }: React.PropsWithChildren<{ open
 }
 
 export function SidebarLayout({
+  user,
   children,
-}: React.PropsWithChildren<{}>) {
+}: React.PropsWithChildren<{ user: User | null }>) {
+
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const [collapsed, setCollapsed] = useState<boolean>(false)
   const [fullscreen, setFullscreen] = useState<boolean>(false)
+
   const { theme } = useTheme();
 
   const [initBodyOverlayScrollbars] = useOverlayScrollbars({
@@ -137,7 +141,7 @@ export function SidebarLayout({
               />
               <DropdownMenuShortcut className='mt-0.5 absolute right-4 top-3 '>⌘K</DropdownMenuShortcut>
             </div>
-            <HeaderIcons />
+            <HeaderIcons user={user} />
           </div>
           <div className="grow p-6 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
             <div className="mx-auto">{children}</div>

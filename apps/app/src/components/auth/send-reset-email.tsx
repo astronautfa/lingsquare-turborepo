@@ -40,7 +40,7 @@ export function SendResetEmail({ className }: { className?: string }) {
   return (
     <Card className={cn("w-full max-w-md", className)}>
       <CardHeader className="text-center">
-        <CardTitle>Reset Password</CardTitle>
+        <CardTitle>Forgot Password</CardTitle>
         <CardDescription>Enter your email to reset your password</CardDescription>
       </CardHeader>
       <CardContent>
@@ -64,7 +64,7 @@ export function SendResetEmail({ className }: { className?: string }) {
         </form>
         <div className="mt-4 text-center text-sm">
           Not signed up yet?{" "}
-          <Link href="/signup" className={buttonVariants({ variant: 'ghost' })}>
+          <Link href={Paths.Signup} className={buttonVariants({ variant: 'ghost' })}>
             Sign Up
           </Link>
         </div>

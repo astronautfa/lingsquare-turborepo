@@ -16,6 +16,7 @@ import { login } from "@/lib/auth/actions";
 import { Label } from "@ui/components/label";
 import { SubmitButton } from "@ui/molecules/submit-button"
 import { cn } from "@ui/lib/utils";
+import { Paths } from "@/consts/paths";
 
 export function Login({ className }: { className?: string }) {
   const [state, formAction] = useFormState(login, null);
@@ -52,11 +53,8 @@ export function Login({ className }: { className?: string }) {
           </div>
 
           <div className="flex flex-wrap justify-end">
-            {/* <Button variant={"ghost"} size={"sm"} asChild>
-              <Link href={"/signup"}>Not signed up? Sign up now.</Link>
-            </Button> */}
             <Button variant={"ghost"} size={"sm"} asChild>
-              <Link href={"/reset-password"}>Forgot password?</Link>
+              <Link href={Paths.ResetPassword}>Forgot password?</Link>
             </Button>
           </div>
 
@@ -80,7 +78,7 @@ export function Login({ className }: { className?: string }) {
         </form>
         <div className="mt-4 text-center text-sm">
           Don&apos;t have an account?{" "}
-          <Link href="/signup" className={buttonVariants({ variant: 'ghost' })}>
+          <Link href={Paths.Signup} className={buttonVariants({ variant: 'ghost' })}>
             Sign Up
           </Link>
         </div>

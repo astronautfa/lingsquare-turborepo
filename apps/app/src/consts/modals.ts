@@ -6,9 +6,9 @@
  * if you dont use static modal paths use it empty as array []
  */
 export const modalStaticPathnames: string[] = [
-  "/login",
-  "/signup",
-  "/reset-password",
+  "/auth/login",
+  "/auth/signup",
+  "/auth/reset-password",
   "/import",
   "/import-youtube",
 ];

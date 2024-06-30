@@ -16,6 +16,7 @@ import { Label } from "@ui/components/label";
 import { signup } from "@/lib/auth/actions";
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { cn } from "@ui/lib/utils";
+import { Paths } from "@/consts/paths";
 
 export function Signup({ className }: { className?: string }) {
   const [state, formAction] = useFormState(signup, null);
@@ -81,7 +82,7 @@ export function Signup({ className }: { className?: string }) {
           <h1>
             Already have account?{" "}
             <Link
-              href={'/login'}
+              href={Paths.Login}
               className={buttonVariants({ variant: 'ghost' })}
             >
               Login
