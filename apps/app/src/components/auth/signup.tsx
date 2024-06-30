@@ -17,6 +17,9 @@ import { signup } from "@/lib/auth/actions";
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { cn } from "@ui/lib/utils";
 import { Paths } from "@/consts/paths";
+import ExclamationTriangleIcon from "@heroicons/react/20/solid/ExclamationTriangleIcon";
+
+// TODO : Repeat password error
 
 export function Signup({ className, modal }: { className?: string, modal?: boolean }) {
   const [state, formAction] = useFormState(signup, null);
@@ -60,9 +63,10 @@ export function Signup({ className, modal }: { className?: string, modal?: boole
           </div>
 
           {state?.fieldError ? (
-            <ul className="list-disc space-y-1 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive">
+            <ul className="list-disc space-y-1 rounded-lg border bg-destructive/10 p-3 text-[0.8rem] font-medium text-destructive">
               {Object.values(state.fieldError).map((err) => (
-                <li className="ml-4" key={err}>
+                <li className="gap-2 items-center flex ml-1" key={err}>
+                  <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />
                   {err}
                 </li>
               ))}

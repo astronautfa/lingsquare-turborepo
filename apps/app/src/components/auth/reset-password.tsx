@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { toast } from "sonner";
-// import { ExclamationTriangleIcon } from "@/components/icons";
 import {
   Card,
   CardContent,
@@ -16,6 +15,7 @@ import { PasswordInput } from "@ui/molecules/password-input";
 import { Label } from "@ui/components/label";
 import { resetPassword } from "@/lib/auth/actions";
 import { cn } from "@ui/lib/utils";
+import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
 export function ResetPassword({ token, className }: { token: string, className?: string }) {
   const [state, formAction] = useFormState(resetPassword, null);
@@ -23,7 +23,7 @@ export function ResetPassword({ token, className }: { token: string, className?:
   useEffect(() => {
     if (state?.error) {
       toast(state.error, {
-        // icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
+        icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
       });
     }
   }, [state?.error]);

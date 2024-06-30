@@ -17,6 +17,7 @@ import { Label } from "@ui/components/label";
 import { SubmitButton } from "@ui/molecules/submit-button"
 import { cn } from "@ui/lib/utils";
 import { Paths } from "@/consts/paths";
+import ExclamationTriangleIcon from "@heroicons/react/20/solid/ExclamationTriangleIcon";
 
 export function Login({ className, modal }: { className?: string, modal?: boolean }) {
   const [state, formAction] = useFormState(login, null);
@@ -59,9 +60,10 @@ export function Login({ className, modal }: { className?: string, modal?: boolea
           </div>
 
           {state?.fieldError ? (
-            <ul className="list-disc space-y-1 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive">
+            <ul className="space-y-1 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive">
               {Object.values(state.fieldError).map((err) => (
-                <li className="ml-4" key={err}>
+                <li className="gap-2 justify-start ml-1 items-center flex" key={err}>
+                  <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />
                   {err}
                 </li>
               ))}

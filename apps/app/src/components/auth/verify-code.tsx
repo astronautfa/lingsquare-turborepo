@@ -11,7 +11,7 @@ import {
 import { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 import { toast } from "sonner";
-// import { ExclamationTriangleIcon } from "@/components/icons";
+import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import {
   logout,
   verifyEmail,
@@ -31,7 +31,7 @@ export const VerifyCode = ({ user }: { user: User }) => {
     }
     if (resendState?.error) {
       toast(resendState.error, {
-        // icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
+        icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
       });
     }
   }, [resendState?.error, resendState?.success]);
@@ -39,7 +39,7 @@ export const VerifyCode = ({ user }: { user: User }) => {
   useEffect(() => {
     if (verifyEmailState?.error) {
       toast(verifyEmailState.error, {
-        // icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
+        icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
       });
     }
   }, [verifyEmailState?.error]);

@@ -17,7 +17,7 @@ import {
 import { Label } from "@ui/components/label";
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { sendPasswordResetLink } from "@/lib/auth/actions";
-// import { ExclamationTriangleIcon } from "@/components/icons";
+import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import { Paths } from "@/consts/paths";
 import { cn } from "@ui/lib/utils";
 
@@ -32,7 +32,7 @@ export function SendResetEmail({ className, modal }: { className?: string, modal
     }
     if (state?.error) {
       toast(state.error, {
-        // icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
+        icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
       });
     }
   }, [state?.error, state?.success]);
