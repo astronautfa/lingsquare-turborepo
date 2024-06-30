@@ -18,6 +18,7 @@ import { cn } from "@ui/lib/utils";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
 export function ResetPassword({ token, className }: { token: string, className?: string }) {
+
   const [state, formAction] = useFormState(resetPassword, null);
 
   useEffect(() => {
@@ -32,20 +33,27 @@ export function ResetPassword({ token, className }: { token: string, className?:
     <Card className={cn("w-full max-w-md", className)}>
       <CardHeader className="text-center">
         <CardTitle>Reset Password</CardTitle>
-        <CardDescription>Enter your email to reset your password</CardDescription>
+        <CardDescription>Enter your new password</CardDescription>
       </CardHeader>
       <CardContent>
-        <form action={formAction} className="space-y-4">
+        <form action={formAction} className="space-y-2">
           <input type="hidden" name="token" value={token} />
-          <div className="space-y-2">
-            <Label>New Password</Label>
-            <PasswordInput
-              name="password"
-              required
-              autoComplete="new-password"
-              placeholder="Enter your password"
-            />
-          </div>
+          <Label>New Password</Label>
+          <PasswordInput
+            name="password"
+            required
+            autoComplete="new-password"
+            placeholder="Enter your password"
+            className="mb-2"
+          />
+          <Label>Repeat Password</Label>
+          <PasswordInput
+            name="confirm-password"
+            required
+            autoComplete="confirm-password"
+            placeholder="Repeat your password"
+            className="mb-3"
+          />
           <SubmitButton className="w-full">Reset Password</SubmitButton>
         </form>
       </CardContent>

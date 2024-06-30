@@ -255,7 +255,7 @@ export async function sendPasswordResetLink(
 
     const verificationToken = await generatePasswordResetToken(user.id);
 
-    const verificationLink = `${env.NEXT_PUBLIC_APP_URL}/reset-password/${verificationToken}`;
+    const verificationLink = `${env.NEXT_PUBLIC_APP_URL}/auth/reset-password/${verificationToken}`;
 
     await sendMail(user.email, EmailTemplate.PasswordReset, {
       link: verificationLink,
@@ -282,6 +282,8 @@ export async function resetPassword(
     };
   }
   const { token, password } = parsed.data;
+
+  console.log(token)
 
   const dbToken = await db.transaction(async (tx) => {
     const item = await tx.query.passwordResetTokens.findFirst({
@@ -313,6 +315,7 @@ export async function resetPassword(
     sessionCookie.value,
     sessionCookie.attributes,
   );
+  console.log('done password reset')
   redirect(Paths.Dashboard);
 }
 

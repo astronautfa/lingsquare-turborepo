@@ -8,6 +8,8 @@ import { EMAIL_SENDER } from "@/consts/mail";
 import { createTransport, type TransportOptions } from "nodemailer";
 import type { ComponentProps } from "react";
 
+// TODO : check out nodemailer and how to set up SMTP
+
 export enum EmailTemplate {
   EmailVerification = "EmailVerification",
   PasswordReset = "PasswordReset",

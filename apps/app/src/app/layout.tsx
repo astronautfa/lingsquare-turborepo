@@ -91,7 +91,12 @@ export default function RootLayout({
             <CommandMenu />
             <TailwindIndicator />
             {children}
-            <Toaster closeButton />
+            <Toaster closeButton toastOptions={{
+              unstyled: false,
+              classNames: {
+                closeButton: 'bg-background rounded dark:hover:bg-primary-foreground dark:border-background dark:hover:border-muted',
+              },
+            }} />
           </Providers>
         </TRPCReactProvider>
       </body>

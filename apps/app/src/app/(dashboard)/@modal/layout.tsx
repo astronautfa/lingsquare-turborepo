@@ -11,4 +11,4 @@ const AuthModalLayout = ({ children }: { children: React.ReactNode }) => {
     )
 }
 
-export default AuthModalLayout
+export default AuthModalLayout  

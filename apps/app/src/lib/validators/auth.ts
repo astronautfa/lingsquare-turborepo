@@ -29,7 +29,7 @@ export const passwordSchema = z
 
 export const loginSchema = z.object({
   email: emailSchema,
-  password: passwordSchema,
+  password: z.string().min(1, "Please enter your password to login"),
 });
 
 export const registerSchema = z
@@ -50,7 +50,20 @@ export const registerSchema = z
     { message: "Password does't match", path: ["confirm-pass"] },
   );
 
-export const resetPasswordSchema = z.object({
-  token: z.string().min(1, "Invalid token"),
-  password: passwordSchema,
-});
+export const resetPasswordSchema = z
+  .object({
+    token: z.string().min(1, "Invalid token"),
+    password: passwordSchema,
+    "confirm-pass": passwordSchema,
+  })
+  .refine(
+    (data) => {
+      if (data["confirm-pass"] !== data.password) {
+        console.log("running");
+        return false;
+      } else {
+        return true;
+      }
+    },
+    { message: "Password does't match", path: ["confirm-pass"] },
+  );
