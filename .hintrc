@@ -21,7 +21,8 @@
       {
         "ignore": [
           "backdrop-filter",
-          "height: fit-content"
+          "height: fit-content",
+          "-webkit-tap-highlight-color"
         ]
       }
     ]

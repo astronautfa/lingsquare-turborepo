@@ -17,6 +17,8 @@
     "@heroicons/react": "^2.1.4",
     "@hookform/resolvers": "^3.6.0",
     "@lucia-auth/adapter-drizzle": "^1.0.7",
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-slider": "^1.2.0",
     "@react-email/components": "^0.0.19",
     "@react-email/render": "^0.0.15",
     "@t3-oss/env-nextjs": "^0.10.1",
@@ -48,6 +50,7 @@
     "superjson": "^2.2.1",
     "ui": "workspace:*",
     "valtio": "^1.13.2",
+    "vidstack": "workspace:*",
     "zod": "^3.23.8"
   },
   "devDependencies": {

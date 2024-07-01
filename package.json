@@ -13,8 +13,13 @@
     "ui:add": "pnpm --filter ui ui:add"
   },
   "devDependencies": {
+    "chokidar": "^3.6.0",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.14.9",
+    "@types/fs-extra": "^11.0.1",
+    "fs-extra": "^11.0.0",
+    "globby": "^13.0.0",
     "prettier": "^3.3.2",
     "turbo": "latest"
   },

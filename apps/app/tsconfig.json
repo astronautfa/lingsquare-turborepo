@@ -1,31 +1,30 @@
 {
-    "extends": "@repo/typescript-config/nextjs.json",
-    "compilerOptions": {
-      "baseUrl": ".",
-      "plugins": [
-        {
-          "name": "next"
-        }
-      ],
-      "paths": {
-        "@/*": ["./src/*"],
-        "@ui/components/*": ["../../packages/ui/src/components/ui/*"],
-        "@ui/molecules/*": ["../../packages/ui/src/components/molecules/*"],
-        "@ui/lib/*": ["../../packages/ui/src/lib/*"],
-        "@ui/styles/*": ["../../packages/ui/src/styles/*"],
-        "@lingsquare/supabase/*": ["../../packages/supabase/src/*"]
+  "extends": "@repo/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "plugins": [
+      {
+        "name": "next"
       }
-    },
-    "include": [
-      "next-env.d.ts",
-      "next.config.js",
-      "**/*.ts",
-      "**/*.tsx",
-      ".next/types/**/*.ts",
-      "tailwind.config.ts",
-      "**/*.cjs",
-      "**/*.js"
     ],
-    "exclude": ["node_modules"]
-  }
-  
+    "paths": {
+      "@/*": ["./src/*"],
+      "@ui/components/*": ["../../packages/ui/src/components/ui/*"],
+      "@ui/molecules/*": ["../../packages/ui/src/components/molecules/*"],
+      "@ui/lib/*": ["../../packages/ui/src/lib/*"],
+      "@ui/styles/*": ["../../packages/ui/src/styles/*"],
+      "@lingsquare/supabase/*": ["../../packages/supabase/src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "next.config.js",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "tailwind.config.ts",
+    "**/*.cjs",
+    "**/*.js"
+  ],
+  "exclude": ["node_modules"]
+}
