@@ -20,6 +20,14 @@ import {
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { User } from "lucia";
 
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+  REGEXP_ONLY_DIGITS
+} from "@ui/components/input-otp"
+
 export const VerifyCode = ({ user }: { user: User }) => {
   const [verifyEmailState, verifyEmailAction] = useFormState(verifyEmail, null);
   const [resendState, resendAction] = useFormState(resendEmail, null);
@@ -49,7 +57,7 @@ export const VerifyCode = ({ user }: { user: User }) => {
       <CardHeader>
         <CardTitle>Verify Email</CardTitle>
         <CardDescription>
-          Verification code was sent to <strong>{user.email}</strong>. Check
+          Verification code was sent to <strong>{user.email}</strong> Check
           your spam folder if you can't find the email.
         </CardDescription>
       </CardHeader>
@@ -57,7 +65,25 @@ export const VerifyCode = ({ user }: { user: User }) => {
         <div className="flex flex-col gap-2">
           <form ref={codeFormRef} action={verifyEmailAction}>
             <Label htmlFor="code">Verification code</Label>
-            <Input className="mt-2" type="text" id="code" name="code" required />
+
+            <div className="w-full flex justify-center items-center mt-3">
+              <InputOTP maxLength={8} pattern={REGEXP_ONLY_DIGITS} id="code" name="code" required >
+                <InputOTPGroup>
+                  <InputOTPSlot index={0} />
+                  <InputOTPSlot index={1} />
+                  <InputOTPSlot index={2} />
+                  <InputOTPSlot index={3} />
+                </InputOTPGroup>
+                <InputOTPSeparator />
+                <InputOTPGroup>
+                  <InputOTPSlot index={4} />
+                  <InputOTPSlot index={5} />
+                  <InputOTPSlot index={6} />
+                  <InputOTPSlot index={7} />
+                </InputOTPGroup>
+              </InputOTP>
+            </div>
+
             <SubmitButton className="mt-4 w-full">Verify</SubmitButton>
           </form>
           <form action={resendAction}>
@@ -65,11 +91,14 @@ export const VerifyCode = ({ user }: { user: User }) => {
               Resend Code
             </SubmitButton>
           </form>
-          <form action={logout}>
-            <SubmitButton variant="link" className="p-0 font-normal">
-              want to use another email? Log out now.
-            </SubmitButton>
-          </form>
+          <div className="w-full flex justify-center items-center">
+            <span>Want to use another Email?</span>
+            <form action={logout}>
+              <SubmitButton variant="ghost" className="font-normal ml-2">
+                Log out now
+              </SubmitButton>
+            </form>
+          </div>
         </div>
       </CardContent>
     </Card>

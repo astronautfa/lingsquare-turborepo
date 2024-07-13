@@ -50,7 +50,6 @@
     "superjson": "^2.2.1",
     "ui": "workspace:*",
     "valtio": "^1.13.2",
-    "vidstack": "workspace:*",
     "zod": "^3.23.8"
   },
   "devDependencies": {

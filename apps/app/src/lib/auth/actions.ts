@@ -21,7 +21,7 @@ import {
   passwordResetTokens,
   users,
 } from "@/server/db/schema";
-import { sendMail, EmailTemplate } from "@/lib/email";
+import { sendResendMail, EmailTemplate } from "@/lib/email/resend";
 import { validateRequest } from "@/lib/auth/validate-request";
 import { Paths } from "@/consts/paths";
 import { env } from "@/env";
@@ -128,7 +128,7 @@ export async function signup(
   });
 
   const verificationCode = await generateEmailVerificationCode(userId, email);
-  await sendMail(email, EmailTemplate.EmailVerification, {
+  await sendResendMail(email, EmailTemplate.EmailVerification, {
     code: verificationCode,
   });
 
@@ -181,7 +181,7 @@ export async function resendVerificationEmail(): Promise<{
     user.id,
     user.email,
   );
-  await sendMail(user.email, EmailTemplate.EmailVerification, {
+  await sendResendMail(user.email, EmailTemplate.EmailVerification, {
     code: verificationCode,
   });
 
@@ -257,7 +257,7 @@ export async function sendPasswordResetLink(
 
     const verificationLink = `${env.NEXT_PUBLIC_APP_URL}/auth/reset-password/${verificationToken}`;
 
-    await sendMail(user.email, EmailTemplate.PasswordReset, {
+    await sendResendMail(user.email, EmailTemplate.PasswordReset, {
       link: verificationLink,
     });
 

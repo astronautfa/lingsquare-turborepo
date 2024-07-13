@@ -20,8 +20,8 @@ const AuthPage = async ({ params }: { params: { type: string } }) => {
             if (user) redirect(Paths.Dashboard);
             return <Signup />
         case 'verify-email':
-            if (user) redirect(Paths.Dashboard);
-            if (!user) redirect(Paths.Signup);
+            if (user?.emailVerified) redirect(Paths.Dashboard);
+            if (!user) redirect(Paths.Login);
             return <VerifyCode user={user} />
         case 'reset-password':
             if (user) redirect(Paths.Dashboard);
