@@ -6,7 +6,8 @@
     "paths": {
       "@ui/*": ["./src/*"],
       "@ui/components/ui/*": ["./src/components/ui/*"]
-    }
+    },
+    "types": ["react-dom/experimental"]
   },
   "include": [".", "../../apps/app/src/components/sidebar-item.tsx"],
   "exclude": ["node_modules", "dist"]

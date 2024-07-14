@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+import { ErrorResponse, Resend } from "resend";
 
 import { env } from "@/env";
 
@@ -46,18 +46,19 @@ export const sendResendMail = async <T extends EmailTemplate>(
   email: string,
   template: EmailTemplate,
   props: PropsMap[NoInfer<T>],
-) => {
+): Promise<{
+  data: any | null;
+  error: ErrorResponse | null;
+}> => {
 
   const { subject, body } = getEmailTemplate(template, props)
 
-  const { error } = await resend.emails.send({
+  const { data, error } = await resend.emails.send({
     from: env.EMAIL_FROM,
     to: email,
     subject,
     react: <>{body}</>,
   });
 
-  if (error) {
-    throw error;
-  }
+  return { data, error }
 }

@@ -17,9 +17,10 @@ import { Label } from "@ui/components/label";
 import { SubmitButton } from "@ui/molecules/submit-button"
 import { cn } from "@ui/lib/utils";
 import { Paths } from "@/consts/paths";
-import ExclamationTriangleIcon from "@heroicons/react/20/solid/ExclamationTriangleIcon";
+import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
 export function Login({ className, modal }: { className?: string, modal?: boolean }) {
+
   const [state, formAction] = useFormState(login, null);
 
   return (

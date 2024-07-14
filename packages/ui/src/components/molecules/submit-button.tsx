@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef } from "react";
-// import { useFormStatus } from "react-dom";
+import { useFormStatus } from "react-dom";
 import { LoadingButton } from "./loading-button";
 import type { ButtonProps } from "../ui/button";
 
@@ -9,12 +9,12 @@ import type { ButtonProps } from "../ui/button";
 
 const SubmitButton = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, children, ...props }, ref) => {
-    // const { pending } = useFormStatus();
+    const { pending } = useFormStatus();
     return (
       <LoadingButton
         ref={ref}
         {...props}
-        loading={false}
+        loading={pending}
         className={className}
       >
         {children}

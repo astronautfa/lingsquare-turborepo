@@ -25,7 +25,6 @@ import { sendResendMail, EmailTemplate } from "@/lib/email/resend";
 import { validateRequest } from "@/lib/auth/validate-request";
 import { Paths } from "@/consts/paths";
 import { env } from "@/env";
-import { register } from "module";
 
 export interface ActionResponse<T> {
   fieldError?: Partial<Record<keyof T, string | undefined>>;
@@ -250,19 +249,30 @@ export async function sendPasswordResetLink(
       where: (table, { eq }) => eq(table.email, parsed.data),
     });
 
-    if (!user || !user.emailVerified)
-      return { error: "Provided email is invalid." };
+    if (!user) return { error: "Provided email is invalid." };
+
+    // if (!user || !user.emailVerified)
+    //   return { error: "Provided email is invalid." };
 
     const verificationToken = await generatePasswordResetToken(user.id);
 
     const verificationLink = `${env.NEXT_PUBLIC_APP_URL}/auth/reset-password/${verificationToken}`;
 
-    await sendResendMail(user.email, EmailTemplate.PasswordReset, {
-      link: verificationLink,
-    });
+    const { error } = await sendResendMail(
+      user.email,
+      EmailTemplate.PasswordReset,
+      {
+        link: verificationLink,
+      },
+    );
 
-    return { success: true };
+    if (error) {
+      throw error;
+    } else {
+      return { success: true };
+    }
   } catch (error) {
+    console.log(error);
     return { error: "Failed to send verification email." };
   }
 }
@@ -282,8 +292,6 @@ export async function resetPassword(
     };
   }
   const { token, password } = parsed.data;
-
-  console.log(token)
 
   const dbToken = await db.transaction(async (tx) => {
     const item = await tx.query.passwordResetTokens.findFirst({
@@ -315,7 +323,7 @@ export async function resetPassword(
     sessionCookie.value,
     sessionCookie.attributes,
   );
-  console.log('done password reset')
+  console.log("done password reset");
   redirect(Paths.Dashboard);
 }
 
