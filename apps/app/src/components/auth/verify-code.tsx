@@ -84,6 +84,27 @@ export const VerifyCode = ({ user }: { user: User }) => {
               </InputOTP>
             </div>
 
+            <div className="mt-4">
+              {verifyEmailState?.error && (
+                <div className="rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
+                  <ExclamationTriangleIcon />
+                  <p className="">
+                    {verifyEmailState?.error}
+                  </p>
+                </div>
+              )}
+
+              {resendState?.error && (
+                <div className="rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
+                  <ExclamationTriangleIcon />
+                  <p className="">
+                    {resendState?.error}
+                  </p>
+                </div>
+              )}
+            </div>
+
+
             <SubmitButton className="mt-4 w-full">Verify</SubmitButton>
           </form>
           <form action={resendAction}>
@@ -92,7 +113,7 @@ export const VerifyCode = ({ user }: { user: User }) => {
             </SubmitButton>
           </form>
           <div className="w-full flex justify-center items-center">
-            <span>Want to use another Email?</span>
+            <span className="text-sm">Want to use another Email?</span>
             <form action={logout}>
               <SubmitButton variant="ghost" className="font-normal ml-2">
                 Log out now

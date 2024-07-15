@@ -55,6 +55,14 @@ export function SendResetEmail({ className, modal }: { className?: string, modal
               type="email"
             />
           </div>
+          {state?.error && (
+            <div className="mt-4 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
+              <ExclamationTriangleIcon className="w-5 h-5" />
+              <p className="">
+                {state?.error}
+              </p>
+            </div>
+          )}
           <div className="space-y-2 mt-10">
             <SubmitButton className="w-full">Reset Password</SubmitButton>
             {!modal && <Button variant="outline" className="w-full" asChild>

@@ -127,18 +127,28 @@ export async function signup(
   });
 
   const verificationCode = await generateEmailVerificationCode(userId, email);
-  await sendResendMail(email, EmailTemplate.EmailVerification, {
-    code: verificationCode,
-  });
-
-  const session = await lucia.createSession(userId, {});
-  const sessionCookie = lucia.createSessionCookie(session.id);
-  cookies().set(
-    sessionCookie.name,
-    sessionCookie.value,
-    sessionCookie.attributes,
+  const { error } = await sendResendMail(
+    email,
+    EmailTemplate.EmailVerification,
+    {
+      code: verificationCode,
+    },
   );
-  return redirect(Paths.VerifyEmail);
+
+  if (!error) {
+    const session = await lucia.createSession(userId, {});
+    const sessionCookie = lucia.createSessionCookie(session.id);
+    cookies().set(
+      sessionCookie.name,
+      sessionCookie.value,
+      sessionCookie.attributes,
+    );
+    return redirect(Paths.VerifyEmail);
+  } else {
+    return {
+      formError: "Cannot send email for whatever reason",
+    };
+  }
 }
 
 export async function logout(): Promise<{ error: string } | void> {
@@ -180,11 +190,21 @@ export async function resendVerificationEmail(): Promise<{
     user.id,
     user.email,
   );
-  await sendResendMail(user.email, EmailTemplate.EmailVerification, {
-    code: verificationCode,
-  });
+  const { error } = await sendResendMail(
+    user.email,
+    EmailTemplate.EmailVerification,
+    {
+      code: verificationCode,
+    },
+  );
 
-  return { success: true };
+  if (error) {
+    return {
+      error: `Could not send email for whatever reason`,
+    };
+  } else {
+    return { success: true };
+  }
 }
 
 export async function verifyEmail(
@@ -249,10 +269,8 @@ export async function sendPasswordResetLink(
       where: (table, { eq }) => eq(table.email, parsed.data),
     });
 
-    if (!user) return { error: "Provided email is invalid." };
-
-    // if (!user || !user.emailVerified)
-    //   return { error: "Provided email is invalid." };
+    if (!user || !user.emailVerified)
+      return { error: "Provided email is invalid." };
 
     const verificationToken = await generatePasswordResetToken(user.id);
 
@@ -323,7 +341,6 @@ export async function resetPassword(
     sessionCookie.value,
     sessionCookie.attributes,
   );
-  console.log("done password reset");
   redirect(Paths.Dashboard);
 }
 

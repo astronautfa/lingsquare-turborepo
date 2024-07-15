@@ -52,9 +52,16 @@ export function ResetPassword({ token, className }: { token: string, className?:
             required
             autoComplete="confirm-password"
             placeholder="Repeat your password"
-            className="mb-3"
           />
-          <SubmitButton className="w-full">Reset Password</SubmitButton>
+          {state?.error && (
+            <div className="mt-4 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
+              <ExclamationTriangleIcon className="w-5 h-5" />
+              <p className="">
+                {state?.error}
+              </p>
+            </div>
+          )}
+          <SubmitButton className="w-full mt-5">Reset Password</SubmitButton>
         </form>
       </CardContent>
     </Card>

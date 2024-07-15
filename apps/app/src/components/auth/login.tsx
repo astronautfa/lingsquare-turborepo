@@ -69,11 +69,11 @@ export function Login({ className, modal }: { className?: string, modal?: boolea
                 </li>
               ))}
             </ul>
-          ) : state?.formError ? (
+          ) : state?.formError && (
             <p className="rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive">
               {state?.formError}
             </p>
-          ) : null}
+          )}
           <div className="space-y-2">
             <SubmitButton className="w-full">Log In</SubmitButton>
             {!modal && <Button variant="outline" className="w-full" asChild>

@@ -6,8 +6,6 @@ import { EmailVerificationTemplate } from "../templates/email-verification";
 import { ResetPasswordTemplate } from "../templates/reset-password";
 
 import type { ComponentProps } from "react";
-import { render } from "@react-email/render";
-
 
 const resend = new Resend(env.RESEND_API_KEY);
 
@@ -26,16 +24,12 @@ const getEmailTemplate = <T extends EmailTemplate>(template: T, props: PropsMap[
     case EmailTemplate.EmailVerification:
       return {
         subject: "Verify your email address",
-        body: render(
-          <EmailVerificationTemplate {...(props as PropsMap[EmailTemplate.EmailVerification])} />,
-        ),
+        body: <EmailVerificationTemplate {...(props as PropsMap[EmailTemplate.EmailVerification])} />,
       };
     case EmailTemplate.PasswordReset:
       return {
         subject: "Reset your password",
-        body: render(
-          <ResetPasswordTemplate {...(props as PropsMap[EmailTemplate.PasswordReset])} />,
-        ),
+        body: <ResetPasswordTemplate {...(props as PropsMap[EmailTemplate.PasswordReset])} />,
       };
     default:
       throw new Error("Invalid email template");

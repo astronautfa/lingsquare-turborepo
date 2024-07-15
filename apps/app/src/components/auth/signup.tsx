@@ -71,11 +71,14 @@ export function Signup({ className, modal }: { className?: string, modal?: boole
                 </li>
               ))}
             </ul>
-          ) : state?.formError ? (
-            <p className="rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive">
-              {state?.formError}
-            </p>
-          ) : null}
+          ) : state?.formError && (
+            <div className="rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
+              <ExclamationTriangleIcon className="w-5 h-5" />
+              <p className="">
+                {state?.formError}
+              </p>
+            </div>
+          )}
 
           <div className="space-y-2">
             <SubmitButton className="w-full">Sign Up</SubmitButton>
