@@ -7,8 +7,8 @@
     "ui:add": "pnpm dlx shadcn-ui@latest add"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@lingsquare/eslint-config": "workspace:*",
+    "@lingsquare/typescript-config": "workspace:*",
     "@turbo/gen": "^2.0.5",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.9",

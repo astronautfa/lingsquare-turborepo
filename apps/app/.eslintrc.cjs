@@ -9,7 +9,7 @@ const config = {
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
-    "@repo/eslint-config/next.js",
+    "@lingsquare/eslint-config/next.js",
   ],
   rules: {
     "@typescript-eslint/array-type": "off",

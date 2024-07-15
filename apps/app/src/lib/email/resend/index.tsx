@@ -1,6 +1,6 @@
 import { ErrorResponse, Resend } from "resend";
 
-import { env } from "@/env";
+import { env } from "@lingsquare/env/web/server";
 
 import { EmailVerificationTemplate } from "../templates/email-verification";
 import { ResetPasswordTemplate } from "../templates/reset-password";

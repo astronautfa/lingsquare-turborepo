@@ -3,7 +3,7 @@ import "server-only";
 import { EmailVerificationTemplate } from "../templates/email-verification";
 import { ResetPasswordTemplate } from "../templates/reset-password";
 import { render } from "@react-email/render";
-import { env } from "@/env";
+import { env } from "@lingsquare/env/web/server";
 import { EMAIL_SENDER } from "@/consts/mail";
 import { createTransport, type TransportOptions } from "nodemailer";
 import type { ComponentProps } from "react";

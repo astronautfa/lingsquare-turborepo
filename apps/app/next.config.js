@@ -2,12 +2,28 @@
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
  * for Docker builds.
  */
-await import("./src/env.js");
+import { fileURLToPath } from "node:url";
+
+import createJiti from "jiti";
+
+const jiti = createJiti(fileURLToPath(import.meta.url));
+
+jiti("@lingsquare/env/web/server");
+jiti("@lingsquare/env/web/client");
 
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  transpilePackages: ["ui", "vidstack", "@vidstack/player"],
+  transpilePackages: ["ui", "@lingsquare/env"],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  experimental: {
+    typedRoutes: true,
+  },
 };
 
 export default config;

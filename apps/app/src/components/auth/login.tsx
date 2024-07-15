@@ -19,6 +19,8 @@ import { cn } from "@ui/lib/utils";
 import { Paths } from "@/consts/paths";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
+// TODO : add login with google
+
 export function Login({ className, modal }: { className?: string, modal?: boolean }) {
 
   const [state, formAction] = useFormState(login, null);

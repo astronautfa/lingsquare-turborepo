@@ -24,7 +24,7 @@ import {
 import { sendResendMail, EmailTemplate } from "@/lib/email/resend";
 import { validateRequest } from "@/lib/auth/validate-request";
 import { Paths } from "@/consts/paths";
-import { env } from "@/env";
+import { env } from "@lingsquare/env/web/client";
 
 export interface ActionResponse<T> {
   fieldError?: Partial<Record<keyof T, string | undefined>>;
