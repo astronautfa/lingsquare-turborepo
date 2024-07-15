@@ -1,4 +1,4 @@
-"use server";
+("use server");
 
 /* eslint @typescript-eslint/no-explicit-any:0, @typescript-eslint/prefer-optional-chain:0 */
 
@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 import { generateId, Scrypt } from "lucia";
 import { isWithinExpirationDate, TimeSpan, createDate } from "oslo";
 import { generateRandomString, alphabet } from "oslo/crypto";
-import { eq } from "drizzle-orm";
+import { deq as eq } from "@lingsquare/db";
 import { lucia } from "@/lib/auth";
 import { db } from "@lingsquare/db";
 import {
