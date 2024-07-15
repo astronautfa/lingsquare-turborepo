@@ -1,11 +1,11 @@
 import { migrate } from "drizzle-orm/postgres-js/migrator";
-import config from "../drizzle.config";
-import { db, conn } from ".";
+import config from "../../../drizzle.config";
+import { db, conn } from "@/server/db";
 import { env } from "@lingsquare/env/web/server";
 
 if (!env.DB_MIGRATING) {
   throw new Error(
-    'You must set DB_MIGRATING to "true" when running migrations'
+    'You must set DB_MIGRATING to "true" when running migrations',
   );
 }
 

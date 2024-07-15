@@ -1,3 +1,0 @@
-{
-  "extends": ["./tsconfig.json", "@lingsquare/typescript-config/build.json"]
-}

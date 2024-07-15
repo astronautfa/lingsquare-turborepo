@@ -3,7 +3,6 @@ import postgres from "postgres";
 
 import { env } from "@lingsquare/env/web/server";
 import * as schema from "./schema";
-import { eq } from "drizzle-orm";
 
 /**
  * Cache the database connection in development. This avoids creating a new connection on every HMR
@@ -23,5 +22,3 @@ export const conn =
 if (env.NODE_ENV !== "production") globalForDb.conn = conn;
 
 export const db = drizzle(conn, { schema });
-
-export const deq = eq;
