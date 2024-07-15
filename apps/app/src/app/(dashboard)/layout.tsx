@@ -1,10 +1,7 @@
-'use server'
-
 import React from 'react'
 import { SidebarLayout } from '@/components/sidebar-layout';
 import ModalProvider from "@/components/modal/modal-provider";
 import ModalOrNot from '@/components/modal/modal-or-not';
-import { validateRequest } from '@/lib/auth/validate-request';
 
 const AppLayout = async ({
     children,

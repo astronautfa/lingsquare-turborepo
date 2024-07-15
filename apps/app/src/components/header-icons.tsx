@@ -6,7 +6,7 @@ import { UserNav } from './user-nav'
 import { BellAlertIcon } from '@heroicons/react/20/solid'
 import { Paths } from '@/consts/paths'
 import { User } from 'lucia'
-import { useSession } from './auth/SessionProvider'
+import { useSession } from './auth/session-provider'
 
 const HeaderIcons = () => {
 

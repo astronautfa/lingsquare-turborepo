@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef } from "react";
-import { AnimatedSpinner } from "../icons";
+import { Spinner } from "../ui/spinner";
 import { Button, type ButtonProps } from "../ui/button";
 
 import { cn } from "@ui/lib/utils";
@@ -22,7 +22,7 @@ const LoadingButton = forwardRef<HTMLButtonElement, LoadingButtonProps>(
         <span className={cn(loading ? "opacity-0" : "")}>{children}</span>
         {loading ? (
           <div className="absolute inset-0 grid place-items-center">
-            <AnimatedSpinner className="h-4 w-4" />
+            <Spinner className="h-4 w-4" />
           </div>
         ) : null}
       </Button>

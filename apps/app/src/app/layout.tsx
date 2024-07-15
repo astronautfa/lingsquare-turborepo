@@ -7,7 +7,7 @@ import "@ui/styles/cmdk.css"
 
 import { cookies } from "next/headers";
 
-import Providers from "@/components/providers";
+import ClientProviders from "@/components/client-providers";
 
 import { Toaster } from "@ui/components/sonner"
 import { ThemeConfig } from "@/types/config";
@@ -19,7 +19,7 @@ import dynamic from "next/dynamic";
 
 import { TailwindIndicator } from "@ui/components/tailwind-indicator"
 import { TRPCReactProvider } from "@/trpc/react";
-import { SessionProvider } from "@/components/auth/SessionProvider";
+import { SessionProvider } from "@/components/auth/session-provider";
 import { validateRequest } from "@/lib/auth/validate-request";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -92,7 +92,7 @@ export default async function RootLayout({
         <TRPCReactProvider>
           <NextTopLoader color="#71717A" showSpinner={false} />
           <SessionProvider session={session}>
-            <Providers >
+            <ClientProviders >
               <CommandMenu />
               <TailwindIndicator />
               {children}
@@ -102,7 +102,7 @@ export default async function RootLayout({
                   closeButton: 'bg-background rounded dark:hover:bg-primary-foreground dark:border-background dark:hover:border-muted',
                 },
               }} />
-            </Providers>
+            </ClientProviders>
           </SessionProvider>
         </TRPCReactProvider>
       </body>

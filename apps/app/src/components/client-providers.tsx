@@ -13,7 +13,7 @@ const dimensions: Dimensions = {
     commands: 6,
 };
 
-const Providers = ({ children }: { children: React.ReactNode }) => {
+const ClientProviders = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -26,4 +26,4 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
     )
 }
 
-export default Providers
+export default ClientProviders

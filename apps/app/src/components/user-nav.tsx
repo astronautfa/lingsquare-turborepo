@@ -18,7 +18,7 @@ import {
 
 import { AnimatePresence, motion } from "framer-motion"
 import Link from "next/link"
-import { useSession } from "./auth/SessionProvider"
+import { useSession } from "./auth/session-provider"
 
 export const UserNav = ({ collapsed }: {
     collapsed: Boolean

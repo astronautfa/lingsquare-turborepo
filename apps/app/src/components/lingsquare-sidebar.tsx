@@ -132,13 +132,13 @@ const LingsquareSidebar = ({ collapsed }: { collapsed: boolean }) => {
         <SidebarSpacer />
       </SidebarBody>
       <SidebarFooter className="max-lg:hidden">
+        <ModeToggle collapsed={collapsed} />
         <SidebarItem collapsed={collapsed} href="/settings" label={'Settings'}>
           <Cog6ToothIcon />
         </SidebarItem>
-        <SidebarItem collapsed={collapsed} href="/support" label={'Support'}>
+        {/* <SidebarItem collapsed={collapsed} href="/support" label={'Support'}>
           <QuestionMarkCircleIcon />
-        </SidebarItem>
-        <ModeToggle collapsed={collapsed} />
+        </SidebarItem> */}
       </SidebarFooter>
     </Sidebar>
   )

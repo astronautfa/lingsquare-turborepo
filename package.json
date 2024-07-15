@@ -6,8 +6,8 @@
   "scripts": {
     "build": "turbo build",
     "start": "turbo start",
-    "dev:app": "turbo dev --filter app",
-    "dev": "turbo dev",
+    "dev": "turbo dev --filter app",
+    "dev:legacy": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "ui:add": "pnpm --filter ui ui:add",
