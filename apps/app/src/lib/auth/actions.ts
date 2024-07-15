@@ -10,7 +10,7 @@ import { isWithinExpirationDate, TimeSpan, createDate } from "oslo";
 import { generateRandomString, alphabet } from "oslo/crypto";
 import { eq } from "drizzle-orm";
 import { lucia } from "@/lib/auth";
-import { db } from "@/server/db";
+import { db } from "@lingsquare/db";
 import {
   loginSchema,
   registerSchema,
@@ -21,7 +21,7 @@ import {
   passwordResetTokens,
   sessions,
   users,
-} from "@/server/db/schema";
+} from "@lingsquare/db/schema";
 import { sendResendMail, EmailTemplate } from "@/lib/email/resend";
 import { validateRequest } from "@/lib/auth/validate-request";
 import { Paths } from "@/consts/paths";

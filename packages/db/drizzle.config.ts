@@ -1,11 +1,11 @@
-import { type Config } from "drizzle-kit";
+import type { Config } from "drizzle-kit";
 
 import { env } from "@lingsquare/env/web/db";
 
 export default {
-  schema: "./src/server/db/schema",
-  out: "./src/server/db/migrations",
   dialect: "postgresql",
+  schema: "./src/schema",
+  out: "./migrations",
   dbCredentials: {
     url: env.DATABASE_URL,
   },
