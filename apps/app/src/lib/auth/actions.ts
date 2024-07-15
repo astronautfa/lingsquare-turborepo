@@ -19,6 +19,7 @@ import {
 import {
   emailVerificationCodes,
   passwordResetTokens,
+  sessions,
   users,
 } from "@/server/db/schema";
 import { sendResendMail, EmailTemplate } from "@/lib/email/resend";
@@ -381,3 +382,39 @@ async function generatePasswordResetToken(userId: string): Promise<string> {
   });
   return tokenId;
 }
+
+export const getSessionForMiddleware = async (sessionId: string | null) => {
+  // can't use lucia here because there is incompability with edge
+  if (!sessionId) {
+    return {
+      user: null,
+      session: null,
+    };
+  }
+
+  const result = await db
+    .select({
+      user: users,
+      session: sessions,
+    })
+    .from(sessions)
+    .innerJoin(users, eq(sessions.userId, users.id))
+    .where(eq(sessions.id, sessionId));
+
+  if (!result[0] || result.length !== 1) {
+    return {
+      user: null,
+      session: null,
+    };
+  } else {
+    const { session, user } = result[0];
+    if (!user) {
+      return { session: null, user: null };
+    }
+    if (!isWithinExpirationDate(session.expiresAt)) {
+      return { session: null, user: null };
+    }
+
+    return { session, user };
+  }
+};

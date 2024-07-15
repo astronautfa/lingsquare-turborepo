@@ -17,13 +17,14 @@ import {
 } from "@ui/components/dropdown-menu"
 
 import { AnimatePresence, motion } from "framer-motion"
-import { User } from "lucia"
 import Link from "next/link"
+import { useSession } from "./auth/SessionProvider"
 
-export const UserNav = ({ collapsed, user }: {
+export const UserNav = ({ collapsed }: {
     collapsed: Boolean
-    user?: User
 }) => {
+
+    const { user } = useSession();
 
     return (
         <DropdownMenu>
@@ -108,5 +109,3 @@ export const UserNav = ({ collapsed, user }: {
         </DropdownMenu>
     )
 }
-
-// TODO : log user out 

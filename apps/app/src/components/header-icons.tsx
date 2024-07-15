@@ -6,9 +6,13 @@ import { UserNav } from './user-nav'
 import { BellAlertIcon } from '@heroicons/react/20/solid'
 import { Paths } from '@/consts/paths'
 import { User } from 'lucia'
+import { useSession } from './auth/SessionProvider'
 
-const HeaderIcons = ({ user }: { user: User | null }) => {
-    if (!user) {
+const HeaderIcons = () => {
+
+    const { session } = useSession();
+
+    if (!session) {
         return (
             <div>
                 <Link
@@ -28,7 +32,7 @@ const HeaderIcons = ({ user }: { user: User | null }) => {
                 <Button variant={'ghost'} size={'icon'}>
                     <BellAlertIcon className='w-[18px] h-[18px] opacity-70' />
                 </Button>
-                <UserNav collapsed={true} user={user} />
+                <UserNav collapsed={true} />
             </div>
         )
     }

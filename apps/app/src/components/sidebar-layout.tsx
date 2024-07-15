@@ -35,9 +35,8 @@ function OpenMenuIcon() {
 }
 
 export function SidebarLayout({
-  user,
   children,
-}: React.PropsWithChildren<{ user: User | null }>) {
+}: React.PropsWithChildren<{}>) {
 
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -127,7 +126,7 @@ export function SidebarLayout({
               />
               <DropdownMenuShortcut className='mt-0.5 absolute right-4 top-3 '>⌘K</DropdownMenuShortcut>
             </div>
-            <HeaderIcons user={user} />
+            <HeaderIcons />
           </div>
           <div className="grow p-6 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
             <div className="mx-auto">{children}</div>

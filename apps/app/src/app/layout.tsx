@@ -19,6 +19,8 @@ import dynamic from "next/dynamic";
 
 import { TailwindIndicator } from "@ui/components/tailwind-indicator"
 import { TRPCReactProvider } from "@/trpc/react";
+import { SessionProvider } from "@/components/auth/SessionProvider";
+import { validateRequest } from "@/lib/auth/validate-request";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -72,6 +74,8 @@ export default function RootLayout({
   const { theme, radius } = JSON.parse(
     themeConfig?.value ?? '{"theme":"default","radius":"default"}'
   ) as ThemeConfig;
+
+  const session = await validateRequest();
 
   return (
     <html lang="en">
@@ -87,17 +91,19 @@ export default function RootLayout({
         }>
         <TRPCReactProvider>
           <NextTopLoader color="#71717A" showSpinner={false} />
-          <Providers >
-            <CommandMenu />
-            <TailwindIndicator />
-            {children}
-            <Toaster closeButton toastOptions={{
-              unstyled: false,
-              classNames: {
-                closeButton: 'bg-background rounded dark:hover:bg-primary-foreground dark:border-background dark:hover:border-muted',
-              },
-            }} />
-          </Providers>
+          <SessionProvider session={session}>
+            <Providers >
+              <CommandMenu />
+              <TailwindIndicator />
+              {children}
+              <Toaster closeButton toastOptions={{
+                unstyled: false,
+                classNames: {
+                  closeButton: 'bg-background rounded dark:hover:bg-primary-foreground dark:border-background dark:hover:border-muted',
+                },
+              }} />
+            </Providers>
+          </SessionProvider>
         </TRPCReactProvider>
       </body>
     </html >

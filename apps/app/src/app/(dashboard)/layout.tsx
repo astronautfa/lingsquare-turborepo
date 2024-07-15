@@ -13,9 +13,8 @@ const AppLayout = async ({
     children: React.ReactNode;
     modal: React.ReactNode;
 }>) => {
-    const { user } = await validateRequest();
     return (
-        <SidebarLayout user={user}>
+        <SidebarLayout>
             <ModalProvider>
                 <ModalOrNot>{modal}</ModalOrNot>
             </ModalProvider>
