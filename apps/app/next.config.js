@@ -8,6 +8,10 @@ import createJiti from "jiti";
 
 const jiti = createJiti(fileURLToPath(import.meta.url));
 
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin();
+
 jiti("@lingsquare/env/web/server");
 jiti("@lingsquare/env/web/client");
 
@@ -26,4 +30,4 @@ const config = {
   },
 };
 
-export default config;
+export default withNextIntl(config);

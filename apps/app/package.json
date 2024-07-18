@@ -34,6 +34,7 @@
     "lucia": "^3.2.0",
     "lucide-react": "^0.408.0",
     "next": "^14.2.5",
+    "next-intl": "^3.17.1",
     "next-themes": "^0.3.0",
     "nextjs-toploader": "^1.6.12",
     "nodemailer": "^6.9.14",
@@ -54,10 +55,10 @@
     "zsa-react": "^0.2.2"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.2.5",
     "@lingsquare/env": "workspace:*",
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
+    "@next/eslint-plugin-next": "^14.2.5",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.10",
     "@types/nodemailer": "^6.4.15",

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import NextTopLoader from 'nextjs-toploader';
 import { Inter } from "next/font/google";
 
+import { getLocale, getMessages } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
 import "@ui/styles/globals.css"
 import "@ui/styles/cmdk.css"
 
@@ -77,8 +79,14 @@ export default async function RootLayout({
 
   const session = await validateRequest();
 
+  const locale = await getLocale();
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={cn(
         "min-h-screen font-sans antialiased",
         inter.className,
@@ -92,17 +100,19 @@ export default async function RootLayout({
         <TRPCReactProvider>
           <NextTopLoader color="#71717A" showSpinner={false} />
           <SessionProvider session={session}>
-            <ClientProviders >
-              <CommandMenu />
-              <TailwindIndicator />
-              {children}
-              <Toaster closeButton toastOptions={{
-                unstyled: false,
-                classNames: {
-                  closeButton: 'bg-background rounded dark:hover:bg-primary-foreground dark:border-background dark:hover:border-muted',
-                },
-              }} />
-            </ClientProviders>
+            <NextIntlClientProvider messages={messages}>
+              <ClientProviders >
+                <CommandMenu />
+                <TailwindIndicator />
+                {children}
+                <Toaster closeButton toastOptions={{
+                  unstyled: false,
+                  classNames: {
+                    closeButton: 'bg-background rounded dark:hover:bg-primary-foreground dark:border-background dark:hover:border-muted',
+                  },
+                }} />
+              </ClientProviders>
+            </NextIntlClientProvider>
           </SessionProvider>
         </TRPCReactProvider>
       </body>

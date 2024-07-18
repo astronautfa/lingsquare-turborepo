@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { Separator } from '@ui/components/separator'
+import { useTranslations } from 'next-intl'
 
 export const metadata: Metadata = {
     title: "Study",
@@ -8,12 +9,15 @@ export const metadata: Metadata = {
 }
 
 const StudyPage = () => {
+
+    const t = useTranslations('study');
+
     return (
         <div>
             <div className="space-y-0.5">
-                <h2 className="text-2xl font-bold tracking-tight">Study</h2>
+                <h2 className="text-2xl font-bold tracking-tight">{t('title')}</h2>
                 <p className="text-muted-foreground">
-                    Review your flashcards
+                    {t('subtitle')}
                 </p>
             </div>
             <Separator className="my-6" />

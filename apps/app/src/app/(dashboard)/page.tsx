@@ -1,5 +1,6 @@
 import { Separator } from '@ui/components/separator'
 import { Metadata } from 'next'
+import { useTranslations } from 'next-intl';
 
 export const metadata: Metadata = {
   title: "Explore",
@@ -7,12 +8,15 @@ export const metadata: Metadata = {
 }
 
 export default function Example() {
+
+  const t = useTranslations('explore');
+
   return (
     <div>
       <div className="space-y-0.5">
-        <h2 className="text-2xl font-bold tracking-tight">Explore</h2>
+        <h2 className="text-2xl font-bold tracking-tight">  {t('title')}</h2>
         <p className="text-muted-foreground">
-          Find the content you enjoy
+          {t('subtitle')}
         </p>
       </div>
       <Separator className="my-6" />
