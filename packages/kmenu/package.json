@@ -28,6 +28,7 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "build": "microbundle-crl --no-compress --format modern,cjs --css-modules false",
+    "dev": "microbundle-crl watch --no-compress --format modern,cjs --css-modules false",
     "publish-packages": "turbo run build lint test && changeset version && changeset publish"
   },
   "peerDependencies": {

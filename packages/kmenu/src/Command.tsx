@@ -18,7 +18,6 @@ export default (({ onMouseEnter, isSelected, command }) => {
 
   // TODO : add states to command menu to be able to open and close from higher component
   // TODO : fix the color schema
-  // TODO : fix the overlay background color
 
   const onClick = () => {
     if (command.checkbox) setChecked((checked) => !checked)
@@ -43,7 +42,7 @@ export default (({ onMouseEnter, isSelected, command }) => {
   }, [isSelected, enter])
 
   return (
-    <div role='option' aria-selected={isSelected}>
+    <div role='option' aria-selected={isSelected} className=''>
       <span ref={topRef} aria-hidden='true' />
       {command.anchor ? (
         <command.anchor
@@ -63,7 +62,8 @@ export default (({ onMouseEnter, isSelected, command }) => {
               transition={{ type: 'spring', stiffness: 1000, damping: 80 }}
             />
           )}
-          <div className='info_wrapper'>
+
+          <div className={'info_wrapper'} >
             {command.icon && command.icon}
             <p className='command_text'>{command.text}</p>
           </div>
@@ -100,7 +100,7 @@ export default (({ onMouseEnter, isSelected, command }) => {
               }}
             />
           )}
-          <div className='info_wrapper'>
+          <div className={'info_wrapper'} >
             {command.icon && command.icon}
             {typeof checked === 'boolean' && (
               <Checkbox checked={checked} id={command.text} />

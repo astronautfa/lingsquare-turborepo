@@ -1,16 +1,16 @@
 .kmenu {
-  --backdrop-background: hsla(0, 0%, 100%, 0.565);
-  --backdrop-blur: blur(2px);
+  --backdrop-background: rgb(0 0 0 / 0.8);
+  --backdrop-blur: blur(1px);
 
-  --menu-background: hsla(0, 0%, 100%, 1);
+  --menu-background: var(--primary-foreground);
   --menu-shadow: 0px 0px 60px 10px hsla(0, 0%, 0%, 0.05);
-  --menu-border: 1px solid #e2e2e2;
+  --menu-border: 1px solid var(--foreground);
   --menu-border-radius: 10px;
   --menu-padding: 0.5rem;
   --menu-transition: 100ms ease;
   --menu-width: 600px;
 
-  --search-border: 1px solid #e2e2e2;
+  --search-border: 1px solid var(--primary-foreground);
   --search-color: hsla(0, 0%, 7%, 1);
   --search-font-size: 16px;
 
@@ -26,8 +26,8 @@
   --command-icon-size: 16px;
   --command-icon-margin: 8px;
   --command-transition: 100ms linear;
-  --command-inactive-color: hsla(0, 0%, 51%, 1);
-  --command-active-color: hsla(0, 0%, 20%, 1);
+  --command-inactive-color: var(--primary-background);
+  --command-active-color: var(--primary-foreground);
   --command-margin: 0px 0px 0px 14px;
 
   --command-heading-font-size: 12px;
@@ -85,11 +85,10 @@
   top: 20%;
   transition: var(--menu-transition);
   will-change: height;
-  box-shadow: var(--menu-shadow);
-  border: var(--menu-border);
-  border-style: solid;
+  /* border: var(--menu-border); */
+  /* border-style: solid; */
   border-radius: var(--menu-border-radius);
-  background-color: var(--menu-background);
+  /* background-color: var(--background); */
   padding-bottom: var(--menu-padding);
   width: var(--menu-width);
 }
@@ -105,7 +104,7 @@
   outline: none;
   border: var(--breadcrumb-border);
   border-radius: var(--breadcrumb-radius);
-  background-color: var(--breadcrumb-background);
+  /* background-color: var(--breadcrumb-background); */
   padding: var(--breadcrumb-padding);
   color: var(--breadcrumb-color);
   font-size: var(--breadcrumb-font-size);
