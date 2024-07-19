@@ -23,8 +23,8 @@ import { useTheme } from 'next-themes';
 import HeaderIcons from './header-icons';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@/components/hooks/use-is-mounted';
-import { User } from 'lucia';
 import MobileSidebar from "@ui/molecules/mobile-sidebar"
+import TabList from "@ui/molecules/tab-list"
 
 function OpenMenuIcon() {
   return (
@@ -117,6 +117,9 @@ export function SidebarLayout({
         {/* Content */}
         <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", !collapsed ? 'lg:pl-64 ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0 pb-1' : 'lg:pr-2 pb-2')}>
           <div className={cn('lg:h-14 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
+
+            <TabList />
+
             <div className="relative ml-auto flex-1 md:grow-0">
               <Search className="absolute left-2.5 top-3 h-4 w-4 text-muted-foreground" />
               <Input
