@@ -27,7 +27,7 @@ const items = [
   },
 ];
 
-export default function EmptyState() {
+export default function ImportModalContent() {
   return (
     <div className="w-full">
       <div className="space-y-0.5">

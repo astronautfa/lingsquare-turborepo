@@ -17,7 +17,7 @@
     "chokidar": "^3.6.0",
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
-    "@types/node": "^20.14.10",
+    "@types/node": "^20.14.11",
     "@types/fs-extra": "^11.0.4",
     "fs-extra": "^11.2.0",
     "globby": "^14.0.2",

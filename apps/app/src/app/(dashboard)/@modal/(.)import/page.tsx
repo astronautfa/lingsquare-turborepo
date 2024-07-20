@@ -1,5 +1,5 @@
 import React from 'react'
-import EmptyState from '@/components/empty-state-copy';
+import ImportModalContent from '@/components/import-modal';
 import { Metadata } from 'next/types';
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const ImportModal = () => {
     return (
-        <EmptyState />
+        <ImportModalContent />
     )
 }
 

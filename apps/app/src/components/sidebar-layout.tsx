@@ -84,9 +84,9 @@ export function SidebarLayout({
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild className={cn('absolute z-10 transition-transform duration-100', 
-              fullscreen ? '-right-[10px] bottom-11' : 'bottom-12', 
               !collapsed ? '-right-1': '-right-3',
-              !isMounted() && '-right-3 bottom-11')}>
+              fullscreen ? '-right-[10px] bottom-11' : 'bottom-12', 
+              !isMounted() && '-right-[10px] bottom-11')}>
               <Button className={'hover:scale-110 transition-all border flex'} variant={'collapse'} size={'collapse'} onClick={() => { setFullscreen((prev) => !prev) }} >
                 {fullscreen ?
                   <RxExitFullScreen className='size-3.5' />

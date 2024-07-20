@@ -1,10 +1,28 @@
 {
+  "import": {
+    "modal": {
+      "title": "Import",
+      "subtitle": "Import your own content and start learning"
+    },
+    "page": {
+      "title": "Import a lesson",
+      "subtitle": "Import your own content and start learning"
+    }
+  },
   "explore": {
     "title": "Explore",
     "subtitle": "Find the content you enjoy"
   },
+  "library": {
+    "title": "Library",
+    "subtitle": ""
+  },
   "study": {
     "title": "Study",
     "subtitle": "Review your flashcards"
+  },
+  "history": {
+    "title": "History",
+    "subtitle": "Previously visited lessons"
   }
 }

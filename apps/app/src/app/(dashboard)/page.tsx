@@ -1,15 +1,19 @@
 import { Separator } from '@ui/components/separator'
 import { Metadata } from 'next'
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { api } from '@/trpc/server'
 
 export const metadata: Metadata = {
   title: "Explore",
   description: "LingSquare explore page",
 }
 
-export default function HomePage() {
+export default async function HomePage() {
 
-  const t = useTranslations('explore');
+  const t = await getTranslations('explore');
+
+  const post = await api.post.hello({ text: 'alireza' });
+  console.log(post)
 
   return (
     <div>

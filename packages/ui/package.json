@@ -9,9 +9,9 @@
   "devDependencies": {
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.0.6",
+    "@turbo/gen": "^2.0.9",
     "@types/eslint": "^8.56.10",
-    "@types/node": "^20.14.10",
+    "@types/node": "^20.14.11",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
@@ -19,7 +19,7 @@
     "postcss": "^8.4.39",
     "react": "^18.3.1",
     "react-dom": "18.3.1",
-    "tailwindcss": "^3.4.4",
+    "tailwindcss": "^3.4.6",
     "typescript": "^5.5.3"
   },
   "dependencies": {
@@ -40,9 +40,9 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
-    "framer-motion": "^11.3.2",
+    "framer-motion": "^11.3.8",
     "input-otp": "^1.2.4",
-    "lucide-react": "^0.408.0",
+    "lucide-react": "^0.411.0",
     "next-themes": "^0.3.0",
     "react-hook-form": "^7.52.1",
     "react-icons": "^5.2.1",

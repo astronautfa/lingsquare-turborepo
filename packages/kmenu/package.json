@@ -39,10 +39,10 @@
     "@changesets/cli": "^2.27.7",
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
-    "@swc/core": "^1.6.13",
-    "@turbo/gen": "^2.0.6",
+    "@swc/core": "^1.7.0",
+    "@turbo/gen": "^2.0.9",
     "@types/eslint": "^8.56.10",
-    "@types/node": "^20.14.10",
+    "@types/node": "^20.14.11",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/resize-observer-browser": "^0.1.11",
@@ -53,7 +53,7 @@
     "typescript": "^5.5.3"
   },
   "dependencies": {
-    "framer-motion": "^11.3.2",
+    "framer-motion": "^11.3.8",
     "ui": "workspace:*",
     "react-scrollbar-size": "^5.0.0"
   }
