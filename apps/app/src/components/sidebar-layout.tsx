@@ -70,7 +70,7 @@ export function SidebarLayout({
         {/* Sidebar on desktop */}
         <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4', !isMounted() && 'w-64')}>
           <Tooltip >
-            <TooltipTrigger asChild className={cn('absolute z-10 top-24 transition-all duration-75 border hover:scale-110',
+            <TooltipTrigger asChild className={cn('absolute z-10 top-[132px] transition-all duration-75 border hover:scale-110',
               !collapsed ? 'rotate-180 -right-1': '-right-3',
               fullscreen ? 'opacity-0' : 'opacity-100'
             )} >
@@ -85,7 +85,7 @@ export function SidebarLayout({
           <Tooltip>
             <TooltipTrigger asChild className={cn('absolute z-10 transition-transform duration-100', 
               !collapsed ? '-right-1': '-right-3',
-              fullscreen ? '-right-[10px] bottom-11' : 'bottom-12', 
+              fullscreen ? '-right-[10px] bottom-[80px]' : 'bottom-[85px]', 
               !isMounted() && '-right-[10px] bottom-11')}>
               <Button className={'hover:scale-110 transition-all border flex'} variant={'collapse'} size={'collapse'} onClick={() => { setFullscreen((prev) => !prev) }} >
                 {fullscreen ?
