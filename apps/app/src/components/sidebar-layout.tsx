@@ -15,10 +15,9 @@ import {
 import LingsquareSidebar from './lingsquare-sidebar'
 import LingsquareNavbar from './lingsquare-navbar'
 import { Button } from '@ui/components/button'
-import { Search } from 'lucide-react'
+
 import { cn } from '@ui/lib/utils'
 import { DropdownMenuShortcut } from '@ui/components/dropdown-menu'
-import { Input } from '@ui/components/input'
 import { useTheme } from 'next-themes';
 import HeaderIcons from './header-icons';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
@@ -36,10 +35,7 @@ function OpenMenuIcon() {
 
 export function SidebarLayout({
   children,
-  tabContent
-}: React.PropsWithChildren<{ tabContent: React.ReactNode }>) {
-
-  console.log(tabContent)
+}: React.PropsWithChildren<{}>) {
 
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -71,7 +67,7 @@ export function SidebarLayout({
         <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4', !isMounted() && 'w-64')}>
           <Tooltip >
             <TooltipTrigger asChild className={cn('absolute z-10 top-[132px] transition-all duration-75 border hover:scale-110',
-              !collapsed ? 'rotate-180 -right-1': '-right-3',
+              !collapsed ? 'rotate-180 -right-1' : '-right-3',
               fullscreen ? 'opacity-0' : 'opacity-100'
             )} >
               <Button variant={'collapse'} size={'collapse'} onClick={() => { setCollapsed((prev) => !prev) }} >
@@ -83,10 +79,10 @@ export function SidebarLayout({
             </TooltipContent>
           </Tooltip>
           <Tooltip>
-            <TooltipTrigger asChild className={cn('absolute z-10 transition-transform duration-100', 
-              !collapsed ? '-right-1': '-right-3',
-              fullscreen ? '-right-[10px] bottom-[80px]' : 'bottom-[85px]', 
-              !isMounted() && '-right-[10px] bottom-11')}>
+            <TooltipTrigger asChild className={cn('absolute z-10 transition-transform duration-100',
+              !collapsed ? '-right-1' : '-right-3',
+              fullscreen ? '-right-[10px] bottom-[80px]' : 'bottom-[85px]',
+              !isMounted() && '-right-1 bottom-[85px]')}>
               <Button className={'hover:scale-110 transition-all border flex'} variant={'collapse'} size={'collapse'} onClick={() => { setFullscreen((prev) => !prev) }} >
                 {fullscreen ?
                   <RxExitFullScreen className='size-3.5' />
@@ -126,14 +122,8 @@ export function SidebarLayout({
 
             {/* <TabList /> */}
 
-            <div className="relative ml-auto flex-1 md:grow-0">
-              <Search className="absolute left-2.5 top-3 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search..."
-                className="rounded-lg bg-background pl-8 md:w-[260px] cursor-pointer"
-              />
-              <DropdownMenuShortcut className='mt-0.5 absolute right-4 top-3 '>⌘K</DropdownMenuShortcut>
+            <div className="ml-auto flex-1 md:grow-0">
+
             </div>
             <HeaderIcons />
           </div>
