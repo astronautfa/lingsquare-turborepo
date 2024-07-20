@@ -11,7 +11,8 @@
         "aria-required-attr": "off",
         "aria-valid-attr-value": "off",
         "aria-input-field-name": "off",
-        "aria-required-children": "off"
+        "aria-required-children": "off",
+        "aria-allowed-attr": "off"
       }
     ],
     "disown-opener": "off",

@@ -5,13 +5,15 @@ import ModalOrNot from '@/components/modal/modal-or-not';
 
 const AppLayout = async ({
     children,
-    modal
+    modal,
+    tab
 }: Readonly<{
     children: React.ReactNode;
     modal: React.ReactNode;
+    tab: React.ReactNode;
 }>) => {
     return (
-        <SidebarLayout>
+        <SidebarLayout tabContent={tab}>
             <ModalProvider>
                 <ModalOrNot>{modal}</ModalOrNot>
             </ModalProvider>

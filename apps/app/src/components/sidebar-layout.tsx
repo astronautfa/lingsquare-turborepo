@@ -36,7 +36,10 @@ function OpenMenuIcon() {
 
 export function SidebarLayout({
   children,
-}: React.PropsWithChildren<{}>) {
+  tabContent
+}: React.PropsWithChildren<{ tabContent: React.ReactNode }>) {
+
+  console.log(tabContent)
 
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -118,7 +121,7 @@ export function SidebarLayout({
         <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", !collapsed ? 'lg:pl-64 ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0 pb-1' : 'lg:pr-2 pb-2')}>
           <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
 
-            <TabList />
+            {/* <TabList /> */}
 
             <div className="relative ml-auto flex-1 md:grow-0">
               <Search className="absolute left-2.5 top-3 h-4 w-4 text-muted-foreground" />

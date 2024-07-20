@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "LingSquare explore page",
 }
 
-export default function Example() {
+export default function HomePage() {
 
   const t = useTranslations('explore');
 
