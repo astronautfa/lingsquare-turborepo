@@ -70,8 +70,8 @@ export function SidebarLayout({
         {/* Sidebar on desktop */}
         <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4', !isMounted() && 'w-64')}>
           <Tooltip >
-            <TooltipTrigger asChild className={cn('absolute z-10 top-24 -right-3 transition-all duration-75 border hover:scale-110',
-              !collapsed && 'rotate-180',
+            <TooltipTrigger asChild className={cn('absolute z-10 top-24 transition-all duration-75 border hover:scale-110',
+              !collapsed ? 'rotate-180 -right-1': '-right-3',
               fullscreen ? 'opacity-0' : 'opacity-100'
             )} >
               <Button variant={'collapse'} size={'collapse'} onClick={() => { setCollapsed((prev) => !prev) }} >
@@ -83,7 +83,10 @@ export function SidebarLayout({
             </TooltipContent>
           </Tooltip>
           <Tooltip>
-            <TooltipTrigger asChild className={cn('absolute z-10 transition-transform duration-100', fullscreen ? '-right-[10px] bottom-11' : '-right-3 bottom-12', !isMounted() && '-right-3 bottom-11')}>
+            <TooltipTrigger asChild className={cn('absolute z-10 transition-transform duration-100', 
+              fullscreen ? '-right-[10px] bottom-11' : 'bottom-12', 
+              !collapsed ? '-right-1': '-right-3',
+              !isMounted() && '-right-3 bottom-11')}>
               <Button className={'hover:scale-110 transition-all border flex'} variant={'collapse'} size={'collapse'} onClick={() => { setFullscreen((prev) => !prev) }} >
                 {fullscreen ?
                   <RxExitFullScreen className='size-3.5' />
@@ -118,7 +121,7 @@ export function SidebarLayout({
         </header>
 
         {/* Content */}
-        <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", !collapsed ? 'lg:pl-64 ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0 pb-1' : 'lg:pr-2 pb-2')}>
+        <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", !collapsed ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0 pb-1' : 'lg:pr-2 pb-2')}>
           <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
 
             {/* <TabList /> */}
