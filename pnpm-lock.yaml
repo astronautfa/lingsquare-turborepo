@@ -131,6 +131,9 @@ importers:
       react-icons:
         specifier: ^5.2.1
         version: 5.2.1(react@19.0.0-rc-df5f2736-20240712)
+      react-resizable-panels:
+        specifier: ^2.0.21
+        version: 2.0.21(react-dom@19.0.0-rc-df5f2736-20240712(react@19.0.0-rc-df5f2736-20240712))(react@19.0.0-rc-df5f2736-20240712)
       resend:
         specifier: ^3.4.0
         version: 3.4.0
@@ -6592,6 +6595,12 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  react-resizable-panels@2.0.21:
+    resolution: {integrity: sha512-rFRjZ2sJ+iut0hY+5NtIxoIRlQqTWqZ6rMNahaZeZDpRPQyg8xiKjrlvXMq52WswFwpg47GFJcxn7f9uAFnZsQ==}
+    peerDependencies:
+      react: ^16.14.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.14.0 || ^17.0.0 || ^18.0.0
 
   react-scrollbar-size@5.0.0:
     resolution: {integrity: sha512-Ly3OuRMz4yDFViTh+ANH6TrG8EqrgjC1uxxm2a/95+2Ijy3XT+bWtzm4QmgZUcUVg+8BCKzmPMM7z39ZtucDIQ==}
@@ -14922,6 +14931,11 @@ snapshots:
       use-sidecar: 1.1.2(@types/react@18.3.3)(react@19.0.0-rc-df5f2736-20240712)
     optionalDependencies:
       '@types/react': 18.3.3
+
+  react-resizable-panels@2.0.21(react-dom@19.0.0-rc-df5f2736-20240712(react@19.0.0-rc-df5f2736-20240712))(react@19.0.0-rc-df5f2736-20240712):
+    dependencies:
+      react: 19.0.0-rc-df5f2736-20240712
+      react-dom: 19.0.0-rc-df5f2736-20240712(react@19.0.0-rc-df5f2736-20240712)
 
   react-scrollbar-size@5.0.0(react@18.3.1):
     dependencies:

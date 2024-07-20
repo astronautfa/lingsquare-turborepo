@@ -6,6 +6,9 @@ import { NavbarItem } from './navbar'
 import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbarsComponent, useOverlayScrollbars } from "overlayscrollbars-react";
 
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+
+
 import {
   Tooltip,
   TooltipContent,
@@ -23,7 +26,7 @@ import HeaderIcons from './header-icons';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@/components/hooks/use-is-mounted';
 import MobileSidebar from "@ui/molecules/mobile-sidebar"
-import TabList from "@ui/molecules/tab-list"
+import TabList from './tab-list';
 
 function OpenMenuIcon() {
   return (
@@ -35,7 +38,8 @@ function OpenMenuIcon() {
 
 export function SidebarLayout({
   children,
-}: React.PropsWithChildren<{}>) {
+  defaultLayout
+}: React.PropsWithChildren<{ defaultLayout: number[]; }>) {
 
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -57,6 +61,12 @@ export function SidebarLayout({
   }, [theme, initBodyOverlayScrollbars])
 
   const isMounted = useIsMounted();
+
+  const onLayout = (sizes: number[]) => {
+    document.cookie = `react-resizable-panels:layout=${JSON.stringify(sizes)}`;
+  };
+
+  const [resizing, setResizing] = useState(false)
 
   return (
     <OverlayScrollbarsComponent
@@ -118,18 +128,52 @@ export function SidebarLayout({
 
         {/* Content */}
         <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", !collapsed ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0 pb-1' : 'lg:pr-2 pb-2')}>
-          <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
+          {/* TODO : fix resize state for stash */}
+          {/* <PanelGroup direction="horizontal" onLayout={onLayout}>
+            <Panel
+              className="rounded flex p-1 pl-0.5 pr-0 flex-col"
+              defaultSize={defaultLayout[0]}
+              minSize={20}
+            >
+              <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
+                <TabList />
+                <div className="ml-auto flex-1 md:grow-0">
+                </div>
+              </div>
+              <div className="grow p-3 lg:rounded-l-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+                <div className="mx-auto p-3">{children}</div>
+              </div>
+            </Panel>
 
-            {/* <TabList /> */}
+            <PanelResizeHandle className={cn("bg-slate-300 mb-[3px]", resizing ? 'w-2' : 'w-0.5')} onResize={() => setResizing(true)} />
+            <Panel
+              className="rounded flex flex-col p-1 pl-0"
+              defaultSize={defaultLayout[1]}
+              minSize={20}
+            >
+              <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
+                <TabList />
+                <div className="ml-auto flex-1 md:grow-0">
+                </div>
+                <HeaderIcons />
+              </div>
+              <div className="grow p-3 lg:rounded-r-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+                <div className="mx-auto p-3">{children}</div>
+              </div>
+            </Panel>
+          </PanelGroup> */}
 
+          <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 mt-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
+            <TabList />
             <div className="ml-auto flex-1 md:grow-0">
-
             </div>
             <HeaderIcons />
           </div>
-          <div className="grow p-6 lg:rounded-lg lg:bg-white lg:p-10 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
-            <div className="mx-auto">{children}</div>
+          <div className="grow p-3 lg:rounded-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+            <div className="mx-auto p-3">{children}</div>
           </div>
+
+
         </main >
       </div >
     </OverlayScrollbarsComponent >
