@@ -66,7 +66,7 @@ export function SidebarLayout({
         {/* Sidebar on desktop */}
         <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4', !isMounted() && 'w-64')}>
           <Tooltip >
-            <TooltipTrigger asChild className={cn('absolute z-10 top-[132px] transition-all duration-75 border hover:scale-110',
+            <TooltipTrigger asChild className={cn('absolute z-10 top-[180px] transition-all duration-75 border hover:scale-110',
               !collapsed ? 'rotate-180 -right-1' : '-right-3',
               fullscreen ? 'opacity-0' : 'opacity-100'
             )} >
