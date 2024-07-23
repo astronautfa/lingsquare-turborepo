@@ -1,0 +1,42 @@
+.watermark {
+    display: flex;
+    width: 100%;
+
+    &.has-actions {
+        .watermark-title {
+            .actions-container {
+                display: none;
+            }
+        }
+    }
+
+    .watermark-title {
+        height: 35px;
+        width: 100%;
+        display: flex;
+    }
+    .watermark-content {
+        flex-grow: 1;
+    }
+
+    .actions-container {
+        display: flex;
+        align-items: center;
+        padding: 0px 8px;
+
+        .close-action {
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            cursor: pointer;
+            color: var(--dv-activegroup-hiddenpanel-tab-color);
+
+            &:hover {
+                border-radius: 2px;
+                background-color: var(--dv-icon-hover-background-color);
+            }
+        }
+    }
+}

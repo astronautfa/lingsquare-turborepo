@@ -1,0 +1,15 @@
+{
+  "extends": "@lingsquare/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "dist/cjs",
+    "tsBuildInfoFile": ".build/tsconfig.tsbuildinfo.cjs",
+    "composite": true,
+    "incremental": true,
+    "jsx": "react",
+    "rootDir": "src",
+    "isolatedModules": false
+
+  },
+  "include": ["src"],
+  "exclude": ["**/node_modules", "src/__tests__"]
+}

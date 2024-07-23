@@ -30,7 +30,7 @@ export function ResetPassword({ token, className }: { token: string, className?:
   }, [state?.error]);
 
   return (
-    <Card className={cn("w-full max-w-md", className)}>
+    <Card className={cn("w-Ïfull max-w-md", className)}>
       <CardHeader className="text-center">
         <CardTitle>Reset Password</CardTitle>
         <CardDescription>Enter your new password</CardDescription>

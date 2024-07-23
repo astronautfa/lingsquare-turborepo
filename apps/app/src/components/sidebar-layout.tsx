@@ -6,9 +6,6 @@ import { NavbarItem } from './navbar'
 import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbarsComponent, useOverlayScrollbars } from "overlayscrollbars-react";
 
-import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-
-
 import {
   Tooltip,
   TooltipContent,
@@ -163,7 +160,7 @@ export function SidebarLayout({
             </Panel>
           </PanelGroup> */}
 
-          <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 mt-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
+          <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
             <TabList />
             <div className="ml-auto flex-1 md:grow-0">
             </div>
@@ -172,7 +169,6 @@ export function SidebarLayout({
           <div className="grow p-3 lg:rounded-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
             <div className="mx-auto p-3">{children}</div>
           </div>
-
 
         </main >
       </div >

@@ -14,15 +14,24 @@
     "db:studio": "pnpm --filter app db:studio"
   },
   "devDependencies": {
-    "chokidar": "^3.6.0",
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
-    "@types/node": "^20.14.11",
     "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.14.11",
+    "chokidar": "^3.6.0",
     "fs-extra": "^11.2.0",
     "globby": "^14.0.2",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-dart-sass": "^1.1.0",
+    "rollup": "^4.9.2",
+    "rollup-plugin-postcss": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
     "prettier": "^3.3.3",
-    "turbo": "latest"
+    "turbo": "latest",
+    "typescript": "^5.5.4"
   },
   "packageManager": "pnpm@9.0.6",
   "engines": {
