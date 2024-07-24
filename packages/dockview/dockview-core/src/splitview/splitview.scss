@@ -24,6 +24,7 @@
     overflow: hidden;
     height: 100%;
     width: 100%;
+    border-radius: 10px;
 
     &.dv-splitview-disabled {
         & > .sash-container > .sash {
@@ -91,6 +92,7 @@
         }
 
         & > .view-container > .view {
+            border-radius: 10px;
             width: 100%;
 
             &:not(:first-child) {

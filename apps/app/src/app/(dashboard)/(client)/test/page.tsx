@@ -11,7 +11,7 @@ import {
 } from '@lingsquare/dockview';
 import { useEffect, useState } from 'react';
 // import Test from './_components/test';
-import {components} from "./_components/test"
+import { components } from "./_components/test"
 
 const DraggableElement = () => (
     <span
@@ -70,7 +70,7 @@ const DndDockview = (props: { renderVisibleOnly: boolean; theme?: string }) => {
 
         api.addPanel({
             id: 'panel_4',
-            component: 'default',
+            component: 'default2',
             params: {
                 title: 'Panel 4',
             },
@@ -151,9 +151,10 @@ const DndDockview = (props: { renderVisibleOnly: boolean; theme?: string }) => {
     return (
         <div
             style={{
+                zIndex: 1,
                 display: 'flex',
                 flexDirection: 'column',
-                height: '100vh',
+                height: 'calc(100vh - 22px)',
             }}
         >
             {/* <div style={{ margin: '2px 0px' }}>

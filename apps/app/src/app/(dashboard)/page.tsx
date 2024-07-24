@@ -2,21 +2,27 @@ import { Separator } from '@ui/components/separator'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server';
 import { api } from '@/trpc/server'
+import { SidebarLayout } from '@/components/sidebar-layout';
+import { cookies } from "next/headers";
+
+
+import React from 'react'
 
 export const metadata: Metadata = {
   title: "Explore",
   description: "LingSquare explore page",
 }
 
-export default async function HomePage() {
+export default async function HomePage({ modal }: { modal: React.ReactNode; }) {
 
   const t = await getTranslations('explore');
 
   const post = await api.post.hello({ text: 'alireza' });
-  console.log(post)
+
+  const defaultLayout = getDefaultLayout();
 
   return (
-    <div>
+    <SidebarLayout defaultLayout={defaultLayout}>
       <div className="space-y-0.5">
         <h2 className="text-2xl font-bold tracking-tight">  {t('title')}</h2>
         <p className="text-muted-foreground">
@@ -24,9 +30,18 @@ export default async function HomePage() {
         </p>
       </div>
       <Separator className="my-6" />
-    </div>
+    </SidebarLayout>
   )
 }
+
+function getDefaultLayout() {
+  const layout = cookies().get("react-resizable-panels:layout");
+  if (layout) {
+    return JSON.parse(layout.value);
+  }
+  return [33, 67];
+}
+
 
 // TODO : find better style for the sidebar collapse button
 // TODO : fix animation of account switcher

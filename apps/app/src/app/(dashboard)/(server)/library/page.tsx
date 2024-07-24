@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const LibraryPage = async () => {
 
-    const t = await getTranslations('history');
+    const t = await getTranslations('library');
 
     return (
         <div>
