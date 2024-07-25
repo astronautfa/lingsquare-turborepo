@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react'
 import { NavbarItem } from './navbar'
-import { createPortal } from 'react-dom';
 
 import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbarsComponent, useOverlayScrollbars } from "overlayscrollbars-react";
@@ -18,13 +17,10 @@ import LingsquareNavbar from './lingsquare-navbar'
 import { Button } from '@ui/components/button'
 
 import { cn } from '@ui/lib/utils'
-import { DropdownMenuShortcut } from '@ui/components/dropdown-menu'
 import { useTheme } from 'next-themes';
-import HeaderIcons from './header-icons';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@/components/hooks/use-is-mounted';
 import MobileSidebar from "@ui/molecules/mobile-sidebar"
-import TabList from './tab-list';
 
 function OpenMenuIcon() {
   return (
@@ -64,15 +60,13 @@ export function SidebarLayout({
     document.cookie = `react-resizable-panels:layout=${JSON.stringify(sizes)}`;
   };
 
-  const [resizing, setResizing] = useState(false)
-
   return (
     <OverlayScrollbarsComponent
       defer
     >
       <div className="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950 md:pr-1">
         {/* Sidebar on desktop */}
-        <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4', !isMounted() && 'w-64')}>
+        <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out z-10", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4', !isMounted() && 'w-64')}>
           <Tooltip >
             <TooltipTrigger asChild className={cn('absolute z-10 top-[180px] transition-all duration-75 border hover:scale-110',
               !collapsed ? 'rotate-180 -right-1' : '-right-3',
@@ -87,7 +81,7 @@ export function SidebarLayout({
             </TooltipContent>
           </Tooltip>
           <Tooltip>
-            <TooltipTrigger asChild className={cn('absolute z-20 transition-transform duration-100',
+            <TooltipTrigger asChild className={cn('absolute z-10 transition-transform duration-100',
               !collapsed ? '-right-1' : '-right-3',
               fullscreen ? '-right-[10px] bottom-[80px]' : 'bottom-[85px]',
               !isMounted() && '-right-1 bottom-[85px]')}>
@@ -115,20 +109,18 @@ export function SidebarLayout({
         </MobileSidebar>
 
         {/* Navbar on mobile */}
-        <header className="flex items-center px-4 lg:hidden">
+        <header className="flex items-center px-4 lg:hidden justify-between">
           <div className="py-2.5">
             <NavbarItem onClick={() => setShowSidebar(true)} aria-label="Open navigation">
               <OpenMenuIcon />
             </NavbarItem>
           </div>
-          <div className="min-w-0 flex-1"><LingsquareNavbar collapsed={true} /></div>
+          <LingsquareNavbar collapsed={true} />
         </header>
 
         {/* Content */}
-        <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", !collapsed ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0' : 'lg:pr-2')}>
-          <div className="z-5 pb-2 pt-[13px]">
-            {children}
-          </div>
+        <main className={cn("flex flex-1 relative flex-col lg:min-w-0 transition-all duration-100 ease-in-out pb-2 pt-[13px]", !collapsed ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0' : 'lg:pr-2')}>
+          {children}
         </main >
       </div >
     </OverlayScrollbarsComponent >

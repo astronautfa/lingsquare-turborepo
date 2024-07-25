@@ -17,13 +17,11 @@ import LingsquareNavbar from './lingsquare-navbar'
 import { Button } from '@ui/components/button'
 
 import { cn } from '@ui/lib/utils'
-import { DropdownMenuShortcut } from '@ui/components/dropdown-menu'
 import { useTheme } from 'next-themes';
 import HeaderIcons from './header-icons';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@/components/hooks/use-is-mounted';
 import MobileSidebar from "@ui/molecules/mobile-sidebar"
-import TabList from './tab-list';
 
 function OpenMenuIcon() {
   return (
@@ -62,8 +60,6 @@ export function SidebarLayout({
   const onLayout = (sizes: number[]) => {
     document.cookie = `react-resizable-panels:layout=${JSON.stringify(sizes)}`;
   };
-
-  const [resizing, setResizing] = useState(false)
 
   return (
     <OverlayScrollbarsComponent
@@ -161,7 +157,6 @@ export function SidebarLayout({
           </PanelGroup> */}
 
           <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
-            <TabList />
             <div className="ml-auto flex-1 md:grow-0">
             </div>
             <HeaderIcons />
@@ -169,7 +164,6 @@ export function SidebarLayout({
           <div className="grow p-3 lg:rounded-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
             <div className="mx-auto p-3">{children}</div>
           </div>
-
         </main >
       </div >
     </OverlayScrollbarsComponent >

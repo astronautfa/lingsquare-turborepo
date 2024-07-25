@@ -140,7 +140,7 @@ const LingsquareSidebar = ({ collapsed }: { collapsed: boolean }) => {
           <SidebarItem collapsed={collapsed} href="/" label={'Explore'}>
             <MagnifyingGlassIcon />
           </SidebarItem>
-          <SidebarItem collapsed={collapsed} href="/study" label={'Study'}>
+          <SidebarItem collapsed={collapsed} href="/review" label={'Review'}>
             <AcademicCapIcon />
           </SidebarItem>
           <SidebarItem collapsed={collapsed} href="/history" label={'History'}>

@@ -11,6 +11,7 @@ import {
 } from '@lingsquare/dockview';
 import { useEffect, useState } from 'react';
 // import Test from './_components/test';
+import { useTheme } from "next-themes"
 import { components } from "./_components/test"
 
 const DraggableElement = () => (
@@ -38,6 +39,9 @@ const DraggableElement = () => (
 
 const DndDockview = (props: { renderVisibleOnly: boolean; theme?: string }) => {
     const [api, setApi] = useState<DockviewApi>();
+
+    const { theme } = useTheme();
+
 
     useEffect(() => {
         if (!api) {
@@ -151,10 +155,11 @@ const DndDockview = (props: { renderVisibleOnly: boolean; theme?: string }) => {
     return (
         <div
             style={{
-                zIndex: 1,
+                zIndex: 0,
                 display: 'flex',
                 flexDirection: 'column',
                 height: 'calc(100vh - 22px)',
+                position: 'relative'
             }}
         >
             {/* <div style={{ margin: '2px 0px' }}>
@@ -174,7 +179,7 @@ const DndDockview = (props: { renderVisibleOnly: boolean; theme?: string }) => {
             <DockviewReact
                 components={components}
                 onReady={onReady}
-                className={`${props.theme || 'dockview-theme-dark'}`}
+                className={theme === 'dark' ? 'dockview-theme-dark' : 'dockview-theme-light'}
                 onDidDrop={onDidDrop}
                 showDndOverlay={showDndOverlay}
                 rootOverlayModel={{

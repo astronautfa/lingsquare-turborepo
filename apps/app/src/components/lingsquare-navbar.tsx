@@ -11,8 +11,8 @@ import {
 
 const LingsquareNavbar = ({ collapsed }: { collapsed: boolean }) => {
   return (
-    <Navbar>
-      <NavbarSpacer />
+    <Navbar className=''>
+      {/* <NavbarSpacer /> */}
       <NavbarSection>
         <NavbarItem href="/search" aria-label="Search">
           <MagnifyingGlassIcon />

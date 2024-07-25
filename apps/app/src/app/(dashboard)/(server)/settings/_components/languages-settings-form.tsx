@@ -37,7 +37,6 @@ import {
     TooltipTrigger,
 } from "@ui/components/tooltip"
 
-import { Input } from "@ui/components/input"
 import { toast } from "sonner"
 import { languages } from "@/consts/languages"
 import { Check, ChevronsUpDown, PlusIcon } from "lucide-react"

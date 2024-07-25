@@ -21,7 +21,7 @@ export function NavbarSection({ className, ...props }: React.ComponentPropsWitho
 }
 
 export function NavbarSpacer({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-    return <div aria-hidden="true" {...props} className={cn(className, '-ml-4 flex-1')} />
+    return <div aria-hidden="true" {...props} className={cn(className, 'ml-4 flex-1')} />
 }
 
 export function NavbarLabel({ className, ...props }: React.ComponentPropsWithoutRef<'span'>) {

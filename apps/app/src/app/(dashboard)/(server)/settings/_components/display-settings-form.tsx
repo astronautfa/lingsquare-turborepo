@@ -1,12 +1,10 @@
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
-import { ChevronDown } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { cn } from "@ui/lib/utils"
-import { Button, buttonVariants } from "@ui/components/button"
+import { Button } from "@ui/components/button"
 import {
   Form,
   FormControl,
@@ -44,6 +42,7 @@ type DisplaySettingsFormValues = z.infer<typeof DisplaySettingsFormSchema>
 // TODO : This should be loaded from the user preference
 const defaultValues: Partial<DisplaySettingsFormValues> = {
   theme: "light",
+  font: "inter"
 }
 
 export function DisplaySettingsForm() {
