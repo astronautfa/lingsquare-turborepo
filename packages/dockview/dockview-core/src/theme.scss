@@ -250,7 +250,11 @@
     }
 
     .content-container {
-      background-color: #fcfcfc;
+      // background-color: #fcfcfc;
+      border-width: thin;
+      border-radius: 10px;
+      height: 100%;
+      background-color: var(--dv-group-view-background-color);
     }
 
     &.active-group {

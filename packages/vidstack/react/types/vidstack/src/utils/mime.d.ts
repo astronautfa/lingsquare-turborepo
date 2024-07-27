@@ -1,0 +1,15 @@
+import type { Src } from '../core/index.js';
+export declare const AUDIO_EXTENSIONS: RegExp;
+export declare const AUDIO_TYPES: Set<string>;
+export declare const VIDEO_EXTENSIONS: RegExp;
+export declare const VIDEO_TYPES: Set<string>;
+export declare const HLS_VIDEO_EXTENSIONS: RegExp;
+export declare const DASH_VIDEO_EXTENSIONS: RegExp;
+export declare const HLS_VIDEO_TYPES: Set<string>;
+export declare const DASH_VIDEO_TYPES: Set<string>;
+export declare function isAudioSrc({ src, type }: Src): boolean;
+export declare function isVideoSrc(src: Src): boolean;
+export declare function isHLSSrc({ src, type }: Src): boolean;
+export declare function isDASHSrc({ src, type }: Src): boolean;
+export declare function canGoogleCastSrc(src: Src): boolean;
+export declare function isMediaStream(src: unknown): src is MediaStream;
