@@ -2,6 +2,8 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
+    "outDir": "./npm",
+    "rootDir": "./src",
     "alwaysStrict": true,
     "checkJs": true,
     "declaration": true,
