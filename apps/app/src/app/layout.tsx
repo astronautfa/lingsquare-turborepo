@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 import { getLocale, getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import "@ui/styles/globals.css"
-import "@ui/styles/cmdk.css"
 import '@lingsquare/dockview/dist/styles/dockview.css';
 
 import { cookies } from "next/headers";

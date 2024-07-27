@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
-    "outDir": "./npm",
+    "outDir": "./dist-npm",
     "rootDir": "./src",
     "alwaysStrict": true,
     "checkJs": true,

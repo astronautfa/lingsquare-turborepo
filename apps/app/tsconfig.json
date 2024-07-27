@@ -13,7 +13,8 @@
       "@ui/molecules/*": ["../../packages/ui/src/components/molecules/*"],
       "@ui/lib/*": ["../../packages/ui/src/lib/*"],
       "@ui/styles/*": ["../../packages/ui/src/styles/*"],
-      "@lingsquare/supabase/*": ["../../packages/supabase/src/*"]
+      "@lingsquare/supabase/*": ["../../packages/supabase/src/*"],
+      "@lingsquare/vidstack": ["../../packages/vidstack/react/dist-npm/index.d.ts"]
     }
   },
   "include": [

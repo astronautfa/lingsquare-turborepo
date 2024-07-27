@@ -11,6 +11,7 @@
   position: relative;
   contain: style;
   box-sizing: border-box;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -18,7 +19,7 @@
   box-sizing: border-box;
 }
 
-:where([data-media-player][data-view-type='video']) {
+:where([data-media-player][data-view-type="video"]) {
   aspect-ratio: 16 / 9;
 }
 
@@ -27,7 +28,7 @@
   outline: none;
 }
 
-[data-media-player][data-view-type='video'][data-started]:not([data-controls]) {
+[data-media-player][data-view-type="video"][data-started]:not([data-controls]) {
   pointer-events: auto;
   cursor: none;
 }
@@ -53,12 +54,12 @@
   overflow: hidden;
 }
 
-[data-media-player]:not([data-view-type='audio']) [data-media-provider],
+[data-media-player]:not([data-view-type="audio"]) [data-media-provider],
 [data-media-player][data-fullscreen] [data-media-provider] {
   height: 100%;
 }
 
-[data-media-player][data-view-type='audio'] [data-media-provider] {
+[data-media-player][data-view-type="audio"] [data-media-provider] {
   display: contents;
   background-color: unset;
 }
@@ -87,8 +88,8 @@
   height: 100%;
 }
 
-[data-media-player][data-view-type='audio'] video,
-[data-media-player][data-view-type='audio'] iframe {
+[data-media-player][data-view-type="audio"] video,
+[data-media-player][data-view-type="audio"] iframe {
   display: none;
 }
 
