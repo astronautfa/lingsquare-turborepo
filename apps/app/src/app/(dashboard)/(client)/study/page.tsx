@@ -42,7 +42,6 @@ const DndDockview = (props: { renderVisibleOnly: boolean; theme?: string }) => {
 
     const { theme } = useTheme();
 
-
     useEffect(() => {
         if (!api) {
             return;
@@ -154,11 +153,11 @@ const DndDockview = (props: { renderVisibleOnly: boolean; theme?: string }) => {
 
     return (
         <div
+            className='h-[calc(100vh-4rem)] lg:h-[calc(100vh-22px)]'
             style={{
                 zIndex: 0,
                 display: 'flex',
                 flexDirection: 'column',
-                height: 'calc(100vh - 22px)',
                 position: 'relative'
             }}
         >

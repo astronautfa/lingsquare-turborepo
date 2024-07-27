@@ -21,6 +21,7 @@ import { useTheme } from 'next-themes';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@/components/hooks/use-is-mounted';
 import MobileSidebar from "@ui/molecules/mobile-sidebar"
+import HeaderIcons from './header-icons';
 
 function OpenMenuIcon() {
   return (
@@ -110,16 +111,21 @@ export function SidebarLayout({
 
         {/* Navbar on mobile */}
         <header className="flex items-center px-4 lg:hidden justify-between">
-          <div className="py-2.5">
-            <NavbarItem onClick={() => setShowSidebar(true)} aria-label="Open navigation">
-              <OpenMenuIcon />
-            </NavbarItem>
+          <NavbarItem onClick={() => setShowSidebar(true)} aria-label="Open navigation">
+            <OpenMenuIcon />
+          </NavbarItem>
+          <div>
+            <LingsquareNavbar collapsed={true} />
           </div>
-          <LingsquareNavbar collapsed={true} />
         </header>
 
         {/* Content */}
-        <main className={cn("flex flex-1 relative flex-col lg:min-w-0 transition-all duration-100 ease-in-out pb-2 pt-[13px]", !collapsed ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0' : 'lg:pr-2')}>
+        <main className={cn("flex flex-1 relative flex-col lg:min-w-0 transition-all duration-100 ease-in-out lg:pb-2 lg:pt-[13px]", !collapsed ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0' : 'lg:pr-2')}>
+          <div className={cn('lg:h-12 lg:flex absolute top-0 right-2 z-10 items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
+            <div className="ml-auto flex-1 md:grow-0">
+            </div>
+            <HeaderIcons />
+          </div>
           {children}
         </main >
       </div >

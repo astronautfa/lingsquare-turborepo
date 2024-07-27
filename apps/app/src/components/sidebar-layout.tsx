@@ -121,41 +121,6 @@ export function SidebarLayout({
 
         {/* Content */}
         <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", !collapsed ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0 pb-1' : 'lg:pr-2 pb-2')}>
-          {/* TODO : fix resize state for stash */}
-          {/* <PanelGroup direction="horizontal" onLayout={onLayout}>
-            <Panel
-              className="rounded flex p-1 pl-0.5 pr-0 flex-col"
-              defaultSize={defaultLayout[0]}
-              minSize={20}
-            >
-              <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
-                <TabList />
-                <div className="ml-auto flex-1 md:grow-0">
-                </div>
-              </div>
-              <div className="grow p-3 lg:rounded-l-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
-                <div className="mx-auto p-3">{children}</div>
-              </div>
-            </Panel>
-
-            <PanelResizeHandle className={cn("bg-slate-300 mb-[3px]", resizing ? 'w-2' : 'w-0.5')} onResize={() => setResizing(true)} />
-            <Panel
-              className="rounded flex flex-col p-1 pl-0"
-              defaultSize={defaultLayout[1]}
-              minSize={20}
-            >
-              <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
-                <TabList />
-                <div className="ml-auto flex-1 md:grow-0">
-                </div>
-                <HeaderIcons />
-              </div>
-              <div className="grow p-3 lg:rounded-r-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
-                <div className="mx-auto p-3">{children}</div>
-              </div>
-            </Panel>
-          </PanelGroup> */}
-
           <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
             <div className="ml-auto flex-1 md:grow-0">
             </div>
