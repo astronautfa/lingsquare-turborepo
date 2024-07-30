@@ -74,7 +74,7 @@ importers:
       '@lingsquare/dockview':
         specifier: workspace:*
         version: link:../../packages/dockview/dockview
-      '@lingsquare/vidstack':
+      '@lingsquare/vidplayer':
         specifier: workspace:*
         version: link:../../packages/vidstack/react
       '@lucia-auth/adapter-drizzle':
@@ -578,6 +578,9 @@ importers:
       media-captions:
         specifier: ^1.0.1
         version: 1.0.3
+      vidstack:
+        specifier: workspace:*
+        version: link:../vidstack
     devDependencies:
       '@maverick-js/cli':
         specifier: 0.42.0
@@ -636,9 +639,6 @@ importers:
       typescript:
         specifier: ^5.3.0
         version: 5.5.4
-      vidstack:
-        specifier: workspace:*
-        version: link:../vidstack
       vite:
         specifier: ^5.0.0
         version: 5.3.5(@types/node@20.14.12)(sass@1.77.8)(terser@5.31.3)

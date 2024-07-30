@@ -18,7 +18,7 @@ jiti("@lingsquare/env/web/client");
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  transpilePackages: ["ui", "@lingsquare/env", "@lingsquare/vidstack"],
+  transpilePackages: ["ui", "@lingsquare/env"],
   eslint: {
     ignoreDuringBuilds: true,
   },

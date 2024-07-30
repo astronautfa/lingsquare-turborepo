@@ -11,8 +11,13 @@
         ".next/**",
         "!.next/cache/**",
         "cdn/**",
-        "dist-npm/**",
-        "styles/**"
+        "dist/**",
+        "styles/**",
+        "dist/analyze.json",
+        "dist/vscode.html-data.json",
+        "dist/vue.d.ts",
+        "dist/svelte.d.ts",
+        "dist/solid.d.ts"
       ]
     },
     "lint": {

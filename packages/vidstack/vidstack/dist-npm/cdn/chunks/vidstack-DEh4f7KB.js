@@ -1,1 +1,0 @@
-import{j as i,k as a}from"./vidstack-DjvI5Yd7.js";class t{constructor(s){this.La=s}Xa(){i(this.ya)&&this.fg()}$(){a(this.ya)&&window.cancelAnimationFrame(this.ya),this.ya=void 0}fg(){this.ya=window.requestAnimationFrame(()=>{i(this.ya)||(this.La(),this.fg())})}}export{t as R};
