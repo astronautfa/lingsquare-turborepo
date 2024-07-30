@@ -5,7 +5,7 @@ import {
   publicProcedure,
   protectedProcedure,
 } from "@/server/api/trpc";
-import { posts } from "@/server/db/schema";
+import { posts } from "@lingsquare/drizzle/schema";
 
 export const postRouter = createTRPCRouter({
   hello: publicProcedure

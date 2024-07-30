@@ -8,9 +8,9 @@ import { redirect } from "next/navigation";
 import { generateId, Scrypt } from "lucia";
 import { isWithinExpirationDate, TimeSpan, createDate } from "oslo";
 import { generateRandomString, alphabet } from "oslo/crypto";
-import { eq } from "drizzle-orm";
+import { eq } from "@lingsquare/drizzle";
 import { lucia } from "@/lib/auth";
-import { db } from "@/server/db";
+import { db } from "@lingsquare/drizzle"
 import {
   loginSchema,
   registerSchema,
@@ -21,7 +21,7 @@ import {
   passwordResetTokens,
   sessions,
   users,
-} from "@/server/db/schema";
+} from "@lingsquare/drizzle/schema";
 import { sendResendMail, EmailTemplate } from "@/lib/email/resend";
 import { validateRequest } from "@/lib/auth/validate-request";
 import { Paths } from "@/consts/paths";
@@ -121,10 +121,15 @@ export async function signup(
 
   const userId = generateId(21);
   const hashedPassword = await new Scrypt().hash(password);
+
+  const now = new Date();
+
   await db.insert(users).values({
     id: userId,
     email,
     hashedPassword,
+    createdAt: now,
+    updatedAt: now
   });
 
   const verificationCode = await generateEmailVerificationCode(userId, email);

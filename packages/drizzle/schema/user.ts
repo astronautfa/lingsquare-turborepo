@@ -21,9 +21,7 @@ export const users = createTable(
     stripeCustomerId: varchar("stripe_customer_id", { length: 191 }),
     stripeCurrentPeriodEnd: timestamp("stripe_current_period_end"),
     createdAt: timestamp("created_at").defaultNow().notNull(),
-    updatedAt: timestamp("updated_at", { mode: "date" }).$onUpdate(
-      () => new Date(),
-    ),
+    updatedAt: timestamp("updated_at", { mode: "date" }).notNull()
   },
   (t: { email: IndexColumn; discordId: IndexColumn }) => ({
     emailIdx: index("user_email_idx").on(t.email),

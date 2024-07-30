@@ -1,0 +1,4 @@
+{
+  "extends": "@lingsquare/typescript-config/base.json",
+  "include": ["*.ts", "*.d.ts"]
+}

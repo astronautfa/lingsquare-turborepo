@@ -1,0 +1,23 @@
+{
+  "name": "@lingsquare/drizzle",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.ts",
+  "types": "index.d.ts",
+  "dependencies": {
+    "postgres": "^3.4.4",
+    "@lingsquare/env": "workspace:*",
+    "drizzle-orm": "^0.29.1"
+  },
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "cross-env DB_MIGRATING=true tsx migrate.ts",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "devDependencies": {
+    "@lingsquare/typescript-config": "workspace:*",
+    "drizzle-kit": "^0.23.0"
+  }
+}
