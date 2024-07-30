@@ -24,6 +24,7 @@
     "@trpc/server": "next",
     "@lingsquare/dockview": "workspace:*",
     "@lingsquare/drizzle": "workspace:*",
+    "@vidstack/react": "workspace:*",
     "eslint": "^9.7.0",
     "framer-motion": "^11.3.8",
     "geist": "^1.3.1",

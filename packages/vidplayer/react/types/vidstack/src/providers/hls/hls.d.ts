@@ -1,0 +1,35 @@
+import type * as HLS from 'hls.js';
+import type { MediaContext } from '../../core/api/media-context.js';
+import type { Src } from '../../core/api/src-types.js';
+import type { HLSConstructor, HLSInstanceCallback } from './types.js';
+export declare class HLSController {
+    private _video;
+    protected _ctx: MediaContext;
+    private _instance;
+    private _stopLiveSync;
+    _config: Partial<HLS.HlsConfig>;
+    _callbacks: Set<HLSInstanceCallback>;
+    get instance(): import("hls.js").default | null;
+    constructor(_video: HTMLVideoElement, _ctx: MediaContext);
+    setup(ctor: HLSConstructor): void;
+    private _createDOMEvent;
+    private _liveSync;
+    private _liveSyncPosition;
+    private _dispatchHLSEvent;
+    private _onTracksFound;
+    private _onCuesParsed;
+    private _onAudioSwitch;
+    private _onLevelSwitched;
+    private _onLevelLoaded;
+    private _onError;
+    private _onFragLoading;
+    private _retryLoadingTimer;
+    private _onNetworkError;
+    private _clearRetryTimer;
+    private _onFatalError;
+    private _enableAutoQuality;
+    private _onUserQualityChange;
+    private _onUserAudioChange;
+    _loadSource(src: Src): void;
+    _destroy(): void;
+}
