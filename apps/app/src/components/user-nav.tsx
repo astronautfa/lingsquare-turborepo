@@ -1,4 +1,4 @@
-import { logout } from "@/lib/auth/actions"
+import { logout } from "@lingsquare/auth/actions"
 import {
     Avatar,
     AvatarFallback,

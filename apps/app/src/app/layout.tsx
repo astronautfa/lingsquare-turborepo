@@ -20,9 +20,9 @@ import { siteConfig } from "@/consts/site";
 import dynamic from "next/dynamic";
 
 import { TailwindIndicator } from "@ui/components/tailwind-indicator"
-import { TRPCReactProvider } from "@/trpc/react";
+import { TRPCReactProvider } from "@lingsquare/trpc/client";
 import { SessionProvider } from "@/components/auth/session-provider";
-import { validateRequest } from "@/lib/auth/validate-request";
+import { validateRequest } from "@lingsquare/auth/validate-request";
 
 const inter = Inter({ subsets: ["latin"] });
 

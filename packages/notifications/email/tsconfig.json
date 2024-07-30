@@ -1,13 +1,13 @@
 {
   "extends": "@lingsquare/typescript-config/react-library.json",
   "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "./dist/**/*" // This is what fixed it!
+  ],
   "compilerOptions": {
     "outDir": "dist",
     "moduleResolution": "Bundler",
     "module": "ES2022"
-  },
-  "exclude": [
-    "node_modules",
-    "./dist/**/*" // This is what fixed it!
-  ]
+  }
 }

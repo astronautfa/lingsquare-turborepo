@@ -1,6 +1,6 @@
 "use client";
 
-import { validateRequest } from "@/lib/auth/validate-request";
+import { validateRequest } from "@lingsquare/auth/validate-request";
 import { PropsWithChildren, createContext, useContext } from "react";
 
 type ContextType = Awaited<ReturnType<typeof validateRequest>>;

@@ -1,0 +1,46 @@
+{
+  "name": "@lingsquare/auth",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./actions": {
+      "types": "./dist/actions.d.ts",
+      "default": "./dist/actions.js"
+    },
+    "./validate-request": {
+      "types": "./dist/validate-request.d.ts",
+      "default": "./dist/validate-request.js"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf .turbo dist",
+    "dev": "tsc",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@lingsquare/drizzle": "workspace:*",
+    "@lingsquare/email": "workspace:*",
+    "@lucia-auth/adapter-drizzle": "^1.0.7",
+    "lucia": "^3.2.0",
+    "next": "^14.2.5",
+    "oslo": "^1.2.1",
+    "react": "19.0.0-rc-df5f2736-20240712",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@lingsquare/env": "workspace:*",
+    "@lingsquare/typescript-config": "workspace:*",
+    "@types/next": "^9.0.0",
+    "@types/react": "^18.3.3",
+    "typescript": "^5.5.2"
+  }
+}

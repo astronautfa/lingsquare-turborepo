@@ -13,7 +13,7 @@ import {
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { PasswordInput } from "@ui/molecules/password-input";
 import { Label } from "@ui/components/label";
-import { resetPassword } from "@/lib/auth/actions";
+import { resetPassword } from "@lingsquare/auth/actions";
 import { cn } from "@ui/lib/utils";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 

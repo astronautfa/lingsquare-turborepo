@@ -16,7 +16,7 @@ import {
   logout,
   verifyEmail,
   resendVerificationEmail as resendEmail,
-} from "@/lib/auth/actions";
+} from "@lingsquare/auth/actions";
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { User } from "lucia";
 

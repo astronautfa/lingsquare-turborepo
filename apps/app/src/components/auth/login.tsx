@@ -12,7 +12,7 @@ import {
   CardTitle,
 } from "@ui/components/card";
 import { PasswordInput } from "@ui/molecules/password-input";
-import { login } from "@/lib/auth/actions";
+import { login } from "@lingsquare/auth/actions"
 import { Label } from "@ui/components/label";
 import { SubmitButton } from "@ui/molecules/submit-button"
 import { cn } from "@ui/lib/utils";

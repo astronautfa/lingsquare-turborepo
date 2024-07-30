@@ -1,5 +1,5 @@
 import React from 'react'
-import { validateRequest } from "@/lib/auth/validate-request";
+import { validateRequest } from "@lingsquare/auth/validate-request";
 import { redirect } from "next/navigation";
 import { Paths } from "@/consts/paths";
 import { Login } from "@/components/auth/login";

@@ -1,7 +1,7 @@
 import { Separator } from '@ui/components/separator'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server';
-import { api } from '@/trpc/server'
+import { api } from '@lingsquare/trpc/server'
 import { SidebarLayout } from '@/components/sidebar-layout';
 import { cookies } from "next/headers";
 

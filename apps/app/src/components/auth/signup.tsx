@@ -13,7 +13,7 @@ import {
 } from "@ui/components/card";
 import { Input } from "@ui/components/input";
 import { Label } from "@ui/components/label";
-import { signup } from "@/lib/auth/actions";
+import { signup } from "@lingsquare/auth/actions";
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { cn } from "@ui/lib/utils";
 import { Paths } from "@/consts/paths";
