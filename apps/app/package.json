@@ -17,6 +17,7 @@
     "@trpc/react-query": "next",
     "@trpc/server": "next",
     "@lingsquare/dockview": "workspace:*",
+    "@lingsquare/vidstack": "workspace:*",
     "@lingsquare/drizzle": "workspace:*",
     "@lingsquare/auth": "workspace:*",
     "@lingsquare/trpc": "workspace:*",

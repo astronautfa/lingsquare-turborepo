@@ -1,0 +1,15 @@
+{
+  "extends": "@lingsquare/typescript-config/react-library.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "moduleResolution": "Bundler",
+    "module": "ES2022",
+    "paths": {
+      "vidstack": ["../vidstack/src"],
+      "vidstack/exports/*": ["../vidstack/src/exports/*"],
+      "@vidstack/react": ["./src/index.ts"]
+    },
+    "types": ["@types/node"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "sandbox"]
+}

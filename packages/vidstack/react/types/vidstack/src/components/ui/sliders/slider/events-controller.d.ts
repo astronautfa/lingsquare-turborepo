@@ -1,0 +1,52 @@
+import { ViewController, type ReadSignal } from 'maverick.js';
+import type { MediaContext } from '../../../../core/index.js';
+import type { SliderDragEndEvent, SliderDragStartEvent, SliderDragValueChangeEvent, SliderEvents, SliderValueChangeEvent } from './api/events.js';
+import type { SliderState } from './api/state.js';
+import type { SliderControllerProps } from './slider-controller.js';
+export interface SliderEventDelegate {
+    _swipeGesture?: ReadSignal<boolean>;
+    _isDisabled(): boolean;
+    _getValue?(): number;
+    _getStep(): number;
+    _getKeyStep(): number;
+    _roundValue(value: number): number;
+    _onValueChange?(event: SliderValueChangeEvent): unknown;
+    _onDragStart?(event: SliderDragStartEvent): unknown;
+    _onDragEnd?(event: SliderDragEndEvent): unknown;
+    _onDragValueChange?(event: SliderDragValueChangeEvent): unknown;
+}
+export declare class SliderEventsController extends ViewController<SliderControllerProps, SliderState, SliderEvents> {
+    private _delegate;
+    private _media;
+    private _observer?;
+    constructor(_delegate: SliderEventDelegate, _media: MediaContext);
+    protected onSetup(): void;
+    protected onConnect(): void;
+    private _watchSwipeGesture;
+    private _provider;
+    private _touch;
+    private _touchStartValue;
+    private _onTouchStart;
+    private _onTouchMove;
+    private _attachEventListeners;
+    private _attachPointerListeners;
+    private _onFocus;
+    private _updateValue;
+    private _updatePointerValue;
+    private _getPointerValue;
+    private _onPointerEnter;
+    private _onPointerMove;
+    private _onPointerLeave;
+    private _onPointerDown;
+    private _onStartDragging;
+    private _onStopDragging;
+    private _lastDownKey;
+    private _repeatedKeys;
+    private _onKeyDown;
+    private _onKeyUp;
+    private _calcJumpValue;
+    private _calcNewKeyValue;
+    private _onDocumentPointerUp;
+    private _onDocumentTouchMove;
+    private _onDocumentPointerMove;
+}

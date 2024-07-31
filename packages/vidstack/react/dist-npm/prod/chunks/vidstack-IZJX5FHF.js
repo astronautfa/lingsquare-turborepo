@@ -1,0 +1,1 @@
+import*as e from"react";var i=e.forwardRef((o,n)=>{let{width:r,height:s,size:t=null,paths:a,...c}=o;return e.createElement("svg",{viewBox:"0 0 32 32",...c,width:r??t,height:s??t,fill:"none","aria-hidden":"true",focusable:"false",xmlns:"http://www.w3.org/2000/svg",ref:n,dangerouslySetInnerHTML:{__html:a}})});i.displayName="VidstackIcon";export{i as a};

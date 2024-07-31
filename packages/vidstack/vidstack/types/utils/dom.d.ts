@@ -1,0 +1,41 @@
+import { type ComputePositionConfig } from '@floating-ui/dom';
+import { type ReadSignal } from 'maverick.js';
+export interface EventTargetLike {
+    addEventListener(type: string, handler: (...args: any[]) => void): void;
+    removeEventListener(type: string, handler: (...args: any[]) => void): void;
+}
+export declare function listen(target: EventTargetLike | null | undefined, type: string, handler: (...args: any[]) => void): import("maverick.js").Dispose | undefined;
+export declare function isEventInside(el: HTMLElement, event: Event): boolean;
+export declare function scheduleRafJob(job: () => void): () => boolean;
+export declare function setAttributeIfEmpty(target: Element, name: string, value: string): void;
+export declare function setARIALabel(target: Element, $label: string | null | ReadSignal<string | null>): void;
+export declare function hasParentElement(node: Element | null, test: (node: Element) => boolean): boolean;
+export declare function isElementVisible(el: HTMLElement): boolean;
+export declare function checkVisibility(el: HTMLElement | null): boolean;
+export declare function observeVisibility(el: HTMLElement, callback: (isVisible: boolean) => void): () => boolean;
+export declare function isElementParent(owner: Element, node: Element | null, test?: (node: Element) => boolean): boolean;
+export declare function onPress(target: EventTarget, handler: (event: PointerEvent | KeyboardEvent) => void): void;
+export declare function isTouchPinchEvent(event: Event): boolean;
+export declare function requestScopedAnimationFrame(callback: () => void): void | (() => undefined);
+export declare function repaint(el: HTMLElement): void;
+export declare function cloneTemplate<T extends HTMLElement>(template: HTMLTemplateElement, length: number, onCreate?: (el: T, index: number) => void): T[];
+export declare function createTemplate(content: string): DocumentFragment;
+export declare function cloneTemplateContent<T>(content: DocumentFragment): T;
+export declare function autoPlacement(el: HTMLElement | null, trigger: HTMLElement | null, placement: string, { offsetVarName, xOffset, yOffset, ...options }: Partial<ComputePositionConfig> & {
+    offsetVarName: string;
+    xOffset: number;
+    yOffset: number;
+}): (() => void) | undefined;
+export declare function hasAnimation(el: HTMLElement): boolean;
+export declare function createSlot(name: string): HTMLSlotElement;
+export declare function useTransitionActive($el: ReadSignal<Element | null | undefined>): import("maverick.js").WriteSignal<boolean>;
+export declare function useResizeObserver($el: ReadSignal<Element | null | undefined>, onResize: () => void): void;
+export declare function useSafeTriangle($root: ReadSignal<Element | null | undefined>, $trigger: ReadSignal<Element | null | undefined>, $popper: ReadSignal<Element | null | undefined>): void;
+export declare function useRectCSSVars($root: ReadSignal<Element | null | undefined>, $el: ReadSignal<Element | null | undefined>, prefix: string): void;
+export declare function setRectCSSVars(root: Element, el: Element, prefix: string): void;
+export declare function useActive($el: ReadSignal<Element | null | undefined>): ReadSignal<boolean>;
+export declare function useMouseEnter($el: ReadSignal<Element | null | undefined>): import("maverick.js").WriteSignal<boolean>;
+export declare function useFocusIn($el: ReadSignal<Element | null | undefined>): import("maverick.js").WriteSignal<boolean>;
+export declare function isHTMLElement(el: any): el is HTMLElement;
+export declare function useColorSchemePreference(): import("maverick.js").WriteSignal<"light" | "dark">;
+export declare function watchColorScheme(el: HTMLElement, colorScheme: ReadSignal<'light' | 'dark' | 'system' | 'default'>): void;

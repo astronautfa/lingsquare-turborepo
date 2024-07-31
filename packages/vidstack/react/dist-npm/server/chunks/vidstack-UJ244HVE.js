@@ -1,0 +1,1 @@
+import{a as t}from"./vidstack-AWSPW4BK.js";import{Q as e}from"./vidstack-T3YB2P2M.js";import*as o from"react";var r=o.forwardRef((i,m)=>{let s=!e("started");return o.createElement(t,{...i,ref:m,"data-remotion-poster":!0,"data-visible":s||null})});r.displayName="RemotionPoster";var p=r;export{p as a};

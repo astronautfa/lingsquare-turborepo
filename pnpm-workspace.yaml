@@ -4,3 +4,4 @@ packages:
   - "packages/config/*"
   - "packages/dockview/*"
   - "packages/notifications/*"
+  - "packages/vidstack/*"

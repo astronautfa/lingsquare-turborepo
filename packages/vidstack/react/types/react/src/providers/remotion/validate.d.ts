@@ -1,0 +1,12 @@
+import { NoReactInternals } from 'remotion/no-react';
+import type { RemotionSrc } from './types.js';
+export declare function validateRemotionResource({ src, compositionWidth: width, compositionHeight: height, fps, durationInFrames, initialFrame, inFrame, outFrame, numberOfSharedAudioTags, }: RemotionSrc): void;
+export declare const validateFps: typeof NoReactInternals.validateFps;
+export declare const validateDimension: typeof NoReactInternals.validateDimension;
+export declare const validateDurationInFrames: typeof NoReactInternals.validateDurationInFrames;
+export declare function validateInitialFrame(initialFrame: number | undefined, frames: number): void;
+export declare function validateSingleFrame(frame: unknown, variableName: string): number | null;
+export declare function validateInOutFrames(inFrame: number | undefined | null, outFrame: number | undefined | null, frames: number): void;
+export declare function validateSharedNumberOfAudioTags(tags: number | undefined): void;
+export declare function validatePlaybackRate(playbackRate: number): void;
+export declare function validateComponent(src: RemotionSrc['src']): void;
