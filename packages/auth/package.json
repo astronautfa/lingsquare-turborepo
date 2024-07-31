@@ -4,22 +4,12 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    },
-    "./actions": {
-      "types": "./dist/actions.d.ts",
-      "default": "./dist/actions.js"
-    },
-    "./validate-request": {
-      "types": "./dist/validate-request.d.ts",
-      "default": "./dist/validate-request.js"
-    }
+    "./validate-request": "./src/validate-request.ts",
+    ".": "./src/index.ts",
+    "./actions": "./src/actions.ts"
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
     "clean": "rm -rf .turbo dist",
     "dev": "tsc",
     "format": "prettier --check . --ignore-path ../../.gitignore",

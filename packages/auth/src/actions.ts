@@ -26,7 +26,7 @@ import { sendResendMail, EmailTemplate } from "@lingsquare/email";
 import { validateRequest } from "./validate-request";
 import { env } from "@lingsquare/env/web/client";
 
-export enum Paths {
+enum Paths {
   Home = "/",
   Login = "/auth/login",
   Signup = "/auth/signup",
@@ -35,8 +35,7 @@ export enum Paths {
   ResetPassword = "/auth/reset-password",
 }
 
-
-export interface ActionResponse<T> {
+interface ActionResponse<T> {
   fieldError?: Partial<Record<keyof T, string | undefined>>;
   formError?: string;
 }
@@ -114,8 +113,6 @@ export async function signup(
   }
 
   const { email, password } = parsed.data;
-
-  console.log(email, password);
 
   const existingUser = await db.query.users.findFirst({
     where: (table, { eq }) => eq(table.email, email),
@@ -359,6 +356,42 @@ export async function resetPassword(
   redirect(Paths.Dashboard);
 }
 
+export async function getSessionForMiddleware(sessionId: string | null) {
+  // can't use lucia here because there is incompability with edge
+  if (!sessionId) {
+    return {
+      user: null,
+      session: null,
+    };
+  }
+
+  const result = await db
+    .select({
+      user: users,
+      session: sessions,
+    })
+    .from(sessions)
+    .innerJoin(users, eq(sessions.userId, users.id))
+    .where(eq(sessions.id, sessionId));
+
+  if (!result[0] || result.length !== 1) {
+    return {
+      user: null,
+      session: null,
+    };
+  } else {
+    const { session, user } = result[0];
+    if (!user) {
+      return { session: null, user: null };
+    }
+    if (!isWithinExpirationDate(session.expiresAt)) {
+      return { session: null, user: null };
+    }
+
+    return { session, user };
+  }
+};
+
 const timeFromNow = (time: Date) => {
   const now = new Date();
   const diff = time.getTime() - now.getTime();
@@ -397,38 +430,3 @@ async function generatePasswordResetToken(userId: string): Promise<string> {
   return tokenId;
 }
 
-export const getSessionForMiddleware = async (sessionId: string | null) => {
-  // can't use lucia here because there is incompability with edge
-  if (!sessionId) {
-    return {
-      user: null,
-      session: null,
-    };
-  }
-
-  const result = await db
-    .select({
-      user: users,
-      session: sessions,
-    })
-    .from(sessions)
-    .innerJoin(users, eq(sessions.userId, users.id))
-    .where(eq(sessions.id, sessionId));
-
-  if (!result[0] || result.length !== 1) {
-    return {
-      user: null,
-      session: null,
-    };
-  } else {
-    const { session, user } = result[0];
-    if (!user) {
-      return { session: null, user: null };
-    }
-    if (!isWithinExpirationDate(session.expiresAt)) {
-      return { session: null, user: null };
-    }
-
-    return { session, user };
-  }
-};
