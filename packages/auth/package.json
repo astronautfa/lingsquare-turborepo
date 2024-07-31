@@ -31,6 +31,6 @@
     "@lingsquare/typescript-config": "workspace:*",
     "@types/next": "^9.0.0",
     "@types/react": "^18.3.3",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   }
 }

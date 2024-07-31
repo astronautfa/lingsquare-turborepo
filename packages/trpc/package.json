@@ -4,22 +4,14 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    },
-    "./server": {
-      "types": "./dist/server/index.d.ts",
-      "default": "./dist/server/index.js"
-    },
-    "./client": {
-      "types": "./dist/react/index.d.ts",
-      "default": "./dist/react/index.js"
-    }
+    ".": "./src/index.ts",
+    "./trpc": "./src/trpc.ts",
+    "./root": "./src/root.ts",
+    "./server": "./src/server/index.ts",
+    "./client": "./src/react/index.tsx"
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
     "clean": "rm -rf .turbo dist node_modules",
     "dev": "tsc",
     "format": "prettier --check . --ignore-path ../../.gitignore",
@@ -27,7 +19,7 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.51.11",
+    "@tanstack/react-query": "^5.51.15",
     "next": "^14.2.5",
     "react": "19.0.0-rc-df5f2736-20240712",
     "@lingsquare/drizzle": "workspace:*",
@@ -42,6 +34,6 @@
     "@types/react": "^18.3.3",
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   }
 }
