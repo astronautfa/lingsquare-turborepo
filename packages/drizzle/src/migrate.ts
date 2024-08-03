@@ -1,5 +1,5 @@
 import { migrate } from "drizzle-orm/postgres-js/migrator";
-import config from "./drizzle.config";
+import config from "../drizzle.config";
 import { db, conn } from "./index";
 import { env } from "@lingsquare/env/web/server";
 

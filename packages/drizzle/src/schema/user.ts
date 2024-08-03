@@ -4,8 +4,11 @@ import {
   varchar,
   IndexColumn,
   boolean,
+  pgEnum,
 } from "drizzle-orm/pg-core";
 import { createTable } from "./utils";
+
+export const roleEnums = pgEnum("role", ["admin", "user", "creator"] as const);
 
 export const users = createTable(
   "users",
@@ -20,6 +23,7 @@ export const users = createTable(
     stripePriceId: varchar("stripe_price_id", { length: 191 }),
     stripeCustomerId: varchar("stripe_customer_id", { length: 191 }),
     stripeCurrentPeriodEnd: timestamp("stripe_current_period_end"),
+    role: roleEnums("role").default("user").notNull(),
     createdAt: timestamp("created_at").defaultNow().notNull(),
     updatedAt: timestamp("updated_at", { mode: "date" }).notNull()
   },

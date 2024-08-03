@@ -11,18 +11,34 @@
   "type": "module",
   "main": "./dist/heatmap.js",
   "module": "./dist/heatmap-esm.js",
+  "types": "./src/types.d.ts",
   "exports": {
     ".": {
-      "default": "./dist/heatmap.js",
-      "types": "./src/types.d.ts"
+      "import": "./dist/cal-heatmap.esm.js",
+      "require": "./dist/cal-heatmap.js"
     },
     "./package.json": "./package.json",
-    "./cal-heatmap.css": "./dist/cal-heatmap.css"
+    "./cal-heatmap.css": "./dist/cal-heatmap.css",
+    "./plugins/Tooltip": {
+      "import": "./dist/plugins/Tooltip.esm.js",
+      "require": "./dist/plugins/Tooltip.js"
+    },
+    "./plugins/Legend": {
+      "import": "./dist/plugins/Legend.esm.js",
+      "require": "./dist/plugins/Legend.js"
+    },
+    "./plugins/LegendLite": {
+      "import": "./dist/plugins/LegendLite.esm.js",
+      "require": "./dist/plugins/LegendLite.js"
+    },
+    "./plugins/CalendarLabel": {
+      "import": "./dist/plugins/CalendarLabel.esm.js",
+      "require": "./dist/plugins/CalendarLabel.js"
+    }
   },
   "directories": {
     "test": "test"
   },
-  "types": "./src/types.d.ts",
   "node": ">=14.16",
   "browserslist": "last 2 versions, not dead, > 0.2%",
   "dependencies": {

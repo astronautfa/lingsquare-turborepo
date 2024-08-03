@@ -1,6 +1,6 @@
 {
   "extends": "@lingsquare/typescript-config/react-library.json",
-  "include": ["src"],
+  "include": ["src", "drizzle.config.ts"],
   "compilerOptions": {
     "outDir": "dist",
     "moduleResolution": "Bundler",
