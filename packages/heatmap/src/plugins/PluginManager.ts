@@ -62,13 +62,11 @@ export default class PluginManager {
     this.plugins.forEach((pluginInstance, name) => {
       const settings = this.settings.get(name);
 
-      if (typeof settings !== 'undefined') {
-        if (settings.dirty) {
-          pluginInstance.setup(this.calendar, settings.options);
-          settings.dirty = false;
+      if (typeof settings !== 'undefined' && settings.dirty) {
+        pluginInstance.setup(this.calendar, settings.options);
+        settings.dirty = false;
 
-          this.settings.set(name, settings);
-        }
+        this.settings.set(name, settings);
       }
     });
   }

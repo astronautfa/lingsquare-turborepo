@@ -25,13 +25,13 @@ export class TimeRange implements TimeRanges {
   start(index: number): number {
     if (__DEV__) throwIfEmpty(this.#ranges.length);
     if (__DEV__) throwIfOutOfRange('start', index, this.#ranges.length - 1);
-    return this.#ranges[index][0] ?? Infinity;
+    return this.#ranges[index]![0] ?? Infinity;
   }
 
   end(index: number): number {
     if (__DEV__) throwIfEmpty(this.#ranges.length);
     if (__DEV__) throwIfOutOfRange('end', index, this.#ranges.length - 1);
-    return this.#ranges[index][1] ?? Infinity;
+    return this.#ranges[index]![1] ?? Infinity;
   }
 }
 
@@ -84,10 +84,10 @@ export function normalizeTimeIntervals(intervals: TimeInterval[]): TimeInterval[
   intervals.sort((a, b) => a[0] - b[0]);
 
   let normalized: TimeInterval[] = [],
-    current: TimeInterval = intervals[0];
+    current: TimeInterval = intervals[0]!;
 
   for (let i = 1; i < intervals.length; i++) {
-    const next = intervals[i];
+    const next = intervals[i]!;
 
     // If the next interval overlaps or is adjacent, merge them.
     if (current[1] >= next[0] - 1) {

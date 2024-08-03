@@ -67,20 +67,20 @@ export default class SubDomainPainter {
           .call((selection: any) => selection
             .insert('rect')
             .attr('class', (d: SubDomain) =>
-            // eslint-disable-next-line implicit-arrow-linebreak
+              // eslint-disable-next-line implicit-arrow-linebreak
               this.#classname(d.t, `${SUBDOMAIN_SELECTOR.slice(1)}-bg`))
             .attr('width', width)
             .attr('height', height)
             .attr('x', (d: SubDomain) => this.#getX(d))
             .attr('y', (d: SubDomain) => this.#getY(d))
             .on('click', (ev: PointerEvent, d: SubDomain) =>
-            // eslint-disable-next-line implicit-arrow-linebreak
+              // eslint-disable-next-line implicit-arrow-linebreak
               evt.emit('click', ev, d.t, d.v))
             .on('mouseover', (ev: PointerEvent, d: SubDomain) =>
-            // eslint-disable-next-line implicit-arrow-linebreak
+              // eslint-disable-next-line implicit-arrow-linebreak
               evt.emit('mouseover', ev, d.t, d.v))
             .on('mouseout', (ev: PointerEvent, d: SubDomain) =>
-            // eslint-disable-next-line implicit-arrow-linebreak
+              // eslint-disable-next-line implicit-arrow-linebreak
               evt.emit('mouseout', ev, d.t, d.v))
             .attr('rx', radius > 0 ? radius : null)
             .attr('ry', radius > 0 ? radius : null))
@@ -88,7 +88,7 @@ export default class SubDomainPainter {
         (update: any) => update
           .selectAll('rect')
           .attr('class', (d: SubDomain) =>
-          // eslint-disable-next-line implicit-arrow-linebreak
+            // eslint-disable-next-line implicit-arrow-linebreak
             this.#classname(d.t, `${SUBDOMAIN_SELECTOR.slice(1)}-bg`))
           .attr('width', width)
           .attr('height', height)

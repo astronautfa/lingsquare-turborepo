@@ -17,6 +17,7 @@
     "@trpc/react-query": "next",
     "@trpc/server": "next",
     "@lingsquare/dockview": "workspace:*",
+    "heatmap": "workspace:*",
     "@lingsquare/vidstack": "workspace:*",
     "@lingsquare/drizzle": "workspace:*",
     "@lingsquare/auth": "workspace:*",

@@ -90,7 +90,7 @@ export default class DomainCoordinates {
         width: w,
         height: h,
         inner_width: w - (verticalOrientation ? 0 : domain.gutter),
-        inner_height: h - (!verticalOrientation ? 0 : domain.gutter),
+        inner_height: h - (verticalOrientation ? domain.gutter : 0),
       });
     });
 

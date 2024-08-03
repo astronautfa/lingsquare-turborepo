@@ -128,7 +128,7 @@ class DomainsContainerPainter {
 
     this.dimensions = {
       width: domainsDimensions.width - (verticalOrientation ? 0 : gutter),
-      height: domainsDimensions.height - (!verticalOrientation ? 0 : gutter),
+      height: domainsDimensions.height - (verticalOrientation ? gutter : 0),
     };
 
     this.root
