@@ -1,0 +1,68 @@
+.ch {
+  &-container {
+    display: block;
+    overflow: visible;
+  }
+
+  &-domain {
+    overflow: visible;
+
+    &-container {
+      overflow: visible;
+
+      &-animation-wrapper {
+        overflow: visible;
+      }
+
+      &.in-transition &-animation-wrapper  {
+        overflow: hidden;
+      }
+    }
+
+    &-bg {
+      fill: transparent;
+    }
+
+    &-text {
+      fill: currentColor;
+      font-size: 10px;
+    }
+  }
+
+  &-subdomain {
+    overflow: visible;
+
+    &-bg {
+      fill: #ededed;
+
+      &.highlight {
+        stroke: #444;
+        stroke-width: 1px;
+      }
+
+      &:hover {
+        stroke: #000;
+        stroke-width: 1px;
+      }
+    }
+
+    &-text {
+      font-size: 8px;
+      pointer-events: none;
+    }
+
+    [data-theme='dark'] & {
+      &-bg {
+        fill: #2d333b;
+
+        &.highlight {
+          stroke: #768390;
+        }
+
+        &:hover {
+          stroke: #636e7b;
+        }
+      }
+    }
+  }
+}

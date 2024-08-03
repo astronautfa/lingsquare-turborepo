@@ -4,13 +4,13 @@ import { Separator } from '@ui/components/separator'
 import { useTranslations } from 'next-intl'
 
 export const metadata: Metadata = {
-    title: "Study",
-    description: "LingSquare study page",
+    title: "Review",
+    description: "LingSquare review page",
 }
 
 const StudyPage = () => {
 
-    const t = useTranslations('study');
+    const t = useTranslations('review');
 
     return (
         <div>
