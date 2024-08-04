@@ -23,6 +23,7 @@ export const lucia = new Lucia(adapter, {
       avatar: attributes.avatar,
       createdAt: attributes.createdAt,
       updatedAt: attributes.updatedAt,
+      role: attributes.role
     };
   },
   sessionExpiresIn: new TimeSpan(30, "d"),

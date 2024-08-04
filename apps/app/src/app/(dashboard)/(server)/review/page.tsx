@@ -2,6 +2,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import { Separator } from '@ui/components/separator'
 import { useTranslations } from 'next-intl'
+import Cal from '@/components/review-heatmap'
 
 export const metadata: Metadata = {
     title: "Review",
@@ -21,6 +22,7 @@ const StudyPage = () => {
                 </p>
             </div>
             <Separator className="my-6" />
+            <Cal />
         </div>
     )
 }
