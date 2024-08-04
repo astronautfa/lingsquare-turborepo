@@ -1,3 +1,3 @@
 "use client";
 
-import{a}from"../chunks/vidstack-OFZR5D7A.js";import"../chunks/vidstack-IZJX5FHF.js";import"../chunks/vidstack-IGJ6WVY6.js";export{a as plyrLayoutIcons};
+import{a}from"../chunks/vidstack-OFZR5D7A.js";import"../chunks/vidstack-IZJX5FHF.js";import"../chunks/vidstack-L4FAE4B5.js";export{a as plyrLayoutIcons};

@@ -17,9 +17,6 @@
     "@types/react": "^18.0.0",
     "react": "^18.0.0"
   },
-  "contributors": [
-    "Rahim Alwer <rahim.alwer@gmail.com>"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/vidstack/player.git",
@@ -30,7 +27,7 @@
   },
   "exports": {
     ".": "./src/index.ts",
-    "./icons": "./src/icons.ts"
+    "./player/styles/*": "./styles/player/*"
   },
   "publishConfig": {
     "access": "public"

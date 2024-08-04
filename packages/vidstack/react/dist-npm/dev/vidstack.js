@@ -4,7 +4,7 @@ import {
   useMediaRemote,
   usePlaybackRateOptions,
   useVideoQualityOptions
-} from "./chunks/vidstack-RFPF45PN.js";
+} from "./chunks/vidstack-OLN6EOHB.js";
 import {
   Captions,
   ChapterTitle,
@@ -24,7 +24,7 @@ import {
   useChapterTitle,
   useScoped,
   useTextCues
-} from "./chunks/vidstack-XGHTGAXV.js";
+} from "./chunks/vidstack-YVS6V2IN.js";
 import {
   AirPlayButton,
   CaptionButton,
@@ -46,11 +46,11 @@ import {
   useMediaContext,
   useMediaPlayer,
   volume_slider_exports
-} from "./chunks/vidstack-3JZFNLQ7.js";
+} from "./chunks/vidstack-QKZVTF5G.js";
 import {
   useSliderState,
   useSliderStore
-} from "./chunks/vidstack-M2U4INQ4.js";
+} from "./chunks/vidstack-EHSDOEFD.js";
 import {
   AirPlayButtonInstance,
   AudioGainSliderInstance,
@@ -96,7 +96,7 @@ import {
   VolumeSliderInstance,
   useMediaState,
   useMediaStore
-} from "./chunks/vidstack-MS2S7JW7.js";
+} from "./chunks/vidstack-CDYAPKDM.js";
 import {
   ARIAKeyShortcuts,
   AudioProviderLoader,
@@ -143,7 +143,7 @@ import {
   softResetMediaState,
   sortVideoQualities,
   updateSliderPreviewPlacement
-} from "./chunks/vidstack-DYAEZIDU.js";
+} from "./chunks/vidstack-ALARDIAR.js";
 import "./chunks/vidstack-GOXJCRXV.js";
 import "./chunks/vidstack-N3DBVVNQ.js";
 import {
@@ -154,18 +154,18 @@ import {
   parseJSONCaptionsFile,
   watchActiveTextTrack,
   watchCueTextChange
-} from "./chunks/vidstack-O4WMABMP.js";
+} from "./chunks/vidstack-A5V4LMVI.js";
 import {
   getDownloadFile
-} from "./chunks/vidstack-DQWSDQKN.js";
-import "./chunks/vidstack-YIOQVQ2N.js";
+} from "./chunks/vidstack-KCGJG3AU.js";
+import "./chunks/vidstack-LJXEKMTP.js";
 import {
   TimeRange,
   getTimeRangesEnd,
   getTimeRangesStart,
   normalizeTimeIntervals,
   updateTimeIntervals
-} from "./chunks/vidstack-PKS56VNA.js";
+} from "./chunks/vidstack-VZNFT54D.js";
 import {
   Icon
 } from "./chunks/vidstack-VNXLFDV7.js";
@@ -190,7 +190,7 @@ import {
   isHLSSrc,
   isMediaStream,
   isVideoSrc
-} from "./chunks/vidstack-HLIA5IIR.js";
+} from "./chunks/vidstack-SI23L3CL.js";
 import "./chunks/vidstack-B2HNNR5Q.js";
 import "./chunks/vidstack-SN6ZVKJG.js";
 import {
@@ -211,10 +211,10 @@ import {
   useSignalRecord,
   useStateContext,
   walkTriggerEventChain
-} from "./chunks/vidstack-3R7QJDRC.js";
+} from "./chunks/vidstack-KAGOB6PR.js";
 import {
   __export
-} from "./chunks/vidstack-WBT4TVVV.js";
+} from "./chunks/vidstack-YJG6SZYI.js";
 
 // src/components/player.tsx
 import * as React from "react";

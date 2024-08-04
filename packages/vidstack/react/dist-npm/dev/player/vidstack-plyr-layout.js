@@ -4,19 +4,19 @@ import {
   useMediaRemote,
   usePlaybackRateOptions,
   useVideoQualityOptions
-} from "../chunks/vidstack-RFPF45PN.js";
-import "../chunks/vidstack-7IOPG6PW.js";
-import "../chunks/vidstack-MKGKJKZ7.js";
-import "../chunks/vidstack-YZRNXTFG.js";
-import "../chunks/vidstack-QYGROJHA.js";
-import "../chunks/vidstack-VN2N745P.js";
+} from "../chunks/vidstack-OLN6EOHB.js";
+import "../chunks/vidstack-PVSG7PJD.js";
+import "../chunks/vidstack-MZCJNI3D.js";
+import "../chunks/vidstack-ME2VO6YY.js";
+import "../chunks/vidstack-VDUYSHJQ.js";
+import "../chunks/vidstack-3BN2DC2G.js";
 import {
   plyrLayoutIcons
 } from "../chunks/vidstack-PNARW2L4.js";
 import {
   useClassName,
   useLayoutName
-} from "../chunks/vidstack-LLMOFUXB.js";
+} from "../chunks/vidstack-HF3VRMKC.js";
 import {
   AirPlayButton,
   Button,
@@ -43,31 +43,31 @@ import {
   useAudioOptions,
   useCaptionOptions,
   useMediaContext
-} from "../chunks/vidstack-3JZFNLQ7.js";
+} from "../chunks/vidstack-QKZVTF5G.js";
 import {
   RemotionPoster,
   RemotionSliderThumbnail,
   RemotionThumbnail
-} from "../chunks/vidstack-Q2JODPQB.js";
-import "../chunks/vidstack-M2U4INQ4.js";
+} from "../chunks/vidstack-HNEI4N5K.js";
+import "../chunks/vidstack-EHSDOEFD.js";
 import {
   Primitive,
   useMediaState
-} from "../chunks/vidstack-MS2S7JW7.js";
+} from "../chunks/vidstack-CDYAPKDM.js";
 import {
   isRemotionSrc,
   usePlyrLayoutClasses
-} from "../chunks/vidstack-DYAEZIDU.js";
+} from "../chunks/vidstack-ALARDIAR.js";
 import "../chunks/vidstack-GOXJCRXV.js";
 import "../chunks/vidstack-N3DBVVNQ.js";
-import "../chunks/vidstack-O4WMABMP.js";
+import "../chunks/vidstack-A5V4LMVI.js";
 import {
   getDownloadFile
-} from "../chunks/vidstack-DQWSDQKN.js";
-import "../chunks/vidstack-YIOQVQ2N.js";
-import "../chunks/vidstack-PKS56VNA.js";
+} from "../chunks/vidstack-KCGJG3AU.js";
+import "../chunks/vidstack-LJXEKMTP.js";
+import "../chunks/vidstack-VZNFT54D.js";
 import "../chunks/vidstack-VNXLFDV7.js";
-import "../chunks/vidstack-HLIA5IIR.js";
+import "../chunks/vidstack-SI23L3CL.js";
 import "../chunks/vidstack-B2HNNR5Q.js";
 import "../chunks/vidstack-SN6ZVKJG.js";
 import {
@@ -81,8 +81,8 @@ import {
   signal,
   uppercaseFirstChar,
   useSignal
-} from "../chunks/vidstack-3R7QJDRC.js";
-import "../chunks/vidstack-WBT4TVVV.js";
+} from "../chunks/vidstack-KAGOB6PR.js";
+import "../chunks/vidstack-YJG6SZYI.js";
 
 // src/components/layouts/plyr/layout.tsx
 import * as React3 from "react";
