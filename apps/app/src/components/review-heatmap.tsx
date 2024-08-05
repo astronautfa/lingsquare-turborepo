@@ -8,6 +8,7 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@ui/components/tooltip"
+import { useTheme } from 'next-themes'
 
 const data = [
     {
@@ -63,9 +64,12 @@ const data = [
 ]
 
 const ReviewHeatmap = () => {
+
+    const { theme } = useTheme();
+
     return (
         <div className='flex justify-center items-center'>
-            <ActivityCalendar data={data} showWeekdayLabels colorScheme='light' renderBlock={(block, activity) => (
+            <ActivityCalendar data={data} showWeekdayLabels colorScheme={theme === 'dark' ? 'dark' : 'light'} renderBlock={(block, activity) => (
                 <Tooltip>
                     <TooltipTrigger asChild>
                         {block}
