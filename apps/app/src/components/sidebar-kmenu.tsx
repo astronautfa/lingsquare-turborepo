@@ -161,7 +161,7 @@ export default () => {
             />
             <Link
               className="font-normal text-slate-600 dark:text-slate-400"
-              href="/docs"
+              href={{ pathname: "/docs" }}
             >
               Docs
             </Link>
@@ -248,10 +248,10 @@ export const Section: FC<Item> = ({ category, pages }) => {
                 key={index}
               >
                 <Link
-                  href={
-                    page.href ||
-                    `/docs/${slugify(category)}/${slugify(page.name)}`
-                  }
+                  href={{
+                    pathname: page.href ||
+                      `/docs/${slugify(category)}/${slugify(page.name)}`
+                  }}
                   target={page.href ? "_blank" : "_self"}
                   rel={page.href ? "noreferrer" : ""}
                   className="flex items-center px-3 py-1.5 text-sm"

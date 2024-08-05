@@ -4,10 +4,8 @@ import { cookies } from "next/headers";
 
 const AppLayout = async ({
     children,
-    modal,
 }: Readonly<{
     children: React.ReactNode;
-    modal: React.ReactNode;
 }>) => {
     const defaultLayout = getDefaultLayout();
 

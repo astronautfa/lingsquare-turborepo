@@ -4,11 +4,10 @@ import {
   varchar,
   IndexColumn,
   boolean,
-  pgEnum,
 } from "drizzle-orm/pg-core";
 import { createTable } from "./utils";
+import { roleEnums } from "../enums";
 
-export const roleEnums = pgEnum("role", ["admin", "user", "creator"] as const);
 
 export const users = createTable(
   "users",

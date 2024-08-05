@@ -12,7 +12,7 @@
   },
   "scripts": {
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "cross-env DB_MIGRATING=true tsx migrate.ts",
+    "db:migrate": "cross-env DB_MIGRATING=true tsx src/migrate.ts",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio"
   },
