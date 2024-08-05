@@ -11,7 +11,6 @@ import { AccountSwitcher } from './account-switcher';
 import {
   Cog6ToothIcon,
   MagnifyingGlassIcon,
-  QuestionMarkCircleIcon,
   AcademicCapIcon,
   BookOpenIcon,
   ClockIcon,
@@ -20,17 +19,13 @@ import {
 import { SidebarItem } from './sidebar-item';
 import { ModeToggle } from './mode-toggle';
 
-import { Search } from 'lucide-react'
-import { Input } from '@ui/components/input'
-
 import French from "../../public/French.svg";
 import English from "../../public/English.svg";
 import German from "../../public/German.svg";
 import Spanish from "../../public/Spanish.svg";
 import Image from 'next/image';
-import { BackwardIcon } from '@heroicons/react/20/solid';
-import { DropdownMenuShortcut } from '@ui/components/dropdown-menu';
-import { AnimatePresence } from 'framer-motion';
+import SidebarSearch from './sidebar-search';
+
 
 const learningLanguages = [
   {
@@ -110,19 +105,7 @@ const LingsquareSidebar = ({ collapsed }: { collapsed: boolean }) => {
     <Sidebar>
       <SidebarHeader>
         <AccountSwitcher isCollapsed={collapsed} learningLanguages={learningLanguages} speakingLanguages={speakingLanguages} />
-        <div className='relative mb-2'>
-          <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-          <Input
-            type="search"
-            placeholder="Search..."
-            className="rounded-md bg-background pl-8 cursor-pointer pr-1"
-          />
-          {!collapsed &&
-            <AnimatePresence>
-              <DropdownMenuShortcut className='mt-[1px] absolute right-4 top-3 '>⌘K</DropdownMenuShortcut>
-            </AnimatePresence>
-          }
-        </div>
+        <SidebarSearch isCollapsed={collapsed} />
         <SidebarSection className="max-lg:hidden">
           {/* <SidebarItem collapsed={collapsed} href="/import" label={'Back'}>
             <BackwardIcon />
