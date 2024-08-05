@@ -1,0 +1,18 @@
+{
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "arrowParens": "avoid",
+  "importOrder": ["^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "printWidth": 100,
+  "proseWrap": "always",
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.d.ts",
+      "options": {
+        "importOrderParserPlugins": ["[\"typescript\", { \"dts\": true }]"]
+      }
+    }
+  ]
+}
