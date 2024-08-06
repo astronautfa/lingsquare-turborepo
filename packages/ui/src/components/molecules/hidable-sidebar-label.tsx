@@ -1,10 +1,10 @@
-import { cn } from '@ui/lib/utils'
+import { cn } from "@lingsquare/misc/utils"
 
 export function SidebarLabel({ className, ...props }: React.ComponentPropsWithoutRef<'span'>) {
     return <p {...props} className={cn(className, 'truncate text-[13px]')} />
 }
 
-const HidableSidebarLabel = ({ collapsed, children }: { collapsed: Boolean, children: React.ReactNode }) => {
+export const HidableSidebarLabel = ({ collapsed, children }: { collapsed: Boolean, children: React.ReactNode }) => {
     return (
         <SidebarLabel className={cn({
             'transition-opacity duration-200': true,
@@ -15,5 +15,3 @@ const HidableSidebarLabel = ({ collapsed, children }: { collapsed: Boolean, chil
         </SidebarLabel>
     )
 }
-
-export default HidableSidebarLabel

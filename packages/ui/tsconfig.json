@@ -5,7 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "@ui/*": ["./src/*"],
-      "@ui/components/ui/*": ["./src/components/ui/*"]
+      "@ui/components": ["./src/components/ui/index.ts"]
     },
     "types": ["react-dom/experimental"]
   },

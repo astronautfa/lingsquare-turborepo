@@ -5,21 +5,22 @@ import { useFormState } from "react-dom";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Input } from "@ui/components/input";
-import { Button, buttonVariants } from "@ui/components/button";
 import {
+  Input,
+  Button,
+  buttonVariants,
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@ui/components/card";
-import { Label } from "@ui/components/label";
-import { SubmitButton } from "@ui/molecules/submit-button";
+  Label,
+  SubmitButton
+} from "@ui/components";
 import { sendPasswordResetLink } from "@lingsquare/auth/actions";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import { Paths } from "@lingsquare/misc/constants"
-import { cn } from "@ui/lib/utils";
+import { cn } from "@lingsquare/misc/utils";
 
 export function SendResetEmail({ className, modal }: { className?: string, modal?: boolean }) {
   const [state, formAction] = useFormState(sendPasswordResetLink, null);

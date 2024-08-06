@@ -2,8 +2,8 @@
 
 import { forwardRef } from "react";
 import { useFormStatus } from "react-dom";
+import type { ButtonProps } from "@ui/components";
 import { LoadingButton } from "./loading-button";
-import type { ButtonProps } from "../ui/button";
 
 // TODO : fix useform state
 

@@ -1,11 +1,14 @@
 'use client'
 
 import React, { useContext } from 'react'
-import { Search } from 'lucide-react'
-import { Input } from '@ui/components/input'
-
-import { DropdownMenuShortcut } from '@ui/components/dropdown-menu';
 import { AnimatePresence } from 'framer-motion';
+
+import {
+    DropdownMenuShortcut,
+    Input
+} from '@ui/components';
+
+import { Search } from 'lucide-react'
 import { MenuContext } from 'kmenu';
 
 const SidebarSearch = ({ isCollapsed }: { isCollapsed: boolean }) => {

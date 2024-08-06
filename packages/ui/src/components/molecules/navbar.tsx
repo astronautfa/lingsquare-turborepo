@@ -1,6 +1,8 @@
-import { cn } from "@ui/lib/utils"
-import { LayoutGroup } from "framer-motion"
+'use client'
+
 import { useId } from "react"
+import { LayoutGroup } from "framer-motion"
+import { cn } from "@lingsquare/misc/utils"
 
 export function Navbar({ className, ...props }: React.ComponentPropsWithoutRef<'nav'>) {
     return <nav {...props} className={cn(className, 'flex flex-1 items-center gap-4 py-2.5')} />

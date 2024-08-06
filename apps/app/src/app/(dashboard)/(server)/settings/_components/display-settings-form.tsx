@@ -4,8 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { Button } from "@ui/components/button"
 import {
+  Button,
   Form,
   FormControl,
   FormDescription,
@@ -13,15 +13,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@ui/components/form"
-import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@ui/components/select"
-import { RadioGroup, RadioGroupItem } from "@ui/components/radio-group"
+  RadioGroup,
+  RadioGroupItem
+} from "@ui/components"
+
 import { toast } from "sonner";
 import { useTheme } from "next-themes"
 import { useState } from "react"

@@ -2,20 +2,21 @@
 
 import { useFormState } from "react-dom";
 import Link from "next/link";
-import { PasswordInput } from "@ui/molecules/password-input";
-import { Button, buttonVariants } from "@ui/components/button";
 import {
+  Button,
+  buttonVariants,
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@ui/components/card";
-import { Input } from "@ui/components/input";
-import { Label } from "@ui/components/label";
+  Input,
+  Label,
+  PasswordInput,
+  SubmitButton
+} from "@ui/components";
 import { signup } from "@lingsquare/auth/actions";
-import { SubmitButton } from "@ui/molecules/submit-button";
-import { cn } from "@ui/lib/utils";
+import { cn } from "@lingsquare/misc/utils";
 import { Paths } from "@lingsquare/misc/constants"
 import ExclamationTriangleIcon from "@heroicons/react/20/solid/ExclamationTriangleIcon";
 

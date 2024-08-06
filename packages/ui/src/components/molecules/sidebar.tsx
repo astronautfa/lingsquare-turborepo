@@ -1,6 +1,8 @@
-import { cn } from '@ui/lib/utils'
-import { LayoutGroup } from 'framer-motion'
+'use client'
+
 import { default as React, useId } from 'react'
+import { LayoutGroup } from 'framer-motion'
+import { cn } from "@lingsquare/misc/utils"
 
 export function Sidebar({ className, ...props }: React.ComponentPropsWithoutRef<'nav'>) {
   return <nav {...props} className={cn(className, 'flex h-full flex-col')} />

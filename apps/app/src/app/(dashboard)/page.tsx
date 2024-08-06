@@ -1,4 +1,4 @@
-import { Separator } from '@ui/components/separator'
+import { Separator } from '@ui/components'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server';
 import { api } from '@lingsquare/trpc/server'

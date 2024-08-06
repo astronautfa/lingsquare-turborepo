@@ -4,16 +4,16 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon } from "@heroicons/react/16/solid";
 
-import { Button, buttonVariants } from "@ui/components/button";
-
 import {
+  Button,
+  buttonVariants,
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@ui/components/tooltip";
+  HidableSidebarLabel
+} from "@ui/components";
 
-import { cn } from "@ui/lib/utils";
-import HidableSidebarLabel from "ui/src/components/molecules/hidable-sidebar-label";
+import { cn } from "@lingsquare/misc/utils";
 import { useIsMounted } from "@/components/hooks/use-is-mounted";
 
 export function ModeToggle({ collapsed }: { collapsed: boolean }) {

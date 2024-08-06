@@ -4,10 +4,10 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useFieldArray, useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { cn } from "@ui/lib/utils"
+import { cn } from "@lingsquare/misc/utils"
 
-import { Button } from "@ui/components/button"
 import {
+    Button,
     Form,
     FormControl,
     FormDescription,
@@ -15,33 +15,25 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@ui/components/form"
-import {
     Command,
     CommandEmpty,
     CommandGroup,
     CommandInput,
     CommandItem,
     CommandList,
-} from "@ui/components/command"
-
-import {
     Popover,
     PopoverContent,
     PopoverTrigger,
-} from "@ui/components/popover"
-
-import {
     Tooltip,
     TooltipContent,
     TooltipTrigger,
-} from "@ui/components/tooltip"
+    Separator
+} from "@ui/components"
 
 import { toast } from "sonner"
 import { languages } from "@lingsquare/misc/constants"
 import { Check, ChevronsUpDown, PlusIcon } from "lucide-react"
 import { TrashIcon } from "@heroicons/react/20/solid"
-import { Separator } from "@ui/components/separator"
 
 const languageSettingsFormSchema = z.object({
     studyingLanguages: z.array(

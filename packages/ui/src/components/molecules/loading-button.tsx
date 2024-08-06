@@ -1,11 +1,9 @@
 "use client";
 
 import { forwardRef } from "react";
-import { Spinner } from "../ui/spinner";
-import { Button, type ButtonProps } from "../ui/button";
+import { Spinner, Button, type ButtonProps } from "@ui/components";
 
-import { cn } from "@ui/lib/utils";
-
+import { cn } from "@lingsquare/misc/utils"
 export interface LoadingButtonProps extends ButtonProps {
   loading?: boolean;
 }

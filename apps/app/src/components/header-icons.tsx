@@ -1,5 +1,5 @@
-import { Button, buttonVariants } from '@ui/components/button'
-import { cn } from '@ui/lib/utils'
+import { Button, buttonVariants } from '@ui/components'
+import { cn } from "@lingsquare/misc/utils"
 import Link from 'next/link'
 import React from 'react'
 import { UserNav } from './user-nav'

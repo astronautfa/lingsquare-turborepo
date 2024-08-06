@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
@@ -10,7 +12,7 @@ import {
   useFormContext,
 } from "react-hook-form"
 
-import { cn } from "@ui/lib/utils"
+import { cn } from "@lingsquare/misc/utils"
 import { Label } from "./label"
 
 const Form = FormProvider

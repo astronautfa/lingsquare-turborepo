@@ -5,9 +5,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { Button } from "@ui/components/button"
-import { Checkbox } from "@ui/components/checkbox"
 import {
+  Button,
+  Checkbox,
   Form,
   FormControl,
   FormDescription,
@@ -15,9 +15,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@ui/components/form"
-import { RadioGroup, RadioGroupItem } from "@ui/components/radio-group"
-import { Switch } from "@ui/components/switch"
+  Switch,
+  RadioGroup,
+  RadioGroupItem
+} from "@ui/components"
+
 import { toast } from "sonner"
 
 const notificationsSettingsFormSchema = z.object({

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { NavbarItem } from '@/components/navbar'
-import { Navbar, NavbarSpacer, NavbarSection } from "@ui/molecules/navbar"
+import { Navbar, NavbarSpacer, NavbarSection } from "@ui/components"
 import { UserNav } from './user-nav'
 
 import {

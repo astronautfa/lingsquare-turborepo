@@ -5,7 +5,7 @@ import { OTPInput, OTPInputContext } from "input-otp"
 import { Dot } from "lucide-react"
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 
-import { cn } from "@ui/lib/utils"
+import { cn } from "@lingsquare/misc/utils"
 
 const InputOTP = React.forwardRef<
   React.ElementRef<typeof OTPInput>,

@@ -1,10 +1,10 @@
 "use client";
 
-export default function ExpandingArrow({ className, direction = 'right' }: { className?: string, direction?: string }) {
+export function ExpandingArrow({ className, direction = 'right' }: { className?: string, direction?: string }) {
   return (
     <div className={`group relative flex items-center text-inherit ${direction === 'left' && 'rotate-180 mr-4'}`}>
       <svg
-        className={`${className ? className : "h-4 w-4"
+        className={`${className && "h-4 w-4"
           } absolute transition-all group-hover:translate-x-1 group-hover:opacity-0`}
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"

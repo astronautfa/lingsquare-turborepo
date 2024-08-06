@@ -1,6 +1,6 @@
-import { Sheet, SheetContent } from "../ui/sheet";
+import { Sheet, SheetContent } from "@ui/components";
 
-export default function MobileSidebar({ open, close, children }: React.PropsWithChildren<{ open: boolean; close: () => void }>) {
+export function MobileSidebar({ open, close, children }: React.PropsWithChildren<{ open: boolean; close: () => void }>) {
     return (
         <Sheet open={open} onOpenChange={close}>
             <SheetContent side='sidebar'>

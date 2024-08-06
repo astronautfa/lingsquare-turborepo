@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 
-import { Separator } from "@ui/components/separator"
+import { Separator } from "@ui/components"
 import { SidebarNav } from "./_components/sidebar-nav"
 
 import {

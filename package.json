@@ -17,14 +17,14 @@
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.0.0",
+    "@types/node": "^22.1.0",
     "chokidar": "^3.6.0",
     "fs-extra": "^11.2.0",
     "globby": "^14.0.2",
     "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-dart-sass": "^1.1.0",
-    "rollup": "^4.19.1",
+    "rollup": "^4.20.0",
     "rollup-plugin-postcss": "^4.0.2",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
@@ -33,7 +33,7 @@
     "turbo": "latest",
     "typescript": "^5.5.4"
   },
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.6.0",
   "engines": {
     "node": ">=18"
   }

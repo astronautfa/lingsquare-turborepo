@@ -1,6 +1,6 @@
 import { LucideText } from "lucide-react";
 import { BsYoutube, BsBookHalf } from "react-icons/bs";
-import ExpandingArrow from "@ui/components/expanding-arrow"
+import { ExpandingArrow } from "@ui/components"
 import Link from "next/link";
 
 const items = [

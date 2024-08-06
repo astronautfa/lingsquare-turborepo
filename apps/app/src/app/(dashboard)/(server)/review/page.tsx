@@ -1,6 +1,6 @@
 import React from 'react'
 import { Metadata } from 'next'
-import { Separator } from '@ui/components/separator'
+import { Separator } from '@ui/components'
 import { useTranslations } from 'next-intl'
 import ReviewHeatmap from '@/components/review-heatmap'
 

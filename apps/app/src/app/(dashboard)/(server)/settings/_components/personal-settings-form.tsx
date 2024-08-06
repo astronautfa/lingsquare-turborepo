@@ -1,14 +1,16 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useFieldArray, useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { cn } from "@ui/lib/utils"
+import { cn } from "@lingsquare/misc/utils"
 
-import { Button } from "@ui/components/button"
 import {
+  Button,
+  Input,
   Form,
   FormControl,
   FormDescription,
@@ -16,18 +18,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@ui/components/form"
-import { Input } from "@ui/components/input"
-import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@ui/components/select"
-import { Textarea } from "@ui/components/textarea"
+  Textarea
+} from "@ui/components"
+
 import { toast } from "sonner"
-import { useState } from "react"
 
 const personalSettingsFormSchema = z.object({
   username: z

@@ -4,17 +4,17 @@ import { useEffect } from "react";
 import { useFormState } from "react-dom";
 import { toast } from "sonner";
 import {
+  Label,
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@ui/components/card";
-import { SubmitButton } from "@ui/molecules/submit-button";
-import { PasswordInput } from "@ui/molecules/password-input";
-import { Label } from "@ui/components/label";
+  PasswordInput,
+  SubmitButton
+} from "@ui/components";
 import { resetPassword } from "@lingsquare/auth/actions";
-import { cn } from "@ui/lib/utils";
+import { cn } from "@lingsquare/misc/utils";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 
 export function ResetPassword({ token, className }: { token: string, className?: string }) {

@@ -1,6 +1,7 @@
-import { Card, CardContent } from "../ui/card";
-import { Input } from "../ui/input";
-import { cn } from "../../lib/utils";
+'use client'
+
+import { Card, CardContent, Input } from "@ui/components";
+import { cn } from "@lingsquare/misc/utils"
 
 import React, { ChangeEvent, useRef } from "react";
 

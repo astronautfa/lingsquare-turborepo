@@ -9,14 +9,13 @@ import "@ui/styles/globals.css"
 import { cookies } from "next/headers";
 import ClientProviders from "@/components/client-providers";
 
-import { Toaster } from "@ui/components/sonner"
+import { Toaster, TailwindIndicator } from "@ui/components"
 import { ThemeConfig } from "@/types/config";
-import { cn } from "@ui/lib/utils"
+import { cn } from "@lingsquare/misc/utils"
 import { metadata as seoMetadata } from "@lingsquare/misc/constants";
 
 import dynamic from "next/dynamic";
 
-import { TailwindIndicator } from "@ui/components/tailwind-indicator"
 import { TRPCReactProvider } from "@lingsquare/trpc/client";
 import { SessionProvider } from "@/components/auth/session-provider";
 import { validateRequest } from "@lingsquare/auth/validate-request";

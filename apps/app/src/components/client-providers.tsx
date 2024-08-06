@@ -4,7 +4,7 @@ import React from 'react'
 import { ThemeProvider } from "next-themes";
 import {
     TooltipProvider,
-} from "@ui/components/tooltip"
+} from "@ui/components"
 import { MenuProvider, Dimensions } from "kmenu";
 
 const dimensions: Dimensions = {

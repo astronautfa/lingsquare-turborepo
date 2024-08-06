@@ -4,16 +4,18 @@ import { motion } from 'framer-motion'
 import { default as React } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { buttonVariants, ButtonProps } from "@ui/components/button"
 
 import {
+    buttonVariants,
+    ButtonProps,
     Tooltip,
     TooltipContent,
     TooltipTrigger,
-} from "@ui/components/tooltip"
-import HidableSidebarLabel from '@ui/molecules/hidable-sidebar-label'
+} from "@ui/components"
 
-import { cn } from '@ui/lib/utils'
+import { HidableSidebarLabel } from '@ui/components'
+
+import { cn } from "@lingsquare/misc/utils"
 
 const classes = cn(
     // Base

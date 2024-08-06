@@ -2,16 +2,16 @@
 
 import * as React from "react"
 
-import { cn } from "@ui/lib/utils"
+import { cn } from "@lingsquare/misc/utils"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@ui/components/select"
-import { Separator } from "@ui/components/separator"
-import { Button } from "@ui/components/button"
+  Separator,
+  Button
+} from "@ui/components"
 import { PlusIcon } from "@heroicons/react/20/solid"
 
 interface AccountSwitcherProps {

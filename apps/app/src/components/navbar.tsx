@@ -1,10 +1,10 @@
 'use client'
 
-import { cn } from '@ui/lib/utils'
+import { cn } from "@lingsquare/misc/utils"
 import { motion } from 'framer-motion'
 import React from 'react'
 import Link from 'next/link'
-import { Button, ButtonProps } from '@ui/components/button'
+import { Button, ButtonProps } from '@ui/components'
 
 export const NavbarItem = React.forwardRef(function NavbarItem(
   {

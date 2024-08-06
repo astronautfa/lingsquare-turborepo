@@ -7,7 +7,7 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "./popover";
-import { cn } from "@ui/lib/utils";
+import { cn } from "@lingsquare/misc/utils";
 import { VariantProps } from "class-variance-authority";
 import { ChevronRight } from "lucide-react";
 import {

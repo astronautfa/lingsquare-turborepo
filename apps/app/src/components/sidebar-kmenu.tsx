@@ -12,7 +12,7 @@ import {
 } from "react-icons/fi";
 import { RiGraduationCapLine } from "react-icons/ri";
 import { useState, type FC, type ReactElement } from "react";
-import { cn } from '@ui/lib/utils'
+import { cn } from "@lingsquare/misc/utils"
 import { AnimatePresence, motion } from "framer-motion";
 import {
   MdKeyboardCapslock,

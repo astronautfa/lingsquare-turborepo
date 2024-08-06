@@ -1,11 +1,9 @@
 "use client";
 
 import * as React from "react";
+import { Button, Input, type InputProps } from "@ui/components";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
-import { Button } from "../ui/button";
-import { Input, type InputProps } from "../ui/input";
-
-import { cn } from "@ui/lib/utils";
+import { cn } from "@lingsquare/misc/utils"
 
 // TODO : move the show password to the parent element
 

@@ -6,9 +6,9 @@ import {
     Dialog,
     DialogContent,
     DialogTitle
-} from "@ui/components/dialog";
+} from "@ui/components";
 import { useModalContext } from "@/components/modal/modal-provider";
-import { cn } from "@ui/lib/utils";
+import { cn } from "@lingsquare/misc/utils";
 
 
 export function RouteInterceptedModal({ className, children }: { className?: string, children: React.ReactNode }) {
@@ -22,6 +22,7 @@ export function RouteInterceptedModal({ className, children }: { className?: str
 
     return (
         <Dialog defaultOpen onOpenChange={(open) => !open && navigateBack()}>
+            <DialogTitle></DialogTitle>
             <DialogContent className={cn(className, 'flex justify-center items-center')}>
                 {children}
             </DialogContent>

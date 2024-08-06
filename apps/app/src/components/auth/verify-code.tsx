@@ -1,15 +1,23 @@
 "use client";
-import { Input } from "@ui/components/input";
-import { Label } from "@ui/components/label";
+
+import { useEffect, useRef } from "react";
+import { useFormState } from "react-dom";
+
 import {
+  Label,
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@ui/components/card";
-import { useEffect, useRef } from "react";
-import { useFormState } from "react-dom";
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+  REGEXP_ONLY_DIGITS,
+  SubmitButton
+} from "@ui/components";
+
 import { toast } from "sonner";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import {
@@ -17,16 +25,7 @@ import {
   verifyEmail,
   resendVerificationEmail as resendEmail,
 } from "@lingsquare/auth/actions";
-import { SubmitButton } from "@ui/molecules/submit-button";
-import { User } from "lucia";
-
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-  InputOTPSeparator,
-  REGEXP_ONLY_DIGITS
-} from "@ui/components/input-otp"
+import type { User } from "lucia";
 
 export const VerifyCode = ({ user }: { user: User }) => {
   const [verifyEmailState, verifyEmailAction] = useFormState(verifyEmail, null);

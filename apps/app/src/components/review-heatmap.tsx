@@ -7,7 +7,8 @@ import {
     Tooltip,
     TooltipContent,
     TooltipTrigger,
-} from "@ui/components/tooltip"
+} from "@ui/components"
+
 import { useTheme } from 'next-themes'
 
 const data = [

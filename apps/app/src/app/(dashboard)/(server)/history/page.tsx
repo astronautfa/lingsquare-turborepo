@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { Separator } from '@ui/components/separator'
+import { Separator } from '@ui/components'
 import { getTranslations } from 'next-intl/server'
 
 export const metadata: Metadata = {

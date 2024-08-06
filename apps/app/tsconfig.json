@@ -9,9 +9,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@ui/components/*": ["../../packages/ui/src/components/ui/*"],
-      "@ui/molecules/*": ["../../packages/ui/src/components/molecules/*"],
-      "@ui/lib/*": ["../../packages/ui/src/lib/*"],
+      "@ui/components": ["../../packages/ui/src/components/index.ts"],
       "@ui/styles/*": ["../../packages/ui/src/styles/*"],
       "@lingsquare/supabase/*": ["../../packages/supabase/src/*"],
       "@lingsquare/vidplayer": ["../../packages/vidstack/react/dist"]

@@ -13,7 +13,7 @@
   "dependencies": {
     "postgres": "^3.4.4",
     "@lingsquare/env": "workspace:*",
-    "drizzle-orm": "^0.32.1"
+    "drizzle-orm": "^0.32.2"
   },
   "scripts": {
     "db:generate": "drizzle-kit generate",
@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "@lingsquare/typescript-config": "workspace:*",
-    "drizzle-kit": "^0.23.1"
+    "drizzle-kit": "^0.23.2"
   }
 }

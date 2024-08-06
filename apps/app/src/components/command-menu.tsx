@@ -24,7 +24,7 @@ import { HiOutlineDesktopComputer } from "react-icons/hi";
 import { TbFishHook, TbMoonStars, TbPaint, TbPower } from "react-icons/tb";
 import { Item, items, slugify } from "./sidebar-kmenu";
 import { ClockIcon, AcademicCapIcon, MagnifyingGlassIcon, PlusIcon, BookOpenIcon } from "@heroicons/react/20/solid";
-import { ScrollArea } from "@ui/components/scroll-area"
+import { ScrollArea } from "@ui/components"
 import { useCallback, useMemo } from "react";
 
 export default () => {

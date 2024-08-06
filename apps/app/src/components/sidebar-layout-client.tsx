@@ -7,20 +7,20 @@ import 'overlayscrollbars/overlayscrollbars.css';
 import { OverlayScrollbarsComponent, useOverlayScrollbars } from "overlayscrollbars-react";
 
 import {
+  Button,
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@ui/components/tooltip"
+  MobileSidebar
+} from "@ui/components"
 
 import LingsquareSidebar from './lingsquare-sidebar'
 import LingsquareNavbar from './lingsquare-navbar'
-import { Button } from '@ui/components/button'
 
-import { cn } from '@ui/lib/utils'
+import { cn } from "@lingsquare/misc/utils"
 import { useTheme } from 'next-themes';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@/components/hooks/use-is-mounted';
-import MobileSidebar from "@ui/molecules/mobile-sidebar"
 import HeaderIcons from './header-icons';
 
 function OpenMenuIcon() {

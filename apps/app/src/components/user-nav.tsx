@@ -1,11 +1,13 @@
 import { logout } from "@lingsquare/auth/actions"
+
+import { AnimatePresence, motion } from "framer-motion"
+import Link from "next/link"
+
 import {
     Avatar,
     AvatarFallback,
     AvatarImage,
-} from "@ui/components/avatar"
-import { Button } from "@ui/components/button"
-import {
+    Button,
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuGroup,
@@ -14,10 +16,8 @@ import {
     DropdownMenuSeparator,
     DropdownMenuShortcut,
     DropdownMenuTrigger,
-} from "@ui/components/dropdown-menu"
+} from "@ui/components"
 
-import { AnimatePresence, motion } from "framer-motion"
-import Link from "next/link"
 import { useSession } from "./auth/session-provider"
 
 export const UserNav = ({ collapsed }: {
