@@ -62,8 +62,9 @@
 
     & > .view-container > .view {
 
-      padding-left: 2px;
-      padding-right: 2px;
+      padding-left: 1px;
+      padding-right: 1px;
+      border-radius: 10px;
       
       &:not(:first-child) {
         &::before {
@@ -98,8 +99,8 @@
     & > .view-container > .view {
       border-radius: 10px;
       width: 100%;
-      padding-left: 2px;
-      padding-right: 2px;
+      padding-left: 1px;
+      padding-right: 1px;
 
       &:not(:first-child) {
         &::before {
@@ -149,8 +150,10 @@
       box-sizing: border-box;
       overflow: auto;
       position: absolute;
-      padding-left: 3px;
-      padding-right: 2px;
+      padding-left: 1px;
+      padding-right: 1px;
+      padding-top: 1px;
+      padding-bottom: 1px;
     }
   }
 
@@ -162,7 +165,7 @@
       left: 0;
       z-index: 5;
       pointer-events: none;
-      background-color: var(--dv-separator-border);
+      // background-color: var(--dv-separator-border);
     }
   }
 }

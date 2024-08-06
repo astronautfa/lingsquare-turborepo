@@ -6,8 +6,6 @@ import { MediaPlayer, MediaProvider, type MediaPlayerInstance, } from '@lingsqua
 
 
 const VideoPage = () => {
-
-
     let player = useRef<MediaPlayerInstance>(null);
 
     useEffect(() => {
@@ -32,7 +30,6 @@ const VideoPage = () => {
             </MediaProvider >
         </MediaPlayer >
     </div>)
-
 }
 
 export default VideoPage
