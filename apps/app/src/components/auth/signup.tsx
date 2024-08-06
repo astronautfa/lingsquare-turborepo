@@ -55,7 +55,7 @@ export function Signup({ className, modal }: { className?: string, modal?: boole
           <div className="space-y-2">
             <Label>Confirm Password</Label>
             <PasswordInput
-              name="confirm-pass"
+              name="confirm-password"
               required
               autoComplete="confirm-password"
               placeholder="Repeat your password"

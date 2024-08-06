@@ -1,13 +1,12 @@
-import { MAX_CARDS_TO_FETCH, MAX_LEARN_PER_DAY } from "@/common";
-import db from "@/db";
+import { MAX_CARDS_TO_FETCH, MAX_LEARN_PER_DAY } from "@lingsquare/misc/constants";
+import { db } from "@lingsquare/drizzle";
 import {
   cardSchema,
   createCardFormSchema,
   createManyCardsFormSchema,
-} from "@/form";
+} from "@lingsquare/misc/validators";
 import {
   NewCardsToDecks,
-  User,
   cardContents,
   cards,
   cardsToDecks,
@@ -16,14 +15,15 @@ import {
   reviewLogs,
   states,
   users,
-} from "@/schema";
-import { protectedProcedure, router } from "@/server/trpc";
-import { success } from "@/utils/format";
-import { cardToReviewLog, gradeCard, newCardWithContent } from "@/utils/fsrs";
-import { SessionCard, SessionData, SessionStats } from "@/utils/session";
-import { CardSorts } from "@/utils/sort";
+} from "@lingsquare/drizzle/schema";
+import type { User } from "@lingsquare/auth"
+import { protectedProcedure, createTRPCRouter } from "../trpc";
+import { success } from "@lingsquare/misc/utils";
+import { cardToReviewLog, gradeCard, newCardWithContent } from "@lingsquare/misc/utils";
+import { SessionCard, SessionData, SessionStats } from "@lingsquare/misc/utils";
+import { CardSorts } from "@lingsquare/misc/utils";
 import { TRPCError } from "@trpc/server";
-import { and, desc, eq, inArray, lte, ne, sql } from "drizzle-orm";
+import { and, desc, eq, inArray, lte, ne, sql } from "@lingsquare/drizzle/helpers";
 import { z } from "zod";
 
 /**
@@ -176,7 +176,7 @@ async function getStats(
       ),
     );
   console.log(success`Fetched stats`);
-  const stat = stats[0];
+  const stat = stats[0]!;
   return {
     ...stat,
     new: Math.min(numLeftToLearn, stat.new),
@@ -216,7 +216,7 @@ async function checkIfCardBelongsToUser(
   return !!card;
 }
 
-export const cardRouter = router({
+export const cardRouter = createTRPCRouter({
   // Get all the cards for the session
   sessionData: protectedProcedure.query(async ({ ctx }) => {
     const { user } = ctx;
@@ -291,7 +291,7 @@ export const cardRouter = router({
         if (deckIds && deckIds.length > 0) {
           console.log("Adding cards to decks");
           const cardsToDecksToInsert = deckIds.map((deckId) => ({
-            cardId: insertedCard[0].id,
+            cardId: insertedCard[0]!.id,
             deckId,
           })) satisfies NewCardsToDecks[];
           await tx.insert(cardsToDecks).values(cardsToDecksToInsert);

@@ -4,7 +4,7 @@ import {
     createTRPCRouter,
     publicProcedure,
 } from "../trpc";
-import { posts } from "@lingsquare/drizzle/src/schema";
+import { posts } from "@lingsquare/drizzle/schema";
 
 export const postRouter = createTRPCRouter({
     hello: publicProcedure

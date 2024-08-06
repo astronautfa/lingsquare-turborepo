@@ -8,9 +8,9 @@ import { redirect } from "next/navigation";
 import { generateId, Scrypt } from "lucia";
 import { isWithinExpirationDate, TimeSpan, createDate } from "oslo";
 import { generateRandomString, alphabet } from "oslo/crypto";
-import { eq } from "@lingsquare/drizzle";
-import { lucia } from "./index";
 import { db } from "@lingsquare/drizzle"
+import { eq } from "@lingsquare/drizzle/helpers";
+import { lucia } from "./index";
 import {
   loginSchema,
   registerSchema,
@@ -21,7 +21,7 @@ import {
   passwordResetTokens,
   sessions,
   users,
-} from "@lingsquare/drizzle/src/schema";
+} from "@lingsquare/drizzle/schema";
 import { sendResendMail, EmailTemplate } from "@lingsquare/email";
 import { validateRequest } from "./validate-request";
 import { env } from "@lingsquare/env/web/client";
@@ -107,7 +107,7 @@ export async function signup(
       fieldError: {
         email: err.fieldErrors.email?.[0],
         password: err.fieldErrors.password?.[0],
-        "confirm-pass": err.fieldErrors["confirm-pass"]?.[0],
+        "confirm-password": err.fieldErrors["confirm-password"]?.[0],
       },
     };
   }
@@ -302,7 +302,6 @@ export async function sendPasswordResetLink(
       return { success: true };
     }
   } catch (error) {
-    console.log(error);
     return { error: "Failed to send verification email." };
   }
 }

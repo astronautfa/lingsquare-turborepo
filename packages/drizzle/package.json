@@ -5,6 +5,11 @@
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.d.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./helpers": "./src/helpers.ts",
+    "./schema": "./src/schema/index.ts"
+  },
   "dependencies": {
     "postgres": "^3.4.4",
     "@lingsquare/env": "workspace:*",

@@ -3,7 +3,7 @@ import { DrizzlePostgreSQLAdapter } from "@lucia-auth/adapter-drizzle";
 import { env } from "@lingsquare/env/web/server"
 import { db } from "@lingsquare/drizzle";
 import type { Session, User } from "lucia";
-import { sessions, users, type User as DbUser } from "@lingsquare/drizzle/src/schema";
+import { sessions, users, type User as DbUser } from "@lingsquare/drizzle/schema";
 
 // Uncomment the following lines if you are using nodejs 18 or lower. Not required in Node.js 20, CloudFlare Workers, Deno, Bun, and Vercel Edge Functions.
 // import { webcrypto } from "node:crypto";

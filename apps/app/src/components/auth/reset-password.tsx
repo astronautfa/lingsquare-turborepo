@@ -30,38 +30,40 @@ export function ResetPassword({ token, className }: { token: string, className?:
   }, [state?.error]);
 
   return (
-    <Card className={cn("w-Ïfull max-w-md", className)}>
+    <Card className={cn("w-full max-w-md", className)}>
       <CardHeader className="text-center">
         <CardTitle>Reset Password</CardTitle>
         <CardDescription>Enter your new password</CardDescription>
       </CardHeader>
       <CardContent>
-        <form action={formAction} className="space-y-2">
-          <input type="hidden" name="token" value={token} />
-          <Label>New Password</Label>
-          <PasswordInput
-            name="password"
-            required
-            autoComplete="new-password"
-            placeholder="Enter your password"
-            className="mb-2"
-          />
-          <Label>Repeat Password</Label>
-          <PasswordInput
-            name="confirm-password"
-            required
-            autoComplete="confirm-password"
-            placeholder="Repeat your password"
-          />
-          {state?.error && (
-            <div className="mt-4 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
-              <ExclamationTriangleIcon className="w-5 h-5" />
-              <p className="">
-                {state?.error}
-              </p>
-            </div>
-          )}
-          <SubmitButton className="w-full mt-5">Reset Password</SubmitButton>
+        <form action={formAction} >
+          <div className="space-y-2 mb-5">
+            <input type="hidden" name="token" value={token} />
+            <Label>New Password</Label>
+            <PasswordInput
+              name="password"
+              required
+              autoComplete="new-password"
+              placeholder="Enter your password"
+              className="mb-2"
+            />
+            <Label>Repeat Password</Label>
+            <PasswordInput
+              name="confirm-password"
+              required
+              autoComplete="confirm-password"
+              placeholder="Repeat your password"
+            />
+            {state?.error && (
+              <div className="mt-4 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
+                <ExclamationTriangleIcon className="w-5 h-5" />
+                <p className="">
+                  {state?.error}
+                </p>
+              </div>
+            )}
+          </div>
+          <SubmitButton className="w-full">Reset Password</SubmitButton>
         </form>
       </CardContent>
     </Card>

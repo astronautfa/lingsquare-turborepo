@@ -1,18 +1,18 @@
 import { db } from "@lingsquare/drizzle";
 import {
-  User,
   cardContents,
   cards,
   cardsToDecks,
   decks,
   users,
-} from "@lingsquare/drizzle/src/schema";
+} from "@lingsquare/drizzle/schema";
+import type { User } from "@lingsquare/auth"
 import { MAX_CARDS_TO_FETCH } from "@lingsquare/misc/constants";
 import { protectedProcedure, createTRPCRouter } from "../trpc";
-import { newDeck } from "@/utils/deck";
-import { success } from "@/utils/format";
+import { newDeck } from "@lingsquare/misc/utils";
+import { success } from "@lingsquare/misc/utils";
 import { TRPCError } from "@trpc/server";
-import { and, asc, eq, gt, or, sql } from "drizzle-orm";
+import { and, asc, eq, gt, or, sql } from "@lingsquare/drizzle/helpers";
 import { z } from "zod";
 
 const ALL_CARDS = "ALL_CARDS";
@@ -47,7 +47,7 @@ export const deckRouter = createTRPCRouter({
       .leftJoin(users, eq(decks.userId, users.id))
       .where(and(eq(users.id, user.id), eq(decks.deleted, false)))
       .groupBy(decks.id)
-      .all();
+      .execute();
     console.log(success`Fetched ${rows.length} decks`);
 
     return rows;

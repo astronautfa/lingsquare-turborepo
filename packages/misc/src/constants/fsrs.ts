@@ -1,4 +1,4 @@
-import { Rating } from "@lingsquare/drizzle/src/schema";
+import { Rating } from "@lingsquare/drizzle/schema";
 
 /**
  * The limit below which we should refetch cards.

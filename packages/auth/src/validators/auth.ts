@@ -36,34 +36,34 @@ export const registerSchema = z
   .object({
     email: z.string().email({ message: "Invalid Email Address" }),
     password: passwordSchema,
-    "confirm-pass": passwordSchema,
+    "confirm-password": passwordSchema,
   })
   .refine(
     (data) => {
-      if (data["confirm-pass"] !== data.password) {
+      if (data["confirm-password"] !== data.password) {
         console.log("running");
         return false;
       } else {
         return true;
       }
     },
-    { message: "Password does't match", path: ["confirm-pass"] },
+    { message: "Password does't match", path: ["confirm-password"] },
   );
 
 export const resetPasswordSchema = z
   .object({
     token: z.string().min(1, "Invalid token"),
     password: passwordSchema,
-    "confirm-pass": passwordSchema,
+    "confirm-password": passwordSchema,
   })
   .refine(
     (data) => {
-      if (data["confirm-pass"] !== data.password) {
+      if (data["confirm-password"] !== data.password) {
         console.log("running");
         return false;
       } else {
         return true;
       }
     },
-    { message: "Password does't match", path: ["confirm-pass"] },
+    { message: "Password does't match", path: ["confirm-password"] },
   );
