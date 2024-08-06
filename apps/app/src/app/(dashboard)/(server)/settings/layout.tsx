@@ -9,7 +9,7 @@ import {
 } from "lucide-react"
 
 import { ComputerDesktopIcon, BellIcon, LanguageIcon } from "@heroicons/react/20/solid"
-import { siteConfig } from "@/consts/site"
+import { siteConfig } from "@lingsquare/misc/constants"
 
 export const metadata: Metadata = {
   title: {

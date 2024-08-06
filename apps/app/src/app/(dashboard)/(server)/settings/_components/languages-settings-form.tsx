@@ -38,7 +38,7 @@ import {
 } from "@ui/components/tooltip"
 
 import { toast } from "sonner"
-import { languages } from "@/consts/languages"
+import { languages } from "@lingsquare/misc/constants"
 import { Check, ChevronsUpDown, PlusIcon } from "lucide-react"
 import { TrashIcon } from "@heroicons/react/20/solid"
 import { Separator } from "@ui/components/separator"

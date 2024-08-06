@@ -16,7 +16,7 @@ import { Label } from "@ui/components/label";
 import { signup } from "@lingsquare/auth/actions";
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { cn } from "@ui/lib/utils";
-import { Paths } from "@/consts/paths";
+import { Paths } from "@lingsquare/misc/constants"
 import ExclamationTriangleIcon from "@heroicons/react/20/solid/ExclamationTriangleIcon";
 
 // TODO : Repeat password error

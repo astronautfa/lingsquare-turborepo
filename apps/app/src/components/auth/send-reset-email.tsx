@@ -18,7 +18,7 @@ import { Label } from "@ui/components/label";
 import { SubmitButton } from "@ui/molecules/submit-button";
 import { sendPasswordResetLink } from "@lingsquare/auth/actions";
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
-import { Paths } from "@/consts/paths";
+import { Paths } from "@lingsquare/misc/constants"
 import { cn } from "@ui/lib/utils";
 
 export function SendResetEmail({ className, modal }: { className?: string, modal?: boolean }) {

@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-import { modalDynamicPathnames, modalStaticPathnames } from '@/consts/modals'
+import { modalDynamicPathnames, modalStaticPathnames } from "@lingsquare/misc/constants"
 
 interface ProviderValue {
     lastPathnameBeforeModal: string

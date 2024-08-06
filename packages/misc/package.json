@@ -1,0 +1,23 @@
+{
+  "name": "@lingsquare/misc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "exports": {
+    "./utils": "./src/utils/index.ts",
+    "./constants": "./src/constants/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lingsquare/drizzle": "workspace:*",
+    "@lingsquare/env": "workspace:*"
+  },
+  "devDependencies": {
+    "@lingsquare/eslint-config": "workspace:*",
+    "@lingsquare/typescript-config": "workspace:*"
+  }
+}

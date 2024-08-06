@@ -83,6 +83,9 @@ importers:
       '@lingsquare/heatmap':
         specifier: workspace:*
         version: link:../../packages/heatmap
+      '@lingsquare/misc':
+        specifier: workspace:*
+        version: link:../../packages/misc
       '@lingsquare/trpc':
         specifier: workspace:*
         version: link:../../packages/trpc
@@ -552,6 +555,22 @@ importers:
         specifier: ^5.5.3
         version: 5.5.3
 
+  packages/misc:
+    dependencies:
+      '@lingsquare/drizzle':
+        specifier: workspace:*
+        version: link:../drizzle
+      '@lingsquare/env':
+        specifier: workspace:*
+        version: link:../env
+    devDependencies:
+      '@lingsquare/eslint-config':
+        specifier: workspace:*
+        version: link:../config/eslint-config
+      '@lingsquare/typescript-config':
+        specifier: workspace:*
+        version: link:../config/typescript-config
+
   packages/notifications/email:
     dependencies:
       '@react-email/components':
@@ -622,6 +641,9 @@ importers:
       '@lingsquare/drizzle':
         specifier: workspace:*
         version: link:../drizzle
+      '@lingsquare/misc':
+        specifier: workspace:*
+        version: link:../misc
       '@tanstack/react-query':
         specifier: ^5.51.15
         version: 5.51.15(react@19.0.0-rc-df5f2736-20240712)

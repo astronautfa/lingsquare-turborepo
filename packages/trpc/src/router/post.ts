@@ -3,7 +3,6 @@ import { z } from "zod";
 import {
     createTRPCRouter,
     publicProcedure,
-    protectedProcedure,
 } from "../trpc";
 import { posts } from "@lingsquare/drizzle/src/schema";
 

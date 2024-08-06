@@ -1,0 +1,9 @@
+{
+  "extends": "@lingsquare/typescript-config/react-library.json",
+  "include": ["src", "."],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "moduleResolution": "Bundler",
+    "module": "ES2022"
+  }
+}

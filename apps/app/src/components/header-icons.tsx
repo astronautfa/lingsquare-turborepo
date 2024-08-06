@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import { UserNav } from './user-nav'
 import { BellAlertIcon } from '@heroicons/react/20/solid'
-import { Paths } from '@/consts/paths'
+import { Paths } from "@lingsquare/misc/constants"
 import { User } from 'lucia'
 import { useSession } from './auth/session-provider'
 

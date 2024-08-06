@@ -18,6 +18,7 @@
     "@trpc/server": "next",
     "@lingsquare/dockview": "workspace:*",
     "@lingsquare/heatmap": "workspace:*",
+    "@lingsquare/misc": "workspace:*",
     "@lingsquare/vidstack": "workspace:*",
     "@lingsquare/drizzle": "workspace:*",
     "@lingsquare/auth": "workspace:*",

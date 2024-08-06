@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.15",
+    "@lingsquare/misc": "workspace:*",
     "next": "^14.2.5",
     "react": "19.0.0-rc-df5f2736-20240712",
     "@lingsquare/drizzle": "workspace:*",

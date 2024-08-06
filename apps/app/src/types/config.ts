@@ -1,4 +1,4 @@
-import type { Theme } from "@/consts/themes";
+import type { Theme } from "@lingsquare/misc/constants"
 
 export type ThemeConfig = {
   theme: Theme["name"] | "default";

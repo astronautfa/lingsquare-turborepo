@@ -1,13 +1,12 @@
 import React from 'react'
 import { SidebarLayout as SidebarLayoutClient } from '@/components/sidebar-layout-client';
 import { cookies } from "next/headers";
+import '@lingsquare/dockview/dist/styles/dockview.css';
 
 const AppLayout = async ({
     children,
-    modal,
 }: Readonly<{
     children: React.ReactNode;
-    modal: React.ReactNode;
 }>) => {
     const defaultLayout = getDefaultLayout();
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { validateRequest } from "@lingsquare/auth/validate-request";
 import { redirect } from "next/navigation";
-import { Paths } from "@/consts/paths";
+import { Paths } from "@lingsquare/misc/constants"
 import { Login } from "@/components/auth/login";
 import { VerifyCode } from '@/components/auth/verify-code';
 import { Signup } from '@/components/auth/signup';
