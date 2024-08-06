@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react'
 import { NavbarItem } from './navbar'
 
 import 'overlayscrollbars/overlayscrollbars.css';
+
+import { setCookie, getCookie } from 'cookies-next';
+
 import { OverlayScrollbarsComponent, useOverlayScrollbars } from "overlayscrollbars-react";
 
 import {
@@ -33,8 +36,7 @@ function OpenMenuIcon() {
 
 export function SidebarLayout({
   children,
-  defaultLayout
-}: React.PropsWithChildren<{ defaultLayout: number[]; }>) {
+}: React.PropsWithChildren<{}>) {
 
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
   const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -57,10 +59,6 @@ export function SidebarLayout({
 
   const isMounted = useIsMounted();
 
-  const onLayout = (sizes: number[]) => {
-    document.cookie = `react-resizable-panels:layout=${JSON.stringify(sizes)}`;
-  };
-
   return (
     <OverlayScrollbarsComponent
       defer
@@ -73,7 +71,9 @@ export function SidebarLayout({
               !collapsed ? 'rotate-180 -right-1' : '-right-3',
               fullscreen ? 'opacity-0' : 'opacity-100'
             )} >
-              <Button variant={'collapse'} size={'collapse'} onClick={() => { setCollapsed((prev) => !prev) }} >
+              <Button variant={'collapse'} size={'collapse'} onClick={() => {
+                setCollapsed((prev) => !prev);
+              }} >
                 <RxCaretRight className='size-4' />
               </Button>
             </TooltipTrigger>

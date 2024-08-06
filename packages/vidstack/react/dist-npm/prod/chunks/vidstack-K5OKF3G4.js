@@ -1,1 +1,0 @@
-import{s}from"./vidstack-2UVVF4DI.js";import{ea as n}from"./vidstack-EWFRKCDB.js";import{$ as i,_ as r,ia as a}from"./vidstack-7GZB5QIO.js";var l=s.state.record,o=Object.keys(l).reduce((e,t)=>({...e,[t](){return l[t]}}),{});function m(e,t){let c=r(n);return i((t?.current?.$state||c||o)[e])}function f(e){let t=r(n);return a(e?.current?e.current.$state:t||o)}export{m as a,f as b};

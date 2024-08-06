@@ -1,1 +1,0 @@
-import{render as e}from"lit-html";var t=class extends HTMLElement{rootPart=null;connectedCallback(){this.rootPart=e(this.render(),this,{renderBefore:this.firstChild}),this.rootPart.setConnected(!0)}disconnectedCallback(){this.rootPart?.setConnected(!1),this.rootPart=null,e(null,this)}};export{t as a};
