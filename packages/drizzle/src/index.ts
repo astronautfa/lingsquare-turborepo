@@ -1,6 +1,5 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-
 import { env } from "@lingsquare/env/web/server";
 import * as schema from "./schema/index";
 
