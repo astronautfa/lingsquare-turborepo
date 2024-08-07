@@ -2,8 +2,8 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
 interface useSidebarToggleStore {
-  isOpen: boolean;
-  setIsOpen: () => void;
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: () => void;
   isFullscreen: boolean;
   setIsFullscreen: () => void;
 }
@@ -11,9 +11,9 @@ interface useSidebarToggleStore {
 export const useSidebarToggle = create(
   persist<useSidebarToggleStore>(
     (set, get) => ({
-      isOpen: true,
-      setIsOpen: () => {
-        set({ isOpen: !get().isOpen });
+      isSidebarOpen: true,
+      setIsSidebarOpen: () => {
+        set({ isSidebarOpen: !get().isSidebarOpen });
       },
       isFullscreen: false,
       setIsFullscreen: () => {

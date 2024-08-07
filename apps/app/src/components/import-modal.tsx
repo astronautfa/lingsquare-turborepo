@@ -42,31 +42,35 @@ export default function ImportModalContent() {
       >
         {items.map((item, itemIdx) => (
           <li key={itemIdx}>
-            <div className="group relative flex items-start space-x-3 py-4">
-              <div className="flex-shrink-0">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-muted transition-colors duration-400">
-                  <item.icon
-                    className="h-5 w-5 text-muted-foreground group-hover:text-inherit"
-                    aria-hidden="true"
-                  />
-                </span>
-              </div>
-              <div className="min-w-0 flex-1 ">
-                <div className="text-sm font-medium">
-                  <a href={item.href}>
-                    <span className="absolute inset-0" aria-hidden="true" />
-                    {item.name}
-                  </a>
+            <div className="group relative py-4">
+              <div className="flex justify-between w-full space-x-2">
+                <div className="flex space-x-2">
+                  <div className="flex-shrink-0">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-muted transition-colors duration-400">
+                      <item.icon
+                        className="h-5 w-5 text-muted-foreground group-hover:text-inherit"
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </div>
+                  <div className="">
+                    <div className="text-sm font-medium">
+                      <a href={item.href}>
+                        <span className="absolute inset-0" aria-hidden="true" />
+                        {item.name}
+                      </a>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-              <div className="flex-shrink-0 self-center">
-                <ExpandingArrow
-                  className="-ml-4 h-4 w-4 "
-                  direction="right"
-                />
+                <div className="self-center">
+                  <ExpandingArrow
+                    className="h-4 w-4 -mr-5"
+                    direction="right"
+                  />
+                </div>
               </div>
             </div>
           </li>
@@ -82,7 +86,7 @@ export default function ImportModalContent() {
           </Link>
         </div>
         <ExpandingArrow
-          className="h-4 w-4 -ml-3 mt-0.5"
+          className="h-4 w-4 mt-0.5"
           direction="right"
         />
       </div>

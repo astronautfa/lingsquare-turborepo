@@ -22,6 +22,8 @@ import { useTheme } from 'next-themes';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@/components/hooks/use-is-mounted';
 import HeaderIcons from './header-icons';
+import { useSidebarToggle } from './hooks/use-layout-toggle';
+import { useStore } from './hooks/use-store';
 
 function OpenMenuIcon() {
   return (
@@ -33,12 +35,10 @@ function OpenMenuIcon() {
 
 export function SidebarLayout({
   children,
-  defaultLayout
-}: React.PropsWithChildren<{ defaultLayout: number[]; }>) {
+}: React.PropsWithChildren<{}>) {
 
   const [showSidebar, setShowSidebar] = useState<boolean>(false)
-  const [collapsed, setCollapsed] = useState<boolean>(false)
-  const [fullscreen, setFullscreen] = useState<boolean>(false)
+  const layout = useStore(useSidebarToggle, (state) => state);
 
   const { theme } = useTheme();
 
@@ -57,37 +57,33 @@ export function SidebarLayout({
 
   const isMounted = useIsMounted();
 
-  const onLayout = (sizes: number[]) => {
-    document.cookie = `react-resizable-panels:layout=${JSON.stringify(sizes)}`;
-  };
-
   return (
     <OverlayScrollbarsComponent
       defer
     >
       <div className="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950 md:pr-1">
         {/* Sidebar on desktop */}
-        <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out z-10", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'w-4', !isMounted() && 'w-64')}>
+        <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out z-10", layout?.isSidebarOpen ? 'w-64' : 'w-[66px]', layout?.isFullscreen && 'w-4', !isMounted() && 'w-64')}>
           <Tooltip >
             <TooltipTrigger asChild className={cn('absolute z-10 top-[180px] transition-all duration-75 border hover:scale-110',
-              !collapsed ? 'rotate-180 -right-1' : '-right-3',
-              fullscreen ? 'opacity-0' : 'opacity-100'
+              layout?.isSidebarOpen ? 'rotate-180 -right-1' : '-right-3',
+              layout?.isFullscreen ? 'opacity-0' : 'opacity-100'
             )} >
-              <Button variant={'collapse'} size={'collapse'} onClick={() => { setCollapsed((prev) => !prev) }} >
+              <Button variant={'collapse'} size={'collapse'} onClick={layout?.setIsSidebarOpen} >
                 <RxCaretRight className='size-4' />
               </Button>
             </TooltipTrigger>
             <TooltipContent side='right'>
-              <p>{isMounted() ? collapsed ? 'Expand Sidebar' : "Collapse Sidebar" : "Toggle Sidebar"}</p>
+              <p>{isMounted() ? !layout?.isSidebarOpen ? 'Expand Sidebar' : "Collapse Sidebar" : "Toggle Sidebar"}</p>
             </TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild className={cn('absolute z-10 transition-transform duration-100',
-              !collapsed ? '-right-1' : '-right-3',
-              fullscreen ? '-right-[10px] bottom-[80px]' : 'bottom-[85px]',
+              layout?.isSidebarOpen ? '-right-1' : '-right-3',
+              layout?.isFullscreen ? '-right-[10px] bottom-[80px]' : 'bottom-[85px]',
               !isMounted() && '-right-1 bottom-[85px]')}>
-              <Button className={'hover:scale-110 transition-all border flex'} variant={'collapse'} size={'collapse'} onClick={() => { setFullscreen((prev) => !prev) }} >
-                {fullscreen ?
+              <Button className={'hover:scale-110 transition-all border flex'} variant={'collapse'} size={'collapse'} onClick={layout?.setIsSidebarOpen}  >
+                {layout?.isFullscreen ?
                   <RxExitFullScreen className='size-3.5' />
                   :
                   <RxEnterFullScreen className='size-3' />
@@ -95,18 +91,18 @@ export function SidebarLayout({
               </Button>
             </TooltipTrigger>
             <TooltipContent side='right'>
-              <p>{fullscreen ? 'Exit Fullscreen' : "Enter Fullscreen"}</p>
+              <p>{layout?.isFullscreen ? 'Exit Fullscreen' : "Enter Fullscreen"}</p>
             </TooltipContent>
           </Tooltip>
 
-          <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out", !collapsed ? 'w-64' : 'w-[66px]', fullscreen && 'hidden', !isMounted() && 'w-64')}>
-            <LingsquareSidebar collapsed={collapsed} />
+          <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out", layout?.isSidebarOpen ? 'w-64' : 'w-[66px]', layout?.isFullscreen && 'hidden', !isMounted() && 'w-64')}>
+            <LingsquareSidebar collapsed={!layout?.isSidebarOpen} />
           </div>
         </div>
 
         {/* Sidebar on mobile */}
         <MobileSidebar open={showSidebar} close={() => setShowSidebar(false)}>
-          <LingsquareSidebar collapsed={collapsed} />
+          <LingsquareSidebar collapsed={!layout?.isSidebarOpen} />
         </MobileSidebar>
 
         {/* Navbar on mobile */}
@@ -120,8 +116,8 @@ export function SidebarLayout({
         </header>
 
         {/* Content */}
-        <main className={cn("flex flex-1 relative flex-col lg:min-w-0 transition-all duration-100 ease-in-out lg:pb-2 lg:pt-[13px]", !collapsed ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', fullscreen ? 'lg:pl-2 lg:pr-0' : 'lg:pr-2')}>
-          <div className={cn('lg:h-12 lg:flex absolute top-0 right-2 z-10 items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', fullscreen && 'lg:h-1 opacity-0 hidden')}>
+        <main className={cn("flex flex-1 relative flex-col lg:min-w-0 transition-all duration-100 ease-in-out lg:pb-2 lg:pt-[13px]", layout?.isSidebarOpen ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', layout?.isFullscreen ? 'lg:pl-2 lg:pr-0' : 'lg:pr-2')}>
+          <div className={cn('lg:h-12 lg:flex absolute top-0 right-2 z-10 items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', layout?.isFullscreen && 'lg:h-1 opacity-0 hidden')}>
             <div className="ml-auto flex-1 md:grow-0">
             </div>
             <HeaderIcons />
