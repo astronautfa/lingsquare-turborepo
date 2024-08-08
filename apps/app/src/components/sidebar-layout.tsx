@@ -122,12 +122,13 @@ export function SidebarLayout({
         {/* Content */}
         <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", layout?.isSidebarOpen ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', layout?.isFullscreen ? 'lg:pl-2 lg:pr-0 pb-1' : 'lg:pr-2 pb-2')}>
           <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', layout?.isFullscreen && 'lg:h-1 opacity-0 hidden')}>
+
             <div className="ml-auto flex-1 md:grow-0">
             </div>
             <HeaderIcons />
           </div>
           <div className="grow p-3 lg:rounded-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
-            <div className="mx-auto p-3">{children}</div>
+            <div className="mx-auto">{children}</div>
           </div>
         </main >
       </div >

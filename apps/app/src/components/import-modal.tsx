@@ -1,6 +1,6 @@
 import { LucideText } from "lucide-react";
 import { BsYoutube, BsBookHalf } from "react-icons/bs";
-import { ExpandingArrow } from "@ui/components"
+import { ExpandingArrow, SeparatorGradient } from "@ui/components"
 import Link from "next/link";
 
 // TODO : rename and clean this code !
@@ -36,6 +36,7 @@ export default function ImportModalContent() {
           Import your own content and start learning.
         </p>
       </div>
+      <SeparatorGradient className="mt-4"/>
       <ul
         role="list"
         className="mt-6 divide-y"

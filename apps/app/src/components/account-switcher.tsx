@@ -70,12 +70,12 @@ export function AccountSwitcher({
         ))}
         <Separator className="my-1" />
         {speakingLanguages.map((speakingLanguage) => (
-          <Button key={speakingLanguage.label} variant={'nav'} size={'sm'} className="font-normal w-full flex justify-items-start gap-3 pl-2">
+          <div key={speakingLanguage.label} className="relative flex w-full select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 flex items-center gap-3 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:shrink-0 [&_svg]:text-foreground">
             {speakingLanguage && speakingLanguage.icon}
             <span>
               {speakingLanguage && speakingLanguage.label}
             </span>
-          </Button>))}
+          </div>))}
         <Separator className="my-1" />
         <Button variant={'nav'} size={'sm'} className="w-full flex justify-items-start pl-2.5 font-normal">
           <PlusIcon width={18} height={18} className="mr-2.5" />

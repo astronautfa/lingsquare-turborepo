@@ -6,3 +6,13 @@ export enum Paths {
   VerifyEmail = "/auth/verify-email",
   ResetPassword = "/auth/reset-password",
 }
+
+export const BreadCrumbs = {
+  "/": {
+    label: 'Explore'
+  },
+  "/library": {
+    label: 'Library'
+  },
+}
+

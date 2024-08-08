@@ -162,7 +162,7 @@ export const BreadCrumb = ({
                 tabIndex={0}
                 onKeyDownCapture={handleKeyDown}
                 className={cn(
-                    "flex items-center justify-start flex-wrap gap-2",
+                    "flex items-center justify-start flex-wrap gap-2 text-muted-foreground",
                     {
                         "flex-row": orientation === "horizontal",
                         "flex-col": orientation === "vertical",
@@ -236,7 +236,7 @@ export const BreadCrumbItem = forwardRef<
             className={cn(
                 buttonVariants(Variants),
                 className,
-                isSelected ? "bg-muted focus-visible:ring-0 ring-0 cursor-pointer" : ""
+                isSelected ? "text-primary focus-visible:ring-0 ring-0 cursor-default" : ""
             )}
             onClick={() => setActiveIndex(index)}
             {...props}

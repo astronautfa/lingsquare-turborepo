@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 
-import { Separator } from "@ui/components"
+import { SeparatorGradient } from "@ui/components"
 import { SidebarNav } from "./_components/sidebar-nav"
 
 import {
@@ -54,13 +54,13 @@ interface SettingsLayoutProps {
 export default function SettingsLayout({ children }: SettingsLayoutProps) {
   return (
     <div className="space-y-5">
-      <div className="space-y-0.5">
+      <div className="space-y-0.5 p-3 pb-0">
         <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
         <p className="text-muted-foreground">
           Manage your account settings and set your preferences.
         </p>
       </div>
-      <Separator className="my-6" />
+      <SeparatorGradient/>
       <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0 overflow-y-auto">
         <aside className="lg:w-1/5">
           <SidebarNav items={sidebarNavItems} />

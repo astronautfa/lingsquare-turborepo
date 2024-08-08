@@ -71,7 +71,7 @@ export const deckRouter = createTRPCRouter({
       const { user } = ctx;
       const { deckId } = input;
       const limit = input.limit ?? MAX_CARDS_TO_FETCH;
-      const cursor = input.cursor;
+      const { cursor } = input;
 
       console.log("Checking if deck exists");
       const isFetchingAllCards = deckId === ALL_CARDS;

@@ -1,10 +1,8 @@
-import { Separator } from '@ui/components'
+import { SeparatorGradient } from '@ui/components'
 import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server';
 import { api } from '@lingsquare/trpc/server'
 import { SidebarLayout } from '@/components/sidebar-layout';
-import { cookies } from "next/headers";
-
 
 import React from 'react'
 
@@ -19,27 +17,17 @@ export default async function HomePage({ modal }: { modal: React.ReactNode; }) {
 
   const post = await api.post.hello({ text: 'alireza' });
 
-  const defaultLayout = getDefaultLayout();
-
   return (
-    <SidebarLayout defaultLayout={defaultLayout}>
-      <div className="space-y-0.5">
-        <h2 className="text-2xl font-bold tracking-tight">  {t('title')}</h2>
+    <SidebarLayout >
+      <div className="space-y-0.5 p-3 pb-0">
+        <h2 className="text-2xl font-bold tracking-tight">{t('title')}</h2>
         <p className="text-muted-foreground">
           {t('subtitle')}
         </p>
       </div>
-      <Separator className="my-6" />
+      <SeparatorGradient className="my-6" />
     </SidebarLayout>
   )
-}
-
-function getDefaultLayout() {
-  const layout = cookies().get("react-resizable-panels:layout");
-  if (layout) {
-    return JSON.parse(layout.value);
-  }
-  return [33, 67];
 }
 
 

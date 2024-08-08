@@ -12,18 +12,20 @@ import {
   CardTitle,
   Input,
   Label,
-  PasswordInput,
+  PasswordInputWithConfirm,
   SubmitButton
 } from "@ui/components";
 import { signup } from "@lingsquare/auth/actions";
 import { cn } from "@lingsquare/misc/utils";
 import { Paths } from "@lingsquare/misc/constants"
 import ExclamationTriangleIcon from "@heroicons/react/20/solid/ExclamationTriangleIcon";
+import { useState } from "react";
 
 // TODO : Repeat password error
 
 export function Signup({ className, modal }: { className?: string, modal?: boolean }) {
   const [state, formAction] = useFormState(signup, null);
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <Card className={cn("w-full max-w-md", className)}>
@@ -46,7 +48,9 @@ export function Signup({ className, modal }: { className?: string, modal?: boole
           </div>
           <div className="space-y-2">
             <Label>Password</Label>
-            <PasswordInput
+            <PasswordInputWithConfirm
+              showPassword={showPassword}
+              setShowPassword={setShowPassword}
               name="password"
               required
               autoComplete="current-password"
@@ -55,7 +59,9 @@ export function Signup({ className, modal }: { className?: string, modal?: boole
           </div>
           <div className="space-y-2">
             <Label>Confirm Password</Label>
-            <PasswordInput
+            <PasswordInputWithConfirm
+              showPassword={showPassword}
+              setShowPassword={setShowPassword}
               name="confirm-password"
               required
               autoComplete="confirm-password"
@@ -81,7 +87,7 @@ export function Signup({ className, modal }: { className?: string, modal?: boole
             </div>
           )}
 
-          <div className="space-y-2">
+          <div className="space-y-2 pt-2">
             <SubmitButton className="w-full">Sign Up</SubmitButton>
             {!modal && <Button variant="outline" className="w-full" asChild>
               <Link href="/">Cancel</Link>
