@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LandingLogo from "../../../../public/LandingLogo.png";
+import LandingLogo from "@/public/LandingLogo.png";
 import Image from "next/image";
 import ExpandingArrow from "@/components/expanding-arrow";
 import { HighlightBadge } from "@/components/highlight-badge";

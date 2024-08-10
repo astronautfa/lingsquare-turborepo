@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar";
-import { cn } from "@/lib/utils";
+import { cn } from "@lingsquare/misc/utils"
 
 import LandingLogo from "../public/LandingLogo.png";
 

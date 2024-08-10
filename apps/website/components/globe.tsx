@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef } from "react";
 import createGlobe, { COBEOptions } from "cobe";
 import { useSpring } from "react-spring";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@lingsquare/misc/utils";
 
 const GLOBE_CONFIG: COBEOptions = {
     width: 500,

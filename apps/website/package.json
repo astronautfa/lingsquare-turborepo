@@ -11,9 +11,7 @@
   "dependencies": {
     "@lingsquare/ui": "workspace:*",
     "@lingsquare/heatmap": "workspace:*",
-    "@studio-freight/react-lenis": "^0.0.47",
-    "@uiw/react-heat-map": "^2.2.2",
-    "clsx": "^2.1.1",
+    "@lingsquare/misc": "workspace:*",
     "cobe": "^0.6.3",
     "contentlayer": "^0.3.4",
     "framer-motion": "^11.3.24",
@@ -31,7 +29,6 @@
     "react-intersection-observer": "^9.13.0",
     "react-responsive": "^10.0.0",
     "react-spring": "^9.7.4",
-    "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "unist-util-visit": "^5.0.0"
   },

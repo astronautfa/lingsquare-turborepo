@@ -2,7 +2,7 @@ import { withContentlayer } from "next-contentlayer";
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  transpilePackages: ["@lingsquare/ui"],
+  transpilePackages: ["@lingsquare/ui", "@lingsquare/misc"],
   reactStrictMode: true,
   swcMinify: true,
 };

@@ -25,7 +25,7 @@ const LanguageBar = () => {
         </p>
       </div>
 
-      <div className="z-10 mt-32 max-w-6xl grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10 place-items-center mx-auto p-2">
+      <div className="z-10 mt-40 max-w-6xl grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10 place-items-center mx-auto p-2">
         <LanguageCard
           title="English"
           image={England}
@@ -54,7 +54,7 @@ const LanguageBar = () => {
             "linear-gradient(106.89deg, rgba(14, 110, 233, 0.30) 15.74%,rgba(14, 165, 233, 0.30)  80.49%, rgba(14, 70, 229, 0.4) 115.91%)",
         }}
       />
-      <Globe className="top-0 opacity-50 z-0 absolute mt-10 hover:opacity-100 transition-opacity duration-1000" />
+      <Globe className="top-8 opacity-50 z-0 absolute mt-10 hover:opacity-100 transition-opacity duration-1000" />
     </div>
   );
 };

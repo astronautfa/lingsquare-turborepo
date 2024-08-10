@@ -2,9 +2,9 @@
 
 import React, { forwardRef, useRef } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@lingsquare/misc/utils"
 import { AnimatedBeam } from "@/components/animated-beam";
-import { BentoGridInfo } from "./features-bento";
+import { BentoGridInfo } from "./bento-grid-info";
 
 const Circle = forwardRef<
     HTMLDivElement,
@@ -25,7 +25,7 @@ const Circle = forwardRef<
 
 Circle.displayName = "Circle";
 
-export function AnimatedBeamMultipleOutputDemo({
+export function FeaturesBentoSix({
     title,
     description,
     icon,
@@ -48,7 +48,7 @@ export function AnimatedBeamMultipleOutputDemo({
         <div>
             <div
                 className={cn(
-                    "relative flex h-[70%] w-full items-center justify-center overflow-hidden rounded-lg",
+                    "relative flex h-[70%] w-full items-center justify-center overflow-hidden rounded-lg mb-2",
                     className,
                 )}
                 ref={containerRef}

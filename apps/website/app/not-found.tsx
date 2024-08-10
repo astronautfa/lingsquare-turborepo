@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/footer";
-import LandingNavbar from "@/components/ladingNavbar";
+import LandingNavbar from "@/components/new-landing-navbar";
 import ExpandingArrow from "@/components/expanding-arrow";
 import { Layout, MessageCircle, Text } from "lucide-react";
 

@@ -3,8 +3,7 @@
 import { RefObject, useEffect, useId, useState } from "react";
 import { motion } from "framer-motion";
 
-import { cn } from "@/lib/utils";
-
+import { cn } from "@lingsquare/misc/utils";
 export interface AnimatedBeamProps {
     className?: string;
     containerRef: RefObject<HTMLElement>; // Container ref
@@ -37,8 +36,8 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
     pathColor = "gray",
     pathWidth = 2,
     pathOpacity = 0.2,
-    gradientStartColor = "#ffaa40",
-    gradientStopColor = "#9c40ff",
+    gradientStartColor = "#9c40ff",
+    gradientStopColor = "#538bf5",
     startXOffset = 0,
     startYOffset = 0,
     endXOffset = 0,

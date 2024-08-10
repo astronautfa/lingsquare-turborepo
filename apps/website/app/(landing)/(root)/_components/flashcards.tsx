@@ -1,8 +1,7 @@
 "use client";
 
+import { cn } from "@lingsquare/misc/utils";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { twMerge } from "tailwind-merge";
 
 const Flashcards = () => {
   const [activeCard, setActiveCard] = useState<string | null>(null);
@@ -50,7 +49,7 @@ const Flashcards = () => {
           />
 
           <Card
-            className={twMerge(
+            className={cn(
               "peer-hover/next:card--to-left peer-focus-within/next:card--to-left peer-hover/show:card--to-right peer-focus-within/show:card--to-right [grid-area:1/1]",
               animationState === "opening" && "md:animate-card-visible-md 2xl:animate-card-visible-lg",
               animationState === "closing" && "md:animate-card-hidden-md 2xl:animate-card-hidden-lg"
@@ -62,7 +61,7 @@ const Flashcards = () => {
         {activeCard && (
           <div className="content-container relative inset-0 flex justify-center overflow-auto">
             <div
-              className={twMerge(
+              className={cn(
                 "pointer-events-none relative mb-60 w-[90%] rounded-[4.5rem] px-16 py-16 opacity-0",
                 animationState === "opening" && "animate-card-details",
                 animationState === "closing" && "animate-card-details-hidden"
@@ -84,7 +83,7 @@ const Flashcards = () => {
 
 const Card = ({ className, title }: { className?: string; title?: string }) => (
   <div
-    className={twMerge(
+    className={cn(
       "pointer-events-none absolute grid aspect-[3/4] w-[65vw] transition-transform duration-1000 [transform-style:preserve-3d] md:w-[30vw] 2xl:w-[20vw]",
       className
     )}

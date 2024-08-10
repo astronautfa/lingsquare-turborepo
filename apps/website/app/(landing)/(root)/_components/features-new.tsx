@@ -8,7 +8,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "ui/components/ui/accordion";
+} from "@ui/components";
 import { AnimatePresence, motion } from "framer-motion";
 
 const featureList = [

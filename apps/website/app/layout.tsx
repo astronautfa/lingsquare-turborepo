@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import { ThemeProvider } from "@/components/theme-provider";
-import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,19 +41,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <SmoothScrollProvider>
-        <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <NextTopLoader color="#0369a1" showSpinner={false} />
-            {children}
-          </ThemeProvider>
-        </body>
-      </SmoothScrollProvider>
+      <body className={`scroll-smooth ${inter.className}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextTopLoader color="#0369a1" showSpinner={false} />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
