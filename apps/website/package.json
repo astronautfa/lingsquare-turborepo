@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@lingsquare/ui": "workspace:*",
     "@lingsquare/heatmap": "workspace:*",
     "@lingsquare/misc": "workspace:*",
+    "@lingsquare/ui": "workspace:*",
+    "@types/mdx": "^2.0.13",
     "cobe": "^0.6.3",
     "contentlayer": "^0.3.4",
     "framer-motion": "^11.3.24",
+    "fumadocs-core": "^13.1.0",
+    "fumadocs-mdx": "^9.0.0",
     "github-slugger": "^2.0.0",
     "lucide-react": "^0.427.0",
     "mdast-util-from-markdown": "^2.0.1",

@@ -63,14 +63,73 @@ const data = [
     }
 ]
 
+const data2 = [
+    {
+        date: "2024-06-20",
+        count: 16,
+        level: 3
+    },
+    {
+        date: "2024-07-20",
+        count: 16,
+        level: 1
+    },
+    {
+        date: "2024-08-20",
+        count: 16,
+        level: 2
+    },
+    {
+        date: "2024-09-15",
+        count: 16,
+        level: 3
+    },
+    {
+        date: "2024-10-10",
+        count: 16,
+        level: 1
+    },
+    {
+        date: "2024-08-12",
+        count: 16,
+        level: 2
+    },
+    {
+        date: "2024-09-14",
+        count: 16,
+        level: 3
+    },
+    {
+        date: "2024-11-16",
+        count: 16,
+        level: 1
+    },
+    {
+        date: "2024-12-16",
+        count: 16,
+        level: 1
+    }
+]
 
 const LandingProgressHeatmap = () => {
 
     return (
         <TooltipProvider>
-            <div className='md:px-6 px-4 py-3' >
-                <div className='flex justify-center items-center'>
+            <div className='relative md:px-6 px-4 py-3 flex justify-center items-center h-40' >
+                <div className='absolute opacity-0 lg:opacity-100 mt-14'>
                     <ActivityCalendar data={data} showWeekdayLabels colorScheme='light' renderBlock={(block, activity) => (
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                {block}
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>{`${activity.count} activities on ${activity.date}`}</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    )} />
+                </div>
+                <div className='absolute opacity-100 lg:opacity-0'>
+                    <ActivityCalendar data={data2} showWeekdayLabels colorScheme='light' renderBlock={(block, activity) => (
                         <Tooltip>
                             <TooltipTrigger asChild>
                                 {block}

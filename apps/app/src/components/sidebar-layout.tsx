@@ -22,9 +22,9 @@ import { cn } from "@lingsquare/misc/utils"
 import { useTheme } from 'next-themes';
 import HeaderIcons from './header-icons';
 import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
-import { useIsMounted } from '@/components/hooks/use-is-mounted';
+import { useIsMounted } from '@lingsquare/misc/hooks/use-is-mounted';
 import { useSidebarToggle } from './hooks/use-layout-toggle';
-import { useStore } from './hooks/use-store';
+import { useStore } from '@lingsquare/misc/hooks/use-store';
 import Loading from '@/app/loading';
 
 function OpenMenuIcon() {

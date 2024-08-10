@@ -1,10 +1,11 @@
 "use client";
 
 import React, { forwardRef, useRef } from "react";
-
+import LandingLogo from "@/public/LandingLogo.png";
 import { cn } from "@lingsquare/misc/utils"
 import { AnimatedBeam } from "@/components/animated-beam";
 import { BentoGridInfo } from "./bento-grid-info";
+import Image from "next/image";
 
 const Circle = forwardRef<
     HTMLDivElement,
@@ -69,8 +70,14 @@ export function FeaturesBentoSix({
                         </Circle>
                     </div>
                     <div className="flex flex-col justify-center">
-                        <Circle ref={div6Ref} className="size-16">
-                            <Icons.openai />
+                        <Circle ref={div6Ref} className="size-20">
+                            <Image
+                                src={LandingLogo}
+                                alt="Landing Logo"
+                                width={80}
+                                height={100}
+                                priority
+                            />
                         </Circle>
                     </div>
                     <div className="flex flex-col justify-center">

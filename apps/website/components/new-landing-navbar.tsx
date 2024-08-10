@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar";
+import { Menu, MenuItem } from "./navbar";
 import { cn } from "@lingsquare/misc/utils"
 
 import LandingLogo from "../public/LandingLogo.png";

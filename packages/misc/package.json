@@ -8,7 +8,8 @@
   "exports": {
     "./utils": "./src/utils/index.ts",
     "./constants": "./src/constants/index.ts",
-    "./validators": "./src/validators/index.ts"
+    "./validators": "./src/validators/index.ts",
+    "./hooks/*": "./src/hooks/*.ts"
   },
   "author": "",
   "license": "ISC",
@@ -19,10 +20,14 @@
     "ts-fsrs": "^4.1.1",
     "zod": "^3.23.8",
     "tailwind-merge": "^2.4.0",
-    "clsx": "^2.1.1"
+    "clsx": "^2.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@lingsquare/eslint-config": "workspace:*",
-    "@lingsquare/typescript-config": "workspace:*"
+    "@lingsquare/typescript-config": "workspace:*",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "^18.3.0"
   }
 }

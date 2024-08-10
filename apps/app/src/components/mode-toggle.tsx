@@ -14,7 +14,7 @@ import {
 } from "@ui/components";
 
 import { cn } from "@lingsquare/misc/utils";
-import { useIsMounted } from "@/components/hooks/use-is-mounted";
+import { useIsMounted } from "@lingsquare/misc/hooks/use-is-mounted";
 
 export function ModeToggle({ collapsed }: { collapsed: boolean }) {
   const { setTheme, theme } = useTheme();
