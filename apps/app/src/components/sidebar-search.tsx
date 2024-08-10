@@ -20,7 +20,7 @@ const SidebarSearch = ({ isCollapsed }: { isCollapsed: boolean }) => {
             <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
             <Input
                 type="search"
-                placeholder="Search..."
+                placeholder="Search"
                 className="rounded-md bg-background pl-8 pr-1"
             />
             {!isCollapsed &&

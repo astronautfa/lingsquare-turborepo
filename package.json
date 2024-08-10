@@ -7,6 +7,7 @@
     "build": "turbo build",
     "start": "turbo start",
     "dev": "turbo dev --filter app",
+    "dev:website": "turbo dev --filter website",
     "dev:legacy": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -17,7 +18,7 @@
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^22.1.0",
+    "@types/node": "^22.2.0",
     "chokidar": "^3.6.0",
     "fs-extra": "^11.2.0",
     "globby": "^14.0.2",
@@ -33,7 +34,7 @@
     "turbo": "latest",
     "typescript": "^5.5.4"
   },
-  "packageManager": "pnpm@9.6.0",
+  "packageManager": "pnpm@9.7.0",
   "engines": {
     "node": ">=18"
   }

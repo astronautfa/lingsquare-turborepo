@@ -84,7 +84,7 @@ export function SidebarLayout({
           <Tooltip>
             <TooltipTrigger asChild className={cn('absolute z-10 transition-transform duration-100',
               layout?.isSidebarOpen ? '-right-1' : '-right-3',
-              layout?.isFullscreen ? '-right-[10px] bottom-[80px]' : 'bottom-[85px]',
+              layout?.isFullscreen ? '-right-[10px] bottom-[85px]' : 'bottom-[85px]',
               !isMounted() && '-right-1 bottom-[85px]')}>
               <Button className={'hover:scale-110 transition-all border flex'} variant={'collapse'} size={'collapse'} onClick={layout?.setIsFullscreen} >
                 {layout?.isFullscreen ?
@@ -120,9 +120,8 @@ export function SidebarLayout({
         </header>
 
         {/* Content */}
-        <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", layout?.isSidebarOpen ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', layout?.isFullscreen ? 'lg:pl-2 lg:pr-0 pb-1' : 'lg:pr-2 pb-2')}>
+        <main className={cn("flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out", layout?.isSidebarOpen ? 'lg:pl-[250px] ' : 'lg:pl-[66px]', layout?.isFullscreen ? 'lg:pl-1 lg:pr-0 pb-1' : 'lg:pr-2 pb-2')}>
           <div className={cn('lg:h-12 lg:flex items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', layout?.isFullscreen && 'lg:h-1 opacity-0 hidden')}>
-
             <div className="ml-auto flex-1 md:grow-0">
             </div>
             <HeaderIcons />

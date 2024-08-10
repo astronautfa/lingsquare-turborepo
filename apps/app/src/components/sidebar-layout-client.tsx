@@ -24,6 +24,7 @@ import { useIsMounted } from '@/components/hooks/use-is-mounted';
 import HeaderIcons from './header-icons';
 import { useSidebarToggle } from './hooks/use-layout-toggle';
 import { useStore } from './hooks/use-store';
+import Loading from '@/app/loading';
 
 function OpenMenuIcon() {
   return (
@@ -56,6 +57,8 @@ export function SidebarLayout({
   }, [theme, initBodyOverlayScrollbars])
 
   const isMounted = useIsMounted();
+
+  if (!layout) return <Loading />
 
   return (
     <OverlayScrollbarsComponent
