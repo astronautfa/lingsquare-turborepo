@@ -18,6 +18,7 @@ import France from "@/public/France.png"
 import Germany from "@/public/Germany.jpg"
 import Spain from "@/public/Spain.png"
 import Italy from "@/public/Italy.png"
+import { AnimatedBeamMultipleOutputDemo } from "./animated-beam";
 
 type BentoGridInfoType = {
   title?: string | React.ReactNode;
@@ -50,7 +51,7 @@ export const BentoGridItem = ({
   );
 };
 
-const BentoGridInfo = ({ title, description, icon }: BentoGridInfoType) => {
+export const BentoGridInfo = ({ title, description, icon }: BentoGridInfoType) => {
   return (
     <div className="absolute bottom-3 md:relative pt-1">
       <div className="group-hover/bento:translate-x-1 transition duration-200">
@@ -600,7 +601,7 @@ const items = [
         surfing.
       </span>
     ),
-    header: <SkeletonThree />,
+    header: <AnimatedBeamMultipleOutputDemo />,
     className: "md:col-span-2",
     // // icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },

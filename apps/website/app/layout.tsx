@@ -42,8 +42,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <SmoothScrollProvider>
+      <SmoothScrollProvider>
+        <body className={inter.className}>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
@@ -53,8 +53,8 @@ export default function RootLayout({
             <NextTopLoader color="#0369a1" showSpinner={false} />
             {children}
           </ThemeProvider>
-        </SmoothScrollProvider>
-      </body>
+        </body>
+      </SmoothScrollProvider>
     </html>
   );
 }

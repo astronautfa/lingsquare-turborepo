@@ -54,7 +54,7 @@ const LanguageBar = () => {
             "linear-gradient(106.89deg, rgba(14, 110, 233, 0.30) 15.74%,rgba(14, 165, 233, 0.30)  80.49%, rgba(14, 70, 229, 0.4) 115.91%)",
         }}
       />
-      <Globe className="top-0 opacity-60 z-0 absolute mt-10" />
+      <Globe className="top-0 opacity-50 z-0 absolute mt-10 hover:opacity-100 transition-opacity duration-1000" />
     </div>
   );
 };
