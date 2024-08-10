@@ -4,7 +4,12 @@ import LandingLogo from "@/public/LandingLogo.png";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-slate-50/100 select-none backdrop-blur-md shadow-inner ">
+    <footer className="border-gray-200 bg-white select-none backdrop-blur-md ">
+      <div className="relative flex justify-center">
+        <div
+          className="absolute inset-x-0 top-1/2 h-[1px] -translate-y-1/2 bg-transparent bg-gradient-to-r from-slate-50/100 via-sky-700 to-slate-50/100 opacity-30"
+        />
+      </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:justify-between items-center justify-center pb-6 pt-12 sm:flex-row sm:items-center sm:py-10">
           <div className="flex items-center text-gray-900">

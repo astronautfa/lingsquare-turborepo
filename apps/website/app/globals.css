@@ -279,3 +279,30 @@ h6.ce-header {
   padding: 1.3rem 0.5rem;
   margin-left: 0.8rem;
 }
+
+.curved {
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  height: 65vh;
+  left: 0%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.curved::after {
+  content: "";
+  border-top-left-radius: 70% 100%;
+  border-top-right-radius: 70% 100%;
+  border-width: 0; /* Removing border to rely solely on glow */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  height: 50%;
+  z-index: 5;
+  clip-path: inset(-40px 0 0 0);
+  box-shadow:
+    0 0 5px rgba(92, 172, 247, 0.386),
+    0 5px 10px rgba(89, 191, 234, 0.337); /* Glowing blue border effect */
+}

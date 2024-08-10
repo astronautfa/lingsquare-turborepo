@@ -2,7 +2,6 @@ import LandingHero from "./_components/hero";
 import LandingFeatures from "./_components/features";
 import LandingPricing from "./_components/pricing";
 import LanguageBar from "./_components/language-bar";
-import Changelog from "./_components/changelog";
 import LLMAnimation from "./_components/llm-demo";
 import LandingProgress from "./_components/progress";
 import { BentoFeaturesGrid } from "./_components/features-bento";
@@ -20,10 +19,9 @@ const LandingPage = () => {
       <Flashcards />
       <LandingFeatures />
       <LandingProgress />
-      <LanguageBar />
       <LandingPricing />
       <LandingBlog />
-      <Changelog />
+      <LanguageBar />
     </div>
   );
 };
