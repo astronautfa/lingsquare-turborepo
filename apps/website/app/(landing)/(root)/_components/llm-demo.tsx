@@ -111,6 +111,7 @@ export default function LLMAnimation() {
           changements positifs, avec le temps, ils deviendront de grandes
           <span
             className="text-slate-700"
+            ref={ref}
             style={{
               "padding": '5px',
               "borderRadius": "5px",
@@ -158,7 +159,7 @@ export default function LLMAnimation() {
           </motion.div>
         )}
       </div>
-      <div ref={ref}></div>
+      <div ref={ref} className="hidden lg:flex"></div>
     </div>
   );
 }

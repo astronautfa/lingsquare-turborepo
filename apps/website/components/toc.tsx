@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { cn, isArrayNotEmpty } from "@/lib/utils";
+import { isArrayNotEmpty } from "@/lib/utils";
+import { cn } from "@lingsquare/misc/utils";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -9,7 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "ui/components/ui/dropdown-menu";
+} from "@ui/components";
 
 
 type TocProps = {

@@ -25,7 +25,7 @@ const LanguageBar = () => {
         </p>
       </div>
 
-      <div className="z-10 mt-[420px] mb-20 max-w-6xl h-50 grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10 place-items-center mx-auto p-2">
+      <div className="z-10 mt-[200px] mb-20 max-w-6xl h-50 grid md:grid-cols-5 grid-cols-1 gap-y-10 place-items-center mx-auto p-2">
         <LanguageCard
           title="English"
           image={England}
@@ -55,7 +55,6 @@ const LanguageBar = () => {
         }}
       />
       <Globe className="top-1 opacity-50 z-5 absolute mt-10 hover:opacity-100 transition-opacity duration-1000" />
-      <div className="curved"></div>
     </div>
   );
 };

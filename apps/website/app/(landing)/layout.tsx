@@ -9,7 +9,7 @@ const Footer = dynamic(() => import("@/components/footer"), {
 const LandingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <Navbar />˝
+      <Navbar />
       {children}
       <Footer />
     </>

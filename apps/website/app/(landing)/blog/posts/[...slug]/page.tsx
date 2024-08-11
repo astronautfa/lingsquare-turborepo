@@ -4,12 +4,11 @@ import { Mdx } from "@/components/mdx-components";
 import TocDesktop, { TocMobile } from "@/components/toc";
 import { allPosts } from "@/.contentlayer/generated";
 import {
-  cn,
   formatDate,
-  // generateCommonMeta,
   isArrayNotEmpty,
 } from "@/lib/utils";
-import { Calendar, ArrowLeft } from "lucide-react";
+import { Calendar } from "lucide-react";
+import { cn } from "@lingsquare/misc/utils";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 

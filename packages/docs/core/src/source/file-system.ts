@@ -1,0 +1,106 @@
+import type { MetaData, PageData } from '@/source/types';
+import {
+  parseFilePath,
+  parseFolderPath,
+  splitPath,
+  type FileInfo,
+} from './path';
+
+export interface MetaFile {
+  file: FileInfo;
+  format: 'meta';
+  data: {
+    // TODO: Merge it into data (major)
+    data: MetaData;
+  };
+}
+
+export interface PageFile {
+  file: FileInfo;
+  format: 'page';
+  data: {
+    slugs: string[];
+    data: PageData;
+  };
+}
+
+export type File = MetaFile | PageFile;
+
+export interface Folder {
+  file: FileInfo;
+  children: (File | Folder)[];
+}
+
+/**
+ * A virtual file system that solves inconsistent behaviours
+ *
+ * Some source providers may not provide the full file structure, this will cause inconsistent outputs for page builder and other transformers
+ */
+export class Storage {
+  files = new Map<string, File>();
+  folders = new Map<string, Folder>();
+  private rootFolder: Folder = {
+    file: parseFolderPath(''),
+    children: [],
+  };
+
+  constructor() {
+    this.folders.set('', this.rootFolder);
+  }
+
+  /**
+   * @param path - flattened path
+   * @param format - file format
+   */
+  read<F extends File['format']>(
+    path: string,
+    format: F,
+  ): Extract<File, { format: F }> | undefined {
+    return this.files.get(`${path}.${format}`) as Extract<File, { format: F }>;
+  }
+
+  readDir(path: string): Folder | undefined {
+    return this.folders.get(path);
+  }
+
+  root(): Folder {
+    return this.rootFolder;
+  }
+
+  write<F extends File['format']>(
+    path: string,
+    format: F,
+    data: Extract<File, { format: F }>['data'],
+  ): void {
+    const node = {
+      format,
+      file: parseFilePath(path),
+      data,
+    } as File;
+
+    this.makeDir(node.file.dirname);
+    this.readDir(node.file.dirname)?.children.push(node);
+    this.files.set(`${node.file.flattenedPath}.${node.format}`, node);
+  }
+
+  list(): File[] {
+    return [...this.files.values()];
+  }
+
+  makeDir(path: string): void {
+    const segments = splitPath(path);
+
+    for (let i = 0; i < segments.length; i++) {
+      const segment = segments.slice(0, i + 1).join('/');
+      if (this.folders.has(segment)) continue;
+
+      const folder: Folder = {
+        file: parseFolderPath(segment),
+        children: [],
+      };
+
+      this.folders.set(folder.file.path, folder);
+      this.readDir(folder.file.dirname)?.children.push(folder);
+    }
+  }
+}

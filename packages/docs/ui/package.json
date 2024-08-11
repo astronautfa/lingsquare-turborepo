@@ -1,0 +1,142 @@
+{
+  "name": "@lingsquare/docs-ui",
+  "version": "13.1.0",
+  "description": "The framework for building a documentation website in Next.js",
+  "keywords": [
+    "NextJs",
+    "Docs"
+  ],
+  "homepage": "https://fumadocs.vercel.app",
+  "repository": "github:fuma-nama/fumadocs",
+  "license": "MIT",
+  "author": "Fuma Nama",
+  "type": "module",
+  "exports": {
+    "./style.css": "./dist/style.css",
+    "./twoslash.css": "./dist/twoslash.css",
+    "./image-zoom.css": "./dist/image-zoom.css",
+    "./tailwind-plugin": {
+      "import": "./dist/tailwind-plugin.js",
+      "types": "./dist/tailwind-plugin.d.ts",
+      "default": "./dist/tailwind-plugin.js"
+    },
+    "./components/*": {
+      "import": "./dist/components/*.js",
+      "types": "./dist/components/*.d.ts"
+    },
+    "./twoslash/*": {
+      "import": "./dist/twoslash/*.js",
+      "types": "./dist/twoslash/*.d.ts"
+    },
+    "./i18n": {
+      "import": "./dist/i18n.js",
+      "types": "./dist/i18n.d.ts"
+    },
+    "./layout": {
+      "import": "./dist/layout.js",
+      "types": "./dist/layout.d.ts"
+    },
+    "./home-layout": {
+      "import": "./dist/home-layout.js",
+      "types": "./dist/home-layout.d.ts"
+    },
+    "./page": {
+      "import": "./dist/page.js",
+      "types": "./dist/page.d.ts"
+    },
+    "./provider": {
+      "import": "./dist/provider.js",
+      "types": "./dist/provider.d.ts"
+    },
+    "./mdx": {
+      "import": "./dist/mdx.js",
+      "types": "./dist/mdx.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "tailwind-plugin": [
+        "./dist/tailwind-plugin.d.ts"
+      ],
+      "components/*": [
+        "./dist/components/*.d.ts"
+      ],
+      "twoslash/*": [
+        "./dist/twoslash/*.d.ts"
+      ],
+      "i18n": [
+        "./dist/i18n.d.ts"
+      ],
+      "layout": [
+        "./dist/layout.d.ts"
+      ],
+      "home-layout": [
+        "./dist/home-layout.d.ts"
+      ],
+      "page": [
+        "./dist/page.d.ts"
+      ],
+      "provider": [
+        "./dist/provider.d.ts"
+      ],
+      "mdx": [
+        "./dist/mdx.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "pnpm build:layout && pnpm build:tailwind",
+    "build:layout": "tsup",
+    "build:tailwind": "postcss css/*.css --dir dist",
+    "clean": "rimraf dist",
+    "dev": "concurrently \"pnpm dev:layout\" \"pnpm dev:tailwind\"",
+    "dev:layout": "tsup --watch",
+    "dev:tailwind": "postcss css/*.css --dir dist --watch",
+    "lint": "eslint .",
+    "types:check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lingsquare/docs-core": "workspace:*",
+    "@radix-ui/react-accordion": "^1.2.0",
+    "@radix-ui/react-collapsible": "^1.1.0",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-direction": "^1.1.0",
+    "@radix-ui/react-popover": "^1.1.1",
+    "@radix-ui/react-scroll-area": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.1.0",
+    "@tailwindcss/typography": "^0.5.13",
+    "class-variance-authority": "^0.7.0",
+    "cmdk": "^1.0.0",
+    "lucide-react": "^0.414.0",
+    "next-themes": "^0.3.0",
+    "react-medium-image-zoom": "^5.2.8",
+    "swr": "^2.2.5",
+    "tailwind-merge": "^2.4.0"
+  },
+  "devDependencies": {
+    "@algolia/client-search": "^4.24.0",
+    "@lingsquare/eslint-config": "workspace:*",
+    "@lingsquare/typescript-config": "workspace:*",
+    "@next/eslint-plugin-next": "^14.2.5",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "algoliasearch": "^4.24.0",
+    "next": "^14.2.5",
+    "postcss": "^8.4.39",
+    "postcss-cli": "^11.0.0",
+    "postcss-lightningcss": "^1.0.0",
+    "tailwindcss": "^3.4.6",
+    "tsup": "^8.2.4"
+  },
+  "peerDependencies": {
+    "next": ">= 14.1.0",
+    "react": ">= 18",
+    "react-dom": ">= 18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -7,32 +7,32 @@ import Germany from "@/public/Germany.jpg"
 import Spain from "@/public/Spain.png"
 import Italy from "@/public/Italy.png"
 
+const variants = {
+    initial: {
+        x: 0,
+    },
+    animate: {
+        x: 10,
+        rotate: 5,
+        transition: {
+            duration: 0.2,
+        },
+    },
+};
+const variantsSecond = {
+    initial: {
+        x: 0,
+    },
+    animate: {
+        x: -10,
+        rotate: -5,
+        transition: {
+            duration: 0.2,
+        },
+    },
+};
 
 export const FeaturesBentoOne = ({ title, description, icon }: BentoGridInfoType) => {
-    const variants = {
-        initial: {
-            x: 0,
-        },
-        animate: {
-            x: 10,
-            rotate: 5,
-            transition: {
-                duration: 0.2,
-            },
-        },
-    };
-    const variantsSecond = {
-        initial: {
-            x: 0,
-        },
-        animate: {
-            x: -10,
-            rotate: -5,
-            transition: {
-                duration: 0.2,
-            },
-        },
-    };
 
     return (
         <motion.div

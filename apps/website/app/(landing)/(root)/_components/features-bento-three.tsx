@@ -69,7 +69,7 @@ const fourth = {
 export const FeaturesBentoThree = ({ title, description, icon }: BentoGridInfoType) => {
     return (
         <motion.div initial="initial" animate="animate" whileHover="hover">
-            <div className="flex flex-1 w-full h-3/4 mb-3 min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2">
+            <div className="flex flex-1 justify-center items-center w-full h-3/4 mb-3 min-h-[6rem] dark:bg-dot-white/[0.2] bg-dot-black/[0.2] flex-row space-x-2">
                 <motion.div
                     variants={first}
                     className="relative h-full w-1/3 rounded-2xl bg-white p-4 border border-neutral-200 flex flex-col items-center justify-center"
@@ -91,7 +91,7 @@ export const FeaturesBentoThree = ({ title, description, icon }: BentoGridInfoTy
                         New
                     </motion.p>
                 </motion.div>
-                <motion.div variants={zero} className="relative h-full z-20 w-1/3 rounded-2xl bg-white p-4 border border-neutral-200 flex flex-col items-center justify-center">
+                <motion.div variants={zero} className="hidden lg:flex relative h-full z-20 w-1/3 rounded-2xl bg-white p-4 border border-neutral-200 flex-col items-center justify-center">
                     <motion.p variants={fourth} className="absolute sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
                         Le succès de chaque contrat{" "}
                         <span className=" bg-yellow-300/50 text-black p-0.5 rounded">

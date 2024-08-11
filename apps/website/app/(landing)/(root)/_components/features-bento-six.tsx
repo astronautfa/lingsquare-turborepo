@@ -81,7 +81,7 @@ export function FeaturesBentoSix({
                         </Circle>
                     </div>
                     <div className="flex flex-col justify-center">
-                        <Circle ref={div7Ref}>
+                        <Circle ref={div7Ref} >
                             <Icons.user />
                         </Circle>
                     </div>
@@ -108,6 +108,7 @@ export function FeaturesBentoSix({
                     toRef={div6Ref}
                 />
                 <AnimatedBeam
+                    className="hidden lg:flex"
                     containerRef={containerRef}
                     fromRef={div6Ref}
                     toRef={div7Ref}

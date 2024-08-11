@@ -5,3 +5,4 @@ packages:
   - "packages/dockview/*"
   - "packages/notifications/*"
   - "packages/vidstack/*"
+  - "packages/docs/*"

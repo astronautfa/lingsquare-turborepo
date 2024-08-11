@@ -1,11 +1,16 @@
 import type { Config } from "tailwindcss";
+import { createPreset } from '@lingsquare/docs-ui/tailwind-plugin';
 
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './content/**/*.{md,mdx}',
+    './mdx-components.{ts,tsx}',
+    './node_modules/@lingsquare/docs-ui/dist/**/*.js',
   ],
+  presets: [createPreset()],
   theme: {
     extend: {
       lineClamp: {
