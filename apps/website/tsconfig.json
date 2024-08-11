@@ -21,8 +21,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@ui/components": ["../../packages/ui/src/components/index.ts"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "@ui/components": ["../../packages/ui/src/components/index.ts"]
     }
   },
   "include": [
@@ -30,7 +29,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated"
   ],
   "exclude": ["node_modules"]
 }

@@ -7,7 +7,6 @@ import LandingProgress from "./_components/progress";
 import { BentoFeaturesGrid } from "./_components/features-bento";
 import NlpFeatures from "./_components/nlp-features";
 import Flashcards from "./_components/flashcards";
-import LandingBlog from "./_components/blog";
 
 const LandingPage = () => {
   return (
@@ -20,7 +19,6 @@ const LandingPage = () => {
       <LandingFeatures />
       <LandingProgress />
       <LandingPricing />
-      <LandingBlog />
       <LanguageBar />
     </div>
   );
