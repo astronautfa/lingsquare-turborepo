@@ -1,30 +1,10 @@
 "use client";
 
-import {
-  FiCheckSquare,
-  FiChevronRight,
-  FiCommand,
-  FiInfo,
-  FiPlus,
-  FiSearch,
-  FiTerminal,
-  FiZap,
-} from "react-icons/fi";
-import { RiGraduationCapLine } from "react-icons/ri";
 import { useState, type FC, type ReactElement } from "react";
-import { cn } from "@lingsquare/misc/utils"
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  MdKeyboardCapslock,
-  MdOutlineDownloading,
-  MdOutlineDraw,
-} from "react-icons/md";
+
 import Link from "next/link";
-import { SiCss3, SiTailwindcss } from "react-icons/si";
-import { LuPaintbrush } from "react-icons/lu";
-import { BiLayer } from "react-icons/bi";
-import { TbExternalLink } from "react-icons/tb";
-import { RxDiscordLogo } from "react-icons/rx";
+
 import { useKmenu } from "kmenu";
 
 export type Item = {
@@ -33,7 +13,7 @@ export type Item = {
 };
 
 type Page = {
-  icon: ReactElement;
+  icon?: ReactElement;
   name: string;
   href?: string;
 };
@@ -43,15 +23,15 @@ export const items: Item[] = [
     category: "Start guide",
     pages: [
       {
-        icon: <FiInfo />,
+        // icon: <FiInfo />,
         name: "What is kmenu?",
       },
       {
-        icon: <RiGraduationCapLine />,
+        // icon: <RiGraduationCapLine />,
         name: "Guides and tutorials",
       },
       {
-        icon: <FiZap />,
+        // icon: <FiZap />,
         name: "Getting started",
       },
     ],
@@ -60,15 +40,15 @@ export const items: Item[] = [
     category: "Commands",
     pages: [
       {
-        icon: <FiPlus />,
+        // icon: <FiPlus />,
         name: "Adding commands",
       },
       {
-        icon: <MdKeyboardCapslock />,
+        // icon: <MdKeyboardCapslock />,
         name: "Keyboard shortcuts",
       },
       {
-        icon: <MdOutlineDraw />,
+        // icon: <MdOutlineDraw />,
         name: "Commands example",
       },
     ],
@@ -77,15 +57,15 @@ export const items: Item[] = [
     category: "Customization",
     pages: [
       {
-        icon: <SiCss3 />,
+        // icon: <SiCss3 />,
         name: "With CSS",
       },
       {
-        icon: <SiTailwindcss />,
+        // icon: <SiTailwindcss />,
         name: "With Tailwind CSS",
       },
       {
-        icon: <LuPaintbrush />,
+        // icon: <LuPaintbrush />,
         name: "Theming",
       },
     ],
@@ -94,11 +74,11 @@ export const items: Item[] = [
     category: "Hooks",
     pages: [
       {
-        icon: <FiCommand />,
+        // icon: <FiCommand />,
         name: "useKmenu hook",
       },
       {
-        icon: <FiTerminal />,
+        // icon: <FiTerminal />,
         name: "useCommands hook",
       },
     ],
@@ -107,15 +87,15 @@ export const items: Item[] = [
     category: "Features",
     pages: [
       {
-        icon: <BiLayer />,
+        // icon: <BiLayer />,
         name: "Nested Menus",
       },
       {
-        icon: <FiCheckSquare />,
+        // icon: <FiCheckSquare />,
         name: "Checkboxes",
       },
       {
-        icon: <MdOutlineDownloading />,
+        // icon: <MdOutlineDownloading />,
         name: "Loading states",
       },
     ],
@@ -124,12 +104,12 @@ export const items: Item[] = [
     category: "Other",
     pages: [
       {
-        icon: <TbExternalLink />,
+        // icon: <TbExternalLink />,
         name: "Examples",
         href: "https://github.com/harshhhdev/kmenu/blob/master/apps/examples/examples/",
       },
       {
-        icon: <TbExternalLink />,
+        // icon: <TbExternalLink />,
         name: "Types",
         href: "https://github.com/harshhhdev/kmenu/blob/master/packages/kmenu/src/types.ts",
       },
@@ -151,7 +131,7 @@ export default () => {
       <div className="flex h-full flex-col">
         <div className="mt-6 flex items-center justify-between px-4">
           <header className="flex items-center text-slate-900 dark:text-slate-50">
-            <FiCommand className="mb-0.5 mr-1.5" strokeWidth={3} />
+            {/* <FiCommand className="mb-0.5 mr-1.5" strokeWidth={3} /> */}
             <Link href="/">
               <h2 className="font-semibold">kmenu</h2>
             </Link>
@@ -174,7 +154,7 @@ export default () => {
             onClick={() => setOpen(2)}
           >
             <div className="mr-12 flex items-center text-slate-400 dark:text-slate-500">
-              <FiSearch className="mr-2 text-slate-300 dark:text-slate-500" />
+              {/* <FiSearch className="mr-2 text-slate-300 dark:text-slate-500" /> */}
               Quick search...
             </div>
             <kbd className="font-sans text-slate-400 dark:text-slate-500">
@@ -198,7 +178,7 @@ export default () => {
           target="_blank"
           rel="noreferrer"
         >
-          <RxDiscordLogo strokeWidth={0.5} className="mr-2" />
+          {/* <RxDiscordLogo strokeWidth={0.5} className="mr-2" /> */}
           Join Discord
         </a>
         <a
@@ -207,7 +187,7 @@ export default () => {
           target="_blank"
           rel="noreferrer"
         >
-          <FiPlus className="mr-2" strokeWidth={2} />
+          {/* <FiPlus className="mr-2" strokeWidth={2} /> */}
           Create issue
         </a>
       </div>
@@ -225,9 +205,9 @@ export const Section: FC<Item> = ({ category, pages }) => {
         onClick={() => setOpen((open) => !open)}
       >
         {category}
-        <FiChevronRight
+        {/* <FiChevronRight
           className={cn("mt-0.5 transition-transform", open && "rotate-90")}
-        />
+        /> */}
       </li>
       <AnimatePresence initial={false}>
         {open && (

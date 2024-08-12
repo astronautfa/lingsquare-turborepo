@@ -15,7 +15,7 @@ import {
 } from "@ui/components";
 import { resetPassword } from "@lingsquare/auth/actions";
 import { cn } from "@lingsquare/misc/utils";
-import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
+import { ExclamationTriangleRegular } from "@ui/icons";
 
 export function ResetPassword({ token, className }: { token: string, className?: string }) {
 
@@ -24,7 +24,7 @@ export function ResetPassword({ token, className }: { token: string, className?:
   useEffect(() => {
     if (state?.error) {
       toast(state.error, {
-        icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
+        icon: <ExclamationTriangleRegular className="h-5 w-5 text-destructive" />,
       });
     }
   }, [state?.error]);
@@ -56,7 +56,7 @@ export function ResetPassword({ token, className }: { token: string, className?:
             />
             {state?.error && (
               <div className="mt-4 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
-                <ExclamationTriangleIcon className="w-5 h-5" />
+                <ExclamationTriangleRegular className="w-5 h-5" />
                 <p className="">
                   {state?.error}
                 </p>

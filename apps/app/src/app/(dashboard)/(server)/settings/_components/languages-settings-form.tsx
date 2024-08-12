@@ -32,8 +32,8 @@ import {
 
 import { toast } from "sonner"
 import { languages } from "@lingsquare/misc/constants"
-import { Check, ChevronsUpDown, PlusIcon } from "lucide-react"
-import { TrashIcon } from "@heroicons/react/20/solid"
+import { CheckRegular, ChevronDownRegular, PlusRegular } from "@ui/icons"
+import { TrashRegular } from "@ui/icons"
 
 const languageSettingsFormSchema = z.object({
     studyingLanguages: z.array(
@@ -121,7 +121,7 @@ export function LanguageSettingsForm() {
                                                                 (language) => language.code === field.value
                                                             )?.name
                                                             : "Select language"}
-                                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                                        <ChevronDownRegular className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                                     </Button>
                                                 </FormControl>
                                             </PopoverTrigger>
@@ -139,7 +139,7 @@ export function LanguageSettingsForm() {
                                                                         form.setValue(`nativeLanguages.${index}.value`, language.code)
                                                                     }}
                                                                 >
-                                                                    <Check
+                                                                    <CheckRegular
                                                                         className={cn(
                                                                             "mr-2 h-4 w-4",
                                                                             language.code === field.value
@@ -171,7 +171,7 @@ export function LanguageSettingsForm() {
                                 <Tooltip>
                                     <TooltipTrigger>
                                         <Button size='icon' variant='outline' onClick={() => removeNativeLanguage(index)} >
-                                            <TrashIcon className="w-4 h-4 text-destructive" />
+                                            <TrashRegular className="w-4 h-4 text-destructive" />
                                         </Button>
                                     </TooltipTrigger>
                                     <TooltipContent>
@@ -189,7 +189,7 @@ export function LanguageSettingsForm() {
                                 appendNativeLanguage({ value: "" })
                             }}
                         >
-                            <PlusIcon className='w-4 h-4 mr-1' />
+                            <PlusRegular className='w-4 h-4 mr-1' />
                             Native Language
                         </Button>
                     </div>
@@ -223,7 +223,7 @@ export function LanguageSettingsForm() {
                                                                 (language) => language.code === field.value
                                                             )?.name
                                                             : "Select language"}
-                                                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                                        <ChevronDownRegular className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                                     </Button>
                                                 </FormControl>
                                             </PopoverTrigger>
@@ -241,7 +241,7 @@ export function LanguageSettingsForm() {
                                                                         form.setValue(`studyingLanguages.${index}.value`, language.code)
                                                                     }}
                                                                 >
-                                                                    <Check
+                                                                    <CheckRegular
                                                                         className={cn(
                                                                             "mr-2 h-4 w-4",
                                                                             language.code === field.value
@@ -276,7 +276,7 @@ export function LanguageSettingsForm() {
                                             console.log(index)
                                             removeStudyingLanguage(index)
                                         }} >
-                                            <TrashIcon className="w-4 h-4 text-destructive" />
+                                            <TrashRegular className="w-4 h-4 text-destructive" />
                                         </Button>
                                     </TooltipTrigger>
                                     <TooltipContent>
@@ -293,7 +293,7 @@ export function LanguageSettingsForm() {
                             size="sm"
                             onClick={() => appendStudyingLanguage({ value: "" })}
                         >
-                            <PlusIcon className='w-4 h-4 mr-1' />
+                            <PlusRegular className='w-4 h-4 mr-1' />
                             Studying Language
                         </Button>
                     </div>

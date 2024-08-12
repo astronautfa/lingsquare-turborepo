@@ -131,14 +131,6 @@ const config: Config = {
             pointerEvents: "auto",
           },
         },
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
         shimmer: {
           from: {
             backgroundPosition: "0 0",
@@ -149,8 +141,6 @@ const config: Config = {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
         shimmer: "shimmer 2s linear infinite",
         "card-visible-md": "card-visible-md 0.8s ease-in-out forwards",
         "card-hidden-md": "card-on-stack-md 0.8s ease-in-out forwards",

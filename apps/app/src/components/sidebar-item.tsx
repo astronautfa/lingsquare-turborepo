@@ -1,9 +1,9 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { default as React } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import React from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import {
     buttonVariants,
@@ -11,11 +11,10 @@ import {
     Tooltip,
     TooltipContent,
     TooltipTrigger,
-} from "@ui/components"
+} from "@ui/components";
 
-import { HidableSidebarLabel } from '@ui/components'
-
-import { cn } from "@lingsquare/misc/utils"
+import { HidableSidebarLabel } from '@ui/components';
+import { cn } from "@lingsquare/misc/utils";
 
 const classes = cn(
     // Base
@@ -37,25 +36,31 @@ const classes = cn(
     'dark:data-[hover]:bg-white/5 dark:data-[slot=icon]:*:data-[hover]:fill-white',
     'dark:data-[active]:bg-white/5 dark:data-[slot=icon]:*:data-[active]:fill-white',
     'dark:data-[slot=icon]:*:data-[current]:fill-white'
-)
+);
+interface SidebarItemProps {
+    collapsed: boolean;
+    href: string;
+    label: string;
+    selectedIcon: React.ReactNode;
+    regularIcon: React.ReactNode;
+    children?: React.ReactNode;
+}
 
-export const SidebarItem = React.forwardRef(function SidebarItem(
-    {
-        collapsed,
-        label,
-        className,
-        children,
-        ...props
-    }: { collapsed: boolean, label: string, className?: string; children: React.ReactNode } & (
-        | Omit<ButtonProps, 'className'>
-        | Omit<React.ComponentPropsWithoutRef<typeof Link>, 'type' | 'className'>
-    ),
-    ref: React.ForwardedRef<HTMLDivElement>
-) {
-    const pathname = usePathname()
+const SidebarItem: React.FC<SidebarItemProps> = ({
+    collapsed,
+    href,
+    label,
+    selectedIcon,
+    regularIcon,
+    children,
+}) => {
+    const pathname = usePathname(); // Correct way to retrieve pathname
+    const ref = React.useRef<HTMLDivElement>(null);
+
+    const selected = href.toString().split('/')[1] === pathname.split('/')[1]
     return (
-        <span className={cn(className, 'relative')}>
-            {'href' in props && props.href.toString().split('/')[1] === pathname.split('/')[1] &&
+        <span className="relative">
+            {selected && (
                 <motion.span
                     transition={{
                         layout: {
@@ -66,41 +71,35 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
                     layoutId="indicator"
                     className="absolute inset-y-2 -left-3 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
                 />
-            }
+            )}
             <Tooltip>
                 <TooltipTrigger className='w-full'>
-                    {'href' in props ? (
-                        <Link href={props.href} >
-                            <div
-                                className={cn(classes, buttonVariants({ variant: "nav", size: 'sm' }), 'pl-[10px]')}
-                                data-current={props.href.toString().split('/')[1] === pathname.split('/')[1] ? 'true' : undefined}
-                                ref={ref}
-                            >
-                                {children}
-                                <HidableSidebarLabel collapsed={collapsed}>
-                                    {label}
-                                </HidableSidebarLabel>
-                            </div>
-                        </Link>
-                    ) : (
+                    <Link href={href}>
                         <div
-                            className={cn(classes, buttonVariants({ variant: "nav", size: 'sm' }), 'pl-[10px]')}
-                            data-current={undefined}
+                            className={cn(classes, buttonVariants({
+                                variant: "nav", size: 'sm'
+                            }), 'pl-[10px]')}
+                            data-current={selected ? 'true' : undefined}
                             ref={ref}
                         >
+                            <div className={'text-muted-foreground'}>
+                                {selected ? selectedIcon : regularIcon}
+                            </div>
                             {children}
                             <HidableSidebarLabel collapsed={collapsed}>
                                 {label}
                             </HidableSidebarLabel>
                         </div>
-                    )}
+                    </Link>
                 </TooltipTrigger>
-                {collapsed &&
+                {collapsed && (
                     <TooltipContent side='right'>
                         <p>{label}</p>
                     </TooltipContent>
-                }
+                )}
             </Tooltip>
         </span>
-    )
-})
+    );
+};
+
+export default SidebarItem;

@@ -4,6 +4,8 @@ import LandingNavbar from "@/components/new-landing-navbar";
 import ExpandingArrow from "@/components/expanding-arrow";
 import { Layout, MessageCircle, Text } from "lucide-react";
 
+// TODO : Remove lucide-react and react-icons
+
 const links = [
   { title: 'Dashboard', description: 'Your user dashboard', icon: Layout, href: 'https://app.lingsquare.com' },
   { title: 'Blog', description: 'Read our latest news and articles', icon: Text, href: '/blog' },

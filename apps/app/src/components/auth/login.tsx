@@ -18,7 +18,7 @@ import {
 import { login } from "@lingsquare/auth/actions"
 import { cn } from "@lingsquare/misc/utils";
 import { Paths } from "@lingsquare/misc/constants"
-import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
+import { ExclamationTriangleRegular } from "@ui/icons";
 
 // TODO : add login with google
 
@@ -67,14 +67,14 @@ export function Login({ className, modal }: { className?: string, modal?: boolea
             <ul className="space-y-1 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive">
               {Object.values(state.fieldError).map((err) => (
                 <li className="gap-2 justify-start ml-1 items-center flex" key={err}>
-                  <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />
+                  <ExclamationTriangleRegular className="h-5 w-5 text-destructive" />
                   {err}
                 </li>
               ))}
             </ul>
           ) : state?.formError && (
             <div className="rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
-              <ExclamationTriangleIcon className="w-5 h-5" />
+              <ExclamationTriangleRegular className="w-5 h-5" />
               <p className="">
                 {state?.formError}
               </p>

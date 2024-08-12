@@ -8,7 +8,7 @@ import {
     Input
 } from '@ui/components';
 
-import { Search } from 'lucide-react'
+import { SearchRegular } from '@ui/icons';
 import { MenuContext } from 'kmenu';
 
 const SidebarSearch = ({ isCollapsed }: { isCollapsed: boolean }) => {
@@ -17,11 +17,11 @@ const SidebarSearch = ({ isCollapsed }: { isCollapsed: boolean }) => {
 
     return (
         <div className='relative mb-2 cursor-pointer select-none' onClick={() => setOpen(1)}>
-            <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+            <SearchRegular className="absolute left-3 top-3 h-4 w-4 text-muted-foreground hover:text-primary" />
             <Input
                 type="search"
                 placeholder="Search"
-                className="rounded-md bg-background pl-8 pr-1"
+                className="rounded-md bg-background pl-8 pr-1 cursor-pointer"
             />
             {!isCollapsed &&
                 <AnimatePresence>

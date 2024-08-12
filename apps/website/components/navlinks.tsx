@@ -4,11 +4,12 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import clsx from "clsx";
+import { cn } from "@lingsquare/misc/utils";
 
 const navLinks = [
   { label: "Features", href: "/" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Docs", href: "/docs" },
   { label: "FAQs", href: "/faqs" },
   { label: "Blog", href: "/blog" },
   { label: "Legal", href: "/legal" },
@@ -51,7 +52,7 @@ export const NavLinks = ({ layoutId }: { layoutId: string }) => {
                 )}
               </AnimatePresence>
               <span
-                className={clsx(
+                className={cn(
                   (pathname !== "/" && pathname === href) ||
                     pathname?.startsWith(`${href}/`)
                     ? " text-sky-800 font-semibold"

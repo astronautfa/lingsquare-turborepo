@@ -1,5 +1,3 @@
-import { LucideText } from "lucide-react";
-import { BsYoutube, BsBookHalf } from "react-icons/bs";
 import { ExpandingArrow } from "@ui/components"
 import Link from "next/link";
 
@@ -8,20 +6,17 @@ const items = [
     name: "Youtube Lesson",
     description: "Import your favourite Youtube videos to start learning",
     href: "/import/new-youtube",
-    icon: BsYoutube,
   },
   {
     name: "Text Lesson",
     description:
       "Import a text lesson to take advantage of LingSquare features",
     href: "/import/new-text",
-    icon: LucideText,
   },
   {
     name: "Ebook",
     description: "Read your favourite epub locally right in the browser",
     href: "/import/new-book",
-    icon: BsBookHalf,
   },
 ];
 
@@ -45,10 +40,10 @@ export default function EmptyState() {
                 <div className="group relative flex items-start space-x-3 py-4 backdrop-blur-md ">
                   <div className="flex-shrink-0">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-muted transition-colors duration-400">
-                      <item.icon
+                      {/* <item.icon
                         className="h-4 w-4 text-muted-foreground group-hover:text-inherit"
                         aria-hidden="true"
-                      />
+                      /> */}
                     </span>
                   </div>
                   <div className="min-w-0 flex-1 ">

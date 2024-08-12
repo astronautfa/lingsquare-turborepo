@@ -12,8 +12,7 @@ import {
   Separator,
   Button
 } from "@ui/components"
-import { PlusIcon } from "@heroicons/react/20/solid"
-
+import { PlusRegular } from "@ui/icons"
 interface AccountSwitcherProps {
   isCollapsed: boolean
   learningLanguages: {
@@ -77,8 +76,8 @@ export function AccountSwitcher({
             </span>
           </div>))}
         <Separator className="my-1" />
-        <Button variant={'nav'} size={'sm'} className="w-full flex justify-items-start pl-2.5 font-normal">
-          <PlusIcon width={18} height={18} className="mr-2.5" />
+        <Button variant={'nav'} size={'sm'} className="w-full flex justify-items-start pl-2.5 font-normal text-muted-foreground hover:text-primary">
+          <PlusRegular width={18} height={18} className="mr-2.5" />
           <span>
             Add a new language
           </span>

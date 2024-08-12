@@ -18,8 +18,8 @@ import {
 import { signup } from "@lingsquare/auth/actions";
 import { cn } from "@lingsquare/misc/utils";
 import { Paths } from "@lingsquare/misc/constants"
-import ExclamationTriangleIcon from "@heroicons/react/20/solid/ExclamationTriangleIcon";
 import { useState } from "react";
+import { ExclamationTriangleRegular } from "@ui/icons";
 
 // TODO : Repeat password error
 
@@ -73,14 +73,14 @@ export function Signup({ className, modal }: { className?: string, modal?: boole
             <ul className="list-disc space-y-1 rounded-lg border bg-destructive/10 p-3 text-[0.8rem] font-medium text-destructive">
               {Object.values(state.fieldError).map((err) => (
                 <li className="gap-2 items-center flex ml-1" key={err}>
-                  <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />
+                  <ExclamationTriangleRegular className="h-5 w-5 text-destructive" />
                   {err}
                 </li>
               ))}
             </ul>
           ) : state?.formError && (
             <div className="rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
-              <ExclamationTriangleIcon className="w-5 h-5" />
+              <ExclamationTriangleRegular className="w-5 h-5" />
               <p className="">
                 {state?.formError}
               </p>

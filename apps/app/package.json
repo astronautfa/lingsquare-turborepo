@@ -10,7 +10,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@heroicons/react": "^2.1.5",
     "@hookform/resolvers": "^3.9.0",
     "@lingsquare/auth": "workspace:*",
     "@lingsquare/dockview": "workspace:*",
@@ -28,7 +27,6 @@
     "framer-motion": "^11.3.24",
     "kmenu": "workspace:*",
     "lucia": "^3.2.0",
-    "lucide-react": "^0.427.0",
     "next": "^14.2.5",
     "next-intl": "^3.17.2",
     "next-themes": "^0.3.0",
@@ -37,7 +35,6 @@
     "react": "19.0.0-rc-df5f2736-20240712",
     "react-dom": "19.0.0-rc-df5f2736-20240712",
     "react-hook-form": "^7.52.2",
-    "react-icons": "^5.2.1",
     "server-only": "^0.0.1",
     "sonner": "^1.5.0",
     "superjson": "^2.2.1",

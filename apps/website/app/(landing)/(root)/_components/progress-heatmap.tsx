@@ -116,7 +116,7 @@ const LandingProgressHeatmap = () => {
     return (
         <TooltipProvider>
             <div className='relative md:px-6 px-4 py-3 flex justify-center items-center h-40' >
-                <div className='absolute opacity-0 lg:opacity-100 mt-14'>
+                <div className='absolute hidden lg:flex mt-14'>
                     <ActivityCalendar data={data} showWeekdayLabels colorScheme='light' renderBlock={(block, activity) => (
                         <Tooltip>
                             <TooltipTrigger asChild>
@@ -128,7 +128,7 @@ const LandingProgressHeatmap = () => {
                         </Tooltip>
                     )} />
                 </div>
-                <div className='absolute opacity-100 lg:opacity-0'>
+                <div className='absolute flex lg:hidden'>
                     <ActivityCalendar data={data2} showWeekdayLabels colorScheme='light' renderBlock={(block, activity) => (
                         <Tooltip>
                             <TooltipTrigger asChild>

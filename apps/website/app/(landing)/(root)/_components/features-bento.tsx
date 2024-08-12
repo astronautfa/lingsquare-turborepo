@@ -17,7 +17,7 @@ import { BentoGridItem } from "./bento-grid-item";
 import { cn } from "@lingsquare/misc/utils";
 import { BentoGridInfo, BentoGridInfoType } from "./bento-grid-info";
 
-export function BentoFeaturesGrid() {
+export default function BentoFeaturesGrid() {
 
   const [bentoRef, inView] = useInView();
   const [loading, setLoading] = useState<boolean>(false)
@@ -113,7 +113,6 @@ const items = [
     ),
     header: <FeaturesBentoOne />,
     className: "md:col-span-1",
-    // icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Powerful Context Aware Lookup",
@@ -125,7 +124,6 @@ const items = [
     ),
     header: <FeaturesBentoTwo />,
     className: "md:col-span-1",
-    // icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Optimum Review Strategy",
@@ -137,7 +135,6 @@ const items = [
     ),
     header: <FeaturesBentoFive />,
     className: "md:col-span-1",
-    // // icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Seamless Flashcards",
@@ -150,7 +147,6 @@ const items = [
     ),
     header: <FeaturesBentoThree />,
     className: "md:col-span-2",
-    // // icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Listen to your text",
@@ -174,7 +170,6 @@ const items = [
     ),
     header: <SkeletonSeven />,
     className: "md:col-span-1",
-    // // icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Powerful Extension",
@@ -187,6 +182,5 @@ const items = [
     ),
     header: <FeaturesBentoSix />,
     className: "md:col-span-2",
-    // // icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
 ];

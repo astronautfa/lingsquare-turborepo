@@ -3,12 +3,8 @@ import { Metadata } from "next"
 import { SeparatorGradient } from "@ui/components"
 import { SidebarNav } from "./_components/sidebar-nav"
 
-import {
-  CreditCard,
-  User,
-} from "lucide-react"
+import { BellRegular, BellSolid, CreditCardRegular, CreditCardSolid, DesktopRegular, DesktopSolid, LanguageRegular, LanguageSolid, UserRegular, UserSolid } from "@ui/icons"
 
-import { ComputerDesktopIcon, BellIcon, LanguageIcon } from "@heroicons/react/20/solid"
 import { siteConfig } from "@lingsquare/misc/constants"
 
 export const metadata: Metadata = {
@@ -23,27 +19,27 @@ const sidebarNavItems = [
   {
     title: "Personal",
     href: "/settings",
-    icon: <User className="mr-4 h-5 w-5" />
+    icons: { regular: <UserRegular className="mr-4 h-4 w-4" />, selected: <UserSolid className="mr-4 h-4 w-4" /> }
   },
   {
     title: "Languages",
     href: "/settings/languages",
-    icon: <LanguageIcon className="mr-4 h-5 w-5" />
+    icons: { regular: <LanguageRegular className="mr-4 h-4 w-4" />, selected: <LanguageSolid className="mr-4 h-4 w-4" /> }
   },
   {
     title: "Display",
     href: "/settings/display",
-    icon: <ComputerDesktopIcon className="mr-4 h-5 w-5" />
+    icons: { regular: <DesktopRegular className="mr-4 h-4 w-4" />, selected: <DesktopSolid className="mr-4 h-4 w-4" /> }
   },
   {
     title: "Notifications",
     href: "/settings/notifications",
-    icon: <BellIcon className="mr-4 h-5 w-5" />
+    icons: { regular: <BellRegular className="mr-4 h-4 w-4" />, selected: <BellSolid className="mr-4 h-4 w-4" /> }
   },
   {
     title: "Billing",
     href: "/settings/billing",
-    icon: <CreditCard className="mr-4 h-5 w-5" />
+    icons: { regular: <CreditCardRegular className="mr-4 h-4 w-4" />, selected: <CreditCardSolid className="mr-4 h-4 w-4" /> }
   }
 ]
 
@@ -60,8 +56,8 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
           Manage your account settings and set your preferences.
         </p>
       </div>
-      <SeparatorGradient/>
-      <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0 overflow-y-auto">
+      <SeparatorGradient />
+      <div className="px-2 flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0 overflow-y-auto">
         <aside className="lg:w-1/5">
           <SidebarNav items={sidebarNavItems} />
         </aside>

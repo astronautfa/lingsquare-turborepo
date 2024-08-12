@@ -10,22 +10,11 @@ import {
 } from "kmenu";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
-import {
-  FiCommand,
-  FiLink,
-  FiMoon,
-  FiPlus,
-  FiSearch,
-  FiSun,
-  FiTerminal,
-  FiZap,
-} from "react-icons/fi";
-import { HiOutlineDesktopComputer } from "react-icons/hi";
-import { TbFishHook, TbMoonStars, TbPaint, TbPower } from "react-icons/tb";
+
 import { Item, items, slugify } from "./sidebar-kmenu";
-import { ClockIcon, AcademicCapIcon, MagnifyingGlassIcon, PlusIcon, BookOpenIcon } from "@heroicons/react/20/solid";
 import { ScrollArea } from "@ui/components"
 import { useCallback, useMemo } from "react";
+import { BooksRegular, ExploreRegular, HistoryRegular, ImportRegular, ReviewRegular } from "@ui/icons";
 
 export default () => {
   const router = useRouter();
@@ -71,45 +60,45 @@ export default () => {
       category: "Navigation",
       commands: [
         {
-          icon: <BookOpenIcon />,
+          icon: <BooksRegular />,
           text: "Library",
           perform: () => router.push("/library"),
           closeOnComplete: true,
           keywords: ["back"],
         },
         {
-          icon: <PlusIcon />,
+          icon: <ImportRegular />,
           text: "Import",
           perform: () => router.push("/import"),
           closeOnComplete: true,
           keywords: ['text', 'podcast', 'youtube'],
         },
         {
-          icon: <MagnifyingGlassIcon />,
+          icon: <ExploreRegular />,
           text: "Explore",
           perform: () => router.push("/"),
           closeOnComplete: true,
           keywords: ["back"],
         },
         {
-          icon: <AcademicCapIcon />,
+          icon: <ReviewRegular />,
           text: "Study",
           perform: () => router.push("/study"),
           closeOnComplete: true,
           keywords: ["back"],
         },
         {
-          icon: <ClockIcon />,
+          icon: <HistoryRegular />,
           text: "History",
           perform: () => router.push("/history"),
           closeOnComplete: true,
           keywords: ["back"],
         },
         {
-          icon: <FiSearch />,
+          // icon: <FiSearch />,
           text: "Search Documentation...",
           perform: () => setOpen(2),
-          shortcuts: { modifier: <FiCommand />, keys: ["E"] },
+          shortcuts: { modifier: <>⌘</>, keys: ["E"] },
           keywords: [
             "commands",
             "tutorial",
@@ -129,13 +118,13 @@ export default () => {
       category: "Utility",
       commands: [
         {
-          icon: <TbMoonStars />,
+          // icon: <TbMoonStars />,
           text: "Set Theme...",
           perform: () => setOpen(3),
           keywords: ["dark", "mode", "light"],
         },
         {
-          icon: <FiLink />,
+          // icon: <FiLink />,
           text: "Copy URL",
           perform: () =>
             navigator.clipboard.writeText(`https://kmenu.hxrsh.in/docs`),
@@ -150,32 +139,32 @@ export default () => {
       category: "Documentation",
       commands: [
         {
-          icon: <TbPower />,
+          // icon: <TbPower />,
           text: "Start Guide",
           perform: () => setOpen(4),
         },
         {
-          icon: <FiTerminal />,
+          // icon: <FiTerminal />,
           text: "Commands",
           perform: () => setOpen(5),
         },
         {
-          icon: <TbPaint />,
+          // icon: <TbPaint />,
           text: "Customization",
           perform: () => setOpen(6),
         },
         {
-          icon: <TbFishHook />,
+          // icon: <TbFishHook />,
           text: "Hooks",
           perform: () => setOpen(7),
         },
         {
-          icon: <FiZap />,
+          // icon: <FiZap />,
           text: "Features",
           perform: () => setOpen(8),
         },
         {
-          icon: <FiPlus />,
+          // icon: <FiPlus />,
           text: "Other",
           perform: () => setOpen(9),
         },
@@ -189,17 +178,17 @@ export default () => {
       category: "Set Theme",
       commands: [
         {
-          icon: <HiOutlineDesktopComputer />,
+          // icon: <HiOutlineDesktopComputer />,
           text: "System",
           perform: () => setTheme("system"),
         },
         {
-          icon: <FiSun />,
+          // icon: <FiSun />,
           text: "Light",
           perform: () => setTheme("light"),
         },
         {
-          icon: <FiMoon />,
+          // icon: <FiMoon />,
           text: "Dark",
           perform: () => setTheme("dark"),
         },

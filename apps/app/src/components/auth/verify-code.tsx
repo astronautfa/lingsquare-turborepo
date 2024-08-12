@@ -19,13 +19,13 @@ import {
 } from "@ui/components";
 
 import { toast } from "sonner";
-import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import {
   logout,
   verifyEmail,
   resendVerificationEmail as resendEmail,
 } from "@lingsquare/auth/actions";
 import type { User } from "lucia";
+import { ExclamationTriangleRegular } from "@ui/icons";
 
 export const VerifyCode = ({ user }: { user: User }) => {
   const [verifyEmailState, verifyEmailAction] = useFormState(verifyEmail, null);
@@ -38,7 +38,7 @@ export const VerifyCode = ({ user }: { user: User }) => {
     }
     if (resendState?.error) {
       toast(resendState.error, {
-        icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
+        icon: <ExclamationTriangleRegular className="h-5 w-5 text-destructive" />,
       });
     }
   }, [resendState?.error, resendState?.success]);
@@ -46,7 +46,7 @@ export const VerifyCode = ({ user }: { user: User }) => {
   useEffect(() => {
     if (verifyEmailState?.error) {
       toast(verifyEmailState.error, {
-        icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
+        icon: <ExclamationTriangleRegular className="h-5 w-5 text-destructive" />,
       });
     }
   }, [verifyEmailState?.error]);
@@ -86,7 +86,7 @@ export const VerifyCode = ({ user }: { user: User }) => {
             <div className="mt-4">
               {verifyEmailState?.error && (
                 <div className="rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
-                  <ExclamationTriangleIcon />
+                  <ExclamationTriangleRegular />
                   <p className="">
                     {verifyEmailState?.error}
                   </p>
@@ -95,7 +95,7 @@ export const VerifyCode = ({ user }: { user: User }) => {
 
               {resendState?.error && (
                 <div className="rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
-                  <ExclamationTriangleIcon />
+                  <ExclamationTriangleRegular />
                   <p className="">
                     {resendState?.error}
                   </p>

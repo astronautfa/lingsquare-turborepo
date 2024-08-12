@@ -21,11 +21,11 @@ import LingsquareNavbar from './lingsquare-navbar'
 import { cn } from "@lingsquare/misc/utils"
 import { useTheme } from 'next-themes';
 import HeaderIcons from './header-icons';
-import { RxCaretRight, RxEnterFullScreen, RxExitFullScreen } from 'react-icons/rx';
 import { useIsMounted } from '@lingsquare/misc/hooks/use-is-mounted';
 import { useSidebarToggle } from './hooks/use-layout-toggle';
 import { useStore } from '@lingsquare/misc/hooks/use-store';
 import Loading from '@/app/loading';
+import { AngleRightRegular, EnterFullScreenRegular, ExitFullScreenRegular } from '@ui/icons';
 
 function OpenMenuIcon() {
   return (
@@ -74,7 +74,7 @@ export function SidebarLayout({
               layout?.isFullscreen ? 'opacity-0' : 'opacity-100'
             )} >
               <Button variant={'collapse'} size={'collapse'} onClick={layout?.setIsSidebarOpen} >
-                <RxCaretRight className='size-4' />
+                <AngleRightRegular className='size-3 text-muted-foreground' />
               </Button>
             </TooltipTrigger>
             <TooltipContent side='right'>
@@ -88,9 +88,9 @@ export function SidebarLayout({
               !isMounted() && '-right-1 bottom-[85px]')}>
               <Button className={'hover:scale-110 transition-all border flex'} variant={'collapse'} size={'collapse'} onClick={layout?.setIsFullscreen} >
                 {layout?.isFullscreen ?
-                  <RxExitFullScreen className='size-3.5' />
+                  <ExitFullScreenRegular className='size-3 text-muted-foreground' />
                   :
-                  <RxEnterFullScreen className='size-3' />
+                  <EnterFullScreenRegular className='size-3 text-muted-foreground' />
                 }
               </Button>
             </TooltipTrigger>

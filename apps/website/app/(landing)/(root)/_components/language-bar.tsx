@@ -6,13 +6,6 @@ import Germany from "@/public/Germany.jpg"
 import Spain from "@/public/Spain.png"
 import Italy from "@/public/Italy.png"
 
-import dynamic from 'next/dynamic';
-
-const Globe = dynamic(() => import('@/components/globe'), {
-  ssr: false,
-});
-
-
 const LanguageBar = () => {
   return (
     <div className="px-10 relative">
@@ -25,7 +18,7 @@ const LanguageBar = () => {
         </p>
       </div>
 
-      <div className="z-10 mt-[200px] mb-20 max-w-6xl h-50 grid md:grid-cols-5 grid-cols-1 gap-y-10 place-items-center mx-auto p-2">
+      <div className="z-10 mt-5 mb-20 max-w-6xl h-50 grid md:grid-cols-5 grid-cols-1 gap-y-10 place-items-center mx-auto p-2">
         <LanguageCard
           title="English"
           image={England}
@@ -47,14 +40,6 @@ const LanguageBar = () => {
           image={Italy}
         />
       </div>
-      <div
-        className="absolute inset-0 blur-[118px] max-w-lg h-[800px] mx-auto sm:max-w-4xl sm:h-[500px]"
-        style={{
-          background:
-            "linear-gradient(106.89deg, rgba(14, 110, 233, 0.30) 15.74%,rgba(14, 165, 233, 0.30)  80.49%, rgba(14, 70, 229, 0.4) 115.91%)",
-        }}
-      />
-      <Globe className="top-1 opacity-50 z-5 absolute mt-10 hover:opacity-100 transition-opacity duration-1000" />
     </div>
   );
 };

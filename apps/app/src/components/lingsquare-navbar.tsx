@@ -4,10 +4,7 @@ import { NavbarItem } from '@/components/navbar'
 import { Navbar, NavbarSpacer, NavbarSection } from "@ui/components"
 import { UserNav } from './user-nav'
 
-import {
-  MagnifyingGlassIcon,
-  BookOpenIcon,
-} from '@heroicons/react/20/solid'
+import { ExploreRegular, BooksRegular } from '@ui/icons'
 
 const LingsquareNavbar = ({ collapsed }: { collapsed: boolean }) => {
   return (
@@ -15,10 +12,10 @@ const LingsquareNavbar = ({ collapsed }: { collapsed: boolean }) => {
       {/* <NavbarSpacer /> */}
       <NavbarSection>
         <NavbarItem href="/search" aria-label="Search">
-          <MagnifyingGlassIcon />
+          <ExploreRegular />
         </NavbarItem>
         <NavbarItem href="/library" aria-label="Library">
-          <BookOpenIcon />
+          <BooksRegular />
         </NavbarItem>
         <UserNav collapsed={collapsed} />
       </NavbarSection>

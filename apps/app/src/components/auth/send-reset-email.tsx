@@ -18,9 +18,9 @@ import {
   SubmitButton
 } from "@ui/components";
 import { sendPasswordResetLink } from "@lingsquare/auth/actions";
-import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import { Paths } from "@lingsquare/misc/constants"
 import { cn } from "@lingsquare/misc/utils";
+import { ExclamationTriangleRegular } from "@ui/icons";
 
 export function SendResetEmail({ className, modal }: { className?: string, modal?: boolean }) {
   const [state, formAction] = useFormState(sendPasswordResetLink, null);
@@ -33,7 +33,7 @@ export function SendResetEmail({ className, modal }: { className?: string, modal
     }
     if (state?.error) {
       toast(state.error, {
-        icon: <ExclamationTriangleIcon className="h-5 w-5 text-destructive" />,
+        icon: <ExclamationTriangleRegular className="h-5 w-5 text-destructive" />,
       });
     }
   }, [state?.error, state?.success]);
@@ -58,7 +58,7 @@ export function SendResetEmail({ className, modal }: { className?: string, modal
           </div>
           {state?.error && (
             <div className="mt-4 rounded-lg border bg-destructive/10 p-2 text-[0.8rem] font-medium text-destructive flex items-center gap-2">
-              <ExclamationTriangleIcon className="w-5 h-5" />
+              <ExclamationTriangleRegular className="w-5 h-5" />
               <p className="">
                 {state?.error}
               </p>

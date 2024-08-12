@@ -4,9 +4,10 @@ import LandingPricing from "./_components/pricing";
 import LanguageBar from "./_components/language-bar";
 import LLMAnimation from "./_components/llm-demo";
 import LandingProgress from "./_components/progress";
-import { BentoFeaturesGrid } from "./_components/features-bento";
+import BentoFeaturesGrid from "./_components/features-bento";
 import NlpFeatures from "./_components/nlp-features";
-import Flashcards from "./_components/flashcards";
+// import Flashcards from "./_components/flashcards";
+import GlobeBar from "./_components/globe-bar";
 
 const LandingPage = () => {
   return (
@@ -15,11 +16,12 @@ const LandingPage = () => {
       <LLMAnimation />
       <BentoFeaturesGrid />
       <NlpFeatures />
-      <Flashcards />
+      {/* <Flashcards /> */}
       <LandingFeatures />
       <LandingProgress />
-      <LandingPricing />
       <LanguageBar />
+      <LandingPricing />
+      <GlobeBar />
     </div>
   );
 };

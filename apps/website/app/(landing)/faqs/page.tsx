@@ -3,7 +3,9 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "ui/components/ui/accordion";
+} from "@ui/components";
+
+// TODO : Complete redesign
 
 const faqs = [
   [

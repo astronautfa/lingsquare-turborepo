@@ -3,7 +3,7 @@ import { cn } from "@lingsquare/misc/utils"
 import Link from 'next/link'
 import React from 'react'
 import { UserNav } from './user-nav'
-import { BellAlertIcon } from '@heroicons/react/20/solid'
+import { BellRegular } from '@ui/icons'
 import { Paths } from "@lingsquare/misc/constants"
 import { User } from 'lucia'
 import { useSession } from './auth/session-provider'
@@ -30,7 +30,7 @@ const HeaderIcons = () => {
         return (
             <div className='flex gap-2'>
                 <Button variant={'ghost'} size={'icon'}>
-                    <BellAlertIcon className='w-[18px] h-[18px] opacity-70' />
+                    <BellRegular className='w-[18px] h-[18px] opacity-70' />
                 </Button>
                 <UserNav collapsed={true} />
             </div>

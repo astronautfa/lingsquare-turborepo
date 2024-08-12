@@ -1,5 +1,3 @@
-import { LucideText } from "lucide-react";
-import { BsYoutube, BsBookHalf } from "react-icons/bs";
 import { ExpandingArrow, SeparatorGradient } from "@ui/components"
 import Link from "next/link";
 
@@ -10,20 +8,18 @@ const items = [
     name: "Youtube Lesson",
     description: "Import your favourite Youtube videos ",
     href: "/import/new-youtube",
-    icon: BsYoutube,
+
   },
   {
     name: "Text Lesson",
     description:
       "Import a text lesson",
     href: "/import/new-text",
-    icon: LucideText,
   },
   {
     name: "Ebook",
     description: "Read your favourite Ebook",
     href: "/import/new-book",
-    icon: BsBookHalf,
   },
 ];
 
@@ -36,7 +32,7 @@ export default function ImportModalContent() {
           Import your own content and start learning.
         </p>
       </div>
-      <SeparatorGradient className="mt-4"/>
+      <SeparatorGradient className="mt-4" />
       <ul
         role="list"
         className="mt-6 divide-y"
@@ -48,10 +44,10 @@ export default function ImportModalContent() {
                 <div className="flex space-x-2">
                   <div className="flex-shrink-0">
                     <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-muted transition-colors duration-400">
-                      <item.icon
+                      {/* <item.icon
                         className="h-5 w-5 text-muted-foreground group-hover:text-inherit"
                         aria-hidden="true"
-                      />
+                      /> */}
                     </span>
                   </div>
                   <div className="">

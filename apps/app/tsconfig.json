@@ -11,6 +11,7 @@
       "@/*": ["./src/*"],
       "@ui/components": ["../../packages/ui/src/components/index.ts"],
       "@ui/styles/*": ["../../packages/ui/src/styles/*"],
+      "@ui/icons": ["../../packages/ui/src/components/icons/index.tsx"],
       "@lingsquare/supabase/*": ["../../packages/supabase/src/*"],
       "@lingsquare/vidplayer": ["../../packages/vidstack/react/dist"]
     }

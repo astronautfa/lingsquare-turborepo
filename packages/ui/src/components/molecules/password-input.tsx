@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Button, Input, type InputProps } from "@ui/components";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { EyeRegular, EyeSlashRegular } from "../icons";
 import { cn } from "@lingsquare/misc/utils"
 
 // TODO : move the show password to the parent element
@@ -29,9 +29,9 @@ const PasswordInputComponent = React.forwardRef<HTMLInputElement, InputProps>(
           disabled={props.value === "" || props.disabled}
         >
           {showPassword ? (
-            <FaRegEye className=" transition-all" />
+            <EyeRegular className="text-muted-foreground h-4 w-4" />
           ) : (
-            <FaRegEyeSlash className=" transition-all" />
+            <EyeSlashRegular className="text-muted-foreground h-4 w-4" />
           )}
           <span className="sr-only">
             {showPassword ? "Hide password" : "Show password"}
@@ -70,9 +70,9 @@ const PasswordInputWithConfirmComponent = React.forwardRef<HTMLInputElement, Pas
           disabled={props.value === "" || props.disabled}
         >
           {showPassword ? (
-            <FaRegEye className=" transition-all" />
+            <EyeRegular className="text-muted-foreground h-4 w-4" />
           ) : (
-            <FaRegEyeSlash className=" transition-all" />
+            <EyeSlashRegular className="text-muted-foreground h-4 w-4" />
           )}
           <span className="sr-only">
             {showPassword ? "Hide password" : "Show password"}
