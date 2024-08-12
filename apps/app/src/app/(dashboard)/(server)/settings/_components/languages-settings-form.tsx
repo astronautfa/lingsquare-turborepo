@@ -3,9 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useFieldArray, useForm } from "react-hook-form"
 import { z } from "zod"
-
-import { cn } from "@lingsquare/misc/utils"
-
+import { toast } from "sonner"
 import {
     Button,
     Form,
@@ -29,11 +27,9 @@ import {
     TooltipTrigger,
     Separator
 } from "@ui/components"
-
-import { toast } from "sonner"
+import { CheckRegular, ChevronDownRegular, PlusRegular, TrashRegular } from "@ui/icons"
 import { languages } from "@lingsquare/misc/constants"
-import { CheckRegular, ChevronDownRegular, PlusRegular } from "@ui/icons"
-import { TrashRegular } from "@ui/icons"
+import { cn } from "@lingsquare/misc/utils"
 
 const languageSettingsFormSchema = z.object({
     studyingLanguages: z.array(
@@ -121,7 +117,7 @@ export function LanguageSettingsForm() {
                                                                 (language) => language.code === field.value
                                                             )?.name
                                                             : "Select language"}
-                                                        <ChevronDownRegular className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                                        <ChevronDownRegular className="ml-2 h-3 w-3 shrink-0 opacity-50" />
                                                     </Button>
                                                 </FormControl>
                                             </PopoverTrigger>
@@ -189,7 +185,7 @@ export function LanguageSettingsForm() {
                                 appendNativeLanguage({ value: "" })
                             }}
                         >
-                            <PlusRegular className='w-4 h-4 mr-1' />
+                            <PlusRegular className='w-3 h-3 mr-1' />
                             Native Language
                         </Button>
                     </div>
@@ -223,7 +219,7 @@ export function LanguageSettingsForm() {
                                                                 (language) => language.code === field.value
                                                             )?.name
                                                             : "Select language"}
-                                                        <ChevronDownRegular className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                                        <ChevronDownRegular className="ml-2 h-3 w-3 shrink-0 opacity-50" />
                                                     </Button>
                                                 </FormControl>
                                             </PopoverTrigger>
@@ -293,7 +289,7 @@ export function LanguageSettingsForm() {
                             size="sm"
                             onClick={() => appendStudyingLanguage({ value: "" })}
                         >
-                            <PlusRegular className='w-4 h-4 mr-1' />
+                            <PlusRegular className='w-3 h-3 mr-1' />
                             Studying Language
                         </Button>
                     </div>

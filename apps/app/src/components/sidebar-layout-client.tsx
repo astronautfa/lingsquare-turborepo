@@ -20,7 +20,7 @@ import LingsquareNavbar from './lingsquare-navbar'
 import { cn } from "@lingsquare/misc/utils"
 import { useTheme } from 'next-themes';
 import { useIsMounted } from '@lingsquare/misc/hooks/use-is-mounted';
-import HeaderIcons from './header-icons';
+import TopNavbar from './top-navbar';
 import { useSidebarToggle } from './hooks/use-layout-toggle';
 import { useStore } from '@lingsquare/misc/hooks/use-store';
 import Loading from '@/app/loading';
@@ -123,7 +123,7 @@ export function SidebarLayout({
           <div className={cn('lg:h-12 lg:flex absolute top-0 right-2 z-10 items-center hidden gap-1 mr-1 opacity-100 transition-all duration-75', layout?.isFullscreen && 'lg:h-1 opacity-0 hidden')}>
             <div className="ml-auto flex-1 md:grow-0">
             </div>
-            <HeaderIcons />
+            <TopNavbar />
           </div>
           {children}
         </main >

@@ -11,7 +11,7 @@ const LingsquareNavbar = ({ collapsed }: { collapsed: boolean }) => {
     <Navbar className=''>
       {/* <NavbarSpacer /> */}
       <NavbarSection>
-        <NavbarItem href="/search" aria-label="Search">
+        <NavbarItem href={"/search" as any} aria-label="Search">
           <ExploreRegular />
         </NavbarItem>
         <NavbarItem href="/library" aria-label="Library">

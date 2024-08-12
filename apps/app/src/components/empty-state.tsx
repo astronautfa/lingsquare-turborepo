@@ -70,7 +70,7 @@ export default function EmptyState() {
           <div className="mt-6 flex gap-4 items-center group">
             <div>
               <Link
-                href="/explore"
+                href={"/explore" as any}
                 className="text-sm font-medium pb-0.5 text-muted-foreground group-hover:text-inherit"
               >
                 Or explore our library

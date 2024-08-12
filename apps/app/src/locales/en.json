@@ -21,6 +21,10 @@
     "title": "Review",
     "subtitle": "Review your flashcards"
   },
+  "notes": {
+    "title": "Notes",
+    "subtitle": "All your notes in one place"
+  },
   "history": {
     "title": "History",
     "subtitle": "Previously visited lessons"

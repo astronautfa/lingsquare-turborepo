@@ -7,6 +7,8 @@ export const metadata: Metadata = {
     description: "LingSquare personal settings",
 }
 
+// TODO: Convert to intercepting route
+
 const SettingsPage = () => {
     return (
         <PersonalSettingsForm />

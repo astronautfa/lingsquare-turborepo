@@ -5,9 +5,7 @@ import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useFieldArray, useForm } from "react-hook-form"
 import { z } from "zod"
-
-import { cn } from "@lingsquare/misc/utils"
-
+import { toast } from "sonner"
 import {
   Button,
   Input,
@@ -25,8 +23,8 @@ import {
   SelectValue,
   Textarea
 } from "@ui/components"
+import { cn } from "@lingsquare/misc/utils"
 
-import { toast } from "sonner"
 
 const personalSettingsFormSchema = z.object({
   username: z

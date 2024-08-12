@@ -74,7 +74,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             )}
             <Tooltip>
                 <TooltipTrigger className='w-full'>
-                    <Link href={href}>
+                    <Link href={href as any}>
                         <div
                             className={cn(classes, buttonVariants({
                                 variant: "nav", size: 'sm'

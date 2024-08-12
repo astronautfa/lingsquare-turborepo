@@ -11,13 +11,28 @@ import { AccountSwitcher } from './account-switcher';
 import SidebarItem from './sidebar-item';
 import { ModeToggle } from './mode-toggle';
 
+import Image from 'next/image';
 import French from "../../public/French.svg";
 import English from "../../public/English.svg";
 import German from "../../public/German.svg";
 import Spanish from "../../public/Spanish.svg";
-import Image from 'next/image';
 import SidebarSearch from './sidebar-search';
-import { BooksRegular, BooksSolid, ExploreRegular, ExploreSolid, HistoryRegular, HistorySolid, ImportRegular, ImportSolid, ReviewRegular, ReviewSolid, SettingsRegular, SettingsSolid } from '@ui/icons';
+import {
+  BooksRegular,
+  BooksSolid,
+  ExploreRegular,
+  ExploreSolid,
+  HistoryRegular,
+  HistorySolid,
+  ImportRegular,
+  ImportSolid,
+  NotesRegular,
+  NotesSolid,
+  ReviewRegular,
+  ReviewSolid,
+  SettingsRegular,
+  SettingsSolid
+} from '@ui/icons';
 
 
 const learningLanguages = [
@@ -97,7 +112,7 @@ const sidebarNavItems = {
       {
         title: "Library",
         href: "/library",
-        icons: { regular: <BooksRegular className="h-5 w-5" />, selected: <BooksSolid className="h-5 w-5" /> }
+        icons: { regular: <BooksRegular className="h-[18px] w-[18px]" />, selected: <BooksSolid className="h-[18px] w-[18px]" /> }
       },
       {
         title: "Import",
@@ -115,12 +130,17 @@ const sidebarNavItems = {
       {
         title: "Review",
         href: "/review",
-        icons: { regular: <ReviewRegular className="h-5 w-5" />, selected: <ReviewSolid className="h-5 w-5" /> }
+        icons: { regular: <ReviewRegular className="h-[18px] w-[18px]" />, selected: <ReviewSolid className="h-[18px] w-[18px]" /> }
+      },
+      {
+        title: "Notes",
+        href: "/notes",
+        icons: { regular: <NotesRegular className="h-[18px] w-[18px]" />, selected: <NotesSolid className="h-[18px] w-[18px]" /> }
       },
       {
         title: "History",
         href: "/history",
-        icons: { regular: <HistoryRegular className="h-5 w-5" />, selected: <HistorySolid className="h-5 w-5" /> }
+        icons: { regular: <HistoryRegular className="h-[18px] w-[18px]" />, selected: <HistorySolid className="h-[18px] w-[18px]" /> }
       },
     ]
   ,
@@ -132,7 +152,6 @@ const sidebarNavItems = {
     },
   ]
 }
-
 
 const LingsquareSidebar = ({ collapsed }: { collapsed: boolean }) => {
 

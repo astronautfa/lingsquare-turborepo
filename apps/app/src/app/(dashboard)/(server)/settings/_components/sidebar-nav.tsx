@@ -2,9 +2,8 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { cn } from "@lingsquare/misc/utils"
 import { buttonVariants } from "@ui/components"
-
+import { cn } from "@lingsquare/misc/utils"
 interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: {
     href: string
@@ -31,7 +30,7 @@ export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
       {items.map((item) => (
         <Link
           key={item.href}
-          href={item.href}
+          href={item.href as any}
           className={cn(
             buttonVariants({ variant: "ghost" }),
             pathname === item.href

@@ -31,7 +31,7 @@ export default () => {
         ...(!page.href && {
           perform: () =>
             router.push(
-              `/docs/${slugify(item.category)}/${slugify(page.name)}`,
+              `/docs/${slugify(item.category)}/${slugify(page.name)}` as any,
             ),
           closeOnComplete: true,
         }),
@@ -47,7 +47,7 @@ export default () => {
       ...(!page.href && {
         perform: () =>
           router.push(
-            `/docs/${slugify(item.category)}/${slugify(page.name)}`,
+            `/docs/${slugify(item.category)}/${slugify(page.name)}` as any,
           ),
         closeOnComplete: true,
       }),

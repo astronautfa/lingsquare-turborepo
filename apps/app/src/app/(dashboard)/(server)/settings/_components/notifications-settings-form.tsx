@@ -4,7 +4,7 @@ import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-
+import { toast } from "sonner"
 import {
   Button,
   Checkbox,
@@ -19,8 +19,6 @@ import {
   RadioGroup,
   RadioGroupItem
 } from "@ui/components"
-
-import { toast } from "sonner"
 
 const notificationsSettingsFormSchema = z.object({
   type: z.enum(["all", "mentions", "none"], {

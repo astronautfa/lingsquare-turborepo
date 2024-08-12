@@ -3,12 +3,12 @@ import { cn } from "@lingsquare/misc/utils"
 import Link from 'next/link'
 import React from 'react'
 import { UserNav } from './user-nav'
-import { BellRegular } from '@ui/icons'
+import { BellLight } from '@ui/icons'
 import { Paths } from "@lingsquare/misc/constants"
 import { User } from 'lucia'
 import { useSession } from './auth/session-provider'
 
-const HeaderIcons = () => {
+const TopNavbar = () => {
 
     const { session } = useSession();
 
@@ -28,9 +28,9 @@ const HeaderIcons = () => {
         );
     } else {
         return (
-            <div className='flex gap-2'>
-                <Button variant={'ghost'} size={'icon'}>
-                    <BellRegular className='w-[18px] h-[18px] opacity-70' />
+            <div className='flex gap-0.5'>
+                <Button variant={'nav'} size={'icon'} className='justify-center items-center flex'>
+                    <BellLight className='w-[18px] h-[18px] opacity-70' />
                 </Button>
                 <UserNav collapsed={true} />
             </div>
@@ -38,4 +38,4 @@ const HeaderIcons = () => {
     }
 }
 
-export default HeaderIcons
+export default TopNavbar

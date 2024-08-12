@@ -19,6 +19,7 @@ import {
 } from "@ui/components"
 
 import { useSession } from "./auth/session-provider"
+import { CreditCardRegular, LanguageRegular, SettingsRegular, UserRegular } from "@ui/icons"
 
 export const UserNav = ({ collapsed }: {
     collapsed: Boolean
@@ -30,18 +31,18 @@ export const UserNav = ({ collapsed }: {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 {collapsed ?
-                    <div className="h-[36px] mt-1 cursor-pointer">
+                    <Button variant="nav" className="justify-center items-center flex relative" size={'icon'}>
                         <Avatar className="h-8 w-8">
                             <AvatarImage src="/avatars/01.png" alt="account" />
-                            <AvatarFallback>SC</AvatarFallback>
+                            <AvatarFallback>{user?.email.slice(0, 2)}</AvatarFallback>
                         </Avatar>
-                    </div>
+                    </Button>
                     :
-                    <Button variant="nav" className="relative pl-1">
+                    <Button variant="nav" className="justify-center items-center flex relative pl-1" size={'icon'}>
                         <span className="flex min-w-0 items-center gap-3">
                             <Avatar className="h-8 w-8">
                                 <AvatarImage src="/avatars/01.png" alt="account" />
-                                <AvatarFallback>SC</AvatarFallback>
+                                <AvatarFallback>{user?.email.slice(0, 2)}</AvatarFallback>
                             </Avatar>
                             <AnimatePresence>
                                 <motion.span
@@ -65,7 +66,7 @@ export const UserNav = ({ collapsed }: {
                     <>
                         <DropdownMenuLabel className="font-normal">
                             <div className="flex flex-col space-y-1">
-                                <p className="text-sm font-medium leading-none">alireza</p>
+                                <p className="text-sm font-medium leading-none">{ }</p>
                                 <p className="text-xs leading-none text-muted-foreground">
                                     {user && user.email}
                                 </p>
@@ -75,28 +76,42 @@ export const UserNav = ({ collapsed }: {
                     </>
                 }
                 <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                        Profile
-                        <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-                    </DropdownMenuItem>
+                    <Link href={'/settings'} >
+                        <DropdownMenuItem>
+                            <UserRegular className="w-4 h-4 text-muted-foreground mr-2" />
+                            Profile
+                            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                        </DropdownMenuItem>
+                    </Link>
                     <Link href={'/settings/billing'} >
                         <DropdownMenuItem>
+                            <CreditCardRegular className="w-4 h-4 text-muted-foreground mr-2" />
                             Billing
                             <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
                         </DropdownMenuItem>
                     </Link>
                     <Link href={'/settings'} >
                         <DropdownMenuItem>
+                            <SettingsRegular className="w-4 h-4 text-muted-foreground mr-2" />
                             Settings
                             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                         </DropdownMenuItem>
                     </Link>
-                    <DropdownMenuItem>Languages</DropdownMenuItem>
+                    <Link href={'/settings/languages'} >
+                        <DropdownMenuItem>
+                            <LanguageRegular className="w-4 h-4 text-muted-foreground mr-2" />
+                            Languages
+                        </DropdownMenuItem>
+                    </Link>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem>
                         Get help
+                        <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        Docs
                         <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
