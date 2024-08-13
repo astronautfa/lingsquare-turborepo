@@ -22,13 +22,13 @@ export default function ModalProvider({
 }) {
     const pathname = usePathname()
     const [lastPathnameBeforeModal, setLastPathnameBeforeModal] =
-        useState<string>('/')
+        useState<string>(pathname)
     const [isModalActive, setIsModalActive] = useState<boolean>(false)
 
     useEffect(() => {
         if (modalStaticPathnames.includes(pathname)) {
-            console.log(modalStaticPathnames)
-            setIsModalActive(true)
+            if (!lastPathnameBeforeModal.includes('settings'))
+                setIsModalActive(true)
         } else {
             setIsModalActive(false)
             if (modalDynamicPathnames.length > 0) {
