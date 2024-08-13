@@ -17,13 +17,13 @@ export function RouteInterceptedModal({ className, children }: { className?: str
     const { lastPathnameBeforeModal } = useModalContext()
 
     function navigateBack() {
-        router.push(lastPathnameBeforeModal)
+        router.push(lastPathnameBeforeModal as any)
     }
 
     return (
         <Dialog defaultOpen onOpenChange={(open) => !open && navigateBack()}>
             <DialogTitle></DialogTitle>
-            <DialogContent className={cn(className, 'flex justify-center items-center')}>
+            <DialogContent className={cn('flex justify-center items-center max-w-fit', className)}>
                 {children}
             </DialogContent>
         </Dialog >

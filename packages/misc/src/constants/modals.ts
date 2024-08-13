@@ -10,6 +10,11 @@ export const modalStaticPathnames: string[] = [
   "/auth/signup",
   "/auth/reset-password",
   "/import",
+  "/settings",
+  "/settings/languages",
+  "/settings/display",
+  "/settings/notifications",
+  "/settings/billing",
   "/import-youtube",
 ];
 

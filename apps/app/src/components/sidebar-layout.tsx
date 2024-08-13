@@ -112,13 +112,15 @@ export function SidebarLayout({
         </MobileSidebar>
 
         {/* Navbar on mobile */}
-        <header className="flex items-center px-4 lg:hidden">
+        <header className="flex items-center justify-between px-4 lg:hidden">
           <div className="py-2.5">
             <NavbarItem onClick={() => setShowSidebar(true)} aria-label="Open navigation">
               <OpenMenuIcon />
             </NavbarItem>
           </div>
-          <div className="min-w-0 flex-1"><LingsquareNavbar collapsed={true} /></div>
+          <div>
+            <LingsquareNavbar collapsed={true} />
+          </div>
         </header>
 
         {/* Content */}

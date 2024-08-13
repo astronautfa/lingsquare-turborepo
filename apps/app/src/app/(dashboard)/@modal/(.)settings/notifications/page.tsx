@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: "LingSquare notifications settings",
 }
 
-const NotificationsSettingPage = () => {
+const NotificationsSettingModal = () => {
     return (
         <>
             <NotificationsSettingsForm />
@@ -15,4 +15,4 @@ const NotificationsSettingPage = () => {
     )
 }
 
-export default NotificationsSettingPage
+export default NotificationsSettingModal

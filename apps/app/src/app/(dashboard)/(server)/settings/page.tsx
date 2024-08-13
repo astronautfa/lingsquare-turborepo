@@ -1,5 +1,5 @@
 import React from 'react'
-import { PersonalSettingsForm } from './_components/personal-settings-form'
+import { PersonalSettingsForm } from '../../../../components/forms/personal-settings-form'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {

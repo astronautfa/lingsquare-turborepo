@@ -4,7 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { buttonVariants } from "@ui/components"
 import { cn } from "@lingsquare/misc/utils"
-interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
+interface SettingsSidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   items: {
     href: string
     title: string,
@@ -16,7 +16,7 @@ interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
   }[]
 }
 
-export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
+export function SettingsSidebarNav({ className, items, ...props }: SettingsSidebarNavProps) {
   const pathname = usePathname()
 
   return (
