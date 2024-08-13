@@ -36,7 +36,7 @@ export function SettingsSidebarNav({ className, items, ...props }: SettingsSideb
             pathname === item.href
               ? "bg-muted hover:bg-muted text-primary"
               : "hover:bg-muted",
-            "justify-start p-3 sm:p-4 flex"
+            "justify-start p-3 flex"
           )}
         >
           <span className="hidden sm:block text-muted-foreground">

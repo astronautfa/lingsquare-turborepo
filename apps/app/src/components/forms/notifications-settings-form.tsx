@@ -17,7 +17,9 @@ import {
   FormMessage,
   Switch,
   RadioGroup,
-  RadioGroupItem
+  RadioGroupItem,
+  RadioCardItem,
+  RadioCardIndicator
 } from "@ui/components"
 
 const notificationsSettingsFormSchema = z.object({
@@ -75,25 +77,42 @@ export function NotificationsSettingsForm() {
                 >
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value="all" />
+                      <RadioCardItem value="all">
+                        <div className="flex items-start gap-3">
+                          <RadioCardIndicator className="mt-1" />
+                          <div>
+                            <span className="sm:text-sm">All Messages</span>
+                            <p className="mt-1 text-xs text-gray-500">1/8 vCPU, 1 GB RAM</p>
+                          </div>
+                        </div>
+                      </RadioCardItem>
                     </FormControl>
-                    <FormLabel className="font-normal">
-                      All new messages
-                    </FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value="mentions" />
+                      <RadioCardItem value="mentions">
+                        <div className="flex items-start gap-3">
+                          <RadioCardIndicator className="mt-1" />
+                          <div>
+                            <span className="sm:text-sm">Mentions</span>
+                            <p className="mt-1 text-xs text-gray-500">1/8 vCPU, 1 GB RAM</p>
+                          </div>
+                        </div>
+                      </RadioCardItem>
                     </FormControl>
-                    <FormLabel className="font-normal">
-                      Direct messages and mentions
-                    </FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value="none" />
+                      <RadioCardItem value="none">
+                        <div className="flex items-start gap-3">
+                          <RadioCardIndicator className="mt-1" />
+                          <div>
+                            <span className="sm:text-sm">All Messages</span>
+                            <p className="mt-1 text-xs text-gray-500">1/8 vCPU, 1 GB RAM</p>
+                          </div>
+                        </div>
+                      </RadioCardItem>
                     </FormControl>
-                    <FormLabel className="font-normal">Nothing</FormLabel>
                   </FormItem>
                 </RadioGroup>
               </FormControl>

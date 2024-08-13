@@ -57,8 +57,8 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
                 </p>
             </div>
             <SeparatorGradient />
-            <div className="px-2 flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0 overflow-y-auto">
-                <aside className="lg:w-1/5">
+            <div className="px-2 flex flex-col space-y-8 lg:flex-row lg:space-x-6 lg:space-y-0 overflow-y-auto">
+                <aside className="lg:w-[250px]">
                     <SettingsSidebarNav items={sidebarNavItems} />
                 </aside>
                 <div className="flex-1 lg:max-w-2xl">{children}</div>
