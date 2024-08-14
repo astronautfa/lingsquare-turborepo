@@ -61,17 +61,17 @@
       position: relative;
       box-sizing: border-box;
 
-      &:not(:first-child)::before {
-        content: " ";
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 5;
-        pointer-events: none;
-        background-color: var(--dv-tab-divider-color);
-        width: 1px;
-        height: 100%;
-      }
+      // &:not(:first-child)::before {
+      //   content: " ";
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   z-index: 5;
+      //   pointer-events: none;
+      //   background-color: var(--dv-tab-divider-color);
+      //   width: 0px;
+      //   height: 100%;
+      // }
     }
   }
 }

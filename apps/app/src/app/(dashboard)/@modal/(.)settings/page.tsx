@@ -1,6 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next/types';
 import SettingsPage from '../../(server)/settings/page';
+import { ScrollArea } from '@ui/components';
 
 export const metadata: Metadata = {
     title: "Settings",
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 
 const ImportModal = () => {
     return (
-        <SettingsPage />
+        <ScrollArea className='h-[700px]'>
+            <SettingsPage />
+        </ScrollArea>
     )
 }
 

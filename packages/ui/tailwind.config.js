@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "../../packages/ui/src/components/**/*.{ts,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "../../packages/ui/src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     container: {
@@ -81,7 +81,19 @@ module.exports = {
       },
       height: { hero: "75vh", 5.5: 22, gradient: 1000 },
       keyframes: {
-        scroll: {
+        "ripple": {
+          '0%': {
+            width: '0',
+            height: '0',
+            opacity: '0.5',
+          },
+          '100%': {
+            width: '520px',
+            height: '520px',
+            opacity: '0',
+          },
+        },
+        "scroll": {
           to: {
             transform: "translate(calc(-50% - 0.5rem))",
           },
@@ -96,12 +108,15 @@ module.exports = {
         },
       },
       animation: {
+        "ripple": 'ripple 1.4s linear infinite',
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        scroll:
+        "scroll":
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+  ],
 };

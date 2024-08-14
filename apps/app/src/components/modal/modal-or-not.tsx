@@ -7,9 +7,7 @@ export default function ModalOrNot({
 }: {
     children: React.ReactNode
 }) {
-    const { isModalActive, lastPathnameBeforeModal } = useModalContext()
-
-    console.log(lastPathnameBeforeModal)
+    const { isModalActive } = useModalContext()
 
     return <>{isModalActive && children}</>
 }

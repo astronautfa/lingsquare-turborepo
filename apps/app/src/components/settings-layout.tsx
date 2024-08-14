@@ -49,20 +49,20 @@ interface SettingsLayoutProps {
 
 export default function SettingsLayout({ children }: SettingsLayoutProps) {
     return (
-        <>
-            <div className="space-y-0.5 p-3 pb-0">
+        <div className="flex-grow">
+            <div className="space-y-0.5 p-3">
                 <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
                 <p className="text-muted-foreground">
                     Manage your account settings and set your preferences.
                 </p>
             </div>
             <SeparatorGradient />
-            <div className="px-2 flex flex-col space-y-8 lg:flex-row lg:space-x-6 lg:space-y-0 overflow-y-auto">
+            <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-6 lg:space-y-0 py-4 px-2">
                 <aside className="lg:w-[250px]">
                     <SettingsSidebarNav items={sidebarNavItems} />
                 </aside>
-                <div className="flex-1 lg:max-w-2xl">{children}</div>
+                <div className="w-full">{children}</div>
             </div>
-        </>
+        </div>
     )
 }

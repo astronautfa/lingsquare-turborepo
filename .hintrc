@@ -23,7 +23,8 @@
         "ignore": [
           "backdrop-filter",
           "height: fit-content",
-          "-webkit-tap-highlight-color"
+          "-webkit-tap-highlight-color",
+          "-webkit-text-size-adjust"
         ]
       }
     ]
