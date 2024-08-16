@@ -23,7 +23,7 @@ import { ExclamationTriangleRegular } from "@ui/icons";
 
 // TODO : Repeat password error
 
-export function Signup({ className, modal }: { className?: string, modal?: boolean }) {
+export function Signup({ className }: { className?: string }) {
   const [state, formAction] = useFormState(signup, null);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -89,9 +89,9 @@ export function Signup({ className, modal }: { className?: string, modal?: boole
 
           <div className="space-y-2 pt-2">
             <SubmitButton className="w-full">Sign Up</SubmitButton>
-            {!modal && <Button variant="outline" className="w-full" asChild>
+            <Button variant="outline" className="w-full" asChild>
               <Link href="/">Cancel</Link>
-            </Button>}
+            </Button>
           </div>
 
         </form>

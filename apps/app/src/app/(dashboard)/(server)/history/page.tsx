@@ -19,7 +19,7 @@ const HistoryPage = async () => {
                     {t('subtitle')}
                 </p>
             </div>
-            <SeparatorGradient className="my-6" />
+            <SeparatorGradient className="my-6 opacity-30" gradient />
         </div>
     )
 }

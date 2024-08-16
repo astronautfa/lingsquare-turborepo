@@ -27,7 +27,8 @@ export default function ModalProvider({
 
     useEffect(() => {
         if (modalStaticPathnames.includes(pathname)) {
-            if (!lastPathnameBeforeModal.includes('settings'))
+            console.log(lastPathnameBeforeModal)
+            if (!lastPathnameBeforeModal.includes('settings') && !lastPathnameBeforeModal.includes('auth'))
                 setIsModalActive(true)
         } else {
             setIsModalActive(false)

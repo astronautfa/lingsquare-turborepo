@@ -26,8 +26,9 @@ import {
 } from "@lingsquare/auth/actions";
 import type { User } from "lucia";
 import { ExclamationTriangleRegular } from "@ui/icons";
+import { cn } from "@lingsquare/misc/utils";
 
-export const VerifyCode = ({ user }: { user: User }) => {
+export const VerifyCode = ({ className, user }: { className: string, user: User }) => {
   const [verifyEmailState, verifyEmailAction] = useFormState(verifyEmail, null);
   const [resendState, resendAction] = useFormState(resendEmail, null);
   const codeFormRef = useRef<HTMLFormElement>(null);
@@ -52,7 +53,7 @@ export const VerifyCode = ({ user }: { user: User }) => {
   }, [verifyEmailState?.error]);
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className={cn("w-full max-w-md", className)}>
       <CardHeader>
         <CardTitle>Verify Email</CardTitle>
         <CardDescription>

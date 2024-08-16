@@ -13,12 +13,13 @@ import {
   CardTitle,
   Label,
   PasswordInput,
-  SubmitButton
+  SubmitButton,
+  SeparatorGradient
 } from "@ui/components";
 import { login } from "@lingsquare/auth/actions"
 import { cn } from "@lingsquare/misc/utils";
 import { Paths } from "@lingsquare/misc/constants"
-import { ExclamationTriangleRegular } from "@ui/icons";
+import { AppleIcon, ExclamationTriangleRegular, GoogleIcon } from "@ui/icons";
 
 // TODO : add login with google
 
@@ -35,7 +36,34 @@ export function Login({ className, modal }: { className?: string, modal?: boolea
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form action={formAction} className="grid gap-4">
+        <form action={formAction} className="space-y-4">
+          <div className="space-y-2">
+            <Link
+              href={"/api/login/google" as any}
+              className={cn(
+                buttonVariants({
+                  variant: "secondary",
+                }),
+                "w-full",
+              )}
+            >
+              <GoogleIcon className="mr-3 h-4 w-4 stroke-white" />
+              Sign in with Google
+            </Link>
+            <Link
+              href={"/api/login/apple" as any}
+              className={cn(
+                buttonVariants({
+                  variant: "secondary",
+                }),
+                "w-full",
+              )}
+            >
+              <AppleIcon className="mr-3 h-5 w-5 stroke-white" />
+              Sign in with Apple
+            </Link>
+          </div>
+          <SeparatorGradient label={'or'} gradient />
           <div className="space-y-2">
             <Label>Email</Label>
             <Input
