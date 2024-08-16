@@ -7,13 +7,18 @@
  * need to use are documented accordingly near the end.
  */
 import { uncachedValidateRequest } from "@lingsquare/auth/validate-request";
-import { initTRPC, TRPCError } from "@trpc/server";
+import { inferRouterInputs, inferRouterOutputs, initTRPC, TRPCError } from "@trpc/server";
+import { inferReactQueryProcedureOptions } from "@trpc/react-query";
 import superjson from "superjson";
 import { ZodError } from "zod";
-
 import { db } from "@lingsquare/drizzle";
+import { Session, User } from "@lingsquare/auth";
+import { AppRouter } from "./root";
 
-import { Session, User } from "@lingsquare/auth"; // Adjust based on your actual imports
+
+export type RouterOutputs = inferRouterOutputs<AppRouter>;
+export type ReactQueryOptions = inferReactQueryProcedureOptions<AppRouter>;
+export type RouterInputs = inferRouterInputs<AppRouter>;
 
 export interface TRPCContext {
   session: Session | null;

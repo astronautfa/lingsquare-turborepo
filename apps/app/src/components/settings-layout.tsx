@@ -56,7 +56,7 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
                     Manage your account settings and set your preferences.
                 </p>
             </div>
-            <SeparatorGradient />
+            <SeparatorGradient gradient className="opacity-30 my-2" />
             <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-6 lg:space-y-0 py-4 px-2">
                 <aside className="lg:w-[250px]">
                     <SettingsSidebarNav items={sidebarNavItems} />

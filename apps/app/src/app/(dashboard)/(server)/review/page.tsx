@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { SeparatorGradient } from '@ui/components'
 import { useTranslations } from 'next-intl'
 import ReviewHeatmap from '@/components/review-heatmap'
+import ReviewEmptyState from '@/components/empty-state/review-empty-state'
 // import {
 //     BreadCrumb,
 //     BreadCrumbItem,
@@ -48,11 +49,9 @@ const StudyPage = () => {
                     {t('subtitle')}
                 </p>
             </div>
-      <SeparatorGradient className="my-6 opacity-30" gradient />
-
-            <div className="h-full">
-                <ReviewHeatmap />
-            </div>
+            <SeparatorGradient className="my-6 opacity-30" gradient />
+            <ReviewHeatmap />
+            <ReviewEmptyState />
         </div>
     )
 }

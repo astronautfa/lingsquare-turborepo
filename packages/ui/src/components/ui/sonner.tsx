@@ -1,16 +1,20 @@
-"use client"
+"use client";
 
-import { useTheme } from "next-themes"
-import { Toaster as Sonner } from "sonner"
+// to fix the issue with intercepting routes
+// https://github.com/shadcn-ui/ui/issues/2401
 
-type ToasterProps = React.ComponentProps<typeof Sonner>
+// import { useTheme } from "next-themes";
+import { Toaster as Sonner, toast } from "sonner";
+import { createPortal } from 'react-dom';
+
+type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = "system" } = useTheme()
+  // const { theme } = useTheme();
 
-  return (
+  const toasterContent = (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
+      // theme={theme as ToasterProps["theme"]}
       className="toaster group"
       toastOptions={{
         classNames: {
@@ -25,7 +29,12 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       {...props}
     />
-  )
-}
+  );
 
-export { Toaster }
+  // Only render in the browser
+  if (typeof window === 'undefined') return null;
+
+  return createPortal(toasterContent, document.body);
+};
+
+export { Toaster, toast };

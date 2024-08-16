@@ -36,3 +36,6 @@ export * from "./callout"
 export * from "./button-ripple"
 export * from "./tabs"
 export * from "./separator-gradient"
+
+export * from "./form/form-input"
+export * from "./form/form-textarea"

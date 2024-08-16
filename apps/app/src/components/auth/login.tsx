@@ -36,7 +36,7 @@ export function Login({ className, modal }: { className?: string, modal?: boolea
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form action={formAction} className="space-y-4">
+        <form action={formAction} className="space-y-3">
           <div className="space-y-2">
             <Link
               href={"/api/login/google" as any}

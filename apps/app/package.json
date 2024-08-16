@@ -39,7 +39,6 @@
     "react-dom": "19.0.0-rc-df5f2736-20240712",
     "react-hook-form": "^7.52.2",
     "server-only": "^0.0.1",
-    "sonner": "^1.5.0",
     "superjson": "^2.2.1",
     "valtio": "^1.13.2",
     "zod": "^3.23.8",

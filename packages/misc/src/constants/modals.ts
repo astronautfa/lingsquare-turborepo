@@ -16,6 +16,7 @@ export const modalStaticPathnames: string[] = [
   "/settings/notifications",
   "/settings/billing",
   "/import-youtube",
+  "/create-deck"
 ];
 
 /**

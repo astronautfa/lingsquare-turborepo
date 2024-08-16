@@ -15,15 +15,15 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@react-email/components": "^0.0.21",
+    "@react-email/components": "^0.0.22",
     "react": "19.0.0-rc-df5f2736-20240712",
-    "resend": "^3.4.0"
+    "resend": "^3.5.0"
   },
   "devDependencies": {
     "@lingsquare/env": "workspace:*",
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
     "@types/react": "^18.3.3",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   }
 }

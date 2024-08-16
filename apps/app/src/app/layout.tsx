@@ -9,7 +9,7 @@ import "@ui/styles/globals.css"
 import { cookies } from "next/headers";
 import ClientProviders from "@/components/client-providers";
 
-import { Toaster, TailwindIndicator } from "@ui/components"
+import { Toaster, TailwindIndicator, Spinner } from "@ui/components"
 import { ThemeConfig } from "@/types/config";
 import { cn } from "@lingsquare/misc/utils"
 import { metadata as seoMetadata } from "@lingsquare/misc/constants";
@@ -19,6 +19,7 @@ import dynamic from "next/dynamic";
 import { TRPCReactProvider } from "@lingsquare/trpc/client";
 import { SessionProvider } from "@/components/auth/session-provider";
 import { validateRequest } from "@lingsquare/auth/validate-request";
+import { CheckRegular, ExclamationTriangleRegular } from "@ui/icons";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -64,7 +65,12 @@ export default async function RootLayout({
                 <CommandMenu />
                 <TailwindIndicator />
                 {children}
-                <Toaster closeButton toastOptions={{
+                <Toaster closeButton icons={{
+                  info: <ExclamationTriangleRegular className="text-primary w-3 h-3" />,
+                  warning: <ExclamationTriangleRegular className="text-destructive w-3 h-3" />,
+                  error: <ExclamationTriangleRegular className="text-destructive w-3 h-3" />,
+                  loading: <Spinner className="w-4 h-4" />,
+                }} toastOptions={{
                   unstyled: false,
                   classNames: {
                     closeButton: 'bg-background rounded dark:hover:bg-primary-foreground dark:border-background dark:hover:border-muted',

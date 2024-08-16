@@ -13,13 +13,14 @@ import {
   Input,
   Label,
   PasswordInputWithConfirm,
+  SeparatorGradient,
   SubmitButton
 } from "@ui/components";
 import { signup } from "@lingsquare/auth/actions";
 import { cn } from "@lingsquare/misc/utils";
 import { Paths } from "@lingsquare/misc/constants"
 import { useState } from "react";
-import { ExclamationTriangleRegular } from "@ui/icons";
+import { AppleIcon, ExclamationTriangleRegular, GoogleIcon } from "@ui/icons";
 
 // TODO : Repeat password error
 
@@ -35,7 +36,34 @@ export function Signup({ className }: { className?: string }) {
       </CardHeader>
       <CardContent>
 
-        <form action={formAction} className="space-y-4">
+        <form action={formAction} className="space-y-3">
+          <div className="space-y-2">
+            <Link
+              href={"/api/login/google" as any}
+              className={cn(
+                buttonVariants({
+                  variant: "secondary",
+                }),
+                "w-full",
+              )}
+            >
+              <GoogleIcon className="mr-3 h-4 w-4 stroke-white" />
+              Sign up with Google
+            </Link>
+            <Link
+              href={"/api/login/apple" as any}
+              className={cn(
+                buttonVariants({
+                  variant: "secondary",
+                }),
+                "w-full",
+              )}
+            >
+              <AppleIcon className="mr-3 h-5 w-5 stroke-white" />
+              Sign up with Apple
+            </Link>
+          </div>
+          <SeparatorGradient label={'or'} gradient />
           <div className="space-y-2">
             <Label>Email</Label>
             <Input
