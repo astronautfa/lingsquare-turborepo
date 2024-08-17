@@ -44,6 +44,8 @@ interface SidebarItemProps {
     selectedIcon: React.ReactNode;
     regularIcon: React.ReactNode;
     children?: React.ReactNode;
+    settings?: boolean
+    layoutId: string
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
@@ -53,11 +55,21 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     selectedIcon,
     regularIcon,
     children,
+    settings = false,
+    layoutId
+
 }) => {
     const pathname = usePathname(); // Correct way to retrieve pathname
     const ref = React.useRef<HTMLDivElement>(null);
 
-    const selected = href.toString().split('/')[1] === pathname.split('/')[1]
+    var selected
+
+    if (!settings) {
+        selected = href.toString().split('/')[1] === pathname.split('/')[1]
+    } else {
+        selected = href === pathname
+    }
+
     return (
         <span className="relative">
             {selected && (
@@ -68,7 +80,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                             ease: 'easeOut',
                         },
                     }}
-                    layoutId="indicator"
+                    layoutId={layoutId}
                     className="absolute inset-y-2 -left-3 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
                 />
             )}

@@ -70,7 +70,7 @@ export function SidebarLayout({
       <div className="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950 md:pr-1">
         {/* Sidebar on desktop */}
         <div className={cn("fixed inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out", layout?.isSidebarOpen ? 'w-64' : 'w-[66px]', layout?.isFullscreen && 'w-4', !isMounted() && 'w-64')}>
-          <Tooltip >
+          <Tooltip>
             <TooltipTrigger asChild className={cn('absolute z-10 top-[180px] transition-all duration-75 border hover:scale-110',
               layout?.isSidebarOpen ? 'rotate-180 -right-1' : '-right-3',
               layout?.isFullscreen ? 'opacity-0' : 'opacity-100'

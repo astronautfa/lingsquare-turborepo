@@ -1,6 +1,6 @@
 'use client'
 
-import { default as React, useId } from 'react'
+import { default as React } from 'react'
 import { LayoutGroup } from 'framer-motion'
 import { cn } from "@lingsquare/misc/utils"
 
@@ -13,8 +13,8 @@ export function SidebarHeader({ className, ...props }: React.ComponentPropsWitho
     <div
       {...props}
       className={cn(
+        'flex flex-col border-b border-zinc-950/5 p-3 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5',
         className,
-        'flex flex-col border-b border-zinc-950/5 p-3 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5'
       )}
     />
   )
@@ -25,8 +25,8 @@ export function SidebarBody({ className, ...props }: React.ComponentPropsWithout
     <div
       {...props}
       className={cn(
-        className,
-        'flex flex-1 flex-col overflow-y-auto p-3 [&>[data-slot=section]+[data-slot=section]]:mt-8'
+        'flex flex-1 flex-col overflow-y-auto p-3 [&>[data-slot=section]+[data-slot=section]]:mt-8',
+        className
       )}
     />
   )
@@ -37,16 +37,14 @@ export function SidebarFooter({ className, ...props }: React.ComponentPropsWitho
     <div
       {...props}
       className={cn(
+        'flex flex-col border-t border-zinc-950/5 p-3 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5',
         className,
-        'flex flex-col border-t border-zinc-950/5 p-3 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5'
       )}
     />
   )
 }
 
-export function SidebarSection({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
-  let id = useId()
-
+export function SidebarSection({ className, id, ...props }: React.ComponentPropsWithoutRef<'div'>) {
   return (
     <LayoutGroup id={id}>
       <div {...props} data-slot="section" className={cn(className, 'flex flex-col')} />

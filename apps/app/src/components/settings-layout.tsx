@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 
-import { SeparatorGradient } from "@ui/components"
+import { ScrollArea, SeparatorGradient } from "@ui/components"
 import { SettingsSidebarNav } from "@/components/settings-sidebar-nav"
 
 import { BellRegular, BellSolid, CreditCardRegular, CreditCardSolid, DesktopRegular, DesktopSolid, LanguageRegular, LanguageSolid, UserRegular, UserSolid } from "@ui/icons"
@@ -47,7 +47,7 @@ interface SettingsLayoutProps {
     children: React.ReactNode
 }
 
-export default function SettingsLayout({ children }: SettingsLayoutProps) {
+export function SettingsLayout({ children }: SettingsLayoutProps) {
     return (
         <div className="flex-grow">
             <div className="space-y-0.5 p-3">
@@ -63,6 +63,27 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
                 </aside>
                 <div className="w-full">{children}</div>
             </div>
+        </div>
+    )
+}
+
+
+
+export function SettingsLayoutModal({ children }: SettingsLayoutProps) {
+    return (
+        <div className="relative isolate flex w-full h-full bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950">
+            <aside style={{ width: "250px" }} className={'inset-y-0 left-0 max-lg:hidden transition-all duration-100 ease-in-out'}>
+                <SettingsSidebarNav items={sidebarNavItems} />
+            </aside>
+            <main className={'flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out lg:pr-2 pb-1'}>
+                <div className="grow p-3 lg:rounded-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+                    <div className="mx-auto p-3">
+                        <ScrollArea className="settings-modal-content">
+                            {children}
+                        </ScrollArea>
+                    </div>
+                </div>
+            </main >
         </div>
     )
 }

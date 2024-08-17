@@ -9,9 +9,7 @@ export const metadata: Metadata = {
 
 const NotificationsSettingPage = () => {
     return (
-        <>
-            <NotificationsSettingsForm />
-        </>
+        <NotificationsSettingsForm />
     )
 }
 

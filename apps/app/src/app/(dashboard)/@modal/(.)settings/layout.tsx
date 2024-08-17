@@ -1,7 +1,8 @@
 import { Metadata } from "next"
 
 import { siteConfig } from "@lingsquare/misc/constants"
-import SettingsLayout from "@/components/settings-layout"
+import { SettingsLayoutModal as SettingsLayout } from "@/components/settings-layout"
+import { RouteInterceptedModal } from "@/components/modal/route-modal"
 
 export const metadata: Metadata = {
   title: {
@@ -15,11 +16,13 @@ export default function SettingsLayoutModal({ children }: {
   children: React.ReactNode
 }) {
   return (
-    <div className="space-y-5 w-[300px] sm:w-[500px] md:w-[700px] lg:w-[1000px] h-[600px] sm:h-[700px] lg:h-[800px] flex flex-col">
-      <SettingsLayout>
-        {children}
-      </SettingsLayout>
-    </div>
+    <RouteInterceptedModal className="p-0 bg-white max-lg:flex-col lg:bg-zinc-100 dark:bg-zinc-900 dark:lg:bg-zinc-950" >
+      <div className="space-y-5 w-[370px] sm:w-[600px] md:w-[700px] lg:w-[1000px] h-[600px] sm:h-[700px] lg:h-[800px] lg:bg-zinc-100 mt-2 mb-1">
+        <SettingsLayout>
+          {children}
+        </SettingsLayout>
+      </div>
+    </RouteInterceptedModal>
   )
 }
 

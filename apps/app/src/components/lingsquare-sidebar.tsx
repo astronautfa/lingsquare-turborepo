@@ -160,28 +160,30 @@ const LingsquareSidebar = ({ collapsed }: { collapsed: boolean }) => {
       <SidebarHeader>
         <AccountSwitcher isCollapsed={collapsed} learningLanguages={learningLanguages} speakingLanguages={speakingLanguages} />
         <SidebarSearch isCollapsed={collapsed} />
-        <SidebarSection className="max-lg:hidden">
+        <SidebarSection className="max-lg:hidden" id="main-header">
           {/* <SidebarItem collapsed={collapsed} href="/import" label={'Back'}>
             <BackwardIcon />
           </SidebarItem> */}
           {sidebarNavItems.header.map((navItem, index) => (
-            <SidebarItem key={index} collapsed={collapsed} href={navItem.href} label={navItem.title} selectedIcon={navItem?.icons.selected} regularIcon={navItem?.icons.regular} />
+            <SidebarItem key={index} collapsed={collapsed} href={navItem.href} label={navItem.title} selectedIcon={navItem?.icons.selected} regularIcon={navItem?.icons.regular} layoutId='main-header' />
           ))}
         </SidebarSection>
       </SidebarHeader>
       <SidebarBody>
-        <SidebarSection>
+        <SidebarSection id="main-body">
           {sidebarNavItems.body.map((navItem, index) => (
-            <SidebarItem key={index} collapsed={collapsed} href={navItem.href} label={navItem.title} selectedIcon={navItem?.icons.selected} regularIcon={navItem?.icons.regular} />
+            <SidebarItem key={index} collapsed={collapsed} href={navItem.href} label={navItem.title} selectedIcon={navItem?.icons.selected} regularIcon={navItem?.icons.regular} layoutId='main-body' />
           ))}
         </SidebarSection>
         <SidebarSpacer />
       </SidebarBody>
-      <SidebarFooter className="max-lg:hidden">
+      <SidebarFooter>
         <ModeToggle collapsed={collapsed} />
-        {sidebarNavItems.footer.map((navItem, index) => (
-          <SidebarItem key={index} collapsed={collapsed} href={navItem.href} label={navItem.title} selectedIcon={navItem?.icons.selected} regularIcon={navItem?.icons.regular} />
-        ))}
+        <SidebarSection id="main-footer">
+          {sidebarNavItems.footer.map((navItem, index) => (
+            <SidebarItem key={index} collapsed={collapsed} href={navItem.href} label={navItem.title} selectedIcon={navItem?.icons.selected} regularIcon={navItem?.icons.regular} layoutId='main-footer' />
+          ))}
+        </SidebarSection>
       </SidebarFooter>
     </Sidebar>
   )

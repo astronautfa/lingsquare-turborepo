@@ -1,7 +1,5 @@
 import { Metadata } from "next"
-
-import SettingsLayout from "@/components/settings-layout"
-
+import { SettingsLayout } from "@/components/settings-layout"
 import { siteConfig } from "@lingsquare/misc/constants"
 
 export const metadata: Metadata = {
