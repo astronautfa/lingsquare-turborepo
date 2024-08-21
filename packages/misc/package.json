@@ -27,7 +27,7 @@
   "devDependencies": {
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
-    "@types/react": "18.3.3",
+    "@types/react": "18.3.4",
     "@types/react-dom": "^18.3.0"
   }
 }

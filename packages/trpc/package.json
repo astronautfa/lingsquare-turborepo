@@ -8,7 +8,8 @@
     "./trpc": "./src/trpc.ts",
     "./root": "./src/root.ts",
     "./server": "./src/server/index.ts",
-    "./client": "./src/react/index.tsx"
+    "./client": "./src/react/index.tsx",
+    "./next": "./src/next/index.tsx"
   },
   "license": "MIT",
   "scripts": {
@@ -19,22 +20,24 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.51.23",
+    "@lingsquare/auth": "workspace:*",
+    "@lingsquare/drizzle": "workspace:*",
     "@lingsquare/misc": "workspace:*",
+    "@lingsquare/env": "workspace:*",
+    "@tanstack/react-query": "^5.52.0",
+    "@trpc/client": "11.0.0-rc.477",
+    "@trpc/next": "11.0.0-rc.477",
+    "@trpc/react-query": "11.0.0-rc.477",
+    "@trpc/server": "11.0.0-rc.477",
     "next": "^14.2.5",
     "react": "19.0.0-rc-df5f2736-20240712",
-    "@lingsquare/drizzle": "workspace:*",
-    "@lingsquare/auth": "workspace:*",
-    "@trpc/client": "next",
-    "@trpc/react-query": "next",
-    "@trpc/server": "next",
     "superjson": "2.2.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
+    "@types/react": "^18.3.4",
     "typescript": "^5.5.4"
   }
 }

@@ -19,7 +19,7 @@ import dynamic from "next/dynamic";
 import { TRPCReactProvider } from "@lingsquare/trpc/client";
 import { SessionProvider } from "@/components/auth/session-provider";
 import { validateRequest } from "@lingsquare/auth/validate-request";
-import { CheckRegular, ExclamationTriangleRegular } from "@ui/icons";
+import { ExclamationTriangleRegular } from "@ui/icons";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,11 +27,11 @@ const CommandMenu = dynamic(() => import('../components/command-menu'))
 
 export const metadata: Metadata = seoMetadata
 
-export default async function RootLayout({
+const RootLayout = async ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
 
   const themeConfig = cookies().get("theme-config");
 
@@ -84,3 +84,5 @@ export default async function RootLayout({
     </html >
   );
 }
+
+export default RootLayout

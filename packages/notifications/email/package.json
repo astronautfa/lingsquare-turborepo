@@ -17,13 +17,13 @@
   "dependencies": {
     "@react-email/components": "^0.0.22",
     "react": "19.0.0-rc-df5f2736-20240712",
-    "resend": "^3.5.0"
+    "resend": "^4.0.0"
   },
   "devDependencies": {
     "@lingsquare/env": "workspace:*",
     "@lingsquare/eslint-config": "workspace:*",
     "@lingsquare/typescript-config": "workspace:*",
-    "@types/react": "^18.3.3",
+    "@types/react": "^18.3.4",
     "typescript": "^5.5.4"
   }
 }

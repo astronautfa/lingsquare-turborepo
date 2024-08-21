@@ -3,7 +3,8 @@ import { Metadata } from 'next'
 import { SeparatorGradient } from '@ui/components'
 import { useTranslations } from 'next-intl'
 import ReviewHeatmap from '@/components/review-heatmap'
-import ReviewEmptyState from '@/components/empty-state/review-empty-state'
+import ReviewEmptyState from '@/components/placeholders/review-empty-state'
+import DeckBox from './_components/deck-box'
 // import {
 //     BreadCrumb,
 //     BreadCrumbItem,
@@ -51,7 +52,7 @@ const StudyPage = () => {
             </div>
             <SeparatorGradient className="my-6 opacity-30" gradient />
             <ReviewHeatmap />
-            <ReviewEmptyState />
+            <DeckBox />
         </div>
     )
 }
