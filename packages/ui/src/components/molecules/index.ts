@@ -6,3 +6,5 @@ export * from "./navbar"
 export * from "./password-input"
 export * from "./sidebar"
 export * from "./submit-button"
+
+export * from "./data-table/index"
