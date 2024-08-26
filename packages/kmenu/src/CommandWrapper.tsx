@@ -10,7 +10,7 @@ import {
   BreadCrumb,
   BreadCrumbItem,
   BreadCrumbSeparator,
-} from "@lingsquare/ui/src/components/ui/breadcrumbs"
+} from "@lingsquare/ui/src/components"
 
 export const CommandWrapper: FC<
   CommandWrapperProps & { children: ReactNode }
