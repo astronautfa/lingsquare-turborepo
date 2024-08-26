@@ -4,8 +4,6 @@ import { getTranslations } from 'next-intl/server';
 import { api } from '@lingsquare/trpc/server'
 import { SidebarLayout } from '@/components/sidebar-layout';
 
-import React from 'react'
-
 export const metadata: Metadata = {
   title: "Explore",
   description: "LingSquare explore page",
