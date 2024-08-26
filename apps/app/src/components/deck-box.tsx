@@ -11,6 +11,8 @@ const DeckBox = () => {
 
   const { data: decks = [], isLoading } = api.deck.all.useQuery();
 
+  console.log(decks)
+
   if (isLoading) {
     return (
       <Spinner />

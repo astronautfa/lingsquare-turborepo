@@ -5,3 +5,5 @@ export * from "./data-table-pagination"
 export * from "./data-table-skeleton"
 export * from "./data-table-toolbar"
 export * from "./data-table-view-options"
+
+export * from "./advanced"
