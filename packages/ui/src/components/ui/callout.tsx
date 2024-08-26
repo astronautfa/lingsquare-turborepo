@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@lingsquare/misc/utils"
 
 const calloutVariants = cva(
-    "flex flex-col overflow-hidden rounded-md p-4 text-sm",
+    "flex flex-col overflow-hidden rounded-md p-4 text-sm border m-1",
     {
         variants: {
             variant: {
@@ -65,7 +65,7 @@ const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
                 className={cn(calloutVariants({ variant }), className)}
                 {...props}
             >
-                <div className={cn("flex items-start")}>
+                <div className={cn("flex items-start gap-2")}>
                     {Icon && typeof Icon === "function" ? (
                         <Icon
                             className={cn("mr-1.5 h-5 w-5 shrink-0")}

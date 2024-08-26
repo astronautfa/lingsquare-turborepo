@@ -1,10 +1,12 @@
 import React from 'react'
 import { Metadata } from 'next'
-import { SeparatorGradient } from '@ui/components'
+import { Button, Callout, SeparatorGradient } from '@ui/components'
 import { useTranslations } from 'next-intl'
 import ReviewHeatmap from '@/components/review-heatmap'
 import ReviewEmptyState from '@/components/placeholders/review-empty-state'
 import DeckBox from './_components/deck-box'
+import { ExclamationTriangleRegular } from '@ui/icons'
+import { SignedIn, SignedOut } from '@/components/auth/role-gaurd'
 // import {
 //     BreadCrumb,
 //     BreadCrumbItem,
@@ -51,8 +53,15 @@ const StudyPage = () => {
                 </p>
             </div>
             <SeparatorGradient className="my-6 opacity-30" gradient />
-            <ReviewHeatmap />
-            <DeckBox />
+            <SignedOut>
+                <Callout variant="warning" title="You must be Signed In" icon={<ExclamationTriangleRegular className='w-5 h-5' />}>
+                    To track your progress and start reviewing your own flashcards you need to Sign In
+                </Callout>
+            </SignedOut>
+            <SignedIn>
+                <ReviewHeatmap />
+                <DeckBox />
+            </SignedIn>
         </div>
     )
 }

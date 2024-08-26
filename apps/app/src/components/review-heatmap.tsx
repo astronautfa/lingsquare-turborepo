@@ -69,7 +69,7 @@ const ReviewHeatmap = () => {
     const { theme } = useTheme();
 
     return (
-        <div className='flex justify-center items-center'>
+        <div className='flex justify-center items-center mt-4'>
             <ActivityCalendar data={data} showWeekdayLabels colorScheme={theme === 'dark' ? 'dark' : 'light'} renderBlock={(block, activity) => (
                 <Tooltip>
                     <TooltipTrigger asChild>
