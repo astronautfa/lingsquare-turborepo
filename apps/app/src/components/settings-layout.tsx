@@ -76,13 +76,11 @@ export function SettingsLayoutModal({ children }: SettingsLayoutProps) {
                 <SettingsSidebarNav items={sidebarNavItems} />
             </aside>
             <main className={'flex flex-1 flex-col lg:min-w-0 transition-all duration-100 ease-in-out lg:pr-2 pb-1'}>
-                <div className="grow p-3 lg:rounded-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+                <ScrollArea className="settings-modal-content grow p-3 lg:rounded-lg lg:bg-white lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
                     <div className="mx-auto p-3">
-                        <ScrollArea className="settings-modal-content">
-                            {children}
-                        </ScrollArea>
+                        {children}
                     </div>
-                </div>
+                </ScrollArea>
             </main >
         </div>
     )
