@@ -9,9 +9,7 @@ export const metadata: Metadata = {
 
 const LanguagesSettingPage = () => {
     return (
-        <>
-            <LanguageSettingsForm />
-        </>
+        <LanguageSettingsForm />
     )
 }
 

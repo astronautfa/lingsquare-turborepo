@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 
 import {
+  toast,
   Label,
   Card,
   CardContent,
@@ -17,8 +18,6 @@ import {
   REGEXP_ONLY_DIGITS,
   SubmitButton
 } from "@ui/components";
-
-import { toast } from "sonner";
 import {
   logout,
   verifyEmail,

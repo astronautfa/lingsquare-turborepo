@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import {
+  toast,
   Button,
   Form,
   FormControl,
@@ -22,7 +23,6 @@ import {
   RadioGroupItem
 } from "@ui/components"
 
-import { toast } from "sonner";
 import { useTheme } from "next-themes"
 import { useState } from "react"
 

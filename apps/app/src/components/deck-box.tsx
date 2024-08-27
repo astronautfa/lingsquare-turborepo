@@ -6,12 +6,11 @@ import { api } from '@lingsquare/trpc/client';
 import { Spinner } from '@ui/components';
 import { DataTableSkeleton } from '@ui/components';
 import React from 'react'
+// import { DecksTable } from './tables/decks/decks-table';
 
 const DeckBox = () => {
 
   const { data: decks = [], isLoading } = api.deck.all.useQuery();
-
-  console.log(decks)
 
   if (isLoading) {
     return (
@@ -45,7 +44,7 @@ const DeckBox = () => {
            * Passing promises and consuming them using React.use for triggering the suspense fallback.
            * @see https://react.dev/reference/react/use
            */}
-            {/* <TasksTable tasksPromise={tasksPromise} /> */}
+            {/* <DecksTable tasksPromise={api.deck.all.useQuery()} /> */}
           </React.Suspense>
         </DecksTableProvider>
       </div>

@@ -15,7 +15,19 @@
   },
   "library": {
     "title": "Library",
-    "subtitle": ""
+    "subtitle": "",
+    "empty-state": {
+      "title": "No lessons found",
+      "subtitle": "Import your own content or start exploring our library",
+      "action-btn": {
+        "1": {
+          "label": "Import"
+        },
+        "2": {
+          "label": "Explore"
+        }
+      }
+    }
   },
   "review": {
     "title": "Review",
